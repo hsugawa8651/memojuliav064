@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第9回： ▶︎ 総和・数値積分 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 型・■ 整数型</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ■ 配列要素の操作</a></li><li class="current"><a class="toctext" href="ch09.html">第9回： ▶︎ 総和・数値積分</a><ul class="internal"><li><a class="toctext" href="#sum(ベクトル)-1">■ sum(ベクトル)</a></li><li><a class="toctext" href="#フーリエ級数の和-1">▶︎ フーリエ級数の和</a></li><li><a class="toctext" href="#方形波の近似-1">▶︎ 方形波の近似</a></li><li><a class="toctext" href="#三角波の近似-1">▶︎ 三角波の近似</a></li><li><a class="toctext" href="#数値積分-1">▶︎ 数値積分</a></li><li><a class="toctext" href="#Riemann和-1">▶︎ Riemann和</a></li><li><a class="toctext" href="#台形則-1">▶︎ 台形則</a></li><li><a class="toctext" href="#今回のまとめ-1">今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch10.html">第10回：線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：複素数</a></li><li><a class="toctext" href="ch12.html">第12回：ファイル入出力</a></li><li><a class="toctext" href="ch13.html">第13回：検討中</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch09.html">第9回： ▶︎ 総和・数値積分</a></li></ul></nav><hr/><div id="topbar"><span>第9回： ▶︎ 総和・数値積分</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch09-1" href="#ch09-1">第9回： ▶︎ 総和・数値積分</a></h1><h2><a class="nav-anchor" id="sum(ベクトル)-1" href="#sum(ベクトル)-1">■ sum(ベクトル)</a></h2><h2><a class="nav-anchor" id="フーリエ級数の和-1" href="#フーリエ級数の和-1">▶︎ フーリエ級数の和</a></h2><h2><a class="nav-anchor" id="方形波の近似-1" href="#方形波の近似-1">▶︎ 方形波の近似</a></h2><div><pre><code class="language-julia">using PyPlot
+ts=-3pi:pi/36:3pi
+plot(ts, sign.(sin.(ts)) )
+yticks( [-1,0,1], [ &quot;-1&quot;, &quot;0&quot;, &quot;1&quot;])
+xticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],
+        [L&quot;-3\pi&quot;, L&quot;-2\pi&quot;, L&quot;-\pi&quot;,&quot;0&quot;, L&quot;\pi&quot;, L&quot;2\pi&quot;, L&quot;3\pi&quot;])</code></pre></div><p><img src="fo_sq1-plot.svg" alt/></p><div>\[f(t) = \frac{4}{\pi}\left\{\sin{t}+\frac{\sin{3t}}{3}+\frac{\sin{5t}}{5}+\cdots\right\}\]</div><div><pre><code class="language-julia">using PyPlot
+ts=-3pi:pi/36:3pi
+ys=sin.(ts)*4/pi
+plot(ts, ys)
+yticks( [-1,0,1], [ &quot;-1&quot;, &quot;0&quot;, &quot;1&quot;])
+xticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],
+        [L&quot;-3\pi&quot;, L&quot;-2\pi&quot;, L&quot;-\pi&quot;,&quot;0&quot;, L&quot;\pi&quot;, L&quot;2\pi&quot;, L&quot;3\pi&quot;])
+ys += sin.(3ts)/3*4/pi
+plot(ts, ys)
+ys += sin.(5ts)/5*4/pi
+plot(ts, ys)</code></pre></div><p><img src="fo-sq2-plot.svg" alt/></p><div><pre><code class="language-julia">using PyPlot
+ts=-3pi:pi/36:3pi
+for n in [13]
+  ys=0*ts
+  for i in 1:2:n
+    ys += sin.(i*ts)/i*4/pi
+  end
+  plot(ts, ys)
+end
+plot(ts, sign.(sin.(ts)) )
+
+yticks( [-1,0,1], [ &quot;-1&quot;, &quot;0&quot;, &quot;1&quot;])
+xticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],
+        [L&quot;-3\pi&quot;, L&quot;-2\pi&quot;, L&quot;-\pi&quot;,&quot;0&quot;, L&quot;\pi&quot;, L&quot;2\pi&quot;, L&quot;3\pi&quot;])</code></pre></div><p><img src="fo-sq4-plot.svg" alt/></p><h2><a class="nav-anchor" id="三角波の近似-1" href="#三角波の近似-1">▶︎ 三角波の近似</a></h2><div><pre><code class="language-julia">using PyPlot
+ts=-3.5pi:pi/180:3.5pi
+
+function triangular(t)
+  t &gt;= pi ? 2pi-t : t
+end
+
+plot(ts, triangular.(ts) )
+xlim(0,2pi)
+ylim(0,2pi)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="fo_tri1-plot.svg" alt/></p><div><pre><code class="language-julia">plot(ts, triangular.(mod2pi.(ts)) )
+xlim(-4pi,4pi)
+ylim(0,2pi)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="fo-tri2-plot.svg" alt/></p><div>\[f(t) = \dfrac{\pi}{2} - \dfrac{4}{\pi}\left{ \cos t + \dfrac{\cos 3t}{3^2} + \dfrac{\cos 5t}{5^2} + \cdots\right}\]</div><div><pre><code class="language-julia">ys=ones(ts)*(pi/2)
+for n=1:2:5
+  ys -= cos.(n*ts)*(4/pi/n^2)
+end
+plot(ts, ys, &quot;.&quot;)
+plot(ts,triangular.(mod2pi.(ts)))
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="fo-tri3-plot.svg" alt/></p><div><pre><code class="language-julia">for nmax=3:2:11
+  ys=ones(ts)*(pi/2)
+  for n=1:2:nmax
+    ys -= cos.(n*ts)*(4/n^2/pi)
+  end
+  plot(ts, ys, label=nmax)
+end
+legend()</code></pre></div><p><img src="fo-tri4-plot.svg" alt/></p><div><pre><code class="language-julia">for j=1:6
+  nmax=1+2*j
+  ys=ones(ts)*(pi/2)
+  for n=1:2:nmax
+    ys -= cos.(n*ts)*(4/n^2/pi)
+  end
+  ax=plt[:subplot](610+j)
+  ax[:plot](ts, ys, &quot;.&quot;)
+  ax[:set_xlim](-2.2pi,2.2pi)
+  ax[:plot](ts,triangular.(mod2pi.(ts)))
+end</code></pre></div><p><img src="fo-tri5-plot.svg" alt/></p><h2><a class="nav-anchor" id="数値積分-1" href="#数値積分-1">▶︎ 数値積分</a></h2><h2><a class="nav-anchor" id="Riemann和-1" href="#Riemann和-1">▶︎ Riemann和</a></h2><div>\[\int{0}^{1} \dfrac{1}{1+x} dx = \left[ \log \left|1+x \right| \right]{x=0}^{x=1} = \log 2\]</div><div><pre><code class="language-julia">using PyPlot
+n=2^6
+xmin=0
+xmax=1
+xs=linspace(xmin,xmax,n+1)
+d=(xmax-xmin)/n
+g(x)=1/(1+x)
+plot(xs, g.(xs), &quot;.&quot;)</code></pre></div><p><img src="ch07-rie1-plot.svg" alt/></p><div>\[s_{1} = \sum{i=1}^{n} g( x_{i})\;d\]</div><div>\[s_{3} = \sum{i=1}^{n} g( x_{i+1})\;d\]</div><div>\[s_{2} = \sum{i=1}^{n} g\left( \dfrac{x_i+x{i+1}}{2} \right)\;d\]</div><div><pre><code class="language-julia">s1=0
+for i=1:n
+  s1 += g(xs[i])*d
+end
+@show s1</code></pre><pre><code class="language-none">s1 = 0.6970686888834033
+0.6970686888834033</code></pre></div><div><pre><code class="language-julia">s1=0; s2=0; s3=0
+for i=1:n
+s1 += g(xs[i])*d
+s3 += g(xs[i+1])*d
+s2 += g( (xs[i]+xs[i+1])/2) *d
+end</code></pre><pre><code class="language-none">(s1, s2, s3) = (0.6970686888834033, 0.6931395515728123, 0.6892561888834033)
+(0.6970686888834033, 0.6931395515728123, 0.6892561888834033)</code></pre></div><div><pre><code class="language-julia">n=2^10
+xs=linspace(xmin,xmax,n+1)
+d=(xmax-xmin)/n
+s1=0; s2=0; s3=0
+for i=1:n
+  s1 += g(xs[i])*d
+  s3 += g(xs[i+1])*d
+  s2 += g( (xs[i]+xs[i+1])/2) *d
+end</code></pre><pre><code class="language-none">(s1, s2, s3) = (0.6933913807895831, 0.6931471507576296, 0.6929030995395831)
+(0.6933913807895831, 0.6931471507576296, 0.6929030995395831)</code></pre></div><div><pre><code class="language-julia">se=log(2)
+for m in 0:12
+  n=2^m
+  xs=linspace(xmin,xmax,n+1)
+  d=(xmax-xmin)/n
+  s1=0; s2=0; s3=0
+  for i=1:n
+    s1 += g(xs[i])*d
+    s3 += g(xs[i+1])*d
+    s2 += g( (xs[i]+xs[i+1])/2) *d
+    end
+  plot(n, s1 - se , &quot;.&quot;, color=&quot;b&quot;)
+  plot(n, s2 - se, &quot;.&quot;, color=&quot;g&quot;)
+  plot(n, s3 - se, &quot;.&quot;, color=&quot;r&quot;)
+end
+xscale(&quot;log&quot;)
+xlabel(&quot;n&quot;)
+ylabel(&quot;absolute error&quot;)</code></pre></div><p><img src="ch07-rie2-plot.svg" alt/></p><div><pre><code class="language-julia">for m in 0:12
+  n=2^m
+  xs=linspace(xmin,xmax,n+1)
+  d=(xmax-xmin)/n
+  s1=0; s2=0; s3=0
+  for i=1:n
+  s1 += g(xs[i])*d
+  s3 += g(xs[i+1])*d
+  s2 += g( (xs[i]+xs[i+1])/2) *d
+  end
+  plot(n, abs(s2 - se) / se, &quot;.&quot;, color=&quot;g&quot;)
+  plot(n, abs(s3 - se) / se , &quot;.&quot;, color=&quot;r&quot;)
+  plot(n, abs(s1 - se) / se , &quot;.&quot;, color=&quot;b&quot;)
+end
+xlabel(&quot;n&quot;)
+ylabel(&quot;relative error (absolute value)&quot;)
+xscale(&quot;log&quot;)
+yscale(&quot;log&quot;)</code></pre></div><p><img src="ch07-rie3-plot.svg" alt/></p><div><pre><code class="language-julia">function rieman1(g, xmin, xmax, n)
+  xs=linspace(xmin,xmax,n+1)
+  d=(xmax-xmin)/n
+  s1=0
+  for i=1:n
+    s1 += g(xs[i])*d
+    end
+  s1
+end
+
+rieman1(g, 0, 1, 100)</code></pre><pre><code class="language-none">0.695653430481824</code></pre></div><div><pre><code class="language-julia">function rieman3(g, xmin, xmax, n)
+  xs=linspace(xmin,xmax,n+1)
+  d=(xmax-xmin)/n
+  s3=0
+  for i=1:n
+    s3 += g(xs[i+1])*d
+  end
+  s3
+end
+
+rieman3(g, 0, 1, 100)</code></pre><pre><code class="language-none">0.690653430481824</code></pre></div><div><pre><code class="language-julia">function rieman2(g, xmin, xmax, n)
+  xs=linspace(xmin,xmax,n+1)
+  d=(xmax-xmin)/n
+  s2=0
+  for i=1:n
+    s2 += g( (xs[i]+xs[i+1])/2) *d
+  end
+  s2
+end
+
+rieman2(g, 0, 1, 100)</code></pre><pre><code class="language-none">0.6931440556283007</code></pre></div><div><pre><code class="language-julia">ns=[ 2^m for m=0:12]</code></pre><pre><code class="language-none">ns = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
+13-element Array{Int64,1}:
+    1
+    2
+    4
+    8
+   16
+   32
+   64
+  128
+  256
+  512
+ 1024
+ 2048
+ 4096</code></pre></div><div><pre><code class="language-julia">plot(ns, abs.( rieman1.(g, xmin, xmax, ns) - se) /se, &quot;o&quot;, label=&quot;left&quot; )
+plot(ns, abs.( rieman2.(g, xmin, xmax, ns) - se) /se, &quot;.&quot;, label=&quot;middle&quot; )
+plot(ns, abs.( rieman3.(g, xmin, xmax, ns) - se) /se ,&quot;.&quot;, label=&quot;right&quot; )
+legend()
+xscale(&quot;log&quot;)
+yscale(&quot;log&quot;)
+xlabel(&quot;n&quot;)
+ylabel(&quot;relative error&quot;)</code></pre></div><p><img src="ch07-rie4-plot.svg" alt/></p><h2><a class="nav-anchor" id="台形則-1" href="#台形則-1">▶︎ 台形則</a></h2><div>\[\int{0}^{1} \dfrac{1}{1+x} dx = \left[ \log \left|1+x \right| \right]{x=0}^{x=1} = \log 2\]</div><div>\[s_t = \sum{i=1}^{n} \dfrac{g(xi)+g(x{i+1}) }{2}\;d\]</div><div><pre><code class="language-julia">using PyPlot
+n=100
+xmin=0
+xmax=1
+xs=linspace(xmin,xmax,n+1)
+d=(xmax-xmin)/n
+
+g(x)=1/(1+x)
+plot(xs, g.(xs), &quot;.&quot;)</code></pre></div><p><img src="ch07-tra1-plot.svg" alt/></p><div><pre><code class="language-julia">st=0
+for i=1:n
+  st += (g(xs[i])+g(xs[i+1]))*d/2
+end
+@show st</code></pre><pre><code class="language-none">st = 0.6931534304818242
+0.6931534304818242</code></pre></div><div><pre><code class="language-julia">s2=0; st=0;
+for i=1:n
+  s2 += g( (xs[i]+xs[i+1])/2) *d
+  st += (g(xs[i])+g(xs[i+1]))*d/2
+end
+@show s2, st</code></pre><pre><code class="language-none">(s2, st) = (0.6931440556283007, 0.6931534304818242)
+(0.6931440556283007, 0.6931534304818242)</code></pre></div><div><pre><code class="language-julia">n=1000
+xs=linspace(xmin,xmax,n+1)
+d=(xmax-xmin)/n
+s2=0; st=0
+for i=1:n
+  s2 += g( (xs[i]+xs[i+1])/2) *d
+  st += (g(xs[i])+g(xs[i+1]))*d/2
+end
+@show s2, st</code></pre><pre><code class="language-none">(s2, st) = (0.6931471493099521, 0.6931472430599359)
+(0.6931471493099521, 0.6931472430599359)</code></pre></div><div><pre><code class="language-julia">se=log(2)
+
+for m in 1:6
+  n=10^m
+  xs=linspace(xmin,xmax,n+1)
+  d=(xmax-xmin)/n
+  s1=0; s2=0; s3=0; st=0
+  for i=1:n
+    s1 += g(xs[i])*d
+    s3 += g(xs[i+1])*d
+    s2 += g( (xs[i]+xs[i+1])/2) *d
+    st += (g(xs[i])+g(xs[i+1]))*d/2
+  end
+  plot(n, s1 - se, &quot;.&quot;)
+  plot(n, s2 - se, &quot;.&quot;)
+  plot(n, s3 - se, &quot;.&quot;)
+  plot(n, st - se, &quot;.&quot;, color=&quot;r&quot;)
+end
+xscale(&quot;log&quot;)
+xlabel(&quot;n&quot;)
+ylabel(&quot;absolute error&quot;)</code></pre></div><p><img src="ch07-tra2-plot.svg" alt/></p><div><pre><code class="language-julia">for m in 1:6
+  n=10^m
+  xs=linspace(xmin,xmax,n+1)
+  d=(xmax-xmin)/n
+  s2=0; st=0
+  for i=1:n
+  s2 += g( (xs[i]+xs[i+1])/2) *d
+  st += (g(xs[i])+g(xs[i+1]))*d/2
+  end
+  plot(n, abs(s2 - se) / se, &quot;.&quot;, color=&quot;g&quot;)
+  plot(n, abs(st - se) / se , &quot;.&quot;, color=&quot;r&quot;)
+end
+xlabel(&quot;n&quot;)
+ylabel(&quot;relative error (absolute value)&quot;)
+xscale(&quot;log&quot;)
+yscale(&quot;log&quot;)</code></pre></div><p><img src="ch07-tra3-plot.svg" alt/></p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">今回のまとめ</a></h2><footer><hr/><a class="previous" href="ch08.html"><span class="direction">Previous</span><span class="title">第8回： ■ 配列要素の操作</span></a><a class="next" href="ch10.html"><span class="direction">Next</span><span class="title">第10回：線形代数</span></a></footer></article></body></html>

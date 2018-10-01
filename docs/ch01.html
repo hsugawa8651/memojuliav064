@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第1回：▶︎ 簡単なグラフを描く · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="ch00.html">はじめに</a></li><li class="current"><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a><ul class="internal"><li><a class="toctext" href="#対話形式で使う-1">■ 対話形式で使う</a></li><li><a class="toctext" href="#電卓として使う-1">■ 電卓として使う</a></li><li><a class="toctext" href="#変数に値を代入する-1">■ 変数に値を代入する</a></li><li><a class="toctext" href="#変数名の規則-1">■ 変数名の規則</a></li><li><a class="toctext" href="#ベクトル-1">■ ベクトル</a></li><li><a class="toctext" href="#三角形を描く-1">▶︎ 三角形を描く</a></li><li><a class="toctext" href="#練習-1">◀︎ 練習</a></li><li><a class="toctext" href="#Range型-1">■ Range型</a></li><li><a class="toctext" href="#式のグラフを描く-1">▶︎ 式のグラフを描く</a></li><li><a class="toctext" href="#練習-2">◀︎ 練習</a></li><li><a class="toctext" href="#今回のまとめ-1">★ 今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 型・■ 整数型</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ■ 配列要素の操作</a></li><li><a class="toctext" href="ch09.html">第9回： ▶︎ 総和・数値積分</a></li><li><a class="toctext" href="ch10.html">第10回：線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：複素数</a></li><li><a class="toctext" href="ch12.html">第12回：ファイル入出力</a></li><li><a class="toctext" href="ch13.html">第13回：検討中</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li></ul></nav><hr/><div id="topbar"><span>第1回：▶︎ 簡単なグラフを描く</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch01-1" href="#ch01-1">第1回：▶︎ 簡単なグラフを描く</a></h1><h2><a class="nav-anchor" id="対話形式で使う-1" href="#対話形式で使う-1">■ 対話形式で使う</a></h2><p>本文では、対話形式で、Julia を利用する。</p><p>Juliaをコマンドラインから利用している場合は、 プロンプト <code>julia&gt;</code> が印字され、利用者の入力を待っている。</p><p>命令を打ち込み、<code>ENTER</code>キーを押すと、 その命令を計算(評価)した結果が印字される。</p><pre><code class="language-julia-repl">julia&gt; 1
+1</code></pre><p>上の例では、<code>1</code> という文字の並びから、 <code>1</code> という数を内部で作成し、 それを計算の結果として印字したのである。</p><p>計算機側から見ると、 利用者の入力を読み込み(Read)、 入力された命令を評価し(Eval)、 その結果を印字する(Print)ことを、繰り返す(Loop)。 この４つの頭文字をとって、 対話型利用のことを REPL とも呼ぶ。</p><p>Jupyter notebookを用いる場合には、 Code cellが表示されている。 ここに命令を打ち込み、<code>SHIFT</code> + <code>ENTER</code> キーを押すと、 その命令を評価した結果が出力される。</p><h2><a class="nav-anchor" id="電卓として使う-1" href="#電卓として使う-1">■ 電卓として使う</a></h2><p>数と数との四則演算をしてみよう。</p><p>加算には <code>+</code> 、 減算には <code>-</code> の文字を使う。 乗算には <code>*</code> (アスタリスク astarisk と読む)、 除算には (<code>%</code> ではなくて) <code>/</code> (スラッシュ slash と読む)の文字を用いる。</p><pre><code class="language-julia-repl">julia&gt; 1 + 2
+3
+
+julia&gt; 3 * 4
+12</code></pre><p>数式と同じように、乗算と除算は、加算・減算に優先する。 計算の順序を変えるには、括弧 <code>(</code> と <code>)</code> との組を用いる</p><pre><code class="language-julia-repl">julia&gt; 2 + 3 * 4
+14
+
+julia&gt; (2 + 3) * 4
+20</code></pre><p>除算の結果は、小数となる。</p><pre><code class="language-julia-repl">julia&gt; 2 / 2
+1.0
+
+julia&gt; 1 / 3
+0.3333333333333333
+
+julia&gt; 5 / 2
+2.5</code></pre><h2><a class="nav-anchor" id="変数に値を代入する-1" href="#変数に値を代入する-1">■ 変数に値を代入する</a></h2><p>値には、名前（名札、ラベル）をつけることができる。 この名前を変数といい、名前をつける操作を「値を変数に代入する」という。 変数には、色々な種類の値を代入できる。</p><p>変数を評価すると、変数の値となる。</p><pre><code class="language-julia-repl">julia&gt; # 変数 x に 値 2 を代入する
+       x = 2
+2
+
+julia&gt; # 変数 x の値を用いる
+       x + 1
+3
+
+julia&gt; # 変数 x に 別の値 3 を再代入する
+       x = 3
+3</code></pre><p><code>#</code> はコメントである。 <code>#</code> から行末までの文字は全て無視される。</p><h2><a class="nav-anchor" id="変数名の規則-1" href="#変数名の規則-1">■ 変数名の規則</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/manual/variables/#Allowed-Variable-Names-1">Allowed Variable Names</a></p><p>変数の名前（変数名)は、以下のようにつける。</p><p>変数名の最初の文字は、半角のアルファベット (<code>a</code>から<code>z</code>まで、<code>A</code>から<code>Z</code>まで)、 または、下線（アンダースコア <code>_</code>)のいずれかでなければならない。 変数の2文字目以降は、さらに、半角の数字 (<code>0</code>から<code>9</code>)、 または、半角の感嘆符 <code>!</code> を含めることができる。</p><p>半角文字とは「かな漢字変換機能」を用いずに、 キーボードから打ち込める文字と考えて良い。</p><p>変数名には、漢字やギリシャ文字などを使うことができるが、 ここでは説明を省略する (上のURLを参照)。</p><p><a href="https://docs.julialang.org/en/v0.6.4/manual/variables/#Stylistic-Conventions-1">Stylistic Conventions</a></p><p>定数、型、関数、マクロ、モジュール、パッケージの名前も、変数名の約束と同じである。 ただし、慣習として、以下のように使い分ける。</p><ul><li><p>変数名は小文字で始める。</p></li><li><p>型、モジュール、パッケージの名前は大文字で始める。</p></li><li><p>関数やマクロの名前は小文字で始める。下線（アンダースコア <code>_</code>)は用いない。</p></li></ul><h2><a class="nav-anchor" id="ベクトル-1" href="#ベクトル-1">■ ベクトル</a></h2><p>角括弧 <code>[</code> と <code>]</code> との間に、カンマ <code>,</code> で区切って 数を並べたものを、(数の)ベクトルという。</p><p>ベクトルは、縦に印字される (列ベクトル, column vector)。</p><pre><code class="language-julia-repl">julia&gt; [1,3,2]
+3-element Array{Int64,1}:
+ 1
+ 3
+ 2</code></pre><p>変数に、ベクトルを代入しよう。</p><p>本文筆者は、ベクトルなど複数の値を内部に含むデータの変数の名前を 複数形とすることが多い。そのデータの各要素を表す変数の名前を単数形とする。 （大文字は定数などを表す約束だから）大文字と小文字で、ベクトルとその要素を区別することは避けた方がよい。</p><pre><code class="language-julia-repl">julia&gt; xs = [1,2,2,1]
+4-element Array{Int64,1}:
+ 1
+ 2
+ 2
+ 1
+
+julia&gt; ys = [1,1,3,1]
+4-element Array{Int64,1}:
+ 1
+ 1
+ 3
+ 1</code></pre><p>ベクトルのスカラー倍は、各要素に一定の数を乗ずる。</p><pre><code class="language-julia-repl">
+
+julia&gt; xs * 2
+4-element Array{Int64,1}:
+ 2
+ 4
+ 4
+ 2</code></pre><p>ベクトル同士の和差には、演算子 <code>.+</code> や <code>.-</code> を用いる。 これらの最初のピリオド <code>.</code> は、各要素に対する演算を意味する。</p><pre><code class="language-julia-repl">
+
+julia&gt; xs .+ ys
+4-element Array{Int64,1}:
+ 2
+ 3
+ 5
+ 2
+
+julia&gt; xs .- ys
+4-element Array{Int64,1}:
+  0
+  1
+ -1
+  0</code></pre><h2><a class="nav-anchor" id="三角形を描く-1" href="#三角形を描く-1">▶︎ 三角形を描く</a></h2><p>グラフを描画するのに、PyPlot パッケージを導入しよう。</p><p>パッケージは、関連する関数、定数、変数などをまとめたものである。 <code>using &lt;&lt;パッケージ名&gt;&gt;</code> で導入できる。</p><p><code>plot</code> 関数は、<code>PyPlot</code> パッケージに含まれる関数である。</p><p><code>plot(xs,ys)</code> の形で用いて、 ベクトル <code>xs</code>, <code>ys</code> から一つづつ数を取り出して、 それらを各々 x座標, y座標とする点を打つことを命令する。</p><div><pre><code class="language-julia"># PyPlot パッケージの導入
+using PyPlot
+xs = [1,2,2,1]
+ys = [1,1,3,1]
+# プロット
+plot(xs,ys)</code></pre></div><p><img src="ch01-tri-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-1" href="#練習-1">◀︎ 練習</a></h2><p><code>xs</code>, <code>ys</code> の値を変えて、別の図形を表示させてみよ。</p><p>要素の数が等しくない場合は、どうなるか？</p><h2><a class="nav-anchor" id="Range型-1" href="#Range型-1">■ Range型</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.colon">Base.colon</a></p><p>二つ、または、三つの数字をコロン(<code>:</code>) で区切ったデータは、 等差数列を表す (Range型)。</p><p>二つの数をコロン (<code>:</code>) で区切った量 <code>a:b</code> は、 <code>a</code>から 1づつ増やして、<code>b</code>を超えるまでの数からなる等差数列である。 三つの数をコロンで区切った量 <code>a:b:c</code> は、 <code>a</code>から <code>b</code> づつ増やして、<code>c</code>を超えるまでの数からなる等差数列である。</p><pre><code class="language-julia-repl">julia&gt; 1:5
+1:5
+
+julia&gt; xs=0:0.1:1
+0.0:0.1:1.0</code></pre><p>Range型を保ったまま、各要素のスカラー倍、各要素の和差を一斉に適用できる。</p><pre><code class="language-julia-repl">
+julia&gt; # 各要素を 2倍する
+       xs * 2
+0.0:0.2:2.0
+
+julia&gt; # 各要素に 1 を加える
+       xs + 1
+1.0:0.1:2.0
+
+julia&gt; # 各要素から 0.2 を引く
+       xs - 0.2
+-0.2:0.1:0.8</code></pre><p>Range型の量から、各要素を取り出してベクトルに変換するには、 <code>collect</code>関数を用いる。</p><pre><code class="language-julia-repl">
+julia&gt; collect(xs)
+11-element Array{Float64,1}:
+ 0.0
+ 0.1
+ 0.2
+ 0.3
+ 0.4
+ 0.5
+ 0.6
+ 0.7
+ 0.8
+ 0.9
+ 1.0</code></pre><p>Range型に、ピリオド付きの演算子 <code>.*</code>, <code>.+</code>, <code>.-</code> を適用すると、 その結果は、Range型でなく、ベクトルになってしまう。</p><pre><code class="language-julia-repl">julia&gt; ys=0:0.25:1
+0.0:0.25:1.0
+
+julia&gt; # 各要素を 2倍する
+       ys .* 2
+5-element Array{Float64,1}:
+ 0.0
+ 0.5
+ 1.0
+ 1.5
+ 2.0
+
+julia&gt; # 各要素に 1 を加える
+       ys .+ 1
+5-element Array{Float64,1}:
+ 1.0
+ 1.25
+ 1.5
+ 1.75
+ 2.0
+
+julia&gt; # 各要素から 0.2 を引く
+       ys .- 0.2
+5-element Array{Float64,1}:
+ -0.2
+  0.05
+  0.3
+  0.55
+  0.8</code></pre><h2><a class="nav-anchor" id="式のグラフを描く-1" href="#式のグラフを描く-1">▶︎ 式のグラフを描く</a></h2><p><code>plot</code>関数に対して、二つのコレクション <code>xs</code>、<code>ys</code>を渡すと、  <code>xs</code>、<code>ys</code> から一つづつ要素を取り出し、 これらを x, y 座標とする点を結んで、図形が描かれるのであった。</p><p>式のグラフを描くには、<code>ys</code>として、 <code>xs</code> から計算した値を与えればよい。</p><p>二つの直線 <span>$y=-x$</span> と <span>$y=2x-1$</span> のグラフを描いてみよう。</p><div><pre><code class="language-julia"># PyPlot パッケージの導入
+using PyPlot
+xs=-1:0.1:1
+# プロット
+plot(xs,-1*xs)
+plot(xs,2*xs-1)</code></pre></div><p><img src="ch01-graph-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-2" href="#練習-2">◀︎ 練習</a></h2><p>別の直線を描いてみよ。</p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>対話形式の使い方</p></li><li><p>数の四則演算</p></li><li><p>PyPlotパッケージを用いた図形とグラフの描画</p></li><li><p>ベクトルと等差数列</p></li></ul><hr/><footer><hr/><a class="previous" href="ch00.html"><span class="direction">Previous</span><span class="title">はじめに</span></a><a class="next" href="ch02.html"><span class="direction">Next</span><span class="title">第2回：▶︎ 複数のグラフを描く</span></a></footer></article></body></html>

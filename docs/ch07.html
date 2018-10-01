@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第7回：■ 浮動小数点数 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 型・■ 整数型</a></li><li class="current"><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a><ul class="internal"><li><a class="toctext" href="#浮動小数点数-1">■ 浮動小数点数</a></li><li><a class="toctext" href="#次方程式-1">2次方程式</a></li><li><a class="toctext" href="#小数を2進数へ変換する-1">▶︎ 小数を2進数へ変換する</a></li><li><a class="toctext" href="#近似比較演算子-isapprox-1">近似比較演算子 isapprox</a></li><li><a class="toctext" href="#数でない数-1">数でない数</a></li><li><a class="toctext" href="#数値微分-1">▶︎ 数値微分</a></li><li><a class="toctext" href="#今回のまとめ-1">★今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch08.html">第8回： ■ 配列要素の操作</a></li><li><a class="toctext" href="ch09.html">第9回： ▶︎ 総和・数値積分</a></li><li><a class="toctext" href="ch10.html">第10回：線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：複素数</a></li><li><a class="toctext" href="ch12.html">第12回：ファイル入出力</a></li><li><a class="toctext" href="ch13.html">第13回：検討中</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch07.html">第7回：■ 浮動小数点数</a></li></ul></nav><hr/><div id="topbar"><span>第7回：■ 浮動小数点数</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch07-1" href="#ch07-1">第7回：■ 浮動小数点数</a></h1><h2><a class="nav-anchor" id="浮動小数点数-1" href="#浮動小数点数-1">■ 浮動小数点数</a></h2><h3><a class="nav-anchor" id="正規化数、副正規化数-1" href="#正規化数、副正規化数-1">正規化数、副正規化数</a></h3><p>浮動小数とは、<span>$0.12$</span> の代わりに <span>$1.2 \times 10^{-1}$</span> のように表示することである。</p><p>10進数の浮動小数は</p><div>\[\pm{\left(d_0.d_1d_2\cdots \right)}_{10}\times 10^{e}\]</div><p>のように表される。<span>$\times$</span>の前までの<span>${\left(d_0.d_1d_2\cdots \right)}_{10}$</span> の部分は仮数部と呼ばれる。添字の<span>$10$</span>は10進数を意味し、<span>$d_0, d_{1}, \cdots $ は $0,1,\ldots,9$</span> までの数字である。<span>$\times$</span> の後ろの <span>$10^{e}$</span> は指数部と呼ばれる。</p><p>2進数の浮動小数は</p><div>\[\pm{\left(b_0.b_1b_2\cdots \right)}_{2}\times 2^{e}\]</div><p>のように表される。 ここで、<span>$\times$</span>の前までの <span>${\left(b_0.b_1b_2\cdots \right)}_{2}$</span> の部分は仮数部と呼ばれる。添字の<span>$2$</span>は2進数を意味し、<span>$b_0, b_{1}, \cdots $ は $0$</span> または <span>$1$</span> の数字である。<span>$\times$</span> の後ろの <span>$2^{e}$</span> は指数部と呼ばれる。</p><p>bit (binary digit)とは、2進数の一桁のことである。</p><p>本文で用いる浮動小数点数は Float64 型である。</p><pre><code class="language-julia-repl">julia&gt; typeof(1.0)
+Float64</code></pre><p>Float64 型は、「IEEE754標準倍精度浮動小数点数」に基づき、 符号部 1 bit、 指数部 11 bit 仮数部 53 bit から構成される。 ただし、以下のように先頭の 1 bitを固定し、仮数部の 52 bit のみをデータとして採用するため、 2進数の並びは 1+11+52 = 64 bit である。</p><p>Float64は、正規化数、副正規化数、数でない数の３種類からなりたっている。</p><p>正規化数は、<span>$b_{0} = 1$</span>として、 <span>$\pm{\left(1.b_1b_2\cdots b_{52}\right)}_{2}\times 2^{e}$</span> のように表すものである。 ただし、指数は <span>$−1022 \le e \le 1023$</span> の範囲である。 仮数 <span>${\left(1.b_1b_2\cdots b_{52}\right)}_2$</span> は 1以上で2を超えない範囲の小数となる。</p><p>正規化数で表すことができない、絶対値が小さい浮動小数は副正規化数で表わされる。</p><p>副正規化数は、<span>$b_{0} = 0$</span>, <span>$e=−1023$</span> として、 <span>$\pm{\left(0.b_1b_2\cdots b_{52}\right)}_{2}\times 2^{e}$</span> のように表すものである。 仮数部 <span>${\left(1.b_1b_2\cdots b_{52}\right)}_{2}$</span> は 0以上で1を超えない範囲の小数となる。</p><p>「数でない数」はあとに述べる。</p><p>Float64で表すことができる、絶対値が最も大きい数は、 正規化数の <span>$2^{1024}≃1.798\times10^{308}$</span> である。 絶対値が最も小さい数は副正規化数の <span>$2^{−1022}≃2.225\times10^{−308}$</span> である。</p><p>これらは、<code>realmax</code>, <code>realmin</code>関数で得られる。</p><pre><code class="language-julia-repl">julia&gt; realmax(Float64)
+1.7976931348623157e308
+
+julia&gt; realmin(Float64)
+2.2250738585072014e-308</code></pre><h3><a class="nav-anchor" id="丸め-1" href="#丸め-1">丸め</a></h3><p>小数 <span>$0.2$</span> は <span>$0.2 = \frac{1}{5} = \frac{1}{{101}_{2}}$</span> となるが、<span>$1$</span> を <span>${101}_{2}$</span> で割り切ることはできない。<span>$0.2$</span> を2進数で表すと</p><div>\[{0.00110011001100\cdots}_{2}\]</div><p>のようになる。すなわち、<span>$1100$</span> の並びが無限に続く循環小数となる。</p><p>また、小数 <span>$0.1$</span> は <span>$0.1 = \frac{1}{5\times 2} = \frac{1}{{101}_{2}} \times 2^{-1}$</span> であるから、$0.1$ を2進数で表すと（上を1桁ずらして）</p><div>\[{0.000110011001100\cdots}_{2}\]</div><p>のようになる。これも、<span>$1100$</span> の並びが無限に続く循環小数となる。</p><p> 「循環小数」は「有限桁の小数」では表すことができないが、 Float64型で表現するため、仮数の下位の桁を修正する操作を行う場合がある。 この「仮数の下位の桁を修正する」ことを「丸める」という。</p><p>「丸め」られた浮動小数の計算は、筆算とは違う結果となる場合がある。 例えば、</p><pre><code class="language-julia-repl">julia&gt; 0.1+0.2
+0.30000000000000004
+
+julia&gt; 0.1+0.2 == 0.3
+false</code></pre><p>筆算の結果は <span>$0.3$</span>であるが、 計算結果は <code>0.30000000000000004</code> と異なってしまう。</p><p>別の例として、<span>$0.1$</span>を 10回足した結果は</p><pre><code class="language-julia-repl">julia&gt; s=0
+0
+
+julia&gt; for i in 1:10
+         s+= 0.1
+       end
+
+julia&gt; @show s
+s = 0.9999999999999999
+0.9999999999999999
+
+julia&gt; s == 1.0
+false</code></pre><p>0.9999999999999999 となり、<span>$1.0$</span> にはならない。</p><p>このような、「丸め」が原因の、正しい値からの「ずれ」を「丸め誤差」と呼んでいる。</p><h2><a class="nav-anchor" id="次方程式-1" href="#次方程式-1">2次方程式</a></h2><p>2次方程式 <span>$x^2-bx+c=0$</span> の解は、解の公式から <span>$\begin{align}x_1&amp;=\frac{b-\sqrt{b^2-4c}}{2}\\
+x_2&amp;=\frac{b+\sqrt{b^2-4c}}{2}\end{align}$</span> であるが、<span>$x_2$</span> は、桁落ちしやすい。 そこで、<span>$(b-\sqrt{b^2-4c})$</span> を分母分子に掛けて</p><div>\[x_{21} = \frac{2c}{b+\sqrt{b^2-4c}}=\frac{c}{x_1}\]</div><p>により計算する。最後の項は、解と係数の関係 <span>$x_1x_2=c$</span> である。</p><h2><a class="nav-anchor" id="小数を2進数へ変換する-1" href="#小数を2進数へ変換する-1">▶︎ 小数を2進数へ変換する</a></h2><p>小数 0.2を、2進数で表示すると循環小数になる。</p><pre><code class="language-julia-repl">julia&gt; x=0.2
+0.2
+
+julia&gt; for i=1:50
+         q=floor(x/2)
+         print(Int64(q))
+         x -= q*2
+         x *= 2
+       end
+00001100110011001100110011001100110011001100110011</code></pre><h3><a class="nav-anchor" id="桁落ち、情報落ち-1" href="#桁落ち、情報落ち-1">桁落ち、情報落ち</a></h3><p>桁落ち、情報落ち</p><p>1.7976931348623157e308 加算</p><p>結合則を満たさない</p><pre><code class="language-julia-repl">julia&gt; x= 1e20
+1.0e20
+
+julia&gt; y=-1e20
+-1.0e20
+
+julia&gt; z= 1.0
+1.0
+
+julia&gt; (x + y) + z
+1.0
+
+julia&gt; x + (y + z)
+0.0</code></pre><p>0.0 丸め誤差</p><h2><a class="nav-anchor" id="近似比較演算子-isapprox-1" href="#近似比較演算子-isapprox-1">近似比較演算子 isapprox</a></h2><h2><a class="nav-anchor" id="数でない数-1" href="#数でない数-1">数でない数</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/manual/mathematical-operations/#Numeric-Comparisons-1">Numeric Comparisons</a></p><p>数でない数か、確かめる。 <a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.isfinite"><code>Base.isfinite</code></a></p><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.isinf"><code>Base.isinf</code></a></p><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.isnan"><code>Base.isnan</code></a></p><h2><a class="nav-anchor" id="数値微分-1" href="#数値微分-1">▶︎ 数値微分</a></h2><pre><code class="language-julia-repl">julia&gt; logspace(1,2,5)
+5-element Array{Float64,1}:
+  10.0
+  17.7828
+  31.6228
+  56.2341
+ 100.0</code></pre><div>\[\frac{df(x_0)}{dx} = \lim_{h \longrightarrow 0}\frac{f(x_0+h)-f(x_0)}{h}\]</div><p>関数 <span>$y=x$</span> の <span>$x=1$</span>における微分係数を、 上の定義により求めよう。 求まるべき値は <span>$1$</span> であるが、<span>$h$</span> を小さくすると <span>$1$</span> の上下に暴れてしまう。</p><div><pre><code class="language-julia">using PyPlot
+h=logspace(-18,-8,100)
+d=( (1+h).^2 - 1) ./ h
+plot(h,d, &quot;.&quot;)
+ylim(5e-1,3e0)
+yscale(&quot;log&quot;)
+xscale(&quot;log&quot;)</code></pre></div><p><img src="ch07-df1-plot.svg" alt/></p><p>関数 <span>$y=x^n$</span>, (<span>$n=1,2,3$</span>) の <span>$x=1$</span>における微分係数を、 上の定義により求めよう。 求まるべき値は <span>$n$</span> であるが、<span>$h$</span> を小さくすると <span>$n$</span> の上下に暴れてしまう。</p><div><pre><code class="language-julia">using PyPlot
+h=logspace(-18,-8,100)
+for n=1:3
+    d=( (1+h).^n - 1) ./ h
+    plot(h,d, &quot;.&quot;, label=&quot;y=x^&quot;*string(n))
+end
+yscale(&quot;log&quot;)
+xscale(&quot;log&quot;)
+legend()</code></pre></div><p><img src="ch07-df2-plot.svg" alt/></p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★今回のまとめ</a></h2><footer><hr/><a class="previous" href="ch06.html"><span class="direction">Previous</span><span class="title">第6回：■ 型・■ 整数型</span></a><a class="next" href="ch08.html"><span class="direction">Next</span><span class="title">第8回： ■ 配列要素の操作</span></a></footer></article></body></html>
