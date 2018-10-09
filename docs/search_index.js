@@ -125,7 +125,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第1回：▶︎ 簡単なグラフを描く",
     "title": "■ ベクトル",
     "category": "section",
-    "text": "角括弧 [ と ] との間に、カンマ , で区切って 数を並べたものを、(数の)ベクトルという。ベクトルは、縦に印字される (列ベクトル, column vector)。[1,3,2]変数に、ベクトルを代入しよう。本文筆者は、ベクトルなど複数の値を内部に含むデータの変数の名前を 複数形とすることが多い。そのデータの各要素を表す変数の名前を単数形とする。 （大文字は定数などを表す約束だから）大文字と小文字で、ベクトルとその要素を区別することは避けた方がよい。xs = [1,2,2,1]\nys = [1,1,3,1]ベクトルのスカラー倍は、各要素に一定の数を乗ずる。xs = [1,2,2,1]; nothing #hide\nys = [1,1,3,1]; nothing #hide\nxs * 2ベクトル同士の和差には、演算子 .+ や .- を用いる。 これらの最初のピリオド . は、各要素に対する演算を意味する。xs = [1,2,2,1]; nothing #hide\nys = [1,1,3,1]; nothing #hide\nxs .+ ys\nxs .- ys"
+    "text": "角括弧 [ と ] との間に、カンマ , で区切って 数を並べたものを、(数の)ベクトルという。ベクトルは、縦に印字される (列ベクトル, column vector)。[1,3,2]変数に、ベクトルを代入しよう。note: Note\n本文筆者は、ベクトルなど複数の値を内部に含むデータの変数の名前を、複数形とすることが多い(末尾を sで終える)。そのデータの各要素を表す変数の名前を単数形とする。（大文字は定数などを表す約束だから）大文字と小文字で、ベクトルなどとその要素を区別することは避けた方がよい。xs = [1,2,2,1]\nys = [1,1,3,1]ベクトルのスカラー倍は、各要素に一定の数を乗ずる。xs = [1,2,2,1]; nothing #hide\nys = [1,1,3,1]; nothing #hide\nxs * 2ベクトル同士の和差には、演算子 .+ や .- を用いる。 これらの最初のピリオド . は、各要素に対する演算を意味する。xs = [1,2,2,1]; nothing #hide\nys = [1,1,3,1]; nothing #hide\nxs .+ ys\nxs .- ys"
 },
 
 {
@@ -281,6 +281,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch03.html#Jupyter-notebook-におけるテキスト入力-1",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "■ Jupyter notebook におけるテキスト入力",
+    "category": "section",
+    "text": "Jupyter notebook のセルには、複数の種類(Cell type)がある。既定のセルの Cell type は、Codeである。 プログラム片を入力して、SHIFT+ENTERを押して実行すると、 出力セルに実行結果が表示される。Cell type を Markdown に変更すると、 Markdown 記式によるテキストを入力できる。Markdown 記式でテキストを入力し、 SHIFT+ENTERを押して実行すると、 Markdown記式で整形された文書が表示される。Markdown CellsMarkdown記法では、空行が段落の区切りである。 空行をはさまない行替えは、前の文字に続けて、同じ段落に配置される。Markdown記法では、数式を挿入することができる。 ダラー記号 $ 一つで囲まれた数式は行内数式 (inline mathh)、 ダラー記号 $ 二つで囲まれた数式は別行立て数式 (display mathh)である。 数式そのものは LaTeX 記法で記述する。 いくつか例を示す。数式内の文字は変数とみなされ、斜体で表される。 $x+1$ → x+1\n上付き $x^{2}$ → x^2\n下付き $x_{3}$ → x_3\n分数 $\\dfrac{a}{b}$ → dfracab\n関数 $f(x) = x^{2}+1$ → f(x) = x^2+1\n三角関数 $\\sin{x}, \\tan{x}$ → sinx tanx\n指数対数関数 $\\exp{x}, \\log{x}$ → expx logx\nテキスト内の立体 (roman style) $a\\;\\mathrm{over}\\;b$ → amathrmoverb"
+},
+
+{
     "location": "ch03.html#関数が連続とは-1",
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 関数が連続とは",
@@ -409,6 +417,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch04.html#plot関数のフォーマット・パラメータ-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "■ plot関数のフォーマット・パラメータ",
+    "category": "section",
+    "text": "前章で見たように、 PyPlotパッケージに含まれplot関数は、 複数回起動する毎に見た目が変わる。plot関数でデータを指定した直後に、 文字列を指定し、見た目を個別に調節できる。 この文字列は fmtパラメータと呼ばれている。fmtパラメータは、 色、マーカー種類、線の見た目を、1文字ないし2文字で指定する。 指定しなければ、規定値が選ばれる。色を変える例using PyPlot\nclf() #hide\nxs=-10:0.01:10\nplot(xs, 9.^xs, \"b\", label=\"b\") # blue\nplot(xs, 8.^xs, \"g\", label=\"g\") # green\nplot(xs, 7.^xs, \"r\", label=\"r\") # red\nplot(xs, 6.^xs, \"c\", label=\"c\") # cyan\nplot(xs, 5.^xs, \"m\", label=\"m\") # magenda\nplot(xs, 4.^xs, \"y\", label=\"y\") # yellow\nplot(xs, 3.^xs, \"k\", label=\"k\") # black\nplot(xs, 2.^xs, \"w\", label=\"w\") # white (白背景では見えない)\nxlim(0,3)\nylim(0,100)\nlegend()\nsavefig(\"ch03-pyplot1-plot.svg\"); nothing # hide(Image: )マーカーの形を変える例。 マーカーの色は全て青としたusing PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^2,     \"b.\", label=\".\") # point\nplot(xs, xs.^2 -2,  \"b,\", label=\",\") # pixel\nplot(xs, xs.^2 -4,  \"bo\", label=\"o\") # circle\nplot(xs, xs.^2 -6,  \"bs\", label=\"s\") # square\nplot(xs, xs.^2 -8,  \"b*\", label=\"*\") # star\nplot(xs, xs.^2 -10, \"b+\", label=\"+\") # plus\nplot(xs, xs.^2 -12, \"bx\", label=\"x\") # x\nplot(xs, xs.^2 -14, \"bD\", label=\"D\") # diamond\nplot(xs, xs.^2 -16, \"bd\", label=\"d\") # thin diamond\nxlim(-3,3)\n# ylim(-2,20)\nlegend()\nsavefig(\"ch03-pyplot2-plot.svg\"); nothing # hide(Image: )線のスタイルを変える例using PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^3-xs.^2,   \"r-\",  label=\"-\")  # solid line\nplot(xs, xs.^3-xs.^2-2, \"r--\", label=\"--\") # dashed line\nplot(xs, xs.^3-xs.^2-4, \"r-.\", label=\"-.\") # dash-dot line\nplot(xs, xs.^3-xs.^2-6, \"r:\",  label=\":\")  # dotted line xlim(-2.2,2.2)\nlegend()\nsavefig(\"ch03-pyplot3-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
     "location": "ch04.html#不連続-1",
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 不連続",
@@ -421,7 +437,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 逆数関数を描く",
     "category": "section",
-    "text": "using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"recipro1-plot.svg\"); nothing # hide(Image: )"
+    "text": "using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro1-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -589,31 +605,31 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 型・■ 整数型",
     "title": "■ 整数",
     "category": "section",
-    "text": "Integers2進数 64桁 (64bit, binary digit)符号付整数2の補数「負の数 -n を 2^64-n で表す方式」typemax(Int64)\ntypemin(Int64)Overflow behaviortypemax(Int64)+1"
+    "text": "Integers既定の整数型は、Int64 と呼ばれ、 64桁 (64bit, binary digit)の2進数である。負の数 -n を 2^64-n で表す「2の補数」方式を用いて、 正負の数を表す「符号付整数」である。Int64で表される最大の数は 2^63-1 である。 また、最小の数（絶対値が最大な負の数)は -2^63 である。 これらの値は、それぞれ typemax(Int64),typemin(Int64) という関数で求められる。2^63-1\ntypemax(Int64)\ntypemin(Int64)!!! Note     2の補数を求める方法が知られていれば、     減算は、引く数の「2の補数」を求め、加算すればよい。     幸い、2の補数は簡単に求められる。2の補数では、2進数の最上位の桁が、符号に相当する。\nすなわち、負の数では、\n最上位の桁 (Most-Significant Bit, MSB)は `1`、\n正の数または0では、MSBは `0` である。"
 },
 
 {
-    "location": "ch06.html#整数を-0-で割ると例外を発生する-1",
+    "location": "ch06.html#整数同士の加減乗算-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "■ 整数を 0 で割ると例外を発生する",
+    "title": "■ 整数同士の加減乗算",
     "category": "section",
-    "text": "除算例外Division erros"
+    "text": "整数同士の加減算は、2の補数として行われる。 typemin(Int64)から typemin(Int64) までの範囲を超えても、 例外は発生しない。Overflow behaviortypemax(Int64)+1\ntypemax(Int64)+2\ntypemin(Int64)-1\ntypemin(Int64)-2\ntypemax(Int64)+typemax(Int64)\ntypemax(Int64)*2\ntypemax(Int64)*4"
 },
 
 {
-    "location": "ch06.html#整数と浮動小数点数の演算-1",
+    "location": "ch06.html#整数同士の除算-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "■ 整数と浮動小数点数の演算",
+    "title": "■ 整数同士の除算",
     "category": "section",
-    "text": "除算の結果は、浮動小数点数になる1 / 2\n1.0 / 2.0"
+    "text": "除算の結果は、小数(浮動小数点数)になる。1 / 2"
 },
 
 {
-    "location": "ch06.html#浮動小数点数から整数への変換-1",
+    "location": "ch06.html#整数と浮動小数点数との四則演算-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "▶︎ 浮動小数点数から整数への変換",
+    "title": "■ 整数と浮動小数点数との四則演算",
     "category": "section",
-    "text": "Int64(1.0)\nInt64(1.1)  # エラー\nInt64(floor(1.1))"
+    "text": "整数と小数を四則演算すると、小数になる。1 + 2\n1 + 2.0\n1 * 2\n1 * 2.0"
 },
 
 {
@@ -621,7 +637,23 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 型・■ 整数型",
     "title": "▶︎ 床関数・天井関数",
     "category": "section",
-    "text": "Base.ceil Base.floor)using PyPlot\nclf() #hide\nxs=-2.4:0.1:2.4\nplot(xs, ceil.(xs), \"o\", label=\"ceil\")\nplot(xs, floor.(xs), \".\", label=\"floor\")\nfor x in -2:2\n  axvline(x, color=\"k\", lw=0.5)\nend\nlegend()\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"floorceil1-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.ceil 天井関数 ceil(x)は、x以上の最小の整数を返す。床関数 floor(x)は、xを超えない最大の整数を返す。 Base.floorusing PyPlot\nclf() #hide\nxs=-2.4:0.1:2.4\nplot(xs, ceil.(xs), \"o\", label=\"ceil\")\nplot(xs, floor.(xs), \".\", label=\"floor\")\nfor x in -2:2\n  axvline(x, color=\"k\", lw=0.5)\n  axhline(x, color=\"k\", lw=0.5)\nend\nxlim(-3.2,3.2)\nylim(-3.2,3.2)\n\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"floorceil1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch06.html#浮動小数点数から整数への変換-1",
+    "page": "第6回：■ 型・■ 整数型",
+    "title": "▶︎ 浮動小数点数から整数への変換",
+    "category": "section",
+    "text": "浮動小数点数を整数に変換するには、Int64(x)を用いる。 ただし、xが小数部を含むと例外がでる（エラーとなる）ので、 小数部を 0に変換する必要がある。Int64(1.0)\nInt64(1.1)  # エラー\nInt64(floor(1.1))"
+},
+
+{
+    "location": "ch06.html#剰余-1",
+    "page": "第6回：■ 型・■ 整数型",
+    "title": "■ 剰余",
+    "category": "section",
+    "text": "被除数xを除数dで除した商がq、余り（剰余)がrであるとき x=qd+r が成り立つ。 被除数xと除数dの両方が正の数の場合、 剰余r は0 le r lt dの範囲である。被除数xと除数dの両方が正の整数のとき、 剰余rを求めるのに関数 rem が、 商qを求めるのに関数 div が、それぞれよく用いられる。rem関数 Base.remusing PyPlot\nclf() #hide\nxs=0:7\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-0.2,6.2)\nylim(-0.2,3.2)\nxlabel(\"x\")\nlegend()\n\nfor x=0:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=0:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-divrem1-int-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -629,31 +661,55 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 型・■ 整数型",
     "title": "▶︎ ユークリッドの互除法",
     "category": "section",
-    "text": "2 つの自然数 a, b (a ≧ b) について、a の b による剰余を r とすると、 a と b との最大公約数は b と r との最大公約数に等しいという性質が成り立つ。この性質を利用して、 b を r で割った剰余、 除数 r をその剰余で割った剰余、と剰余を求める計算を逐次繰り返すと、剰余が 0 になった時の除数が a と b との最大公約数となる。Base.rema=1071\nb=1029\n@show a,b\nwhile b != 0\n  t = a\n  b = rem(a, b)\n  a = t\n  @show a,b\nend\n@show a,ba=3355\nb=2379\n@show a,b\nwhile b != 0\n  t = a\n  b = rem(a, b)\n  a = t\n  @show a,b\nend\n@show a,b"
+    "text": "2 つの自然数 a, b (a ge b) について、 a の b による剰余を r とすると、 a と b との最大公約数は b と r との最大公約数に等しいという性質が成り立つ。 この性質を利用して、b を r で割った剰余、 除数 r をその剰余で割った剰余、 と剰余を求める計算を逐次繰り返すと、 剰余が 0 になった時の除数が a と b との最大公約数となる。a=1071\nb=1029\n@show a,b\nwhile b != 0\n  t = a\n  b = rem(a, b)\n  a = t\n  @show a,b\nend\n@show a,b3355と2379の最大公約数を求めてみよう。a=3355\nb=2379\n@show a,b\nwhile b != 0\n  t = a\n  b = rem(a, b)\n  a = t\n  @show a,b\nend\n@show a,b"
 },
 
 {
-    "location": "ch06.html#商・剰余関数-1",
+    "location": "ch06.html#商と剰余-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "▶︎ 商・剰余関数",
+    "title": "■ 商と剰余",
     "category": "section",
-    "text": "using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,fld.(xs,d), \".\", label=\"fld\")\nplot(xs,mod.(xs,d), \".\", label=\"mod\")\nlegend()\nxlim(-6.2,6.2 )\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"fldmod1-plot.svg\"); nothing # hide(Image: )同じことは床関数でも書ける。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, qs, \".\", label=\"quotient\")\nplot(xs, rs,\".\", label=\"remainder\")\nfor x in -9:d:9\naxvline(x, color=\"k\", lw=0.5)\nend\nxlim(-6.2,6.2 )\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"floorceil2-plot.svg\"); nothing # hide(Image: )"
+    "text": "整数xをdで割ったときの商と剰余の関係 x=qd+r は、 負の数や、小数に拡張できる。 被除数xや除数dが負の数の場合、 商 qと 剰余 r の取るべき値について、 いくつかの考え方がある。rem関数の剰余は、被除数 x と同じ符号を選ぶ。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem2-plot.svg\"); nothing # hide(Image: )Base.modBase.fld除数dが正の場合、 mod関数は、0 leq r lt d の範囲の剰余 r を返す。これに対応する商は fld関数で求められる。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod1-plot.svg\"); nothing # hide(Image: )fld(x,d) は、dfracxd 以下の最大の整数である。 つまり、floor(x/d) と同じである。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, rs, \"ro\", label=\"remainder divided by \"*string(d))\nplot(xs, qs, \"b.\",  label=\"quotient divided by \"*string(d))\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor y=-3:3\n  axvline(y, color=\"k\", lw=0.5)\nend\n\nfor x=-7:7\n  axhline(x, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch06.html#切り捨てるには？-1",
+    "location": "ch06.html#練習-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "◀︎ 切り捨てるには？",
+    "title": "◀︎ 練習",
     "category": "section",
-    "text": "10の位で\n100の位で\n1000の位で\n0.1の位で\n一般に10^nの位で"
+    "text": "日本では、小額の取引に、500円\n100円\n50円\n10円\n5円\n1円の6種類の硬貨がよく用いられる。金額が与えられたときに、6種類の硬貨が各々何枚必要か計算せよ。 ただし、高額の硬貨を優先して用いるものとする。第一段階として、100円、10円、1円に分けるプログラムを書いて実行せよ。\n第二段階として、上の 6種類の硬貨に分けるプログラムを書いて実行せよ。同様な処理は、繰り返し (for文)を用いてみよ。\n第三段階として、1円刻みで551円までの金額に対して、6種類の硬貨の枚数を描くプログラムを書いて実行せよ。"
 },
 
 {
-    "location": "ch06.html#四捨五入するには？-1",
+    "location": "ch06.html#練習-2",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "◀︎ 四捨五入するには？",
+    "title": "◀︎ 練習",
     "category": "section",
-    "text": "1の位で\n10の位で\n100の位で\n1000の位で\n0.1の位で\n一般に10^nの位で"
+    "text": "10の位で\n100の位で\n1000の位で\n0.1の位で\n一般に10^nの位で数を切り捨てるには、どうすればよいか？プログラムを書いて、実行してみよ。"
+},
+
+{
+    "location": "ch06.html#練習-3",
+    "page": "第6回：■ 型・■ 整数型",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "1の位で\n10の位で\n100の位で\n1000の位で\n0.1の位で\n一般に10^nの位で数を四捨五入するには、どうしたらよいか？プログラムを書いて、実行してみよ。"
+},
+
+{
+    "location": "ch06.html#負の除算に対する剰余-1",
+    "page": "第6回：■ 型・■ 整数型",
+    "title": "負の除算に対する剰余",
+    "category": "section",
+    "text": "除数 dが負の場合も、 rem関数は、0 leq r lt d の範囲の剰余 rを返す。 Base.remusing PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\n\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem3-plot.svg\"); nothing # hide(Image: )Base.mod除数 dが負の場合は、 mod関数は、d lt r le 0 の範囲の剰余 rを返す。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod3-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch06.html#除数が-0-の場合-1",
+    "page": "第6回：■ 型・■ 整数型",
+    "title": "■ 除数が 0 の場合",
+    "category": "section",
+    "text": "除数が 0 で割ると例外を発生する除算例外Division erros"
 },
 
 {
@@ -701,15 +757,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "丸め",
     "category": "section",
-    "text": "小数 02 は 02 = frac15 = frac1101_2 となるが、1 を 101_2 で割り切ることはできない。02 を2進数で表すと000110011001100cdots_2のようになる。すなわち、1100 の並びが無限に続く循環小数となる。また、小数 01 は 01 = frac15times 2 = frac1101_2 times 2^-1 であるから、$0.1$ を2進数で表すと（上を1桁ずらして）0000110011001100cdots_2のようになる。これも、1100 の並びが無限に続く循環小数となる。 「循環小数」は「有限桁の小数」では表すことができないが、 Float64型で表現するため、仮数の下位の桁を修正する操作を行う場合がある。 この「仮数の下位の桁を修正する」ことを「丸める」という。「丸め」られた浮動小数の計算は、筆算とは違う結果となる場合がある。 例えば、0.1+0.2\n0.1+0.2 == 0.3筆算の結果は 03であるが、 計算結果は 0.30000000000000004 と異なってしまう。別の例として、01を 10回足した結果はs=0\nfor i in 1:10\n  s+= 0.1\nend\n@show s\ns == 1.00.9999999999999999 となり、10 にはならない。このような、「丸め」が原因の、正しい値からの「ずれ」を「丸め誤差」と呼んでいる。"
-},
-
-{
-    "location": "ch07.html#次方程式-1",
-    "page": "第7回：■ 浮動小数点数",
-    "title": "2次方程式",
-    "category": "section",
-    "text": "2次方程式 x^2-bx+c=0 の解は、解の公式から beginalignx_1=fracb-sqrtb^2-4c2\nx_2=fracb+sqrtb^2-4c2endalign であるが、x_2 は、桁落ちしやすい。 そこで、(b-sqrtb^2-4c) を分母分子に掛けてx_21 = frac2cb+sqrtb^2-4c=fraccx_1により計算する。最後の項は、解と係数の関係 x_1x_2=c である。"
+    "text": "小数 02 は 02 = frac15 = frac1101_2 となるが、1 を 101_2 で割り切ることはできない。02 を2進数で表すと000110011001100cdots_2のようになる。すなわち、1100 の並びが無限に続く循環小数となる。また、小数 01 は 01 = frac15times 2 = frac1101_2 times 2^-1 であるから、$0.1$ を2進数で表すと（上を1桁ずらして）0000110011001100cdots_2のようになる。これも、1100 の並びが無限に続く循環小数となる。 「有限桁の小数」で表すことができない「循環小数」を、 Float64型で表現するとき、 その仮数の末尾に近いの桁を修正する操作を行う場合がある。 この操作を「丸める」という。「丸め」られた浮動小数の計算は、筆算とは違う結果となる場合がある。 例えば、0.1+0.2\n0.1+0.2 == 0.3筆算の結果は 03であるが、 計算結果は 0.30000000000000004 と異なってしまう。別の例として、01を 10回足した結果はs=0\nfor i in 1:10\n  s+= 0.1\nend\n@show s\ns == 1.00.9999999999999999 となり、10 にはならない。このような、「丸め」を原因とする、 正しい値からの「ずれ」を「丸め誤差」と呼んでいる。"
 },
 
 {
@@ -717,15 +765,39 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 小数を2進数へ変換する",
     "category": "section",
-    "text": "小数 0.2を、2進数で表示すると循環小数になる。2進数の循環小数\n1100 が循環する。x=0.2\nfor i=1:50\n  q=floor(x/2)\n  print(Int64(q))\n  x -= q*2\n  x *= 2\nend00000110011001100110011001100110011001100110011001\n\n1100 循環小数x=0.2\nfor i=1:50\n  q=floor(x/2)\n  print(Int64(q))\n  x -= q*2\n  x *= 2\nend00001100110011001100110011001100110011001100110011"
+    "text": "x=f_12^-1 + f_22^-2 + cdots(正の)小数を2進数に変換するには、 小数を2倍しその整数部分を取り出すことを、繰り返し行えばよい。小数 0.2を、2進数で表示すると循環小数になる。 1100 のパターンが繰り返し現れる。x=0.2\nfor i=1:50\n  x *= 2\n  q=floor(x)\n  print(Int64(q))\n  x -= q*2\nend00000110011001100110011001100110011001100110011001\n\n1100 循環小数"
 },
 
 {
-    "location": "ch07.html#桁落ち、情報落ち-1",
+    "location": "ch07.html#有限小数・循環小数-1",
     "page": "第7回：■ 浮動小数点数",
-    "title": "桁落ち、情報落ち",
+    "title": "◀︎ 有限小数・循環小数",
     "category": "section",
-    "text": "桁落ち、情報落ち1.7976931348623157e308 加算結合則を満たさないx= 1e20\ny=-1e20\nz= 1.0\n(x + y) + z\nx + (y + z)0.0 丸め誤差"
+    "text": "0.5以下の正の小数をいくつかを選び、 これらを2進数に直してみよ。有限小数か循環小数かを判定せよ。例: 0.1, 0.2, 0.25, 0.3, 0.5さらに、5つ程度の例を加えよ。"
+},
+
+{
+    "location": "ch07.html#加減算における桁落ちと情報落ち-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "■ 加減算における桁落ちと情報落ち",
+    "category": "section",
+    "text": "桁落ち、情報落ち加算結合則を満たさないx= 1e20\ny=-1e20\nz= 1.0\n(x + y) + z\nx + (y + z)0.0 丸め誤差"
+},
+
+{
+    "location": "ch07.html#2次方程式-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "▶︎ 2次方程式",
+    "category": "section",
+    "text": "2次方程式 x^2-bx+c=0 の解は、解の公式から、判別式 d=b^2-4cを用いて、 beginalignx_1=fracb+sqrtd2=fracb+sqrtb^2-4c2\nx_2=fracb-sqrtd2=fracb-sqrtb^2-4c2endalign であるが、b と sqrtdが同程度のとき x_2 は桁落ちしやすい。 そこで、(b-sqrtb^2-4c) を分母分子に掛けてx_21 = frac2cb+sqrtb^2-4c=fraccx_1により計算する。最後の項は、解と係数の関係 x_1x_2=c である。"
+},
+
+{
+    "location": "ch07.html#2次方程式：計算の例-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "▶︎ 2次方程式：計算の例",
+    "category": "section",
+    "text": "実例で見てみよう。小さい正の数 hを用いて、alpha = 100+h と beta = 1+h を解とする2次方程式を作る。解と係数の関係から、上の方程式において b = alpha + beta, c=alphabeta と定めればよい。h=logspace(-12,-1);\nalpha=100+h\nbeta=1+h;\nc=alpha .* beta;\nb=-alpha -beta;解の公式から、「大きい方の解」 x1を計算する。 x2sは解の公式から求めた「小さい方の解」、である x2vは解と係数の関係から求めた「小さい方の解」d=b.*b-4c;\nx1=(-b+sqrt.(d))/2;\nx2s=(-b-sqrt.(d))/2;\nx2v=c./x1;「大きい方の解」について、正しい解との差をプロットしてみる。using PyPlot\nclf() #hide\nplot(h, x1-alpha, \".\")\nxlabel(\"h\")\nylabel(\"x1-alpha\")\nxscale(\"log\")\nsavefig(\"ch07-quad1-plot.svg\"); nothing # hide(Image: )「小さい方の解」について、正しい解との差をプロットしてみる。using PyPlot #hide\nclf() #hide\nplot(h, x2s-beta,\".\",label=\"x2s\")\nplot(h, x2v-beta, \"o\",label=\"x2v\")\nxlabel(\"h\")\nylabel(\"x2-beta\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-quad2-plot.svg\"); nothing # hide(Image: )「小さい方の解」について、正しい解との差の絶対値(残差)をプロットしてみる。using PyPlot #hide\nclf() #hide\nplot(h, abs.(x2s-beta),\".\",label=\"x2s\")\nplot(h, abs.(x2v-beta), \"o\",label=\"x2v\")\nxlabel(\"h\")\nylabel(\"abs(x2-beta)\")\nxscale(\"log\")\nylim(1e-18,1e-13)\nyscale(\"log\")\nlegend()\nsavefig(\"ch07-quad3-plot.svg\"); nothing # hide(Image: )解の公式から求めた「小さい方の解」の残差が「あばれる」のに対して、 解と係数の関係から求めた小さい方の解」の残差が「一定」である様子が見れる。"
 },
 
 {
@@ -981,7 +1053,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第10回：線形代数",
     "title": "▶︎ 回転行列",
     "category": "section",
-    "text": "楕円を回す"
+    "text": "楕円を回すxy=hcat([ [2*cos.(t); sin(t)] for t=0:pi/18:2pi]...)using PyPlot\nclf() #hide\nplot(xy[1,:], xy[2,:])\n\nsavefig(\"ch10-rot-ellp1-plot.svg\"); nothing # hide(Image: )R(theta) = beginbmatrix costheta  -sintheta  sintheta  costheta endbmatrixr15=[ cosd(15) -sind(15); sind(15) cosd(15)]using PyPlot\nclf() #hide\nplot(xy[1,:], xy[2,:])\nxy = r15 * xy\nplot(xy[1,:], xy[2,:])\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch10-rot-ellp2-plot.svg\"); nothing # hide(Image: )for i=1:6\n  plot(xy[1,:], xy[2,:])\n  xy = r15 * xy\nend\n\nsavefig(\"ch10-rot-ellp3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -989,7 +1061,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第10回：線形代数",
     "title": "▶︎ 行列の商",
     "category": "section",
-    "text": ""
+    "text": "行列の商b=[5, 13]\na=[1 2; 3 4]\nv = a \\ b\na * v"
 },
 
 {
