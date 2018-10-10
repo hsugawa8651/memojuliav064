@@ -97,13 +97,13 @@ m = &quot;x は 20 以上である&quot;
 julia&gt; @show m
 m = &quot;yes&quot;
 &quot;yes&quot;</code></pre><h2><a class="nav-anchor" id="短絡評価-1" href="#短絡評価-1">■ 短絡評価</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/manual/control-flow/#Short-Circuit-Evaluation-1">Short-Circuit Evaluation</a></p><h2><a class="nav-anchor" id="擬似乱数-1" href="#擬似乱数-1">▶︎ 擬似乱数</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Random-Numbers-1">Random Numbers</a></p><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.Random.rand">Base.Random.rand</a></p><p><code>rand()</code> 0から1未満の小数の乱数を出す擬似乱数</p><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.Random.srand">Base.Random.srand</a></p><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.Random.srand"><code>Base.Random.srand</code></a></p><pre><code class="language-julia-repl">julia&gt; rand()
-0.29516908039834977
+0.7453079895050256
 
 julia&gt; rand()
-0.6813194341826669
+0.5821422374221026
 
 julia&gt; rand()
-0.2571581814643631</code></pre><p><code>rand( コレクション )</code> とすると、コレクションのうち、 一つの要素を選ぶ擬似乱数。</p><h2><a class="nav-anchor" id="モンテカルロ法-1" href="#モンテカルロ法-1">▶︎ モンテカルロ法</a></h2><p>第一象限 <span>$x \ge 0, y \ge 0$</span> <span>$x^2+y^2 \lt 1$</span></p><p>半円の面積 <span>$\frac{\pi}{4}$</span></p><div><pre><code class="language-julia">using PyPlot
+0.05873936978756955</code></pre><p><code>rand( コレクション )</code> とすると、コレクションのうち、 一つの要素を選ぶ擬似乱数。</p><h2><a class="nav-anchor" id="モンテカルロ法-1" href="#モンテカルロ法-1">▶︎ モンテカルロ法</a></h2><p>第一象限 <span>$x \ge 0, y \ge 0$</span> <span>$x^2+y^2 \lt 1$</span></p><p>半円の面積 <span>$\frac{\pi}{4}$</span></p><div><pre><code class="language-julia">using PyPlot
 n=2^10
 for i=1:n
   x=rand()
@@ -119,7 +119,7 @@ for i=1:n
   if x*x + y*y &lt;= 1
     s += 1
   end
-end</code></pre><pre><code class="language-none">s / n = 0.8076171875</code></pre></div><div><pre><code class="language-julia">using PyPlot
+end</code></pre><pre><code class="language-none">s / n = 0.791015625</code></pre></div><div><pre><code class="language-julia">using PyPlot
 for m in 1:14
   n=2^m
   s=0

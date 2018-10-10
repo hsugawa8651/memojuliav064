@@ -381,7 +381,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 自由落下運動を描く",
     "category": "section",
-    "text": "鉛直上向きに投げられた球が、重力のみを感じて自由落下するとする。 時刻 t=0において、高さ y=0, 鉛直上向きの速度 v_0 とすると、 時刻 tにおける、高さ y, 鉛直上向きの速度 v は、以下のように表される。v =v_0 - gt, y = v_0 t - frac12gt^2using PyPlot\nclf() #hide\nv0=10 # m/s\ng=9.8 # m/s^2\n\nts=0:0.1:3 # s\nvs=v0-g*ts\nplot(ts,vs)\nsavefig(\"ch04-gy1-plot.svg\"); nothing # hide(Image: )ys=v0*ts-g*ts.^2/2\nplot(ts,ys)\nsavefig(\"ch04-gy2-plot.svg\"); nothing # hide(Image: )clf() #hide\nax1=plt[:subplot]()\nax2=ax1[:twinx]()\nax1[:plot](ts,vs)\nax2[:plot](ts,ys)\nsavefig(\"ch04-gy3-plot.svg\"); nothing # hide(Image: )続けてax1[:set_xlabel](\"time /s\")\nax1[:set_xlim](-0.3,2.3)\nax1[:set_ylim](-12,12)\nax2[:set_ylim](-6,6)\nax1[:set_ylabel](\"velocity / m s^-1\")\nax2[:set_ylabel](\"height / m\")\n\nsavefig(\"ch04-gy4-plot.svg\"); nothing # hide(Image: )続けてax1[:axvline](10/9.8, color=\"k\", lw=0.5)\nax1[:axvline](0, color=\"k\", lw=0.5)\nax1[:axhline](0, color=\"k\", lw=0.5)\nsavefig(\"ch04-gy5-plot.svg\"); nothing # hide(Image: )"
+    "text": "鉛直上向きに投げられた球が、重力のみを感じて自由落下するとする。 時刻 t=0において、高さ y=0, 鉛直上向きの速度 v_0 とすると、 時刻 tにおける、高さ y, 鉛直上向きの速度 v は、以下のように表される。beginalign* v  = v_0 - gt  y  = v_0 t - dfrac12gt^2 endalign*using PyPlot\nclf() #hide\nv0=10 # m/s\ng=9.8 # m/s^2\n\nts=0:0.1:3 # s\nvs=v0-g*ts\nplot(ts,vs)\nsavefig(\"ch04-gy1-plot.svg\"); nothing # hide(Image: )ys=v0*ts-g*ts.^2/2\nplot(ts,ys)\nsavefig(\"ch04-gy2-plot.svg\"); nothing # hide(Image: )clf() #hide\nax1=plt[:subplot]()\nax2=ax1[:twinx]()\nax1[:plot](ts,vs)\nax2[:plot](ts,ys)\nsavefig(\"ch04-gy3-plot.svg\"); nothing # hide(Image: )続けてax1[:set_xlabel](\"time /s\")\nax1[:set_xlim](-0.3,2.3)\nax1[:set_ylim](-12,12)\nax2[:set_ylim](-6,6)\nax1[:set_ylabel](\"velocity / m s^-1\")\nax2[:set_ylabel](\"height / m\")\n\nsavefig(\"ch04-gy4-plot.svg\"); nothing # hide(Image: )続けてax1[:axvline](10/9.8, color=\"k\", lw=0.5)\nax1[:axvline](0, color=\"k\", lw=0.5)\nax1[:axhline](0, color=\"k\", lw=0.5)\nsavefig(\"ch04-gy5-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch03.html#ダブルYグラフに共通な凡例の作成-1",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "▶︎ ダブルYグラフに共通な凡例の作成",
+    "category": "section",
+    "text": "複数軸に共通な凡例を描くには、技巧が少々必要である。using PyPlot\nclf() #hide\nax1=plt[:subplot]()\nax2=ax1[:twinx]()\nax1[:plot](ts,vs, \"b\", label=\"velocity\")\nax2[:plot](ts,ys, \"g\", label=\"height\")\nax1[:set_xlabel](\"time /s\")\nax1[:set_xlim](-0.3,2.3)\nax1[:set_ylim](-12,12)\nax2[:set_ylim](-6,6)\nax1[:set_ylabel](\"velocity / m s^-1\")\nax2[:set_ylabel](\"height / m\")\nax1[:axvline](10/9.8, color=\"k\", lw=0.5)\nax1[:axvline](0, color=\"k\", lw=0.5)\nax1[:axhline](0, color=\"k\", lw=0.5)\n; # hide以上は、前の記述とほぼ同じである。get_legend_handles_labels 関数を用いて、 各軸に含まれる曲線の形状と凡例を取り出す。形状と凡例を結合して、片方の軸に対して、凡例を追加する。lns1, lbl1 = ax1[:get_legend_handles_labels]()\nlns2, lbl2 = ax2[:get_legend_handles_labels]()\nlns  = [ lns1; lns2 ]\nlbls = [ lbl1; lbl2 ]\n\nax2[:legend]( lns, lbls, loc=0)\nsavefig(\"ch04-gy6-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -397,7 +405,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "★ 今回のまとめ",
     "category": "section",
-    "text": "全域で定義された関数\n正弦・余弦関数\n楕円\nアルキメデスの渦\n花曲線\n指数関数\n正数を定義域とする関数\n対数関数\n複数のグラフを描く方法"
+    "text": "全域で定義された関数\n正弦・余弦関数\n楕円\nアルキメデスの渦\n花曲線\n指数関数\n正数を定義域とする関数\n対数関数\n複数のグラフを描く方法\nダブルYグラフ\nダブルYグラフに共通な凡例の作成\nプロットエリアの分割"
 },
 
 {
