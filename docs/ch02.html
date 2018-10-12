@@ -112,7 +112,7 @@ for gamma in [0.5,1.0,2.0]
   plot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )
 end
 legend()
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p>次の性質がある。</p><ul><li><p>点 <span>$x=0$</span> で 最大値 <span>$y = \frac{2}{\gamma}$</span></p></li><li><p>点 <span>$x=\pm\frac{2}{\gamma}$</span> で、<span>$y = \frac{1}{2}\frac{2}{\gamma}$</span> となること。</p></li></ul><p>２つ目の性質を観察するため、最大値に対する比を描いてみる。</p><div><pre><code class="language-julia">using PyPlot
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p>次の性質がある。</p><ul><li><p>点 <span>$x=0$</span> で 最大値 <span>$y = \frac{2}{\gamma}$</span></p></li><li><p>点 <span>$x=\pm\frac{gamma}{2}$</span> で、<span>$y = \frac{1}{2}\frac{2}{\gamma}$</span> となること。</p></li></ul><p>２つ目の性質を観察するため、最大値に対する比を描いてみる。</p><div><pre><code class="language-julia">using PyPlot
 xs=-3:0.05:3
 for gamma in [0.5,1.0,2.0]
   plot(xs,
@@ -120,7 +120,7 @@ for gamma in [0.5,1.0,2.0]
     label=gamma )
 end
 legend()
-axhline(0, color=&quot;k&quot;, lw=0.5)</code></pre></div><p><img src="ch02-lo4-plot.svg" alt/></p><p><code>plot</code>関数の文は、複数の行に渡って記述しているが、 行が更に続くことを示す記号や構文は、特に用意されていない。 構文が行末で終わらなければ、次の行まで読みに行くことになっている。</p><div>\[\gamma\]</div><p>を非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似となる。</p><h2><a class="nav-anchor" id="更新演算子-1" href="#更新演算子-1">■ 更新演算子</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/manual/mathematical-operations/#Updating-operators-1">Updating operators</a></p><p>変数に四則演算などを行って、元の変数に再代入する場合には、 更新演算子を用いるとよい。</p><pre><code class="language-julia-repl">julia&gt; x=1
+axhline(0, color=&quot;k&quot;, lw=0.5)</code></pre></div><p><img src="ch02-lo4-plot.svg" alt/></p><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p><code>plot</code>関数の文は、複数の行に渡って記述しているが、行が更に続くことを示す記法は、特に用意されていない。構文が行末で終わらなければ、次の行まで読みに行くことになっている。</p></div></div><p>パラメータ <span>$\gamma$</span>は、半値全幅 (Full Width of Half Maximum, FWHM)と呼ばれる。 <span>$\gamma$</span>を非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似(の一つ)となる。</p><h2><a class="nav-anchor" id="更新演算子-1" href="#更新演算子-1">■ 更新演算子</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/manual/mathematical-operations/#Updating-operators-1">Updating operators</a></p><p>変数に四則演算などを行って、元の変数に再代入する場合には、 更新演算子を用いるとよい。</p><pre><code class="language-julia-repl">julia&gt; x=1
 1
 
 julia&gt; # 再代入

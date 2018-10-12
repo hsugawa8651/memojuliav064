@@ -237,7 +237,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第2回：▶︎ 複数のグラフを描く",
     "title": "▶︎ ローレンツ関数を描く",
     "category": "section",
-    "text": "Lorentzian Function以下の曲線を、 ローレンツ関数 (Lorentzian function)という。y = fracfracgamma2(x-x_0)^2+left(fracgamma2right)^2gamma  0パラメータを x_0 = 0 gamma = 2 のように選ぶと、 以下のように簡単な形となる。y = frac1x^2+1まず、この曲線を描いてみる。 各要素に対して除算を行うため、/の前にも、ピリオド.を付与する。xs=-3:0.5:3\n1 ./ (xs.^2+1)上のグラフを描こう。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs, 1 ./ (xs.^2+1) )\nsavefig(\"ch02-lo1-plot.svg\"); nothing # hide(Image: )以下のように、パラメータ gamma を導入する。y = fracfracgamma2x^2+left(fracgamma2right)^2三つのパラメータ gamma=0512 について、この曲線を描く。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=0.5\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=1.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=2.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo2-plot.svg\"); nothing # hide(Image: )gammaの値が変わっても、それぞれの曲線を描く命令は変わらない。 for文を用いて、gammaの値を変えてみよう。（結果のグラフは同じである)using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nend\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo3-plot.svg\"); nothing # hide次の性質がある。点 x=0 で 最大値 y = frac2gamma\n点 x=pmfrac2gamma で、y = frac12frac2gamma となること。２つ目の性質を観察するため、最大値に対する比を描いてみる。using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\nend\nlegend()\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo4-plot.svg\"); nothing # hide(Image: )plot関数の文は、複数の行に渡って記述しているが、 行が更に続くことを示す記号や構文は、特に用意されていない。 構文が行末で終わらなければ、次の行まで読みに行くことになっている。gammaを非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似となる。"
+    "text": "Lorentzian Function以下の曲線を、 ローレンツ関数 (Lorentzian function)という。y = fracfracgamma2(x-x_0)^2+left(fracgamma2right)^2gamma  0パラメータを x_0 = 0 gamma = 2 のように選ぶと、 以下のように簡単な形となる。y = frac1x^2+1まず、この曲線を描いてみる。 各要素に対して除算を行うため、/の前にも、ピリオド.を付与する。xs=-3:0.5:3\n1 ./ (xs.^2+1)上のグラフを描こう。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs, 1 ./ (xs.^2+1) )\nsavefig(\"ch02-lo1-plot.svg\"); nothing # hide(Image: )以下のように、パラメータ gamma を導入する。y = fracfracgamma2x^2+left(fracgamma2right)^2三つのパラメータ gamma=0512 について、この曲線を描く。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=0.5\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=1.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=2.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo2-plot.svg\"); nothing # hide(Image: )gammaの値が変わっても、それぞれの曲線を描く命令は変わらない。 for文を用いて、gammaの値を変えてみよう。（結果のグラフは同じである)using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nend\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo3-plot.svg\"); nothing # hide次の性質がある。点 x=0 で 最大値 y = frac2gamma\n点 x=pmfracgamma2 で、y = frac12frac2gamma となること。２つ目の性質を観察するため、最大値に対する比を描いてみる。using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\nend\nlegend()\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo4-plot.svg\"); nothing # hide(Image: )note: Note\nplot関数の文は、複数の行に渡って記述しているが、行が更に続くことを示す記法は、特に用意されていない。構文が行末で終わらなければ、次の行まで読みに行くことになっている。パラメータ gammaは、半値全幅 (Full Width of Half Maximum, FWHM)と呼ばれる。 gammaを非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似(の一つ)となる。"
 },
 
 {
@@ -281,11 +281,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch03.html#Jupyter-notebook-におけるテキスト入力-1",
+    "location": "ch03.html#Jupyter-notebook-によるテキストの入力-1",
     "page": "第3回：▶︎ 連続な曲線を描く",
-    "title": "■ Jupyter notebook におけるテキスト入力",
+    "title": "■ Jupyter notebook によるテキストの入力",
     "category": "section",
-    "text": "Jupyter notebook のセルには、複数の種類(Cell type)がある。既定のセルの Cell type は、Codeである。 プログラム片を入力して、SHIFT+ENTERを押して実行すると、 出力セルに実行結果が表示される。Cell type を Markdown に変更すると、 Markdown 記式によるテキストを入力できる。Markdown 記式でテキストを入力し、 SHIFT+ENTERを押して実行すると、 Markdown記式で整形された文書が表示される。Markdown CellsMarkdown記法では、空行が段落の区切りである。 空行をはさまない行替えは、前の文字に続けて、同じ段落に配置される。Markdown記法では、数式を挿入することができる。 ダラー記号 $ 一つで囲まれた数式は行内数式 (inline mathh)、 ダラー記号 $ 二つで囲まれた数式は別行立て数式 (display mathh)である。 数式そのものは LaTeX 記法で記述する。 いくつか例を示す。数式内の文字は変数とみなされ、斜体で表される。 $x+1$ → x+1\n上付き $x^{2}$ → x^2\n下付き $x_{3}$ → x_3\n分数 $\\dfrac{a}{b}$ → dfracab\n関数 $f(x) = x^{2}+1$ → f(x) = x^2+1\n三角関数 $\\sin{x}, \\tan{x}$ → sinx tanx\n指数対数関数 $\\exp{x}, \\log{x}$ → expx logx\nテキスト内の立体 (roman style) $a\\;\\mathrm{over}\\;b$ → amathrmoverb"
+    "text": "Jupyter notebook のセルには、複数の種類(Cell type)がある。既定のセルの Cell type は、Code である。 プログラム片を入力して、SHIFT+ENTERを押して実行すると、 出力セルに実行結果が表示される。Cell type を Markdown に変更すると、 Markdown 記式によるテキストを入力できる。Markdown 記式でテキストを入力し、 SHIFT+ENTERを押して実行すると、 Markdown記式で整形された文書が表示される。Markdown CellsMarkdown記法では、空行が段落の区切りである。 空行をはさまない行替えは、前の行に続けて、同じ段落に配置される。文字列の飾りは、たくさん使用しない方がよい。URLリンクを書くには、次のように記述する。 [ 表示名 ]( URL )例[Julia 0.6 Documentation(https://docs.julialang.org/en/v0.6/)Julia 0.6 DocumentationMarkdown記法では、数式を挿入することができる。 ダラー記号 $ 一つで囲まれた数式は行内数式 (inline mathh)、 ダラー記号 $ 二つで囲まれた数式は別行立て数式 (display mathh)である。 数式そのものは LaTeX 記法で記述する。 いくつか例を示す。数式内の文字は変数とみなされ、斜体で表される。 $x+1$ → x+1\n上付き $x^{2}$ → x^2\n下付き $x_{3}$ → x_3\n分数 $\\dfrac{a}{b}$ → dfracab\n関数 $f(x) = x^{2}+1$ → f(x) = x^2+1\n三角関数 $\\sin{x}, \\tan{x}$ → sinx tanx\n指数対数関数 $\\exp{x}, \\log{x}$ → expx logx\nテキスト内の立体 (roman style) $a\\;\\mathrm{over}\\;b$ → amathrmoverb"
 },
 
 {
@@ -301,7 +301,23 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 正弦関数・余弦関数を描く",
     "category": "section",
-    "text": "正弦 y = sinx\n余弦 y = cosxラジアン単位の正弦、余弦 sin, cosusing PyPlot\nclf() #hide\nxs=-2pi:pi/360:2pi\nplot(xs, cos.(xs), label=\"cos\")\nplot(xs, sin.(xs), label=\"sin\")\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-sin1-plot.svg\"); nothing # hide(Image: )円周率単位の正弦、余弦 sinpi, cospiusing PyPlot\nclf() #hide\nxs=-2:1/360:2\nplot(xs, cospi.(xs), label=\"cospi\")\nplot(xs, sinpi.(xs), label=\"sinpi\")\nxlabel(\"pi\")\nlegend()\nsavefig(\"ch03-sin2-plot.svg\"); nothing # hide(Image: )"
+    "text": "正弦 y = sinx\n余弦 y = cosx"
+},
+
+{
+    "location": "ch03.html#ラジアン単位-1",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "ラジアン単位",
+    "category": "section",
+    "text": "Base.cos\nBase.sinラジアン単位の正弦、余弦 sin, cosusing PyPlot\nclf() #hide\nxs=-2pi:pi/360:2pi\nplot(xs, cos.(xs), label=\"cos\")\nplot(xs, sin.(xs), label=\"sin\")\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-sin1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch03.html#円周率単位-1",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "円周率単位",
+    "category": "section",
+    "text": "Base.Math.cospi\nBase.Math.sinpi円周率単位の正弦、余弦 sinpi, cospiusing PyPlot\nclf() #hide\nxs=-2:1/360:2\nplot(xs, cospi.(xs), label=\"cospi\")\nplot(xs, sinpi.(xs), label=\"sinpi\")\nxlabel(\"pi\")\nlegend()\nsavefig(\"ch03-sin2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -309,7 +325,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "角度単位",
     "category": "section",
-    "text": "角度単位の正弦、余弦 sind, cosdusing PyPlot\nclf() #hide\nxs=-360:1:360\nplot(xs, cosd.(xs), label=\"cosd\")\nplot(xs, sind.(xs), label=\"sind\")\nxlabel(\"degree\")\nlegend()\nsavefig(\"ch03-sin3-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.Math.cosd\nBase.Math.sind角度単位の正弦、余弦 sind, cosdusing PyPlot\nclf() #hide\nxs=-360:1:360\nplot(xs, cosd.(xs), label=\"cosd\")\nplot(xs, sind.(xs), label=\"sind\")\nxlabel(\"degree\")\nlegend()\nsavefig(\"ch03-sin3-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch03.html#ラジアンと角度との相互変換-1",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "ラジアンと角度との相互変換",
+    "category": "section",
+    "text": "Base.Math.rad2deg\nBase.Math.deg2rad"
 },
 
 {
@@ -317,7 +341,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 楕円を描く",
     "category": "section",
-    "text": "楕円を陰関数で表示すると、left(fracxaright)^2+left(fracxbright)^2 = 1楕円を媒介変数表示(パラメータ曲線)するとbeginalign*x  = a cos theta y  = b sin theta endalign*媒介変数表示を用いて、楕円上の各点を計算しよう。using PyPlot\nclf() #hide\nts=0:pi/18:2pi\nxs=2*cos.(ts)\nys=sin.(ts)\nplot(xs,ys)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-ell1-plot.svg\"); nothing # hide(Image: )"
+    "text": "楕円を陰関数で表示するとleft(fracxaright)^2+left(fracxbright)^2 = 1楕円を媒介変数表示(パラメータ曲線)するとbeginalign*x  = a cos theta y  = b sin theta endalign*媒介変数表示を用いて、楕円上の各点の座標を計算する。using PyPlot\nclf() #hide\nts=0:pi/18:2pi\nxs=2*cos.(ts)\nys=sin.(ts)\nplot(xs,ys)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-ell1-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -349,7 +373,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 指数関数を描く",
     "category": "section",
-    "text": "y=a^x quad a  0using PyPlot\nclf() #hide\nxs=-10:0.01:10\nplot(xs, 2.^xs)\nsavefig(\"ch03-exp1-plot.svg\"); nothing # hide(Image: )clf() #hide\nplot(xs, 2.^xs)\nplot(xs, 3.^xs)\nplot(xs, 4.^xs)\nplot(xs, 5.^xs)\nxlim(0,3)\nylim(0,100)\nsavefig(\"ch03-exp2-plot.svg\"); nothing # hide(Image: )clf() #hide\nplot(xs, 2.^xs, label=\"a=\"*string(2))\nplot(xs, 3.^xs, label=\"a=\"*string(3))\nplot(xs, 4.^xs, label=\"a=\"*string(4))\nplot(xs, 5.^xs, label=\"a=\"*string(5))\nplot(xs, 6.^xs, label=\"a=\"*string(6))\nlegend()\nxlim(0,3)\nylim(0,100)\nsavefig(\"ch03-exp3-plot.svg\"); nothing # hide(Image: )定数 eは、自然対数の底である。e関数 xscale, yscale は、 それぞれ x軸、y軸のスケールを指定する関数である。 何も指定しない場合（既定値）は 線形 linear である。 log を指定すると、10の対数で、その軸を描く。using PyPlot #hide\nclf() #hide\nfor a in [2,e,3,4,5,6]\n  plot(xs, a.^xs, label=\"a=\"*string(a))\nend\nyscale(\"log\")\nxlim(-1,3)\nylim(1e-1,1e3)\nlegend()\nsavefig(\"ch03-exp4-plot.svg\"); nothing # hide(Image: )exp2 : 底が 2 の指数関数\nexp : 自然対数 (底は、自然対数の底)\nexp10 : 底が 10 の指数関数clf() #hide\nplot(xs, exp2.(xs), label=\"exp2\")\nplot(xs, exp.(xs), label=\"exp\")\nplot(xs, exp10.(xs), label=\"exp10\")\nyscale(\"log\")\nxlim(-1,3)\nylim(1e-1,1e3)\nlegend()\nsavefig(\"ch03-exp7-plot.svg\"); nothing # hide(Image: )関数も名前である。clf() #hide\nfor f in [exp2,exp,exp10]\n  plot(xs, f.(xs), label=string(f))\nend\nyscale(\"log\")\nxlim(-1,3)\nylim(1e-1,1e3)\nlegend()\nsavefig(\"ch03-exp8-plot.svg\"); nothing # hide(Image: )"
+    "text": "正の数 a  0を底(exponent)とする指数関数(exponential function)y=a^x底 a=2の場合。using PyPlot\nclf() #hide\nxs=-10:0.01:10\nplot(xs, 2.^xs)\nsavefig(\"ch03-exp1-plot.svg\"); nothing # hide(Image: )底を 2345と変えてみる。x  0 の範囲のみ描く。clf() #hide\nplot(xs, 2.^xs)\nplot(xs, 3.^xs)\nplot(xs, 4.^xs)\nplot(xs, 5.^xs)\nxlim(0,3)\nylim(0,100)\nsavefig(\"ch03-exp2-plot.svg\"); nothing # hide(Image: )凡例(legend）を加える。clf() #hide\nplot(xs, 2.^xs, label=\"a=\"*string(2))\nplot(xs, 3.^xs, label=\"a=\"*string(3))\nplot(xs, 4.^xs, label=\"a=\"*string(4))\nplot(xs, 5.^xs, label=\"a=\"*string(5))\nplot(xs, 6.^xs, label=\"a=\"*string(6))\nlegend()\nxlim(0,3)\nylim(0,100)\nsavefig(\"ch03-exp3-plot.svg\"); nothing # hide(Image: )自然対数の底として、e と eu が定義済みである。e\neu関数 xscale, yscale は、 それぞれ x軸、y軸のスケールを指定する関数である。 何も指定しない場合（既定値）は、線形 linear である。 log を指定すると、10の対数で、その軸を描く。底を変えて、繰り返してみる。a^0=1=10^0 で、曲線が交差している。using PyPlot #hide\nclf() #hide\nfor a in [2,e,3,4,5,6]\n  plot(xs, a.^xs, label=\"a=\"*string(a))\nend\nyscale(\"log\")\nxlim(-1,3)\nylim(1e-1,1e3)\nlegend()\nsavefig(\"ch03-exp4-plot.svg\"); nothing # hide(Image: )底 2 e 10 については、expで始まる関数が定義されている。exp2 : 底が 2 の指数関数\nexp : 自然対数 (底は、自然対数の底)\nexp10 : 底が 10 の指数関数clf() #hide\nplot(xs, exp2.(xs), label=\"exp2\")\nplot(xs, exp.(xs), label=\"exp\")\nplot(xs, exp10.(xs), label=\"exp10\")\nyscale(\"log\")\nxlim(-1,3)\nylim(1e-1,1e3)\nlegend()\nsavefig(\"ch03-exp7-plot.svg\"); nothing # hide(Image: )関数も名前であり、名前をつけること(=変数に代入すること）ができる。 関数のリストを作って for文で繰り返してみよう。 関数名を string関数に与えると、関数名の文字列を返す。clf() #hide\nfor f in [exp2,exp,exp10]\n  plot(xs, f.(xs), label=string(f))\nend\nyscale(\"log\")\nxlim(-1,3)\nylim(1e-1,1e3)\nlegend()\nsavefig(\"ch03-exp8-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -357,7 +381,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 冪乗根を描く",
     "category": "section",
-    "text": "y = sqrtnx = x^frac1nntextrm(x ge 0 : 非負数を定義域とする関数)Base.sqrt : ２乗根Base.Math.cbrt : ３乗根sqrt(2)\nsqrt(3)\nsqrt(-1) # DomainError\nsqrt(complex(-1,0))  # 複素数を引数に与えるusing PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, sqrt.(xs), label=\"sqrt\")\nplot(xs, cbrt.(xs), label=\"cbrt\")\nlegend()\nxscale(\"log\")\nyscale(\"log\")\nxlim(1/2,2)\nylim(1/2,2)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr1-plot.svg\"); nothing # hide(Image: )using PyPlot\nclf() #hide\nxs=0:0.01:3\nfor f in [sqrt,cbrt]\n  plot(xs, f.(xs), label=string(f))\nend\nlegend()\nxscale(\"log\")\nyscale(\"log\")\nxlim(1/2,2)\nylim(1/2,2)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr1L-plot.svg\"); nothing # hide(Image: )using PyPlot\nclf() #hide\nxs=0:0.1:3\nplot(xs, xs.^(1/2), label=2)\nplot(xs, xs.^(1/3), label=3)\nplot(xs, xs.^(1/4), label=4)\nplot(xs, xs.^(1/5), label=5)\nxlim(0,3)\nylim(0,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr2-plot.svg\"); nothing # hide(Image: )using PyPlot\nclf() #hide\nxs=0:0.1:3\nfor n in 2:5\n  plot(xs, xs.^(1/n), label=n)\nend\nxlim(1/3,3)\nylim(1/3,3)\nxscale(\"log\")\nyscale(\"log\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr2L-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.sqrt二乗するとxになる数を、xの平方根 (square root of x)という。 関数 sqrt(x)は xの平方根を求める関数である。sqrt(0)\nsqrt(2)\nsqrt(3)負の数 x  0を関数sqrtの引数（ひきすう)に与えると、 例外（exception)が発生する。 が、複素数を引数として与えると、複素数として計算できる（複素数は、もっと後の回で説明する）。sqrt(-1) # DomainError\nsqrt(complex(-1,0))  # 複素数を引数に与える平方と平方根を同じグラフに描いてみよう。 直線 y=x に対して、鏡の関係になっている。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^2, label=\"square\")\nplot(xs, sqrt.(xs), label=\"square root\")\nplot(xs, xs, \"k\", lw=0.5, label=\"y=x\")\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-sr1-plot.svg\"); nothing # hide(Image: )Base.Math.cbrt三乗するとxになる数を、xの立方根 (cube root of x)という。 関数 cbrt(x)は xの立方根を求める関数である。立方と立方根を同じグラフに描いてみよう。 直線 y=x に対して、鏡の関係になっている。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^3, label=\"cubic\")\nplot(xs, cbrt.(xs), label=\"cube root\")\nplot(xs, xs, \"k\", lw=0.5, label=\"y=x\")\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-cr1-plot.svg\"); nothing # hide(Image: )平方と平方根、立方と立方根を、同じグラフに描こう。 点(11)で、曲線が交差している。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^2, label=\"square\")\nplot(xs, sqrt.(xs), label=\"square root\")\nplot(xs, xs.^3, label=\"cube\")\nplot(xs, cbrt.(xs), label=\"cube root\")\nplot(xs, xs, \"k\", lw=0.5, label=\"y=x\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr1-plot.svg\"); nothing # hide(Image: )関数のリストを作って for文で繰り返してみよう。 （結果のグラフは、上と同じなので省略する）using PyPlot\nclf() #hide\nxs=0:0.01:3\nfor f in [sqrt,cbrt]\n  plot(xs, f.(xs), label=string(f))\nend\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr2-plot.svg\"); nothing # hide![](ch03-pr2-plot.svg)一般に、正数 x  0 と 2以上の整数n に対して、y^n = x の解、 すなわち、y = sqrtnx = x^frac1nを、xのn乗根 (root of n-th power, n-th root)という。nを指定せずに、冪乗根（べきじょうこん）あるいは冪根（べきこん）と総称する。 「冪」の代わりに「巾」の略字を当てることもある。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^(1/2), label=\"n=2\")\nplot(xs, xs.^(1/3), label=\"n=3\")\nplot(xs, xs.^(1/4), label=\"n=4\")\nplot(xs, xs.^(1/5), label=\"n=5\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr3-plot.svg\"); nothing # hide(Image: )指数nで繰り返してみる。using PyPlot\nclf() #hide\nxs=0:0.01:10\nfor n in 2:5\n  plot(xs, xs.^(1/n), label=\"y=x^(1/\" * string(n) *\")\" )\nend\nlegend()\nxlabel(\"x\")\nylabel(\"y\")\nxlim(0.1,10.)\nylim(0.1,10.)\nxscale(\"log\")\nyscale(\"log\")\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nsavefig(\"ch03-pr4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch03.html#自然関数-1",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "▶︎ 自然関数",
+    "category": "section",
+    "text": "Base.log正の数 x0に対して、x=e^y を満たす数 yを、xの自然対数 (natural logarithm of x、Napierian logarithm、あるいは単に、logarithm）といい、logx と書く。$e$は、自然対数の底、あるいはネピア(Napier)の数である。関数 log(x)は、自然対数を求める関数である。log(1)\nlog(e)\nlog(e^2)\nlog(-1) # DomainError線形グラフで描いてみる。using PyPlot\nclf() #hide\nusing PyPlot\nxs=0.1:0.01:100\n0.1:0.01:100.0\nplot(xs, log.(xs))\nsavefig(\"ch03-log1-plot.svg\"); nothing # hide(Image: )片対数グラフで描いてみる。x軸を対数で表示すると、直線で表示される。plot(xs, log.(xs))\nxscale(\"log\")\nsavefig(\"ch03-log2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -365,7 +397,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 対数関数",
     "category": "section",
-    "text": "(正数を定義域とする関数)log(1)\nlog(e)\nlog(e^2)\nlog(-1) # DomainErrorusing PyPlot\nclf() #hide\nusing PyPlot\nxs=0.1:0.01:100\n0.1:0.01:100.0\nplot(xs, log.(xs))\nsavefig(\"ch03-log1-plot.svg\"); nothing # hide(Image: )x軸を対数で表⽰すると、直線で表⽰される。plot(xs, log.(xs))\nxscale(\"log\")\nsavefig(\"ch03-log2-plot.svg\"); nothing # hide(Image: )clf() #hide\nplot(xs, log.(2,xs), label=string(2))\nplot(xs, log.(xs), label=string(e))\nplot(xs, log.(3,xs), label=string(3))\nplot(xs, log.(10,xs), label=string(10))\nxscale(\"log\")\nlegend()\nsavefig(\"ch03-log3-plot.svg\"); nothing # hide(Image: )clf() #hide\nfor a in [2, e, 3, 10]\nplot(xs, log.(a,xs), label=string(a))\nend\nxscale(\"log\")\nlegend()\nsavefig(\"ch03-log4-plot.svg\"); nothing # hide(Image: )clf() #hide\nplot(xs, log2.(xs), label=\"log2\")\nplot(xs, log.(xs), label=\"log\")\nplot(xs, log10.(xs), label=\"log10\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch03-log5-plot.svg\"); nothing # hide(Image: )clf() #hide\nfor f in [log2, log, log10]\nplot(xs, f.(xs), label=string(f))\nend\nxscale(\"log\")\nlegend()\nsavefig(\"ch03-log6-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.log正の数 aに対して、x=a^y を満たす数yを、底aに対する xの対数 ( logarithm of a to base b; base a logarithm of x）といい、log_ayと書く。関数 log(a,y)のように、引数（ひきすう）二つを与えると、 底 aに対する xの対数が得られる。片対数グラフを描く。log_a1=0で曲線が交差する。clf() #hide\nplot(xs, log.(2,xs), label=string(2))\nplot(xs, log.(xs), label=string(e))\nplot(xs, log.(3,xs), label=string(3))\nplot(xs, log.(10,xs), label=string(10))\nxscale(\"log\")\naxhline(0, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nlegend()\nsavefig(\"ch03-log3-plot.svg\"); nothing # hide(Image: )底をfor文で変えてみる。clf() #hide\nfor a in [2, e, 3, 10]\n  plot(xs, log.(a,xs), label=string(a))\nend\nxscale(\"log\")\naxhline(0, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nlegend()\nsavefig(\"ch03-log4-plot.svg\"); nothing # hide(Image: )Base.log2\nBase.log10底 2と10 に対しては、関数 log2と log10 が用意されている。clf() #hide\nplot(xs, log2.(xs), label=\"log2\")\nplot(xs, log.(xs), label=\"log\")\nplot(xs, log10.(xs), label=\"log10\")\nxscale(\"log\")\nlegend()\naxhline(0, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nsavefig(\"ch03-log5-plot.svg\"); nothing # hide(Image: )関数名で繰り返してみる。clf() #hide\nfor f in [log2, log, log10]\n  plot(xs, f.(xs), label=string(f))\nend\nxscale(\"log\")\nlegend()\naxhline(0, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nsavefig(\"ch03-log6-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -381,7 +413,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 自由落下運動を描く",
     "category": "section",
-    "text": "鉛直上向きに投げられた球が、重力のみを感じて自由落下するとする。 時刻 t=0において、高さ y=0, 鉛直上向きの速度 v_0 とすると、 時刻 tにおける、高さ y, 鉛直上向きの速度 v は、以下のように表される。beginalign* v  = v_0 - gt  y  = v_0 t - dfrac12gt^2 endalign*using PyPlot\nclf() #hide\nv0=10 # m/s\ng=9.8 # m/s^2\n\nts=0:0.1:3 # s\nvs=v0-g*ts\nplot(ts,vs)\nsavefig(\"ch04-gy1-plot.svg\"); nothing # hide(Image: )ys=v0*ts-g*ts.^2/2\nplot(ts,ys)\nsavefig(\"ch04-gy2-plot.svg\"); nothing # hide(Image: )clf() #hide\nax1=plt[:subplot]()\nax2=ax1[:twinx]()\nax1[:plot](ts,vs)\nax2[:plot](ts,ys)\nsavefig(\"ch04-gy3-plot.svg\"); nothing # hide(Image: )続けてax1[:set_xlabel](\"time /s\")\nax1[:set_xlim](-0.3,2.3)\nax1[:set_ylim](-12,12)\nax2[:set_ylim](-6,6)\nax1[:set_ylabel](\"velocity / m s^-1\")\nax2[:set_ylabel](\"height / m\")\n\nsavefig(\"ch04-gy4-plot.svg\"); nothing # hide(Image: )続けてax1[:axvline](10/9.8, color=\"k\", lw=0.5)\nax1[:axvline](0, color=\"k\", lw=0.5)\nax1[:axhline](0, color=\"k\", lw=0.5)\nsavefig(\"ch04-gy5-plot.svg\"); nothing # hide(Image: )"
+    "text": "(力学の問題)鉛直上向きに投げられた球が、重力のみを感じて自由落下するとする。 時刻 t=0において、高さ y=0, 鉛直上向きの速度 v_0 とすると、 時刻 tにおける、高さ yと 鉛直上向きの速度 v は、以下のように表される。beginalign* v  = v_0 - gt  y  = v_0 t - dfrac12gt^2 endalign*各時刻の速度を描く。 長さの単位としてメートル m、 時間の単位として秒 s を、(組立て単位を含めて)一貫して用いる。重力加速度 g = 98mathrmms^2初速度を v0 = 10mathrmms^2 としよう。各時刻の速度を描く。using PyPlot\nclf() #hide\nv0=10 # m/s\ng=9.8 # m/s^2\n\nts=0:0.1:3 # s\nvs=v0-g*ts\nplot(ts,vs)\nsavefig(\"ch04-gy1-plot.svg\"); nothing # hide(Image: )各時刻の高さを描く。ys=v0*ts-g*ts.^2/2\nplot(ts,ys)\nsavefig(\"ch04-gy2-plot.svg\"); nothing # hide(Image: )この二つのグラフを、時刻を、共通の横軸にとって描こう。clf() #hide\nax1=plt[:subplot]()\nax2=ax1[:twinx]()\nax1[:plot](ts,vs)\nax2[:plot](ts,ys)\nsavefig(\"ch04-gy3-plot.svg\"); nothing # hide(Image: )各軸に対して、描画範囲を指定する。 各軸オブジェクトに対して関数 set_xlim または set_ylim を用いる。 (関数 xlim または ylim は、軸オブジェクトに対して用いない)共通な下軸に対しては、元の軸オブジェクト ax1に対して指定する。 左軸、右軸は、各軸のオブジェクトに対して指定する。各軸にラベルをつけるには、 各軸オブジェクトに対して関数 set_xlabel または set_ylabel を用いる。 (関数 xlabel または ylabel は、軸オブジェクトに対して用いない)ax1[:set_xlabel](\"time /s\")\nax1[:set_xlim](-0.3,2.3)\nax1[:set_ylim](-12,12)\nax2[:set_ylim](-6,6)\nax1[:set_ylabel](\"velocity / m s^-1\")\nax2[:set_ylabel](\"height / m\")\n\nsavefig(\"ch04-gy4-plot.svg\"); nothing # hide(Image: )各軸に対して、水平線 axvline や垂直線 axvline を描く。時刻 dfracv0g で、速度が 0 となり、最大の高さを取る様子が見える。ax1[:axvline](v0/g, color=\"k\", lw=0.5)\nax1[:axvline](0, color=\"k\", lw=0.5)\nax1[:axhline](0, color=\"k\", lw=0.5)\nsavefig(\"ch04-gy5-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch03.html#練習-2",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "初速度 v0 を変えて描いてみよ。"
 },
 
 {
@@ -389,7 +429,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ ダブルYグラフに共通な凡例の作成",
     "category": "section",
-    "text": "複数軸に共通な凡例を描くには、技巧が少々必要である。using PyPlot\nclf() #hide\nax1=plt[:subplot]()\nax2=ax1[:twinx]()\nax1[:plot](ts,vs, \"b\", label=\"velocity\")\nax2[:plot](ts,ys, \"g\", label=\"height\")\nax1[:set_xlabel](\"time /s\")\nax1[:set_xlim](-0.3,2.3)\nax1[:set_ylim](-12,12)\nax2[:set_ylim](-6,6)\nax1[:set_ylabel](\"velocity / m s^-1\")\nax2[:set_ylabel](\"height / m\")\nax1[:axvline](10/9.8, color=\"k\", lw=0.5)\nax1[:axvline](0, color=\"k\", lw=0.5)\nax1[:axhline](0, color=\"k\", lw=0.5)\n; # hide以上は、前の記述とほぼ同じである。get_legend_handles_labels 関数を用いて、 各軸に含まれる曲線の形状と凡例を取り出す。形状と凡例を結合して、片方の軸に対して、凡例を追加する。lns1, lbl1 = ax1[:get_legend_handles_labels]()\nlns2, lbl2 = ax2[:get_legend_handles_labels]()\nlns  = [ lns1; lns2 ]\nlbls = [ lbl1; lbl2 ]\n\nax2[:legend]( lns, lbls, loc=0)\nsavefig(\"ch04-gy6-plot.svg\"); nothing # hide(Image: )"
+    "text": "複数軸に共通な凡例を描くには、技巧が少々必要である。まず、前節のプログラムをまとめて書こう。 二つの曲線に、色を指定しよう。using PyPlot\nclf() #hide\nax1=plt[:subplot]()\nax2=ax1[:twinx]()\nax1[:plot](ts,vs, \"b\", label=\"velocity\")\nax2[:plot](ts,ys, \"r\", label=\"height\")\nax1[:set_xlabel](\"time /s\")\nax1[:set_xlim](-0.3,2.3)\nax1[:set_ylim](-12,12)\nax2[:set_ylim](-6,6)\nax1[:set_ylabel](\"velocity / m s^-1\")\nax2[:set_ylabel](\"height / m\")\nax1[:axvline](10/9.8, color=\"k\", lw=0.5)\nax1[:axvline](0, color=\"k\", lw=0.5)\nax1[:axhline](0, color=\"k\", lw=0.5)\n; # hide各軸に含まれる曲線の形状と凡例を、 get_legend_handles_labels 関数を用いて、取り出す。二つの軸に含まれる形状と凡例を、それぞれ結合する。 片方の軸に対して、結合した形状と凡例を追加する。lns1, lbl1 = ax1[:get_legend_handles_labels]()\nlns2, lbl2 = ax2[:get_legend_handles_labels]()\nlns  = [ lns1; lns2 ]\nlbls = [ lbl1; lbl2 ]\n\nax2[:legend]( lns, lbls, loc=0)\nsavefig(\"ch04-gy6-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch03.html#練習-3",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "初速度 v0を、色々変えてプロットしてみよ。"
 },
 
 {
@@ -397,7 +445,23 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 複数のグラフを描く",
     "category": "section",
-    "text": "花曲線の例で nを変えてみる。グラフのプロット領域を分割するには、以下の命令を用いる。ax=plt[:subplot](<<ijk>>)<<ijk>>は３桁の整数である。 百の位 iは、縦（行）の分割数、 十の位 jは、横（列）の分割数である。 一の位は、取得するプロット番号であり、 1から順に、左から右、上から下に振られる。using PyPlot\nclf() #hide\nts=0:pi/1800:2pi\nfor i=1:6\n  n=i+2\n  ax=plt[:subplot](330+i)\n  rs=cos.(n*ts)\n  xs=rs .* cos.(ts)\n  ys=rs .* sin.(ts)\n  ax[:plot](xs,ys)\n  ax[:set_xlim](-1,1)\n  ax[:set_ylim](-1,1)\n  ax[:set_aspect](\"equal\")\nend\nsavefig(\"ch03-flo2-plot.svg\"); nothing # hide(Image: )"
+    "text": "花曲線の例で nを変えてみる。グラフのプロット領域を分割するには、以下の命令を用いる。ax=plt[:subplot](ijk)ijk は３桁の整数である。 百の位 iは、縦方向の分割数、 十の位 jは、横報告の分割数である。 一の位は、取得するプロット番号であり、 左から右、上から下に、1から順に振られる。using PyPlot\nclf() #hide\nts=0:pi/1800:2pi\nfor i=1:6\n  n=i+2\n  ax=plt[:subplot](330+i)\n  rs=cos.(n*ts)\n  xs=rs .* cos.(ts)\n  ys=rs .* sin.(ts)\n  ax[:plot](xs,ys)\n  ax[:set_xlim](-1,1)\n  ax[:set_ylim](-1,1)\n  ax[:set_aspect](\"equal\")\nend\nsavefig(\"ch03-flo2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch03.html#練習-4",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "(力学の問題)鉛直上向きに対して 角度 bをつけて投げた球が、重力のみを感じて運動するとき、その球の軌跡を描け。最初は b = 15^circとして描け。次に、角度bを変えた場合を、一つのグラフに示せ。"
+},
+
+{
+    "location": "ch03.html#練習-5",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "ここまで紹介した関数を使って、色々な連続曲線を描いてみよ。 Jupyter notebookの Markdownセルを用いて、説明文も加えよ。"
 },
 
 {
@@ -429,15 +493,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "■ plot関数のフォーマット・パラメータ",
     "category": "section",
-    "text": "前章で見たように、 PyPlotパッケージに含まれplot関数は、 複数回起動する毎に見た目が変わる。plot関数でデータを指定した直後に、 文字列を指定し、見た目を個別に調節できる。 この文字列は fmtパラメータと呼ばれている。fmtパラメータは、 色、マーカー種類、線の見た目を、1文字ないし2文字で指定する。 指定しなければ、規定値が選ばれる。色を変える例using PyPlot\nclf() #hide\nxs=-10:0.01:10\nplot(xs, 9.^xs, \"b\", label=\"b\") # blue\nplot(xs, 8.^xs, \"g\", label=\"g\") # green\nplot(xs, 7.^xs, \"r\", label=\"r\") # red\nplot(xs, 6.^xs, \"c\", label=\"c\") # cyan\nplot(xs, 5.^xs, \"m\", label=\"m\") # magenda\nplot(xs, 4.^xs, \"y\", label=\"y\") # yellow\nplot(xs, 3.^xs, \"k\", label=\"k\") # black\nplot(xs, 2.^xs, \"w\", label=\"w\") # white (白背景では見えない)\nxlim(0,3)\nylim(0,100)\nlegend()\nsavefig(\"ch03-pyplot1-plot.svg\"); nothing # hide(Image: )マーカーの形を変える例。 マーカーの色は全て青としたusing PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^2,     \"b.\", label=\".\") # point\nplot(xs, xs.^2 -2,  \"b,\", label=\",\") # pixel\nplot(xs, xs.^2 -4,  \"bo\", label=\"o\") # circle\nplot(xs, xs.^2 -6,  \"bs\", label=\"s\") # square\nplot(xs, xs.^2 -8,  \"b*\", label=\"*\") # star\nplot(xs, xs.^2 -10, \"b+\", label=\"+\") # plus\nplot(xs, xs.^2 -12, \"bx\", label=\"x\") # x\nplot(xs, xs.^2 -14, \"bD\", label=\"D\") # diamond\nplot(xs, xs.^2 -16, \"bd\", label=\"d\") # thin diamond\nxlim(-3,3)\n# ylim(-2,20)\nlegend()\nsavefig(\"ch03-pyplot2-plot.svg\"); nothing # hide(Image: )線のスタイルを変える例using PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^3-xs.^2,   \"r-\",  label=\"-\")  # solid line\nplot(xs, xs.^3-xs.^2-2, \"r--\", label=\"--\") # dashed line\nplot(xs, xs.^3-xs.^2-4, \"r-.\", label=\"-.\") # dash-dot line\nplot(xs, xs.^3-xs.^2-6, \"r:\",  label=\":\")  # dotted line xlim(-2.2,2.2)\nlegend()\nsavefig(\"ch03-pyplot3-plot.svg\"); nothing # hide(Image: )"
+    "text": "PyPlotパッケージに含まれplot関数は、 複数回起動する毎に見た目が変わる。見た目を個別に変えるには、plot関数のデータを指定した直後に、 文字列(fmtパラメータ) を指定する。fmtパラメータは、 色、マーカー種類、線の見た目を、1文字ないし2文字で指定する。 指定しなければ、規定値が選ばれる。色を変える例using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, 9.^xs, \"b\", label=\"b\") # blue\nplot(xs, 8.^xs, \"g\", label=\"g\") # green\nplot(xs, 7.^xs, \"r\", label=\"r\") # red\nplot(xs, 6.^xs, \"c\", label=\"c\") # cyan\nplot(xs, 5.^xs, \"m\", label=\"m\") # magenda\nplot(xs, 4.^xs, \"y\", label=\"y\") # yellow\nplot(xs, 3.^xs, \"k\", label=\"k\") # black\nplot(xs, 2.^xs, \"w\", label=\"w\") # white (白背景では見えない)\nxlim(0,3)\nylim(0,100)\nlegend()\nsavefig(\"ch03-pyplot1-plot.svg\"); nothing # hide(Image: )マーカーの形を変える例。 マーカーの色は全て青としたusing PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^2,     \"b.\", label=\".\") # point\nplot(xs, xs.^2 -2,  \"b,\", label=\",\") # pixel\nplot(xs, xs.^2 -4,  \"bo\", label=\"o\") # circle\nplot(xs, xs.^2 -6,  \"bs\", label=\"s\") # square\nplot(xs, xs.^2 -8,  \"b*\", label=\"*\") # star\nplot(xs, xs.^2 -10, \"b+\", label=\"+\") # plus\nplot(xs, xs.^2 -12, \"bx\", label=\"x\") # x\nplot(xs, xs.^2 -14, \"bD\", label=\"D\") # diamond\nplot(xs, xs.^2 -16, \"bd\", label=\"d\") # thin diamond\nxlim(-3,3)\nlegend()\nsavefig(\"ch03-pyplot2-plot.svg\"); nothing # hide(Image: )線のスタイルを変える例using PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^3-xs.^2,   \"r-\",  label=\"-\")  # solid line\nplot(xs, xs.^3-xs.^2-2, \"r--\", label=\"--\") # dashed line\nplot(xs, xs.^3-xs.^2-4, \"r-.\", label=\"-.\") # dash-dot line\nplot(xs, xs.^3-xs.^2-6, \"r:\",  label=\":\")  # dotted line xlim(-2.2,2.2)\nlegend()\nsavefig(\"ch03-pyplot3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch04.html#不連続-1",
+    "location": "ch04.html#0による除算-1",
     "page": "第4回：▶︎ 不連続な曲線を描く",
-    "title": "▶︎ 不連続",
+    "title": "■ 0による除算",
     "category": "section",
-    "text": ""
+    "text": "筆算では 0による除算の結果は未定義である。Julia では、0による除算は、例外は発生せず、 「数でない数」 Inf, -Inf, NaN のどれかが得られる。Infは、無限大 Infinity に由来する。 NaNは、数でない Not a Number に由来する。1 / 0\n-1 / 0\n0 / 0"
 },
 
 {
@@ -445,7 +509,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 逆数関数を描く",
     "category": "section",
-    "text": "using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro1-plot.svg\"); nothing # hide(Image: )"
+    "text": "逆数関数 reciprocal function という。 逆関数 inverse function と区別されたい。逆数関数 y=dfrac1x を描く。dfrac00の値はInfであるが、 plot関数は「数でない数」をスキップして何も描かない。 0による除算を、特別扱いする必要はない。不連続な関数で、連続な部分を枝 (branch) という。逆数関数は、x=0で不連続であり、xの正負に対応して二つの枝を持つ。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro1-plot.svg\"); nothing # hide(Image: )続けて、水平線、垂直線、y=x, y=-x を追加しよう。原点 (00)に対して、plot(xs,xs, color=\"k\", lw=0.5)\nplot(xs,-1*xs, color=\"k\", lw=0.5)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -453,7 +517,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 不連続な有理式を描く",
     "category": "section",
-    "text": "y = dfracx^3+8x^3+3x^2-4x-12using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, xs.^3+3xs.^2-4*xs-12)\nylim(-20,20)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis1-plot.svg\"); nothing # hide(Image: )clf() #hide\nxs=-20:0.05:20\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis2-plot.svg\"); nothing # hide(Image: )clf() #hide\nxs=-30:0.05:30\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-3,3)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis3-plot.svg\"); nothing # hide(Image: )"
+    "text": "以下の有理関数を描こう y = dfracx^3+8x^3+3x^2-4x-12まず、分母を描く。 分母は x=-3 -2 2で 0 となるから、 上の関数は、この三点で不連続となる可能性がある。using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, xs.^3+3xs.^2-4*xs-12)\nylim(-20,20)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis1-plot.svg\"); nothing # hide(Image: )上の関数を描いてみる。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis2-plot.svg\"); nothing # hide(Image: )実際には、x=-2では不連続ではない。 分子・分母は共通項 (x+2) で約分できるからである。 もう少し、横軸の範囲を狭めてみる。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-3,3)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -461,7 +525,31 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 正接関数・余接関数を描く",
     "category": "section",
-    "text": "正接 y = tanx\n余接 y = cotxラジアン単位 tan, cotusing PyPlot\nclf() #hide\nxs=-2pi:pi/360:2pi\nplot(xs, tan.(xs), label=\"tan\")\nplot(xs, cot.(xs), label=\"cot\")\nylim(-1e1, 1e1)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1-plot.svg\"); nothing # hide(Image: )角度単位 tand, cotdusing PyPlot\nclf() #hide\nxs=-360:1:360\nplot(xs, tand.(xs), label=\"tand\")\nplot(xs, cotd.(xs), label=\"cotd\")\nxlabel(\"degree\")\nylim(-1e1, 1e1)\nlegend()\nsavefig(\"ch03-tan2-plot.svg\"); nothing # hide(Image: )"
+    "text": "正接 y = tanx\n余接 y = cotx"
+},
+
+{
+    "location": "ch04.html#ラジアン単位-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "ラジアン単位",
+    "category": "section",
+    "text": "Base.tan)\nBase.cot)using PyPlot\nclf() #hide\nxs=-2pi:pi/360:2pi\nplot(xs, tan.(xs), label=\"tan\")\nplot(xs, cot.(xs), label=\"cot\")\nylim(-1e1, 1e1)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch04.html#角度単位-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "角度単位",
+    "category": "section",
+    "text": "Base.Math.tand)\nBase.Math.cotd)using PyPlot\nclf() #hide\nxs=-360:1:360\nplot(xs, tand.(xs), label=\"tand\")\nplot(xs, cotd.(xs), label=\"cotd\")\nxlabel(\"degree\")\nylim(-1e1, 1e1)\nlegend()\nsavefig(\"ch03-tan2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch04.html#周期関数-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "■ 周期関数",
+    "category": "section",
+    "text": "横軸をTだけ平行移動しても、 元の形に重なる関数を周期関数 (periodic function)という。 T は、周期 (period) と呼ばれる。 f(t+T) = f(t)ラジアン単位の正接関数 tan は、周期 2piである。 平行移動して重なることを、図示してみよう。using PyPlot\nclf() #hide\nxs=-2pi:pi/18:2pi\nplot(xs, tan.(xs),      \"bo\", label=\"tan\")\nplot(xs, tan.(xs+2*pi), \"r.\", label=\"tan, shifted by 2pi\")\nylim(-1e1, 1e1)\nxlim(-1.2*pi, 1.2*pi)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1t-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -469,7 +557,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 符号関数を描く",
     "category": "section",
-    "text": "Base.signusing PyPlot\nclf() #hide\nusing PyPlot\nxs=-6.4:0.1:6.4\n-6.4:0.1:6.4\nplot(xs, sign.(xs), \".\")\nsavefig(\"sign1-plot.svg\"); nothing # hide(Image: )clf() #hide\nplot(xs, sign.( cos.(xs)), \".\")\nsavefig(\"sign2-plot.svg\"); nothing # hide(Image: )clf() #hide\nplot(xs, sign.( cos.(xs*2/pi)), \".\")\nsavefig(\"sign3-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.sign関数 sign(x)は、x  0なら1、x=1なら0、x  0なら -1 をそれぞれ返す。using PyPlot\nclf() #hide\nusing PyPlot\nxs=-6.4:0.1:6.4\n-6.4:0.1:6.4\nplot(xs, sign.(xs), \".\")\nsavefig(\"ch04-sign1-plot.svg\"); nothing # hide(Image: )周期関数を描くのに、用いることができる。clf() #hide\nplot(xs, sign.( cos.(xs)), \".\")\nsavefig(\"ch04-sign2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch04.html#練習-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "上のような、二つの数を交互にとる周期関数を方形波 (square wave)という。 この例の周期はいくつか？ 周期が 1 になるように、修正してみよ。"
 },
 
 {
@@ -477,7 +573,23 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 絶対値関数",
     "category": "section",
-    "text": "using PyPlot\nclf() #hide\nxs=-1:0.1:1\nplot(xs,abs.(xs))\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"abs1-plot.svg\"); nothing # hide(Image: )"
+    "text": "using PyPlot\nclf() #hide\nxs=-1:0.1:1\nplot(xs,abs.(xs))\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-abs1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch04.html#クランプ関数-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "▶︎ クランプ関数",
+    "category": "section",
+    "text": "Base.Math.clamp関数 clamp(x, lo, hi)は、上限と下限で制限する関数である。 すなわち、xの値が hi よりも大きければ hiを、lo よりも大きければ loを返す。 どちらでもなければ、そのままの値を返す。using PyPlot\nclf() #hide\nxs=-5:0.1:5\nplot(xs,clamp.(xs,-1,2))\nxlim(-5,5)\nylim(-5,5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-clamp1-plot.svg\"); nothing # hide(Image: )using PyPlot\nclf() #hide\nxs=-5:0.1:5\nplot(xs,clamp.(xs,-pi,pi))\nxlim(-5,5)\nylim(-5,5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-clamp2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch04.html#練習-2",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "ここまで紹介した関数を使って、色々な不連続曲線や周期関数を描いてみよ。 Jupyter notebookの Markdownセルを用いて、説明文も加えよ。"
 },
 
 {
@@ -485,7 +597,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "★ 今回のまとめ",
     "category": "section",
-    "text": ""
+    "text": "0による除算\n逆数関数\n不連続な有理式\n正接・余接関数\n符号関数\n絶対値関数"
 },
 
 {
@@ -505,14 +617,6 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch05.html#論理演算-1",
-    "page": "第5回：■ 条件式・■ 条件分岐",
-    "title": "■ 論理演算",
-    "category": "section",
-    "text": "否定 !\n論理積 &&\n論理和 ||"
-},
-
-{
     "location": "ch05.html#数の大小比較-1",
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "■ 数の大小比較",
@@ -521,19 +625,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch05.html#ab,-(a,b)-1",
-    "page": "第5回：■ 条件式・■ 条件分岐",
-    "title": "a>b, >(a,b)",
-    "category": "section",
-    "text": ""
-},
-
-{
     "location": "ch05.html#if文-1",
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "■ if文",
     "category": "section",
-    "text": "Conditional Evaluationif文は、条件式をとる。 条件式の値が true なら、if文の次の文から、end, else, elseif が出現するまでの文を実行する。 条件が成り立つときだけに実行される部分をブロック(block)という。 ブロックは、字下げで表記される。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nendelse文が続く場合がある。 条件式の値が false なら、else文の次の文から、end が出現するまでの文 (elseブロック)を実行する。x=1\ny=2\nif x < y\n　println(\"x は y より小さい\")\nelse\n　println(\"x は y より小さくない\")\nendelse文の前に、elseif文文が続く場合がある。 最初の if文の条件式が false なら、 elseif文の条件式を計算し、それが true なら、elseif 文の次の文から、elseifまたはend が出現するまでの文 (elseifブロック)を実行する。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nelseif x > y\n　println(\"x は y より大きい\")\nelse\n  println(\"x は y と等しい\")\nendx=40\nm=if     x >= 100\n  println(\"x は 100 以上である\")\nelseif x >= 50\n  println(\"x は 50 以上である\")\nelseif x >= 20\n  println(\"x は 20 以上である\")\nelse\n  println(\"x は 20 よりも小さい\")\nend\n@show m"
+    "text": "Conditional Evaluationif文は、条件式をとる。 条件式の値が true なら、if文の次の文から、end, else, elseif が出現するまでの文を実行する。 条件が成り立つときだけに実行される部分をブロック(block)という。 ブロックは、字下げで表記される。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nendelse文が続く場合がある。 条件式の値が false なら、else文の次の文から end が出現するまでの文 (elseブロック)を実行する。x=1\ny=2\nif x < y\n　println(\"x は y より小さい\")\nelse\n　println(\"x は y より小さくない\")\nendelse文の前に、elseif文が続く場合がある。 最初の if文の条件式が false なら、 elseif文の条件式を計算し、それが true なら、elseif 文の次の文から、elseifまたはend が出現するまでの文 (elseifブロック)を実行する。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nelseif x > y\n　println(\"x は y より大きい\")\nelse\n  println(\"x は y と等しい\")\nendx=40\nm=if     x >= 100\n  println(\"x は 100 以上である\")\nelseif x >= 50\n  println(\"x は 50 以上である\")\nelseif x >= 20\n  println(\"x は 20 以上である\")\nelse\n  println(\"x は 20 よりも小さい\")\nend\n@show m"
 },
 
 {
@@ -549,15 +645,23 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "■ 3項演算子",
     "category": "section",
-    "text": "a ? b : cm= 2 > 1 ? \"yes\" : \"no\"\n@show m"
+    "text": "Operatorsa ? b : c条件aが真(true)なら bを、偽なら c を値とする「マクロ」である。m= 2 > 1 ? \"yes\" : \"no\"\n@show m"
 },
 
 {
-    "location": "ch05.html#短絡評価-1",
+    "location": "ch05.html#論理演算-1",
     "page": "第5回：■ 条件式・■ 条件分岐",
-    "title": "■ 短絡評価",
+    "title": "■ 論理演算",
     "category": "section",
-    "text": "Short-Circuit Evaluation"
+    "text": "論理否定 !論理積 &&論理和 ||## ■ 短絡評価\n\n[Short-Circuit Evaluation](https://docs.julialang.org/en/v0.6.4/manual/control-flow/#Short-Circuit-Evaluation-1)\n\n論理積 `a && b` を評価する場合、\n`a` が 偽 `false`なら、`b`を評価しない。\n`a` が 真 `false`なら、`b` も評価する。\n\n論理和 `a || b` を評価する場合、\n`a` が 真 `true` なら、`b`を評価しない。\n`a` が 偽 `true` なら、`b` も評価する。"
+},
+
+{
+    "location": "ch05.html#格子点による平面領域の塗り分け-1",
+    "page": "第5回：■ 条件式・■ 条件分岐",
+    "title": "▶︎ 格子点による平面領域の塗り分け",
+    "category": "section",
+    "text": "平面座標 0 le x le 1 0 le y le 0 の範囲に、 格子点を配置しよう。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、それ以外を青で色分けして示そう。二重の繰り返し (二重ループ)を用いた。刻み幅は各軸 0.025 と選んだので、 格子点の個数は {40}\\times{40}=1600 個である。赤色の範囲は、4分円となる。using PyPlot\nclf() #hide\nfor y=0:0.025:1\n  for x=0:0.025:1\n    c = x*x + y*y <= 1 ? \"r\" : \"b\"\n    plot(x,y,\".\", color=c)\n  end\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-lattice-plot.svg\"); nothing # hide(Image: )今度は、二つの不等式 y  x と y  1-xの両方に囲まれる領域を、赤で示そう。二重ループを一つの for文にまとめた。for文の右側に書かれたループ変数が内側のループに相当する。using PyPlot\nclf() #hide\nfor y=0:0.025:1, x=0:0.025:1\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-lattice-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -565,15 +669,55 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "▶︎ 擬似乱数",
     "category": "section",
-    "text": "Random NumbersBase.Random.randrand() 0から1未満の小数の乱数を出す擬似乱数Base.Random.srandBase.Random.srandrand()\nrand()\nrand()rand( コレクション ) とすると、コレクションのうち、 一つの要素を選ぶ擬似乱数。"
+    "text": "計算機で発生する乱数を、擬似乱数 (pseudorandom numbers)という。note: Note\n本来の意味の「乱数」は、計算する方法がないはずである。 にもかかわらず、ある手順で乱数を発生しているので「擬似乱数」という。Random NumbersBase.Random.rand関数 rand()は、0から1未満の擬似乱数を発生する。rand()\nrand()\nrand()Base.Random.srand関数 srand(n)は、擬似乱数の種をリセットする。 種には、0から2^32-1までの整数を指定する。 同じ種を指定すると、同じ擬似乱数の系列を発生する。srand(1234)\nrand()\nrand()\nrand()"
 },
 
 {
-    "location": "ch05.html#モンテカルロ法-1",
+    "location": "ch05.html#乱数による平面領域の塗り分け-1",
     "page": "第5回：■ 条件式・■ 条件分岐",
-    "title": "▶︎ モンテカルロ法",
+    "title": "▶︎ 乱数による平面領域の塗り分け",
     "category": "section",
-    "text": "第一象限 x ge 0 y ge 0 x^2+y^2 lt 1半円の面積 fracpi4using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  c = x*x + y*y <= 1 ? \"r\" : \"b\"\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-random-plot.svg\"); nothing # hide(Image: )n=2^10\ns=0\nfor i=1:n\n  x=rand()\n  y=rand()\n  if x*x + y*y <= 1\n    s += 1\n  end\nend\n@show s/n; #hideusing PyPlot\nclf() #hide\nfor m in 1:14\n  n=2^m\n  s=0\n  for i=1:n\n    x=rand()\n    y=rand()\n    if x*x + y*y <= 1\n      s += 1\n    end\n  end\n  plot(n, s/n, \".\")\nend\nylim(0.9*pi/4, 1.1*pi/4)\nxscale(\"log\")\naxhline(pi/4, color=\"k\", lw=0.5)\nsavefig(\"ch05-qc1-plot.svg\"); nothing # hide(Image: )"
+    "text": "関数 rand() を2回用いて、座標点 (x,y) を発生しよう。 点の数を増やすと、これらの点は、平面の第一象限 0 le x lt 1 0 le y lt 0 の範囲を埋め尽くすはずである。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、 それ以外を青で色分けして示そう。点の個数は 2^10=1024 である。 格子点に比べて点の数は少ないが、特徴を捉えている。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  c = x*x + y*y <= 1 ? \"r\" : \"b\"\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-random-plot.svg\"); nothing # hide(Image: )今度は、 二つの不等式 y  x と y  1-x の両方に囲まれる領域だけ、赤で示そう。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-random-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch05.html#モンテカルロ法による平面図形の面積の推定-1",
+    "page": "第5回：■ 条件式・■ 条件分岐",
+    "title": "▶︎ モンテカルロ法による平面図形の面積の推定",
+    "category": "section",
+    "text": "以上の例で、ランダムに落とした点の総数のうち、 図形の中に入った数を数えよう。 両者の割合から、図形の面積を推定できる。 これを、モンテカルロ (Monte Carlo)法による面積の算出法という。まず、4分円の面積を推定しよう。n=2^10\ns=0\nfor i=1:n\n  x=rand()\n  y=rand()\n  if x*x + y*y <= 1\n    s += 1\n  end\nend\n@show s/n; #hide\n@show pi/4; #hide\n@show (s/n - pi/4)/(pi/4) #hide4分円の面積は dfracpi4である。 点数 1024個で、相対誤差 2% 程度の、面積推定値が得られた。今度は、点の総数に対して、面積の推定値を描いてみる。using PyPlot\nclf() #hide\nfor m in 1:16\n  n=2^m\n  s=0\n  for i=1:n\n    x=rand()\n    y=rand()\n    if x*x + y*y <= 1\n      s += 1\n    end\n  end\n  plot(n, s/n, \".\")\n  @show n, s/n\nend\nylim(0.9*pi/4, 1.1*pi/4)\nxlabel(\"n\")\nxscale(\"log\")\naxhline(pi/4, color=\"k\", lw=0.5)\nsavefig(\"ch05-qc1-plot.svg\"); nothing # hide(Image: )正しい面積との相対誤差を、点の総数に対して描いてみる。using PyPlot\nclf() #hide\nfor m in 1:16\n  n=2^m\n  s=0\n  for i=1:n\n    x=rand()\n    y=rand()\n    if x*x + y*y <= 1\n      s += 1\n    end\n  end\n  plot(n, abs(s/n-pi/4)/(pi/4), \".\")\nend\nxlabel(\"n\")\nxscale(\"log\")\nyscale(\"log\")\nsavefig(\"ch05-qc2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch05.html#練習-1",
+    "page": "第5回：■ 条件式・■ 条件分岐",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "モンテカルロ法を用いて、面積を推定せよ。 余裕があれば、点数に対する相対誤差の変化も描いてみよ。二つの不等式 y  x と y  1-x の両方に囲まれる領域\n点 (0,0)と点(1,0)を一辺とし、第一象限に描かれた正三角形\n中心 left(dfrac12dfrac12right) ,　半径 dfrac12 の円"
+},
+
+{
+    "location": "ch05.html#ユーザ定義関数-(代入文の形式)-1",
+    "page": "第5回：■ 条件式・■ 条件分岐",
+    "title": "■ ユーザ定義関数 (代入文の形式)",
+    "category": "section",
+    "text": "1行によるユーザ定義関数の例を、以下に示す。f(x)=x*2-1(の前が、ユーザ定義関数の名前である。 関数名の規則は、■ 変数名の規則 と同じである。括弧 () の中に、変数名の並びを記述する。 この変数名を、仮引数(「かり・ひきすう」)という。=より右が、関数の定義である。 具体的な値（実引数「じつ・ひきすう」)を入れて、 関数を評価する (evaluate)。 関数の定義の中に出現した仮引数は、実引数の値に置き換えられる。f(0)\nf(1)実引数にベクトルなどを与えて、各要素に対して評価する場合には、 関数名の直後にピリオド .を置く。f.([1,2,3])\nf.(0:5)仮引数は、2個以上でもよい。g(x,y)=x*y\ng(1,1)\ng(\"a \",\" b\")数同士の * 演算は、数の乗算である。 文字列同士の *演算は、文字列の連結である。引数の型にあわせて、正しい演算が得られていることに着目せよ。"
+},
+
+{
+    "location": "ch05.html#「はさみうち」法による、方程式の求解-1",
+    "page": "第5回：■ 条件式・■ 条件分岐",
+    "title": "▶︎ 「はさみうち」法による、方程式の求解",
+    "category": "section",
+    "text": "f(x)=x^3+3x^2-4*x-12\nxs=-3.5:0.05:3\n\nusing PyPlot\nclf() #hide\nplot(xs, f.(xs))\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch05-secant1-plot.svg\"); nothing # hide(Image: )連続な関数 f(x) が、 区間 a lt x lt b で単調（単調増加または単調減少）であるとする。 ここで、f(a)とf(b)との符号が異なる f(a)cdot f(b)lt 0 のとき、 方程式 f(x)=0 の解は a lt x lt b の区間にある。ここで、a と b との中点 c=dfraca+b2 をとり、 f(a)とf(c)が同じ符号であれば 左端aをcに更新する。 逆に、f(b)とf(c)が同じ符号であれば 右端bをcに更新する。この手順を繰り返すことで、 方程式 f(x)=0 の解が存在する区間を狭めていくことができる。 この手法を「はさみうち」法という。上の関数f(x) で a=-35 b=-22 と選び、 この手順を数回繰り返してみる。# f(x)=x^3+3x^2-4*x-12\na=-3.2; b=-2.2\n@show a,b\n@show f(a),f(b)\nfor i=1:10\n  c=(a+b)/2\n  @show i, f(c), c, a,b    \n  if f(a)*f(c) > 0\n    a = c\n  elseif f(b)*f(c) > 0\n    b = c\n  end\nendこの範囲の解は x=-3である。@show f(-3)区間がせばまる様子を、グラフに描いてみよう。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.65\nfor i=1:15\n  plot(b,i, \"ro\")\n  plot(a,i, \"b.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  elseif f(b)*f(c) > 0\n    b = c\n  end\nend\nxlabel(\"x\")\nylabel(\"i\")\nsavefig(\"ch05-secant2-plot.svg\"); nothing # hide(Image: )今度は、区間の幅 b-aをプロットしよう。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.65\nfor i=1:30\n  plot(i, b-a, \"r.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  elseif f(b)*f(c) > 0\n    b = c\n  end\nend\nyscale(\"log\")\nylabel(\"b-a\")\nxlabel(\"i\")\n\nsavefig(\"ch05-secant3-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch05.html#練習-2",
+    "page": "第5回：■ 条件式・■ 条件分岐",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "同じ関数で、異なる区間で、はさみうち法を試してみよ。\n異なる関数について、はさみうち法を試してみよ。\n上のプログラムは、うまく働かない場合（解の存在区間が、せばまらない）がある。どのような場合か？ 具体例で示せ。改善を試みよ。"
 },
 
 {
