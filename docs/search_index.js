@@ -581,7 +581,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ クランプ関数",
     "category": "section",
-    "text": "Base.Math.clamp関数 clamp(x, lo, hi)は、上限と下限で制限する関数である。 すなわち、xの値が hi よりも大きければ hiを、lo よりも大きければ loを返す。 どちらでもなければ、そのままの値を返す。using PyPlot\nclf() #hide\nxs=-5:0.1:5\nplot(xs,clamp.(xs,-1,2))\nxlim(-5,5)\nylim(-5,5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-clamp1-plot.svg\"); nothing # hide(Image: )using PyPlot\nclf() #hide\nxs=-5:0.1:5\nplot(xs,clamp.(xs,-pi,pi))\nxlim(-5,5)\nylim(-5,5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-clamp2-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.Math.clamp関数 clamp(x, lo, hi)は、上限と下限で制限する関数である。 すなわち、xの値が hi よりも大きければ hiを、lo よりも大きければ loを返す。 どちらでもなければ、そのままの値を返す。using PyPlot\nclf() #hide\nxs=-5:0.1:5\nplot(xs,clamp.(xs,-1,2))\nxlim(-5,5)\nylim(-5,5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-clamp1-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
