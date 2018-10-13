@@ -289,11 +289,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch03.html#関数が連続とは-1",
+    "location": "ch03.html#定義域・値域-1",
     "page": "第3回：▶︎ 連続な曲線を描く",
-    "title": "▶︎ 関数が連続とは",
+    "title": "▶︎ 定義域・値域",
     "category": "section",
-    "text": "lim_x longrightarrow a f(x)が存在して、その値が f(a) に等しいとき、 「関数 f(x) は x=a で連続という」"
+    "text": "関数 y=f(x) の定義域(domain)とは、 独立変数 (independent variable) x の取りうる値からなる集合である。ちなみに、従属変数 (dependent variable) y が取りうる値からなる集合を、値域 (range)という本章では、 定義域が実数全体、あるいは、正の数の集合である関数について、 グラフを描いてみる。"
 },
 
 {
@@ -377,17 +377,33 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch03.html#平方根を描く-1",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "▶︎ 平方根を描く",
+    "category": "section",
+    "text": "Base.sqrt二乗するとxになる数を、xの平方根 (square root of x)という。 関数 sqrt(x)は xの平方根を求める関数である。sqrt(0)\nsqrt(2)\nsqrt(3)負の数 x  0を関数sqrtの引数（ひきすう)に与えると、 例外（exception)が発生する。 が、複素数を引数として与えると、複素数として計算できる（複素数は、もっと後の回で説明する）。sqrt(-1) # DomainError\nsqrt(complex(-1,0))  # 複素数を引数に与える平方と平方根を同じグラフに描いてみよう。 直線 y=x に対して、鏡の関係になっている。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^2, label=\"square\")\nplot(xs, sqrt.(xs), label=\"square root\")\nplot(xs, xs, \"k\", lw=0.5, label=\"y=x\")\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-sr1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch03.html#立方根を描く-1",
+    "page": "第3回：▶︎ 連続な曲線を描く",
+    "title": "▶︎ 立方根を描く",
+    "category": "section",
+    "text": "Base.Math.cbrt三乗するとxになる数を、xの立方根 (cube root of x)という。 関数 cbrt(x)は xの立方根を求める関数である。立方と立方根を同じグラフに描いてみよう。 直線 y=x に対して、鏡の関係になっている。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^3, label=\"cubic\")\nplot(xs, cbrt.(xs), label=\"cube root\")\nplot(xs, xs, \"k\", lw=0.5, label=\"y=x\")\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-cr1-plot.svg\"); nothing # hide(Image: )平方と平方根、立方と立方根を、同じグラフに描こう。 点(11)で、曲線が交差している。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^2, label=\"square\")\nplot(xs, sqrt.(xs), label=\"square root\")\nplot(xs, xs.^3, label=\"cube\")\nplot(xs, cbrt.(xs), label=\"cube root\")\nplot(xs, xs, \"k\", lw=0.5, label=\"y=x\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr1-plot.svg\"); nothing # hide(Image: )平方根と立方根の関数のリストを作って for文で繰り返してみよう。 （結果のグラフは、上と同じなので省略する）using PyPlot\nclf() #hide\nxs=0:0.01:3\nfor f in [ sqrt, cbrt]\n  plot(xs, f.(xs), label=string(f))\nend\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
     "location": "ch03.html#冪乗根を描く-1",
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 冪乗根を描く",
     "category": "section",
-    "text": "Base.sqrt二乗するとxになる数を、xの平方根 (square root of x)という。 関数 sqrt(x)は xの平方根を求める関数である。sqrt(0)\nsqrt(2)\nsqrt(3)負の数 x  0を関数sqrtの引数（ひきすう)に与えると、 例外（exception)が発生する。 が、複素数を引数として与えると、複素数として計算できる（複素数は、もっと後の回で説明する）。sqrt(-1) # DomainError\nsqrt(complex(-1,0))  # 複素数を引数に与える平方と平方根を同じグラフに描いてみよう。 直線 y=x に対して、鏡の関係になっている。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^2, label=\"square\")\nplot(xs, sqrt.(xs), label=\"square root\")\nplot(xs, xs, \"k\", lw=0.5, label=\"y=x\")\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-sr1-plot.svg\"); nothing # hide(Image: )Base.Math.cbrt三乗するとxになる数を、xの立方根 (cube root of x)という。 関数 cbrt(x)は xの立方根を求める関数である。立方と立方根を同じグラフに描いてみよう。 直線 y=x に対して、鏡の関係になっている。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^3, label=\"cubic\")\nplot(xs, cbrt.(xs), label=\"cube root\")\nplot(xs, xs, \"k\", lw=0.5, label=\"y=x\")\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-cr1-plot.svg\"); nothing # hide(Image: )平方と平方根、立方と立方根を、同じグラフに描こう。 点(11)で、曲線が交差している。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^2, label=\"square\")\nplot(xs, sqrt.(xs), label=\"square root\")\nplot(xs, xs.^3, label=\"cube\")\nplot(xs, cbrt.(xs), label=\"cube root\")\nplot(xs, xs, \"k\", lw=0.5, label=\"y=x\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr1-plot.svg\"); nothing # hide(Image: )関数のリストを作って for文で繰り返してみよう。 （結果のグラフは、上と同じなので省略する）using PyPlot\nclf() #hide\nxs=0:0.01:3\nfor f in [sqrt,cbrt]\n  plot(xs, f.(xs), label=string(f))\nend\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\nxlabel(\"x\")\nylabel(\"y\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr2-plot.svg\"); nothing # hide![](ch03-pr2-plot.svg)一般に、正数 x  0 と 2以上の整数n に対して、y^n = x の解、 すなわち、y = sqrtnx = x^frac1nを、xのn乗根 (root of n-th power, n-th root)という。nを指定せずに、冪乗根（べきじょうこん）あるいは冪根（べきこん）と総称する。 「冪」の代わりに「巾」の略字を当てることもある。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^(1/2), label=\"n=2\")\nplot(xs, xs.^(1/3), label=\"n=3\")\nplot(xs, xs.^(1/4), label=\"n=4\")\nplot(xs, xs.^(1/5), label=\"n=5\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr3-plot.svg\"); nothing # hide(Image: )指数nで繰り返してみる。using PyPlot\nclf() #hide\nxs=0:0.01:10\nfor n in 2:5\n  plot(xs, xs.^(1/n), label=\"y=x^(1/\" * string(n) *\")\" )\nend\nlegend()\nxlabel(\"x\")\nylabel(\"y\")\nxlim(0.1,10.)\nylim(0.1,10.)\nxscale(\"log\")\nyscale(\"log\")\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nsavefig(\"ch03-pr4-plot.svg\"); nothing # hide(Image: )"
+    "text": "一般に、正数 x  0 と 2以上の整数n に対して、y^n = x の解、 すなわち、y = sqrtnx = x^frac1nを、xのn乗根 (root of n-th power, n-th root)という。nを指定せずに、冪乗根（べきじょうこん）あるいは冪根（べきこん）と総称する。 「冪」の代わりに「巾」の略字を当てることもある。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^(1/2), label=\"n=2\")\nplot(xs, xs.^(1/3), label=\"n=3\")\nplot(xs, xs.^(1/4), label=\"n=4\")\nplot(xs, xs.^(1/5), label=\"n=5\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr3-plot.svg\"); nothing # hide(Image: )指数nで繰り返してみる。using PyPlot\nclf() #hide\nxs=0:0.01:10\nfor n in 2:5\n  plot(xs, xs.^(1/n), label=\"y=x^(1/\" * string(n) *\")\" )\nend\nlegend()\nxlabel(\"x\")\nylabel(\"y\")\nxlim(0.1,10.)\nylim(0.1,10.)\nxscale(\"log\")\nyscale(\"log\")\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nsavefig(\"ch03-pr4-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch03.html#自然関数-1",
+    "location": "ch03.html#自然対数-1",
     "page": "第3回：▶︎ 連続な曲線を描く",
-    "title": "▶︎ 自然関数",
+    "title": "▶︎ 自然対数",
     "category": "section",
     "text": "Base.log正の数 x0に対して、x=e^y を満たす数 yを、xの自然対数 (natural logarithm of x、Napierian logarithm、あるいは単に、logarithm）といい、logx と書く。$e$は、自然対数の底、あるいはネピア(Napier)の数である。関数 log(x)は、自然対数を求める関数である。log(1)\nlog(e)\nlog(e^2)\nlog(-1) # DomainError線形グラフで描いてみる。using PyPlot\nclf() #hide\nusing PyPlot\nxs=0.1:0.01:100\n0.1:0.01:100.0\nplot(xs, log.(xs))\nsavefig(\"ch03-log1-plot.svg\"); nothing # hide(Image: )片対数グラフで描いてみる。x軸を対数で表示すると、直線で表示される。plot(xs, log.(xs))\nxscale(\"log\")\nsavefig(\"ch03-log2-plot.svg\"); nothing # hide(Image: )"
 },
@@ -469,7 +485,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "★ 今回のまとめ",
     "category": "section",
-    "text": "全域で定義された関数\n正弦・余弦関数\n楕円\nアルキメデスの渦\n花曲線\n指数関数\n正数を定義域とする関数\n対数関数\n複数のグラフを描く方法\nダブルYグラフ\nダブルYグラフに共通な凡例の作成\nプロットエリアの分割"
+    "text": "Jupyter Notebookを用いたテキスト入力 (Markdownセル)\n実数全域で定義された関数\n正弦・余弦関数\n楕円\n極座標で著された曲線\nアルキメデスの渦\n花曲線\n指数関数\n正数を定義域とする関数\n平方根・立方根・冪乗根\n対数関数\n複数のグラフを描く方法\nダブルYグラフ\nダブルYグラフに共通な凡例の作成\nプロットエリアの分割"
 },
 
 {
@@ -505,11 +521,19 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch04.html#関数が連続とは-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "▶︎ 関数が連続とは",
+    "category": "section",
+    "text": "関数が連続であるとは、 関数のグラフがつながっている，ちぎれていないことをいう。「関数 f(x) は x=a で連続」とは、 lim_x longrightarrow a f(x) が存在して、その値が f(a) に等しいと定義される。不連続とは、連続でないことである。 ただし、不連続な関数でも、連続な部分があることが多く、 それらを、枝 (branch) という。この章では、主に、連続ではない関数のグラフを描いてみる。"
+},
+
+{
     "location": "ch04.html#逆数関数を描く-1",
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 逆数関数を描く",
     "category": "section",
-    "text": "逆数関数 reciprocal function という。 逆関数 inverse function と区別されたい。逆数関数 y=dfrac1x を描く。dfrac00の値はInfであるが、 plot関数は「数でない数」をスキップして何も描かない。 0による除算を、特別扱いする必要はない。不連続な関数で、連続な部分を枝 (branch) という。逆数関数は、x=0で不連続であり、xの正負に対応して二つの枝を持つ。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro1-plot.svg\"); nothing # hide(Image: )続けて、水平線、垂直線、y=x, y=-x を追加しよう。原点 (00)に対して、plot(xs,xs, color=\"k\", lw=0.5)\nplot(xs,-1*xs, color=\"k\", lw=0.5)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro2-plot.svg\"); nothing # hide(Image: )"
+    "text": "逆数関数 reciprocal function という。 逆関数 inverse function と区別されたい。逆数関数 y=dfrac1x を描く。ここで、dfrac10の値はInfであるが、 plot関数は「数でない数」をスキップして何も描かない。逆数関数は、x=0で不連続であり、xの正負に対応して二つの枝を持つ。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro1-plot.svg\"); nothing # hide(Image: )続けて、水平線、垂直線、y=x, y=-x を追加しよう。原点 (00)に対して、plot(xs,xs, color=\"k\", lw=0.5)\nplot(xs,-1*xs, color=\"k\", lw=0.5)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -517,7 +541,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 不連続な有理式を描く",
     "category": "section",
-    "text": "以下の有理関数を描こう y = dfracx^3+8x^3+3x^2-4x-12まず、分母を描く。 分母は x=-3 -2 2で 0 となるから、 上の関数は、この三点で不連続となる可能性がある。using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, xs.^3+3xs.^2-4*xs-12)\nylim(-20,20)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis1-plot.svg\"); nothing # hide(Image: )上の関数を描いてみる。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis2-plot.svg\"); nothing # hide(Image: )実際には、x=-2では不連続ではない。 分子・分母は共通項 (x+2) で約分できるからである。 もう少し、横軸の範囲を狭めてみる。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-3,3)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis3-plot.svg\"); nothing # hide(Image: )"
+    "text": "有理関数とは、多項式(分子)を多項式(分母)で割ったような関数のことである。以下の有理関数を描こう。 y = dfracx^3+8x^3+3x^2-4x-12まず、分母を描く。using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, xs.^3+3xs.^2-4*xs-12)\nylim(-20,20)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis1-plot.svg\"); nothing # hide(Image: )分母は x=-3 -2 2で 0 となるから、 上の有理関数は、この三点で不連続となる可能性がある。上の有利関数を描いてみる。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis2-plot.svg\"); nothing # hide(Image: )実際には、x=-2では不連続ではない。 分子・分母は共通項 (x+2) で通分できるからである。もう少し、横軸の範囲を狭めて描く。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-3,3)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis3-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch04.html#練習-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "上の有理関数で、x=-2 に対する値を求めよ。分子・分母は共通項 (x+2) で通分した関数のグラフを描き、 上のグラフと重なることを確かめよ。二つの曲線の描き方は、下の ▶︎ 周期関数 を参考にせよ（本章を通読してから取り組め）。"
 },
 
 {
@@ -525,7 +557,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 正接関数・余接関数を描く",
     "category": "section",
-    "text": "正接 y = tanx\n余接 y = cotx"
+    "text": "正接 y = tanx =dfracsinxcosx\n余接 y = cotx =dfraccosxsinx"
 },
 
 {
@@ -533,7 +565,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "ラジアン単位",
     "category": "section",
-    "text": "Base.tan)\nBase.cot)using PyPlot\nclf() #hide\nxs=-2pi:pi/360:2pi\nplot(xs, tan.(xs), label=\"tan\")\nplot(xs, cot.(xs), label=\"cot\")\nylim(-1e1, 1e1)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.tan)\nBase.cot)正接 tanxは、pi の奇数倍で不連続である。余接 cotxは、pi の偶数倍で不連続である。using PyPlot\nclf() #hide\nxs=-2pi:pi/360:2pi\nplot(xs, tan.(xs), label=\"tan\")\nplot(xs, cot.(xs), label=\"cot\")\nylim(-1e1, 1e1)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -547,7 +579,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "ch04.html#周期関数-1",
     "page": "第4回：▶︎ 不連続な曲線を描く",
-    "title": "■ 周期関数",
+    "title": "▶︎ 周期関数",
     "category": "section",
     "text": "横軸をTだけ平行移動しても、 元の形に重なる関数を周期関数 (periodic function)という。 T は、周期 (period) と呼ばれる。 f(t+T) = f(t)ラジアン単位の正接関数 tan は、周期 2piである。 平行移動して重なることを、図示してみよう。using PyPlot\nclf() #hide\nxs=-2pi:pi/18:2pi\nplot(xs, tan.(xs),      \"bo\", label=\"tan\")\nplot(xs, tan.(xs+2*pi), \"r.\", label=\"tan, shifted by 2pi\")\nylim(-1e1, 1e1)\nxlim(-1.2*pi, 1.2*pi)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1t-plot.svg\"); nothing # hide(Image: )"
 },
@@ -561,7 +593,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch04.html#練習-1",
+    "location": "ch04.html#練習-2",
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "◀︎ 練習",
     "category": "section",
@@ -573,7 +605,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 絶対値関数",
     "category": "section",
-    "text": "using PyPlot\nclf() #hide\nxs=-1:0.1:1\nplot(xs,abs.(xs))\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-abs1-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.absusing PyPlot\nclf() #hide\nxs=-1:0.1:1\nplot(xs,abs.(xs))\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-abs1-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -585,7 +617,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch04.html#練習-2",
+    "location": "ch04.html#練習-3",
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "◀︎ 練習",
     "category": "section",
@@ -597,7 +629,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "★ 今回のまとめ",
     "category": "section",
-    "text": "0による除算\n逆数関数\n不連続な有理式\n正接・余接関数\n符号関数\n絶対値関数"
+    "text": "plot関数のフォーマットパラメータ\n0による除算\n逆数関数\n不連続な有理関数\n正接・余接関数\n周期関数\n符号関数\n絶対値関数"
 },
 
 {
