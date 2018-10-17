@@ -97,8 +97,8 @@ xs=-5:0.1:5
 plot(xs,clamp.(xs,-1,2))
 xlim(-5,5)
 ylim(-5,5)
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-clamp1-plot.svg" alt/></p><h2><a class="nav-anchor" id="床関数・天井関数-1" href="#床関数・天井関数-1">■ 床関数・天井関数</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.floor"><code>Base.floor</code></a></p></li><li><p>[<code>Base.ceil</code>]</p></li></ul><p>(https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.ceil)</p><p>床関数 <code>floor(x)</code>は、<span>$x$</span>を超えない最大の整数を返す。</p><p>天井関数 <code>ceil(x)</code>は、<span>$x$</span>以上の最小の整数を返す。</p><p>下のグラフで、数 <span>$x$</span> が整数であるときの値を、よく観察せよ。</p><p>これらの関数は、<a href="ch06.html#浮動小数点数から整数への変換-1">■ 浮動小数点数から整数への変換</a> で用いられる。</p><div><pre><code class="language-julia">using PyPlot
-xs=-2.4:0.1:2.4
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-clamp1-plot.svg" alt/></p><h2><a class="nav-anchor" id="床関数・天井関数-1" href="#床関数・天井関数-1">■ 床関数・天井関数</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.floor"><code>Base.floor</code></a></p></li><li><p>[<code>Base.ceil</code>]</p></li></ul><p>(https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.ceil)</p><p>床関数 <code>floor(x)</code>は、<span>$x$</span>を超えない最大の整数を返す。</p><p>天井関数 <code>ceil(x)</code>は、<span>$x$</span>以上の最小の整数を返す。</p><p>下のグラフで、整数 <span>$x$</span> に対する関数の値を、よく観察せよ。</p><p>これらの関数は、<a href="ch06.html#浮動小数点数から整数への変換-1">■ 浮動小数点数から整数への変換</a> で用いられる。</p><div><pre><code class="language-julia">using PyPlot
+xs=-2.4:0.2:2.4
 plot(xs, ceil.(xs), &quot;o&quot;, label=&quot;ceil&quot;)
 plot(xs, floor.(xs), &quot;.&quot;, label=&quot;floor&quot;)
 for x in -2:2
