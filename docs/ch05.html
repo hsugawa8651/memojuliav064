@@ -113,14 +113,14 @@ for y=0:0.025:1, x=0:0.025:1
   plot(x,y,&quot;.&quot;, color=c)
 end
 plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch05-qc1s-lattice-plot.svg" alt/></p><h2><a class="nav-anchor" id="擬似乱数-1" href="#擬似乱数-1">▶︎ 擬似乱数</a></h2><p>計算機で発生する乱数を、擬似乱数 (pseudorandom numbers)という。</p><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>本来の意味の「乱数」は、計算する方法がないはずである。 にもかかわらず、ある手順で乱数を発生しているので「擬似乱数」という。</p></div></div><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Random-Numbers-1">Random Numbers</a></p><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.Random.rand">Base.Random.rand</a></p><p>関数 <code>rand()</code>は、0から1未満の擬似乱数を発生する。</p><pre><code class="language-julia-repl">julia&gt; rand()
-0.9517260306673556
+0.5224783642810233
 
 julia&gt; rand()
-0.40849556308022317
+0.8869540449562328
 
 julia&gt; rand()
-0.3169606854833633</code></pre><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.Random.srand">Base.Random.srand</a></p><p>関数 <code>srand(n)</code>は、擬似乱数の種をリセットする。 種には、0から<span>$2^{32}-1$</span>までの整数を指定する。 同じ種を指定すると、同じ擬似乱数の系列を発生する。</p><pre><code class="language-julia-repl">julia&gt; srand(1234)
-MersenneTwister(UInt32[0x000004d2], Base.dSFMT.DSFMT_state(Int32[-1393240018, 1073611148, 45497681, 1072875908, 436273599, 1073674613, -2043716458, 1073445557, -254908435, 1072827086  …  -599655111, 1073144102, 367655457, 1072985259, -1278750689, 1018350124, -597141475, 249849711, 382, 0]), [1.62786, 1.73782, 1.11481, 1.15566, 1.0902, 1.04643, 1.46284, 1.75169, 1.34764, 1.13303  …  1.09497, 1.10789, 1.48961, 1.03741, 1.18058, 1.83897, 1.15311, 1.6036, 1.3266, 1.31163], 382)
+0.41404354753992534</code></pre><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.Random.srand">Base.Random.srand</a></p><p>関数 <code>srand(n)</code>は、擬似乱数の種をリセットする。 種には、0から<span>$2^{32}-1$</span>までの整数を指定する。 同じ種を指定すると、同じ擬似乱数の系列を発生する。</p><pre><code class="language-julia-repl">julia&gt; srand(1234)
+MersenneTwister(UInt32[0x000004d2], Base.dSFMT.DSFMT_state(Int32[-1393240018, 1073611148, 45497681, 1072875908, 436273599, 1073674613, -2043716458, 1073445557, -254908435, 1072827086  …  -599655111, 1073144102, 367655457, 1072985259, -1278750689, 1018350124, -597141475, 249849711, 382, 0]), [1.07001, 1.86326, 1.575, 1.42694, 1.70534, 1.72102, 1.23898, 1.93744, 1.66152, 1.12241  …  1.03049, 1.44374, 1.28237, 1.44771, 1.43449, 1.78367, 1.2081, 1.79906, 1.1726, 1.26636], 382)
 
 julia&gt; rand()
 0.5908446386657102
