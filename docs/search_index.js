@@ -237,7 +237,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第2回：▶︎ 複数のグラフを描く",
     "title": "▶︎ ローレンツ関数を描く",
     "category": "section",
-    "text": "Lorentzian Function以下の曲線を、 ローレンツ関数 (Lorentzian function)という。y = fracfracgamma2(x-x_0)^2+left(fracgamma2right)^2gamma  0パラメータを x_0 = 0 gamma = 2 のように選ぶと、 以下のように簡単な形となる。y = frac1x^2+1まず、この曲線を描いてみる。 各要素に対して除算を行うため、/の前にも、ピリオド.を付与する。xs=-3:0.5:3\n1 ./ (xs.^2+1)上のグラフを描こう。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs, 1 ./ (xs.^2+1) )\nsavefig(\"ch02-lo1-plot.svg\"); nothing # hide(Image: )以下のように、パラメータ gamma を導入する。y = fracfracgamma2x^2+left(fracgamma2right)^2三つのパラメータ gamma=0512 について、この曲線を描く。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=0.5\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=1.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=2.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo2-plot.svg\"); nothing # hide(Image: )gammaの値が変わっても、それぞれの曲線を描く命令は変わらない。 for文を用いて、gammaの値を変えてみよう。（結果のグラフは同じである)using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nend\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo3-plot.svg\"); nothing # hide次の性質がある。点 x=0 で 最大値 y = frac2gamma\n点 x=pmfracgamma2 で、y = frac12frac2gamma となること。２つ目の性質を観察するため、最大値に対する比を描いてみる。using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\nend\nlegend()\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo4-plot.svg\"); nothing # hide(Image: )note: Note\nplot関数の文は、複数の行に渡って記述しているが、行が更に続くことを示す記法は、特に用意されていない。構文が行末で終わらなければ、次の行まで読みに行くことになっている。パラメータ gammaは、半値全幅 (Full Width of Half Maximum, FWHM)と呼ばれる。 gammaを非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似(の一つ)となる。"
+    "text": "Lorentzian Function以下の曲線を、 ローレンツ関数 (Lorentzian function)という。y = fracfracgamma2(x-x_0)^2+left(fracgamma2right)^2gamma  0パラメータを x_0 = 0 gamma = 2 のように選ぶと、 以下のように簡単な形となる。y = frac1x^2+1まず、この曲線を描いてみる。 各要素に対して除算を行うため、/の前にも、ピリオド.を付与する。xs=-3:0.5:3\n1 ./ (xs.^2+1)上のグラフを描こう。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs, 1 ./ (xs.^2+1) )\nsavefig(\"ch02-lo1-plot.svg\"); nothing # hide(Image: )以下のように、パラメータ gamma を導入する。y = fracfracgamma2x^2+left(fracgamma2right)^2三つのパラメータ gamma=0512 について、この曲線を描く。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=0.5\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=1.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=2.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo2-plot.svg\"); nothing # hide(Image: )gammaの値が変わっても、それぞれの曲線を描く命令は変わらない。 for文を用いて、gammaの値を変えてみよう。（結果のグラフは同じである)using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nend\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo3-plot.svg\"); nothing # hide次の性質がある。点 x=0 で 最大値 y = frac2gamma\n点 x=pmfracgamma2 で、y = frac12frac2gamma となること。２つ目の性質を観察するため、最大値に対する比を描いてみる。関数 axhline() は、水平線(horizontal line)を描く。引数 color=\"k\" は、黒色(black)で描くことを指定し、lw=0.5は線幅(linewidth)を指定する。using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\nend\nlegend()\naxhline(1/2, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo4-plot.svg\"); nothing # hide(Image: )note: Note\nplot関数の文は、複数の行に渡って記述しているが、行が更に続くことを示す記法は、特に用意されていない。構文が行末で終わらなければ、次の行まで読みに行くことになっている。パラメータ gammaは、半値全幅 (Full Width of Half Maximum, FWHM)と呼ばれる。 gammaを非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似(の一つ)となる。"
 },
 
 {
@@ -245,7 +245,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第2回：▶︎ 複数のグラフを描く",
     "title": "■ 更新演算子",
     "category": "section",
-    "text": "Updating operators変数に四則演算などを行って、元の変数に再代入する場合には、 更新演算子を用いるとよい。x=1\n# 再代入\nx=x+1\n# 更新演算子\nx+=1演算子 +, -, *, /, ^ に対して、 更新演算子 +=, -=,  *=, /=, ^= が用意されている。以下の例は、変数 gamma を 2 で繰り返し割り算する。gamma=2\nfor i=1:5\n  gamma /= 2\n  @show gamma\nendこれを利用して、ローレンツ関数のパラメータ gamma を変えてみる。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=2\nfor i in 1:5\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\n  gamma /= 2\nend\nlegend()\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo5-plot.svg\"); nothing # hide(Image: )更新演算子は、ベクトルのスカラー倍や、定数の加減にも適用できる。xs = [1,2,2,1]\nxs +=1\nxs +=1前節の三角形を描く例題で、図形を繰り返し並行移動してみよう。using PyPlot\nclf() #hide\nxs = [1,2,2,1]\nys = [1,1,3,1]\nfor i=1:5\n  plot(xs,ys)\n  xs += 0.5\n  ys += 0.5\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch01-tri-shift-plot.svg\"); nothing # hide(Image: )"
+    "text": "Updating operators変数に四則演算などを行って、元の変数に再代入する場合には、 更新演算子を用いるとよい。x=1\n# 再代入\nx=x+1\n# 更新演算子\nx+=1演算子 +, -, *, /, ^ に対して、 更新演算子 +=, -=,  *=, /=, ^= が用意されている。以下の例は、変数 gamma を 2 で繰り返し割り算する。gamma=2\nfor i=1:5\n  gamma /= 2\n  @show gamma\nendこれを利用して、ローレンツ関数のパラメータ gamma を変えてみる。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=2\nfor i in 1:5\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\n  gamma /= 2\nend\nlegend()\naxhline(1/2, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo5-plot.svg\"); nothing # hide(Image: )更新演算子は、ベクトルのスカラー倍や、定数の加減にも適用できる。xs = [1,2,2,1]\nxs +=1\nxs +=1前節の三角形を描く例題で、図形を繰り返し並行移動してみよう。using PyPlot\nclf() #hide\nxs = [1,2,2,1]\nys = [1,1,3,1]\nfor i=1:5\n  plot(xs,ys)\n  xs += 0.5\n  ys += 0.5\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch01-tri-shift-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -397,7 +397,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 冪乗根を描く",
     "category": "section",
-    "text": "一般に、正数 x  0 と 2以上の整数n に対して、y^n = x の解、 すなわち、y = sqrtnx = x^frac1nを、xのn乗根 (root of n-th power, n-th root)という。nを指定せずに、冪乗根（べきじょうこん）あるいは冪根（べきこん）と総称する。 「冪」の代わりに「巾」の略字を当てることもある。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^(1/2), label=\"n=2\")\nplot(xs, xs.^(1/3), label=\"n=3\")\nplot(xs, xs.^(1/4), label=\"n=4\")\nplot(xs, xs.^(1/5), label=\"n=5\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr3-plot.svg\"); nothing # hide(Image: )指数nで繰り返してみる。using PyPlot\nclf() #hide\nxs=0:0.01:10\nfor n in 2:5\n  plot(xs, xs.^(1/n), label=\"y=x^(1/\" * string(n) *\")\" )\nend\nlegend()\nxlabel(\"x\")\nylabel(\"y\")\nxlim(0.1,10.)\nylim(0.1,10.)\nxscale(\"log\")\nyscale(\"log\")\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nsavefig(\"ch03-pr4-plot.svg\"); nothing # hide(Image: )"
+    "text": "一般に、正数 x  0 と 2以上の整数n に対して、y^n = x の解、 すなわち、y = sqrtnx = x^frac1nを、xのn乗根 (root of n-th power, n-th root)という。nを指定せずに、冪乗根（べきじょうこん）あるいは冪根（べきこん）と総称する。 「冪」の代わりに「巾」の略字を当てることもある。関数 axvline()で垂直線 (vertical line)を描く。引数は、前回説明した関数 axhline (水平線を描く)と同じである。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^(1/2), label=\"n=2\")\nplot(xs, xs.^(1/3), label=\"n=3\")\nplot(xs, xs.^(1/4), label=\"n=4\")\nplot(xs, xs.^(1/5), label=\"n=5\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr3-plot.svg\"); nothing # hide(Image: )指数nで繰り返してみる。using PyPlot\nclf() #hide\nxs=0:0.01:10\nfor n in 2:5\n  plot(xs, xs.^(1/n), label=\"y=x^(1/\" * string(n) *\")\" )\nend\nlegend()\nxlabel(\"x\")\nylabel(\"y\")\nxlim(0.1,10.)\nylim(0.1,10.)\nxscale(\"log\")\nyscale(\"log\")\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nsavefig(\"ch03-pr4-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -421,7 +421,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ ダブルYグラフを描く",
     "category": "section",
-    "text": "ダブルYグラフは、 x軸を共通として、左と右に、二つの y軸を配置するグラフである。using PyPlot\nxs=-2:0.1:2\nfig=plt[:figure]()\nax1=fig[:add_subplot](111)\nax1[:plot](xs, -xs, \"r\")\nax2=ax1[:twinx]()\nax2[:plot](xs, xs.^2, \"b\")\nsavefig(\"ch04-tw1-plot.svg\"); nothing # hide(Image: )これを描くには、次の手順をとる。 まず、以下のように、 元となる座標系(左y軸)のデータ（オブジェクト）ax1を取得する。fig=plt[:figure]()\nax1=fig[:add_subplot](111)次に、以下のように、 x軸が共通な、新しい座標系(右y軸)のデータ（オブジェクト）ax2を作成する。ax2=ax1[:twinx]()座標系 axに対して描画するには、ax[:plot](<<plot引数>>) の形式を用いる。using PyPlot\nxs=-2:0.1:2\nfig=plt[:figure]()\nax1=fig[:add_subplot](111)\nax1[:plot](xs, -xs, \"r\")\nax2=ax1[:twinx]()\nax2[:plot](xs, xs.^2, \"b\")\nsavefig(\"ch04-tw1-plot.svg\"); nothing # hide"
+    "text": "ダブルYグラフは、 x軸を共通として、左と右に、二つの y軸を配置するグラフである。using PyPlot\nxs=-2:0.1:2\nfig=plt[:figure]()\nax1=fig[:add_subplot](111)\nax1[:plot](xs, -xs, \"r\")\nax2=ax1[:twinx]()\nax2[:plot](xs, xs.^2, \"b\")\nsavefig(\"ch04-tw1-plot.svg\"); nothing #hide(Image: )これを描くには、次の手順をとる。 まず、以下のように、 元となる座標系(左y軸)のデータ（オブジェクト）ax1を取得する。fig=plt[:figure]()\nax1=fig[:add_subplot](111)次に、以下のように、 x軸が共通な、新しい座標系(右y軸)のデータ（オブジェクト）ax2を作成する。ax2=ax1[:twinx]()座標系 axに対して描画するには、ax[:plot](<<plot引数>>) の形式を用いる。using PyPlot\nxs=-2:0.1:2\nfig=plt[:figure]()\nax1=fig[:add_subplot](111)\nax1[:plot](xs, -xs, \"r\")\nax2=ax1[:twinx]()\nax2[:plot](xs, xs.^2, \"b\")\nsavefig(\"ch04-tw1-plot.svg\"); nothing # hide"
 },
 
 {
@@ -469,7 +469,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "(力学の問題)鉛直上向きに対して 角度 bをつけて投げた球が、重力のみを感じて運動するとき、その球の軌跡を描け。最初は b = 15^circとして描け。次に、角度bを変えた場合を、一つのグラフに示せ。"
+    "text": "(力学の問題)鉛直上向きに対して 角度 bをつけて投げた球が、重力のみを感じて運動するとき、その球の軌跡を描け。最初は b = 15^circとして描け。次に、角度bを変えた場合を、一つのグラフに示せ。余裕があれば、Jupyter NotebookのMarkdownセルを用いて、解き方や式などの文飾を加えよ。"
 },
 
 {
@@ -525,7 +525,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 関数が連続とは",
     "category": "section",
-    "text": "関数が連続であるとは、 関数のグラフがつながっている，ちぎれていないことをいう。「関数 f(x) は x=a で連続」とは、 lim_x longrightarrow a f(x) が存在して、その値が f(a) に等しいと定義される。不連続とは、連続でないことである。 ただし、不連続な関数でも、連続な部分があることが多く、 それらを、枝 (branch) という。この章では、主に、連続ではない関数のグラフを描いてみる。"
+    "text": "関数が連続であるとは、 関数のグラフがつながっている，ちぎれていないことをいう。 「関数 f(x) は x=a で連続」とは、lim_x longrightarrow a f(x)が存在して、その値が f(a) に等しいと定義される。不連続とは、連続でないことである。 ただし、不連続な関数でも、連続な部分があることが多く、 それらを、枝 (branch) という。この章では、主に、連続ではない関数のグラフを描く。"
 },
 
 {
@@ -533,15 +533,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 逆数関数を描く",
     "category": "section",
-    "text": "逆数関数 reciprocal function という。 逆関数 inverse function と区別されたい。逆数関数 y=dfrac1x を描く。ここで、dfrac10の値はInfであるが、 plot関数は「数でない数」をスキップして何も描かない。逆数関数は、x=0で不連続であり、xの正負に対応して二つの枝を持つ。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro1-plot.svg\"); nothing # hide(Image: )続けて、水平線、垂直線、y=x, y=-x を追加しよう。原点 (00)に対して、plot(xs,xs, color=\"k\", lw=0.5)\nplot(xs,-1*xs, color=\"k\", lw=0.5)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro2-plot.svg\"); nothing # hide(Image: )"
-},
-
-{
-    "location": "ch04.html#不連続な有理式を描く-1",
-    "page": "第4回：▶︎ 不連続な曲線を描く",
-    "title": "▶︎ 不連続な有理式を描く",
-    "category": "section",
-    "text": "有理関数とは、多項式(分子)を多項式(分母)で割ったような関数のことである。以下の有理関数を描こう。 y = dfracx^3+8x^3+3x^2-4x-12まず、分母を描く。using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, xs.^3+3xs.^2-4*xs-12)\nylim(-20,20)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis1-plot.svg\"); nothing # hide(Image: )分母は x=-3 -2 2で 0 となるから、 上の有理関数は、この三点で不連続となる可能性がある。上の有利関数を描いてみる。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis2-plot.svg\"); nothing # hide(Image: )実際には、x=-2では不連続ではない。 分子・分母は共通項 (x+2) で通分できるからである。もう少し、横軸の範囲を狭めて描く。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-3,3)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis3-plot.svg\"); nothing # hide(Image: )"
+    "text": "逆数関数 reciprocal function という。 逆関数 inverse function と区別されたい。逆数関数 y=dfrac1x を描く。ここで、dfrac10の値はInfであるが、 plot関数は「数でない数」をスキップして何も描かない。分母0の除算を特別扱いする必要はない。逆数関数は、x=0で不連続であり、xの正負に対応して二つの枝を持つ。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro1-plot.svg\"); nothing # hide(Image: )続けて、水平線、垂直線、y=x, y=-x を追加しよう。plot(xs,xs, color=\"k\", lw=0.5)\nplot(xs,-1*xs, color=\"k\", lw=0.5)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -549,7 +541,23 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "上の有理関数で、x=-2 に対する値を求めよ。分子・分母は共通項 (x+2) で通分した関数のグラフを描き、 上のグラフと重なることを確かめよ。二つの曲線の描き方は、下の ▶︎ 周期関数 を参考にせよ（本章を通読してから取り組め）。"
+    "text": "(プログラミングでなく、数学の話題)数学では「何らかの操作を行った結果が、元と重なること」を、 その操作に対して対象であるという。上のグラフを観察すると、逆数関数は、いくつかの操作に対して対象であることがわかる。どのような操作か？"
+},
+
+{
+    "location": "ch04.html#不連続な有理式を描く-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "▶︎ 不連続な有理式を描く",
+    "category": "section",
+    "text": "有理関数とは、多項式(分子)を多項式(分母)で割った関数である。以下の有理関数を描こう。 y = dfracx^3+8x^3+3x^2-4x-12まず、分母を描く。using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, xs.^3+3xs.^2-4*xs-12)\nylim(-20,20)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis1-plot.svg\"); nothing # hide(Image: )分母は x=-3 -2 2で 0 となるから、 上の有理関数は、この三点で不連続となる「可能性」がある。では、上の有利関数を描いてみる。逆数関数と同じように、分母0の場合を特別扱いする必要はない。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis2-plot.svg\"); nothing # hide(Image: )実際には、x=-2では不連続ではない。 分子・分母は共通項 (x+2) で通分できるからである。もう少し、横軸の範囲を狭めて描く。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-3,3)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis3-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch04.html#練習-2",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "上の有理関数で、x=-2 に対する値を求めよ。分子・分母は共通項 (x+2) で通分した関数のグラフを描き、 上のグラフと重なることを確かめよ。二つの曲線を比較するための描き方は、下の ▶︎ 周期関数 を参考にせよ（本章を通読してから取り組め）。"
 },
 
 {
@@ -581,7 +589,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 周期関数",
     "category": "section",
-    "text": "横軸をTだけ平行移動しても、 元の形に重なる関数を周期関数 (periodic function)という。 T は、周期 (period) と呼ばれる。 f(t+T) = f(t)ラジアン単位の正接関数 tan は、周期 2piである。 平行移動して重なることを、図示してみよう。using PyPlot\nclf() #hide\nxs=-2pi:pi/18:2pi\nplot(xs, tan.(xs),      \"bo\", label=\"tan\")\nplot(xs, tan.(xs+2*pi), \"r.\", label=\"tan, shifted by 2pi\")\nylim(-1e1, 1e1)\nxlim(-1.2*pi, 1.2*pi)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1t-plot.svg\"); nothing # hide(Image: )"
+    "text": "f(t+T) = f(t)上式のように、横軸をTだけ平行移動しても、 元の形に重なる関数を周期関数 (periodic function)という。 T は、周期 (period) と呼ばれる。ラジアン単位の正接関数 tan は、周期 2piである。 平行移動して重なることを、図示してみよう。比較の基準となる曲線は fmt=bo (blue, circle, 青い円) で描いた。比較される曲線は fmt=r. (red, point, 赤い点) で描いた。using PyPlot\nclf() #hide\nxs=-2pi:pi/18:2pi\nplot(xs, tan.(xs),      \"bo\", label=\"tan\")\nplot(xs, tan.(xs+2*pi), \"r.\", label=\"tan, shifted by 2pi\")\nylim(-1e1, 1e1)\nxlim(-1.2*pi, 1.2*pi)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1t-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -593,7 +601,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch04.html#練習-2",
+    "location": "ch04.html#練習-3",
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "◀︎ 練習",
     "category": "section",
@@ -617,7 +625,23 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch04.html#練習-3",
+    "location": "ch04.html#床関数・天井関数-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "■ 床関数・天井関数",
+    "category": "section",
+    "text": "Base.floor\n[Base.ceil](https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.ceil)床関数 floor(x)は、xを超えない最大の整数を返す。天井関数 ceil(x)は、x以上の最小の整数を返す。下のグラフで、数 x が整数であるときの値を、よく観察せよ。これらの関数は、■ 浮動小数点数から整数への変換 で用いられる。using PyPlot\nclf() #hide\nxs=-2.4:0.1:2.4\nplot(xs, ceil.(xs), \"o\", label=\"ceil\")\nplot(xs, floor.(xs), \".\", label=\"floor\")\nfor x in -2:2\n  axvline(x, color=\"k\", lw=0.5)\n  axhline(x, color=\"k\", lw=0.5)\nend\nxlim(-3.2,3.2)\nylim(-3.2,3.2)\n\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-floorceil1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch04.html#練習-4",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "床関数または天井関数を用いて、数を 1の位で四捨五入するには、どうしたらよいか？プログラムを書いて、実行してみよ。1の位での四捨五入とは、その数の小数点第一桁目が 5以上であれば 1を加え、5未満であれば何もしない操作である。"
+},
+
+{
+    "location": "ch04.html#練習-5",
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "◀︎ 練習",
     "category": "section",
@@ -629,7 +653,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "★ 今回のまとめ",
     "category": "section",
-    "text": "plot関数のフォーマットパラメータ\n0による除算\n逆数関数\n不連続な有理関数\n正接・余接関数\n周期関数\n符号関数\n絶対値関数"
+    "text": "plot関数のフォーマットパラメータ\n0による除算\n逆数関数\n不連続な有理関数\n正接・余接関数\n周期関数\n符号関数\n絶対値関数\n床関数・天井関数"
 },
 
 {
@@ -817,19 +841,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch06.html#床関数・天井関数-1",
-    "page": "第6回：■ 型・■ 整数型",
-    "title": "▶︎ 床関数・天井関数",
-    "category": "section",
-    "text": "Base.ceil 天井関数 ceil(x)は、x以上の最小の整数を返す。床関数 floor(x)は、xを超えない最大の整数を返す。 Base.floorusing PyPlot\nclf() #hide\nxs=-2.4:0.1:2.4\nplot(xs, ceil.(xs), \"o\", label=\"ceil\")\nplot(xs, floor.(xs), \".\", label=\"floor\")\nfor x in -2:2\n  axvline(x, color=\"k\", lw=0.5)\n  axhline(x, color=\"k\", lw=0.5)\nend\nxlim(-3.2,3.2)\nylim(-3.2,3.2)\n\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"floorceil1-plot.svg\"); nothing # hide(Image: )"
-},
-
-{
     "location": "ch06.html#浮動小数点数から整数への変換-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "▶︎ 浮動小数点数から整数への変換",
+    "title": "■ 浮動小数点数から整数への変換",
     "category": "section",
-    "text": "浮動小数点数を整数に変換するには、Int64(x)を用いる。 ただし、xが小数部を含むと例外がでる（エラーとなる）ので、 小数部を 0に変換する必要がある。Int64(1.0)\nInt64(1.1)  # エラー\nInt64(floor(1.1))"
+    "text": "浮動小数点数を整数に変換するには、Int64(x)を用いる。 ただし、xが小数部を含むと例外がでる（エラーとなる）ので、 小数部を 0に変換する必要がある。この際、床関数が用いられる。■ 床関数・天井関数Int64(1.0)\nInt64(1.1)  # エラー\nInt64(floor(1.1))"
 },
 
 {
@@ -853,7 +869,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 型・■ 整数型",
     "title": "■ 商と剰余",
     "category": "section",
-    "text": "整数xをdで割ったときの商と剰余の関係 x=qd+r は、 負の数や、小数に拡張できる。 被除数xや除数dが負の数の場合、 商 qと 剰余 r の取るべき値について、 いくつかの考え方がある。rem関数の剰余は、被除数 x と同じ符号を選ぶ。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem2-plot.svg\"); nothing # hide(Image: )Base.modBase.fld除数dが正の場合、 mod関数は、0 leq r lt d の範囲の剰余 r を返す。これに対応する商は fld関数で求められる。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod1-plot.svg\"); nothing # hide(Image: )fld(x,d) は、dfracxd 以下の最大の整数である。 つまり、floor(x/d) と同じである。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, rs, \"ro\", label=\"remainder divided by \"*string(d))\nplot(xs, qs, \"b.\",  label=\"quotient divided by \"*string(d))\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor y=-3:3\n  axvline(y, color=\"k\", lw=0.5)\nend\n\nfor x=-7:7\n  axhline(x, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod2-plot.svg\"); nothing # hide(Image: )"
+    "text": "整数xをdで割ったときの商と剰余の関係 x=qd+r は、 負の数や、小数に拡張できる。 被除数xや除数dが負の数の場合、 商 qと 剰余 r の取るべき値について、 いくつかの考え方がある。rem関数の剰余は、被除数 x と同じ符号を選ぶ。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem2-plot.svg\"); nothing # hide(Image: )Base.modBase.fld除数dが正の場合、 mod関数は、0 leq r lt d の範囲の剰余 r を返す。これに対応する商は fld関数で求められる。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod1-plot.svg\"); nothing # hide(Image: )fld(x,d) は、dfracxd 以下の最大の整数である。 つまり、floor(x/d) と同じである。■ 床関数・天井関数using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, rs, \"ro\", label=\"remainder divided by \"*string(d))\nplot(xs, qs, \"b.\",  label=\"quotient divided by \"*string(d))\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor y=-3:3\n  axvline(y, color=\"k\", lw=0.5)\nend\n\nfor x=-7:7\n  axhline(x, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -877,7 +893,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 型・■ 整数型",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "1の位で\n10の位で\n100の位で\n1000の位で\n0.1の位で\n一般に10^nの位で数を四捨五入するには、どうしたらよいか？プログラムを書いて、実行してみよ。"
+    "text": "10の位で\n100の位で\n1000の位で\n0.1の位で\n一般に10^nの位で数を四捨五入するには、どうしたらよいか？プログラムを書いて、実行してみよ。"
 },
 
 {

@@ -122,7 +122,7 @@ xlim(-0.2,2.2)
 ylim(-0.2,2.2)
 xlabel(&quot;x&quot;)
 ylabel(&quot;y&quot;)
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch03-pr2-plot.svg" alt/></p><h2><a class="nav-anchor" id="冪乗根を描く-1" href="#冪乗根を描く-1">▶︎ 冪乗根を描く</a></h2><p>一般に、正数 <span>$x &gt; 0$</span> と <span>$2$</span>以上の整数<span>$n$</span> に対して、<span>$y^n = x$</span> の解、 すなわち、<span>$y = \sqrt[n]{x} = x^{\frac{1}{n}}$</span>を、<span>$x$</span>の<span>$n$</span>乗根 (root of <span>$n$</span>-th power, <span>$n$</span>-th root)という。<span>$n$</span>を指定せずに、冪乗根（べきじょうこん）あるいは冪根（べきこん）と総称する。 「冪」の代わりに「巾」の略字を当てることもある。</p><div><pre><code class="language-julia">using PyPlot
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch03-pr2-plot.svg" alt/></p><h2><a class="nav-anchor" id="冪乗根を描く-1" href="#冪乗根を描く-1">▶︎ 冪乗根を描く</a></h2><p>一般に、正数 <span>$x &gt; 0$</span> と <span>$2$</span>以上の整数<span>$n$</span> に対して、<span>$y^n = x$</span> の解、 すなわち、<span>$y = \sqrt[n]{x} = x^{\frac{1}{n}}$</span>を、<span>$x$</span>の<span>$n$</span>乗根 (root of <span>$n$</span>-th power, <span>$n$</span>-th root)という。<span>$n$</span>を指定せずに、冪乗根（べきじょうこん）あるいは冪根（べきこん）と総称する。 「冪」の代わりに「巾」の略字を当てることもある。</p><p>関数 <code>axvline()</code>で垂直線 (vertical line)を描く。引数は、前回説明した関数 <code>axhline</code> (水平線を描く)と同じである。</p><div><pre><code class="language-julia">using PyPlot
 xs=0:0.01:3
 plot(xs, xs.^(1/2), label=&quot;n=2&quot;)
 plot(xs, xs.^(1/3), label=&quot;n=3&quot;)
@@ -186,14 +186,7 @@ end
 xscale(&quot;log&quot;)
 legend()
 axhline(0, color=&quot;k&quot;, lw=0.5)
-axvline(1, color=&quot;k&quot;, lw=0.5)</code></pre></div><p><img src="ch03-log6-plot.svg" alt/></p><h2><a class="nav-anchor" id="ダブルYグラフを描く-1" href="#ダブルYグラフを描く-1">▶︎ ダブルYグラフを描く</a></h2><p>ダブルYグラフは、 <span>$x$</span>軸を共通として、左と右に、二つの <span>$y$</span>軸を配置するグラフである。</p><pre><code class="language-">using PyPlot
-xs=-2:0.1:2
-fig=plt[:figure]()
-ax1=fig[:add_subplot](111)
-ax1[:plot](xs, -xs, &quot;r&quot;)
-ax2=ax1[:twinx]()
-ax2[:plot](xs, xs.^2, &quot;b&quot;)
-savefig(&quot;ch04-tw1-plot.svg&quot;); nothing # hide</code></pre><p><img src="ch04-tw1-plot.svg" alt/></p><p>これを描くには、次の手順をとる。 まず、以下のように、 元となる座標系(左<span>$y$</span>軸)のデータ（オブジェクト）<code>ax1</code>を取得する。</p><pre><code class="language-none">fig=plt[:figure]()
+axvline(1, color=&quot;k&quot;, lw=0.5)</code></pre></div><p><img src="ch03-log6-plot.svg" alt/></p><h2><a class="nav-anchor" id="ダブルYグラフを描く-1" href="#ダブルYグラフを描く-1">▶︎ ダブルYグラフを描く</a></h2><p>ダブルYグラフは、 <span>$x$</span>軸を共通として、左と右に、二つの <span>$y$</span>軸を配置するグラフである。</p><div></div><p><img src="ch04-tw1-plot.svg" alt/></p><p>これを描くには、次の手順をとる。 まず、以下のように、 元となる座標系(左<span>$y$</span>軸)のデータ（オブジェクト）<code>ax1</code>を取得する。</p><pre><code class="language-none">fig=plt[:figure]()
 ax1=fig[:add_subplot](111)</code></pre><p>次に、以下のように、 <span>$x$</span>軸が共通な、新しい座標系(右<span>$y$</span>軸)のデータ（オブジェクト）<code>ax2</code>を作成する。</p><pre><code class="language-none">ax2=ax1[:twinx]()</code></pre><p>座標系 <code>ax</code>に対して描画するには、<code>ax[:plot](&lt;&lt;plot引数&gt;&gt;)</code> の形式を用いる。</p><div><pre><code class="language-julia">using PyPlot
 xs=-2:0.1:2
 fig=plt[:figure]()
@@ -247,4 +240,4 @@ for i=1:6
   ax[:set_xlim](-1,1)
   ax[:set_ylim](-1,1)
   ax[:set_aspect](&quot;equal&quot;)
-end</code></pre></div><p><img src="ch03-flo2-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-4" href="#練習-4">◀︎ 練習</a></h2><p>(力学の問題)</p><p>鉛直上向きに対して 角度 <span>$b$</span>をつけて投げた球が、重力のみを感じて運動するとき、その球の軌跡を描け。</p><p>最初は <span>$b = 15^{\circ}$</span>として描け。</p><p>次に、角度<span>$b$</span>を変えた場合を、一つのグラフに示せ。</p><h2><a class="nav-anchor" id="練習-5" href="#練習-5">◀︎ 練習</a></h2><p>ここまで紹介した関数を使って、色々な連続曲線を描いてみよ。 Jupyter notebookの Markdownセルを用いて、説明文も加えよ。</p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>Jupyter Notebookを用いたテキスト入力 (Markdownセル)</p></li><li><p>実数全域で定義された関数</p><ul><li><p>正弦・余弦関数</p></li><li><p>楕円</p></li><li><p>極座標で著された曲線</p><ul><li><p>アルキメデスの渦</p></li><li><p>花曲線</p></li></ul></li><li><p>指数関数</p></li></ul></li><li><p>正数を定義域とする関数</p><ul><li><p>平方根・立方根・冪乗根</p></li><li><p>対数関数</p></li></ul></li><li><p>複数のグラフを描く方法</p><ul><li><p>ダブルYグラフ</p></li><li><p>ダブルYグラフに共通な凡例の作成</p></li><li><p>プロットエリアの分割</p></li></ul></li></ul><footer><hr/><a class="previous" href="ch02.html"><span class="direction">Previous</span><span class="title">第2回：▶︎ 複数のグラフを描く</span></a><a class="next" href="ch04.html"><span class="direction">Next</span><span class="title">第4回：▶︎ 不連続な曲線を描く</span></a></footer></article></body></html>
+end</code></pre></div><p><img src="ch03-flo2-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-4" href="#練習-4">◀︎ 練習</a></h2><p>(力学の問題)</p><p>鉛直上向きに対して 角度 <span>$b$</span>をつけて投げた球が、重力のみを感じて運動するとき、その球の軌跡を描け。</p><p>最初は <span>$b = 15^{\circ}$</span>として描け。</p><p>次に、角度<span>$b$</span>を変えた場合を、一つのグラフに示せ。</p><p>余裕があれば、Jupyter NotebookのMarkdownセルを用いて、解き方や式などの文飾を加えよ。</p><h2><a class="nav-anchor" id="練習-5" href="#練習-5">◀︎ 練習</a></h2><p>ここまで紹介した関数を使って、色々な連続曲線を描いてみよ。 Jupyter notebookの Markdownセルを用いて、説明文も加えよ。</p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>Jupyter Notebookを用いたテキスト入力 (Markdownセル)</p></li><li><p>実数全域で定義された関数</p><ul><li><p>正弦・余弦関数</p></li><li><p>楕円</p></li><li><p>極座標で著された曲線</p><ul><li><p>アルキメデスの渦</p></li><li><p>花曲線</p></li></ul></li><li><p>指数関数</p></li></ul></li><li><p>正数を定義域とする関数</p><ul><li><p>平方根・立方根・冪乗根</p></li><li><p>対数関数</p></li></ul></li><li><p>複数のグラフを描く方法</p><ul><li><p>ダブルYグラフ</p></li><li><p>ダブルYグラフに共通な凡例の作成</p></li><li><p>プロットエリアの分割</p></li></ul></li></ul><footer><hr/><a class="previous" href="ch02.html"><span class="direction">Previous</span><span class="title">第2回：▶︎ 複数のグラフを描く</span></a><a class="next" href="ch04.html"><span class="direction">Next</span><span class="title">第4回：▶︎ 不連続な曲線を描く</span></a></footer></article></body></html>
