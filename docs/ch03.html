@@ -14,7 +14,7 @@ xs=-360:1:360
 plot(xs, cosd.(xs), label=&quot;cosd&quot;)
 plot(xs, sind.(xs), label=&quot;sind&quot;)
 xlabel(&quot;degree&quot;)
-legend()</code></pre></div><p><img src="ch03-sin3-plot.svg" alt/></p><h3><a class="nav-anchor" id="ラジアンと角度との相互変換-1" href="#ラジアンと角度との相互変換-1">ラジアンと角度との相互変換</a></h3><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.Math.rad2deg"><code>Base.Math.rad2deg</code></a></p></li><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.Math.deg2rad"><code>Base.Math.deg2rad</code></a></p></li></ul><h2><a class="nav-anchor" id="楕円を描く-1" href="#楕円を描く-1">▶︎ 楕円を描く</a></h2><p>楕円を陰関数で表示すると</p><div>\[\left(\frac{x}{a}\right)^2+\left(\frac{x}{b}\right)^2 = 1\]</div><p>楕円を媒介変数表示(パラメータ曲線)すると</p><div>\[\begin{align*}x &amp; = a \cos \theta\\ y &amp; = b \sin \theta \end{align*}\]</div><p>媒介変数表示を用いて、楕円上の各点の座標を計算する。</p><div><pre><code class="language-julia">using PyPlot
+legend()</code></pre></div><p><img src="ch03-sin3-plot.svg" alt/></p><h3><a class="nav-anchor" id="ラジアンと角度との相互変換-1" href="#ラジアンと角度との相互変換-1">ラジアンと角度との相互変換</a></h3><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.Math.rad2deg"><code>Base.Math.rad2deg</code></a></p></li><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.Math.deg2rad"><code>Base.Math.deg2rad</code></a></p></li></ul><h2><a class="nav-anchor" id="楕円を描く-1" href="#楕円を描く-1">▶︎ 楕円を描く</a></h2><p>楕円を陰関数で表示すると</p><div>\[\left(\frac{x}{a}\right)^2+\left(\frac{y}{b}\right)^2 = 1\]</div><p>楕円を媒介変数表示(パラメータ曲線)すると</p><div>\[\begin{align*}x &amp; = a \cos \theta\\ y &amp; = b \sin \theta \end{align*}\]</div><p>媒介変数表示を用いて、楕円上の各点の座標を計算する。</p><div><pre><code class="language-julia">using PyPlot
 ts=0:pi/18:2pi
 xs=2*cos.(ts)
 ys=sin.(ts)
