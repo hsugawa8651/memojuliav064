@@ -525,7 +525,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 関数が連続とは",
     "category": "section",
-    "text": "関数が連続であるとは、 関数のグラフがつながっている，ちぎれていないことをいう。 「関数 f(x) は x=a で連続」とは、lim_x longrightarrow a f(x)が存在して、その値が f(a) に等しいと定義される。不連続とは、連続でないことである。 ただし、不連続な関数でも、連続な部分があることが多く、 それらを、枝 (branch) という。この章では、主に、連続ではない関数のグラフを描く。"
+    "text": "関数が連続であるとは、 関数のグラフがつながっている，ちぎれていないことをいう。「関数 f(x) は x=a で連続」とは、lim_x longrightarrow a f(x)が存在して、その値が f(a) に等しいと定義される。不連続とは、連続でないことである。 ただし、不連続な関数でも、連続な部分があることが多く、 それらを、枝 (branch) という。この章では、主に、連続ではない関数のグラフを描く。"
 },
 
 {
@@ -541,7 +541,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "(プログラミングでなく、数学の話題)数学では「何らかの操作を行った結果が、元と重なること」を、 その操作に対して対象であるという。上のグラフを観察すると、逆数関数は、いくつかの操作に対して対象であることがわかる。どのような操作か？"
+    "text": "(プログラミングでなく、数学の話題)数学では「何らかの操作を行った結果が、元と重なること」を、 その操作に対して対称である(symmetric)という。上のグラフを観察すると、逆数関数は、いくつかの操作に対して対称であることがわかる。どのような操作か？"
 },
 
 {
@@ -549,7 +549,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 不連続な有理式を描く",
     "category": "section",
-    "text": "有理関数とは、多項式(分子)を多項式(分母)で割った関数である。以下の有理関数を描こう。 y = dfracx^3+8x^3+3x^2-4x-12まず、分母を描く。using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, xs.^3+3xs.^2-4*xs-12)\nylim(-20,20)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis1-plot.svg\"); nothing # hide(Image: )分母は x=-3 -2 2で 0 となるから、 上の有理関数は、この三点で不連続となる「可能性」がある。では、上の有利関数を描いてみる。逆数関数と同じように、分母0の場合を特別扱いする必要はない。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis2-plot.svg\"); nothing # hide(Image: )実際には、x=-2では不連続ではない。 分子・分母は共通項 (x+2) で通分できるからである。もう少し、横軸の範囲を狭めて描く。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-3,3)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis3-plot.svg\"); nothing # hide(Image: )"
+    "text": "有理関数とは、多項式(分子)を多項式(分母)で割った関数である。以下の有理関数を描こう。y = dfracx^3+8x^3+3x^2-4x-12まず、分母を描く。using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, xs.^3+3xs.^2-4*xs-12)\nylim(-20,20)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis1-plot.svg\"); nothing # hide(Image: )分母は x=-3 -2 2で 0 となるから、 上の有理関数は、この三点で不連続となる「可能性」がある。では、上の有理関数を描いてみる。逆数関数の描画と同じように、分母0となる場合を特別扱いする必要はない。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis2-plot.svg\"); nothing # hide(Image: )実際には、x=-2では不連続ではない。 分子・分母は共通項 (x+2) で通分できるからである。もう少し、横軸の範囲を狭めて描く。clf() #hide\nxs=-10:0.05:10\nplot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))\nylim(-10,10)\nxlim(-3,3)\naxhline(0, color=\"k\", lw=0.5)\naxvline(-3, color=\"k\", lw=0.5)\naxvline(-2, color=\"k\", lw=0.5)\naxvline(2, color=\"k\", lw=0.5)\nsavefig(\"ch03-dis3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -589,7 +589,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 周期関数",
     "category": "section",
-    "text": "f(t+T) = f(t)上式のように、横軸をTだけ平行移動しても、 元の形に重なる関数を周期関数 (periodic function)という。 T は、周期 (period) と呼ばれる。ラジアン単位の正接関数 tan は、周期 2piである。 平行移動して重なることを、図示してみよう。比較の基準となる曲線は fmt=bo (blue, circle, 青い円) で描いた。比較される曲線は fmt=r. (red, point, 赤い点) で描いた。using PyPlot\nclf() #hide\nxs=-2pi:pi/18:2pi\nplot(xs, tan.(xs),      \"bo\", label=\"tan\")\nplot(xs, tan.(xs+2*pi), \"r.\", label=\"tan, shifted by 2pi\")\nylim(-1e1, 1e1)\nxlim(-1.2*pi, 1.2*pi)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1t-plot.svg\"); nothing # hide(Image: )"
+    "text": "f(t+T) = f(t)上式のように、横軸をTだけ平行移動しても、 元の形に重なる関数を周期関数 (periodic function)という。 T は、周期 (period) と呼ばれる。ラジアン単位の正接関数 tan は、周期 2piである。 平行移動して重なることを、図示してみよう。比較の基準となる曲線は fmt=\"bo\" (blue, circle, 青い円) で描いた。比較される曲線は fmt=\"r.\" (red, point, 赤い点) で描いた。using PyPlot\nclf() #hide\nxs=-2pi:pi/18:2pi\nplot(xs, tan.(xs),      \"bo\", label=\"tan\")\nplot(xs, tan.(xs+2*pi), \"r.\", label=\"tan, shifted by 2pi\")\nylim(-1e1, 1e1)\nxlim(-1.2*pi, 1.2*pi)\nxlabel(\"radian\")\nlegend()\nsavefig(\"ch03-tan1t-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -597,7 +597,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 符号関数を描く",
     "category": "section",
-    "text": "Base.sign関数 sign(x)は、x  0なら1、x=1なら0、x  0なら -1 をそれぞれ返す。using PyPlot\nclf() #hide\nusing PyPlot\nxs=-6.4:0.1:6.4\n-6.4:0.1:6.4\nplot(xs, sign.(xs), \".\")\nsavefig(\"ch04-sign1-plot.svg\"); nothing # hide(Image: )周期関数を描くのに、用いることができる。clf() #hide\nplot(xs, sign.( cos.(xs)), \".\")\nsavefig(\"ch04-sign2-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.sign関数 sign(x)は、x  0なら1、x=1なら0、x  0なら -1 をそれぞれ返す。using PyPlot\nclf() #hide\nusing PyPlot\nxs=-6.4:0.1:6.4\n-6.4:0.1:6.4\nplot(xs, sign.(xs), \".\")\nsavefig(\"ch04-sign1-plot.svg\"); nothing # hide(Image: )周期関数を描くのに、用いることができる。clf() #hide\nplot(xs, cos.(xs), \"r\", label=\"cos(x)\")\nplot(xs, sign.( cos.(xs)), \"b.\", label=\"sign(cos(x))\")\nlegend()\nsavefig(\"ch04-sign2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -629,7 +629,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "■ 床関数・天井関数",
     "category": "section",
-    "text": "Base.floor\n[Base.ceil](https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.ceil)床関数 floor(x)は、xを超えない最大の整数を返す。天井関数 ceil(x)は、x以上の最小の整数を返す。下のグラフで、整数 x に対する関数の値を、よく観察せよ。これらの関数は、■ 浮動小数点数から整数への変換 で用いられる。using PyPlot\nclf() #hide\nxs=-2.4:0.2:2.4\nplot(xs, ceil.(xs), \"o\", label=\"ceil\")\nplot(xs, floor.(xs), \".\", label=\"floor\")\nfor x in -2:2\n  axvline(x, color=\"k\", lw=0.5)\n  axhline(x, color=\"k\", lw=0.5)\nend\nxlim(-3.2,3.2)\nylim(-3.2,3.2)\n\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-floorceil1-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.floor\nBase.ceil床関数 floor(x)は、xを超えない最大の整数を返す。天井関数 ceil(x)は、x以上の最小の整数を返す。下のグラフで、整数 x に対する関数の値を、よく観察せよ。これらの関数は、■ 浮動小数点数から整数への変換 で用いられる。using PyPlot\nclf() #hide\nxs=-2.4:0.2:2.4\nplot(xs, ceil.(xs), \"o\", label=\"ceil\")\nplot(xs, floor.(xs), \".\", label=\"floor\")\nfor x in -2:2\n  axvline(x, color=\"k\", lw=0.5)\n  axhline(x, color=\"k\", lw=0.5)\nend\nxlim(-3.2,3.2)\nylim(-3.2,3.2)\n\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-floorceil1-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -637,7 +637,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "床関数または天井関数を用いて、数を 1の位で四捨五入するには、どうしたらよいか？プログラムを書いて、実行してみよ。1の位での四捨五入とは、その数の小数点第一桁目が 5以上であれば 1を加え、5未満であれば何もしない操作である。"
+    "text": "床関数または天井関数を用いて、数を 1の位で四捨五入するには、どうしたらよいか？プログラムを書いて、実行してみよ。1の位での四捨五入とは、その数の小数点第一桁目が 0.5以上であれば 1を加え、0.5未満であれば何もしない操作である。"
 },
 
 {
@@ -685,7 +685,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "■ if文",
     "category": "section",
-    "text": "Conditional Evaluationif文は、条件式をとる。 条件式の値が true なら、if文の次の文から、end, else, elseif が出現するまでの文を実行する。 条件が成り立つときだけに実行される部分をブロック(block)という。 ブロックは、字下げで表記される。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nendelse文が続く場合がある。 条件式の値が false なら、else文の次の文から end が出現するまでの文 (elseブロック)を実行する。x=1\ny=2\nif x < y\n　println(\"x は y より小さい\")\nelse\n　println(\"x は y より小さくない\")\nendelse文の前に、elseif文が続く場合がある。 最初の if文の条件式が false なら、 elseif文の条件式を計算し、それが true なら、elseif 文の次の文から、elseifまたはend が出現するまでの文 (elseifブロック)を実行する。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nelseif x > y\n　println(\"x は y より大きい\")\nelse\n  println(\"x は y と等しい\")\nendx=40\nm=if     x >= 100\n  println(\"x は 100 以上である\")\nelseif x >= 50\n  println(\"x は 50 以上である\")\nelseif x >= 20\n  println(\"x は 20 以上である\")\nelse\n  println(\"x は 20 よりも小さい\")\nend\n@show m"
+    "text": "Conditional Evaluationif文は、条件式をとる。 条件式の値が true なら、if文の次の文から、end, else, elseif が出現するまでの文を実行する。条件が成り立つときだけに実行される部分をブロック(block)という。ブロックは、字下げ (indent) で表記される。が、字下げは見やすさのためだけである。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nendelse文が続く場合がある。 条件式の値が false なら、else文の次の文から end が出現するまでの文 (elseブロック)を実行する。x=1\ny=2\nif x < y\n　println(\"x は y より小さい\")\nelse\n　println(\"x は y より小さくない\")\nendelse文の前に、elseif文が続く場合がある。 最初の if文の条件式が false なら、 elseif文の条件式を計算し、それが true なら、elseif 文の次の文から、elseifまたはend が出現するまでの文 (elseifブロック)を実行する。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nelseif x > y\n　println(\"x は y より大きい\")\nelse\n  println(\"x は y と等しい\")\nendx=40\nm=if     x >= 100\n  println(\"x は 100 以上である\")\nelseif x >= 50\n  println(\"x は 50 以上である\")\nelseif x >= 20\n  println(\"x は 20 以上である\")\nelse\n  println(\"x は 20 よりも小さい\")\nend\n@show m"
 },
 
 {
@@ -709,7 +709,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "■ 論理演算",
     "category": "section",
-    "text": "論理否定 !論理積 &&論理和 ||## ■ 短絡評価\n\n[Short-Circuit Evaluation](https://docs.julialang.org/en/v0.6.4/manual/control-flow/#Short-Circuit-Evaluation-1)\n\n論理積 `a && b` を評価する場合、\n`a` が 偽 `false`なら、`b`を評価しない。\n`a` が 真 `false`なら、`b` も評価する。\n\n論理和 `a || b` を評価する場合、\n`a` が 真 `true` なら、`b`を評価しない。\n`a` が 偽 `true` なら、`b` も評価する。"
+    "text": "論理否定 !\n論理積 &&\n論理和 ||## ■ 短絡評価\n\n[Short-Circuit Evaluation](https://docs.julialang.org/en/v0.6.4/manual/control-flow/#Short-Circuit-Evaluation-1)\n\n論理積 `a && b` を評価する場合、\n`a` が 偽 `false`なら、`b`を評価しない。\n`a` が 真 `false`なら、`b` も評価する。\n\n論理和 `a || b` を評価する場合、\n`a` が 真 `true` なら、`b`を評価しない。\n`a` が 偽 `true` なら、`b` も評価する。"
 },
 
 {
@@ -717,15 +717,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "▶︎ 格子点による平面領域の塗り分け",
     "category": "section",
-    "text": "平面座標 0 le x le 1 0 le y le 0 の範囲に、 格子点を配置しよう。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、それ以外を青で色分けして示そう。二重の繰り返し (二重ループ)を用いた。刻み幅は各軸 0.025 と選んだので、 格子点の個数は 40times40=1600 個である。赤色の範囲は、4分円となる。using PyPlot\nclf() #hide\nfor y=0:0.025:1\n  for x=0:0.025:1\n    c = x*x + y*y <= 1 ? \"r\" : \"b\"\n    plot(x,y,\".\", color=c)\n  end\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-lattice-plot.svg\"); nothing # hide(Image: )今度は、二つの不等式 y  x と y  1-xの両方に囲まれる領域を、赤で示そう。二重ループを一つの for文にまとめた。for文の右側に書かれたループ変数が内側のループに相当する。using PyPlot\nclf() #hide\nfor y=0:0.025:1, x=0:0.025:1\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-lattice-plot.svg\"); nothing # hide(Image: )"
+    "text": "平面座標 の第一象限 0 le x le 1 0 le y le 0 の範囲に、 格子点を配置しよう。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、 それ以外を青で色分けして示そう。二重の繰り返し (二重ループ)を用いた。刻み幅は各軸 0.025 に選んだので、 格子点の総数は 40times40=1600 個である。赤色の範囲は、4分円となる。using PyPlot\nclf() #hide\nfor y=0:0.025:1\n  for x=0:0.025:1\n    c = x*x + y*y <= 1 ? \"r\" : \"b\"\n    plot(x,y,\".\", color=c)\n  end\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-lattice-plot.svg\"); nothing # hide(Image: )今度は、二つの不等式 y  x と y  1-xの両方に囲まれる領域を、 赤で示そう。二重ループを一つの for文にまとめた。for文の右側に書かれたループ変数が内側のループに相当する。using PyPlot\nclf() #hide\nfor y=0:0.025:1, x=0:0.025:1\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-lattice-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
     "location": "ch05.html#擬似乱数-1",
     "page": "第5回：■ 条件式・■ 条件分岐",
-    "title": "▶︎ 擬似乱数",
+    "title": "■ 擬似乱数",
     "category": "section",
-    "text": "計算機で発生する乱数を、擬似乱数 (pseudorandom numbers)という。note: Note\n本来の意味の「乱数」は、計算する方法がないはずである。 にもかかわらず、ある手順で乱数を発生しているので「擬似乱数」という。Random NumbersBase.Random.rand関数 rand()は、0から1未満の擬似乱数を発生する。rand()\nrand()\nrand()Base.Random.srand関数 srand(n)は、擬似乱数の種をリセットする。 種には、0から2^32-1までの整数を指定する。 同じ種を指定すると、同じ擬似乱数の系列を発生する。srand(1234)\nrand()\nrand()\nrand()"
+    "text": "計算機で発生する乱数を、擬似乱数 (pseudorandom numbers)という。note: Note\n本来の意味の「乱数」は、計算する方法がないはずである。 にもかかわらず、ある手順で乱数を発生しているので「擬似乱数」という。Random NumbersBase.Random.rand関数 rand()は、0から1未満の擬似乱数を発生する。rand()\nrand()\nrand()Base.Random.srand関数 srand(m)は、擬似乱数の種をリセットする。 種mには、0から2^32-1までの整数を指定する。 同じ種を指定すると、同じ系列で擬似乱数を発生する。srand(1234)\nrand()\nrand()\nrand()"
 },
 
 {
@@ -733,7 +733,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "▶︎ 乱数による平面領域の塗り分け",
     "category": "section",
-    "text": "関数 rand() を2回用いて、座標点 (x,y) を発生しよう。 点の数を増やすと、これらの点は、平面の第一象限 0 le x lt 1 0 le y lt 0 の範囲を埋め尽くすはずである。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、 それ以外を青で色分けして示そう。点の個数は 2^10=1024 である。 格子点に比べて点の数は少ないが、特徴を捉えている。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  c = x*x + y*y <= 1 ? \"r\" : \"b\"\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-random-plot.svg\"); nothing # hide(Image: )今度は、 二つの不等式 y  x と y  1-x の両方に囲まれる領域だけ、赤で示そう。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-random-plot.svg\"); nothing # hide(Image: )"
+    "text": "関数 rand() を2回用いて、座標点 (x,y) を発生しよう。 点の数を増やすと、これらの点は、平面の第一象限 0 le x lt 1 0 le y lt 0 の範囲を埋め尽くすはずである。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、 それ以外を青で色分けして示そう。点の個数は 2^10=1024 である。 格子点で図示した場合 ▶︎ 格子点による平面領域の塗り分けに比べて 点の数は少ないが、特徴を捉えている。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  c = x*x + y*y <= 1 ? \"r\" : \"b\"\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-random-plot.svg\"); nothing # hide(Image: )今度は、 二つの不等式 y  x と y  1-x の両方に囲まれる領域だけ、赤で示そう。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-random-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -765,7 +765,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "▶︎ 「はさみうち」法による、方程式の求解",
     "category": "section",
-    "text": "f(x)=x^3+3x^2-4*x-12\nxs=-3.5:0.05:3\n\nusing PyPlot\nclf() #hide\nplot(xs, f.(xs))\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch05-secant1-plot.svg\"); nothing # hide(Image: )連続な関数 f(x) が、 区間 a lt x lt b で単調（単調増加または単調減少）であるとする。 ここで、f(a)とf(b)との符号が異なる f(a)cdot f(b)lt 0 のとき、 方程式 f(x)=0 の解は a lt x lt b の区間にある。ここで、a と b との中点 c=dfraca+b2 をとり、 f(a)とf(c)が同じ符号であれば 左端aをcに更新する。 逆に、f(b)とf(c)が同じ符号であれば 右端bをcに更新する。この手順を繰り返すことで、 方程式 f(x)=0 の解が存在する区間を狭めていくことができる。 この手法を「はさみうち」法という。上の関数f(x) で a=-35 b=-22 と選び、 この手順を数回繰り返してみる。# f(x)=x^3+3x^2-4*x-12\na=-3.2; b=-2.2\n@show a,b\n@show f(a),f(b)\nfor i=1:10\n  c=(a+b)/2\n  @show i, f(c), c, a,b    \n  if f(a)*f(c) > 0\n    a = c\n  elseif f(b)*f(c) > 0\n    b = c\n  end\nendこの範囲の解は x=-3である。@show f(-3)区間がせばまる様子を、グラフに描いてみよう。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.65\nfor i=1:15\n  plot(b,i, \"ro\")\n  plot(a,i, \"b.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  elseif f(b)*f(c) > 0\n    b = c\n  end\nend\nxlabel(\"x\")\nylabel(\"i\")\nsavefig(\"ch05-secant2-plot.svg\"); nothing # hide(Image: )今度は、区間の幅 b-aをプロットしよう。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.65\nfor i=1:30\n  plot(i, b-a, \"r.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  elseif f(b)*f(c) > 0\n    b = c\n  end\nend\nyscale(\"log\")\nylabel(\"b-a\")\nxlabel(\"i\")\n\nsavefig(\"ch05-secant3-plot.svg\"); nothing # hide(Image: )"
+    "text": "f(x)=x^3+3x^2-4*x-12\nxs=-3.5:0.05:3\n\nusing PyPlot\nclf() #hide\nplot(xs, f.(xs))\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch05-secant1-plot.svg\"); nothing # hide(Image: )連続な関数 f(x) が、 区間 a lt x lt b で単調（単調増加または単調減少）であるとする。 ここで、f(a) と f(b) との符号が 異なるとき f(a)cdot f(b)lt 0 、 方程式 f(x)=0 の解は a lt x lt b の区間にある。ここで、a と b との中点 c=dfraca+b2 をとり、f(a) と f(c) が同じ符号であれば 左端aをcに更新する。 逆に、f(b) と f(c) が同じ符号であれば 右端bをcに更新する。この手順を繰り返すことで、 方程式 f(x)=0 の解が存在する区間を狭めていくことができる。 この手法を「はさみうち」法という。英語では、squeeze theorem, pinching theorem, sandwich theorem などと呼ばれる。上の関数 f(x) で a=-35 b=-22 と選び、 この手順を数回繰り返してみる。# f(x)=x^3+3x^2-4*x-12\na=-3.2; b=-2.2\n@show a,b\n@show f(a),f(b)\nfor i=1:10\n  c=(a+b)/2\n  @show i, f(c), c, a,b    \n  if f(a)*f(c) > 0\n    a = c\n  elseif f(b)*f(c) > 0\n    b = c\n  end\nendこの範囲の解は x=-3である。@show f(-3)区間がせばまる様子を、グラフに描いてみよう。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.65\nfor i=1:15\n  plot(b,i, \"ro\")\n  plot(a,i, \"b.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  elseif f(b)*f(c) > 0\n    b = c\n  end\nend\nxlabel(\"x\")\nylabel(\"i\")\nsavefig(\"ch05-secant2-plot.svg\"); nothing # hide(Image: )今度は、区間の幅 b-aをプロットしよう。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.65\nfor i=1:30\n  plot(i, b-a, \"r.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  elseif f(b)*f(c) > 0\n    b = c\n  end\nend\nyscale(\"log\")\nylabel(\"b-a\")\nxlabel(\"i\")\n\nsavefig(\"ch05-secant3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -813,7 +813,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 型・■ 整数型",
     "title": "■ 整数",
     "category": "section",
-    "text": "Integers既定の整数型は、Int64 と呼ばれ、 64桁 (64bit, binary digit)の2進数である。負の数 -n を 2^64-n で表す「2の補数」方式を用いて、 正負の数を表す「符号付整数」である。Int64で表される最大の数は 2^63-1 である。 また、最小の数（絶対値が最大な負の数)は -2^63 である。 これらの値は、それぞれ typemax(Int64),typemin(Int64) という関数で求められる。2^63-1\ntypemax(Int64)\ntypemin(Int64)!!! Note     2の補数を求める方法が知られていれば、     減算は、引く数の「2の補数」を求め、加算すればよい。     幸い、2の補数は簡単に求められる。2の補数では、2進数の最上位の桁が、符号に相当する。\nすなわち、負の数では、\n最上位の桁 (Most-Significant Bit, MSB)は `1`、\n正の数または0では、MSBは `0` である。"
+    "text": "Integers既定の整数型は、Int64 と呼ばれ、 64桁 (64bit, binary digit)の2進数である。負の数 -n を 2^64-n で表す「2の補数」方式を用いて、 正負の数を表す「符号付整数」である。Int64で表される最大の数は 2^63-1 である。 また、最小の数（絶対値が最大な負の数)は -2^63 である。 これらの値は、それぞれ typemax(Int64),typemin(Int64) という関数で求められる。2^63-1\ntypemax(Int64)\ntypemin(Int64)note: Note\n2の補数を求める方法が知られていれば、 減算は、引く数の「2の補数」を求め、加算すればよい。 実は、2の補数は簡単に求められる。2の補数では、2進数の最上位の桁が、符号に相当する。 すなわち、負の数では、 最上位の桁 (Most-Significant Bit, MSB)は 1、 正の数または0では、MSBは 0 になる。"
 },
 
 {
@@ -849,9 +849,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch06.html#剰余-1",
+    "location": "ch06.html#整除・剰余-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "■ 剰余",
+    "title": "■ 整除・剰余",
     "category": "section",
     "text": "被除数xを除数dで除した商がq、余り（剰余)がrであるとき x=qd+r が成り立つ。 被除数xと除数dの両方が正の数の場合、 剰余r は0 le r lt dの範囲である。被除数xと除数dの両方が正の整数のとき、 剰余rを求めるのに関数 rem が、 商qを求めるのに関数 div が、それぞれよく用いられる。rem関数 Base.remusing PyPlot\nclf() #hide\nxs=0:7\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-0.2,6.2)\nylim(-0.2,3.2)\nxlabel(\"x\")\nlegend()\n\nfor x=0:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=0:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-divrem1-int-plot.svg\"); nothing # hide(Image: )"
 },
@@ -865,11 +865,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch06.html#商と剰余-1",
+    "location": "ch06.html#整除・剰余・被除数が負の場合-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "■ 商と剰余",
+    "title": "■ 整除・剰余・被除数が負の場合",
     "category": "section",
-    "text": "整数xをdで割ったときの商と剰余の関係 x=qd+r は、 負の数や、小数に拡張できる。 被除数xや除数dが負の数の場合、 商 qと 剰余 r の取るべき値について、 いくつかの考え方がある。rem関数の剰余は、被除数 x と同じ符号を選ぶ。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem2-plot.svg\"); nothing # hide(Image: )Base.modBase.fld除数dが正の場合、 mod関数は、0 leq r lt d の範囲の剰余 r を返す。これに対応する商は fld関数で求められる。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod1-plot.svg\"); nothing # hide(Image: )fld(x,d) は、dfracxd 以下の最大の整数である。 つまり、floor(x/d) と同じである。■ 床関数・天井関数using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, rs, \"ro\", label=\"remainder divided by \"*string(d))\nplot(xs, qs, \"b.\",  label=\"quotient divided by \"*string(d))\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor y=-3:3\n  axvline(y, color=\"k\", lw=0.5)\nend\n\nfor x=-7:7\n  axhline(x, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod2-plot.svg\"); nothing # hide(Image: )"
+    "text": "整数xをdで割ったときの商と剰余の関係 x=qd+r は、 負の数や、小数に拡張できる。 被除数xや除数dが負の数の場合、 商 qと 剰余 r の取るべき値について、 いくつかの考え方がある。剰余関数remは、被除数 x と同じ符号を選ぶ。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem2-plot.svg\"); nothing # hide(Image: )Base.modBase.fld剰余関数modは、除数dが正の場合、0 leq r lt d の範囲の剰余 r を返す。これに対応する商は fld関数で求められる。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod1-plot.svg\"); nothing # hide(Image: )関数 fld(x,d) は、dfracxd 以下の最大の整数である。 つまり、floor(x/d) と同じである。 参照： ■ 床関数・天井関数using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, rs, \"ro\", label=\"remainder divided by \"*string(d))\nplot(xs, qs, \"b.\",  label=\"quotient divided by \"*string(d))\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor y=-3:3\n  axvline(y, color=\"k\", lw=0.5)\nend\n\nfor x=-7:7\n  axhline(x, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -897,19 +897,19 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch06.html#負の除算に対する剰余-1",
+    "location": "ch06.html#整除・剰余・除数が負の場合-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "負の除算に対する剰余",
+    "title": "■ 整除・剰余・除数が負の場合",
     "category": "section",
-    "text": "除数 dが負の場合も、 rem関数は、0 leq r lt d の範囲の剰余 rを返す。 Base.remusing PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\n\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem3-plot.svg\"); nothing # hide(Image: )Base.mod除数 dが負の場合は、 mod関数は、d lt r le 0 の範囲の剰余 rを返す。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod3-plot.svg\"); nothing # hide(Image: )"
+    "text": "除数 dが負の場合も、 剰余関数remは、0 leq r lt d の範囲の剰余 rを返す。 Base.remusing PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\n\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem3-plot.svg\"); nothing # hide(Image: )Base.mod除数 dが負の場合は、 剰余関数modは、d lt r le 0 の範囲の剰余 rを返す。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch06.html#除数が-0-の場合-1",
+    "location": "ch06.html#整除・剰余・除数が-0-の場合-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "■ 除数が 0 の場合",
+    "title": "■ 整除・剰余・除数が 0 の場合",
     "category": "section",
-    "text": "除数が 0 で割ると例外を発生する除算例外Division erros"
+    "text": "除数が 0 であると例外を発生する除算例外Division erros"
 },
 
 {

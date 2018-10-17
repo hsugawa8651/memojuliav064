@@ -36,7 +36,7 @@ julia&gt; -1 / 0
 -Inf
 
 julia&gt; 0 / 0
-NaN</code></pre><h2><a class="nav-anchor" id="関数が連続とは-1" href="#関数が連続とは-1">▶︎ 関数が連続とは</a></h2><p>関数が連続であるとは、 関数のグラフがつながっている，ちぎれていないことをいう。 「関数 <span>$f(x)$</span> は <span>$x=a$</span> で連続」とは、</p><div>\[\lim_{x \longrightarrow a} f(x)\]</div><p>が存在して、その値が <span>$f(a)$</span> に等しいと定義される。</p><p>不連続とは、連続でないことである。 ただし、不連続な関数でも、連続な部分があることが多く、 それらを、枝 (branch) という。</p><p>この章では、主に、連続ではない関数のグラフを描く。</p><h2><a class="nav-anchor" id="逆数関数を描く-1" href="#逆数関数を描く-1">▶︎ 逆数関数を描く</a></h2><p>逆数関数 reciprocal function という。 逆関数 inverse function と区別されたい。</p><p>逆数関数 <span>$y=\dfrac{1}{x}$</span> を描く。</p><p>ここで、<span>$\dfrac{1}{0}$</span>の値は<code>Inf</code>であるが、 plot関数は「数でない数」をスキップして何も描かない。分母<span>$0$</span>の除算を特別扱いする必要はない。</p><p>逆数関数は、<span>$x=0$</span>で不連続であり、<span>$x$</span>の正負に対応して二つの枝を持つ。</p><div><pre><code class="language-julia">using PyPlot
+NaN</code></pre><h2><a class="nav-anchor" id="関数が連続とは-1" href="#関数が連続とは-1">▶︎ 関数が連続とは</a></h2><p>関数が連続であるとは、 関数のグラフがつながっている，ちぎれていないことをいう。</p><p>「関数 <span>$f(x)$</span> は <span>$x=a$</span> で連続」とは、</p><div>\[\lim_{x \longrightarrow a} f(x)\]</div><p>が存在して、その値が <span>$f(a)$</span> に等しいと定義される。</p><p>不連続とは、連続でないことである。 ただし、不連続な関数でも、連続な部分があることが多く、 それらを、枝 (branch) という。</p><p>この章では、主に、連続ではない関数のグラフを描く。</p><h2><a class="nav-anchor" id="逆数関数を描く-1" href="#逆数関数を描く-1">▶︎ 逆数関数を描く</a></h2><p>逆数関数 reciprocal function という。 逆関数 inverse function と区別されたい。</p><p>逆数関数 <span>$y=\dfrac{1}{x}$</span> を描く。</p><p>ここで、<span>$\dfrac{1}{0}$</span>の値は<code>Inf</code>であるが、 plot関数は「数でない数」をスキップして何も描かない。分母<span>$0$</span>の除算を特別扱いする必要はない。</p><p>逆数関数は、<span>$x=0$</span>で不連続であり、<span>$x$</span>の正負に対応して二つの枝を持つ。</p><div><pre><code class="language-julia">using PyPlot
 xs=-3:0.1:3
 plot(xs,1./xs)
 xlim(-3,3)
@@ -45,7 +45,7 @@ plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch03
 plot(xs,-1*xs, color=&quot;k&quot;, lw=0.5)
 axhline(0, color=&quot;k&quot;, lw=0.5)
 axvline(0, color=&quot;k&quot;, lw=0.5)
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch03-recipro2-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-1" href="#練習-1">◀︎ 練習</a></h2><p>(プログラミングでなく、数学の話題)</p><p>数学では「何らかの操作を行った結果が、元と重なること」を、 その操作に対して対象であるという。</p><p>上のグラフを観察すると、逆数関数は、いくつかの操作に対して対象であることがわかる。どのような操作か？</p><h2><a class="nav-anchor" id="不連続な有理式を描く-1" href="#不連続な有理式を描く-1">▶︎ 不連続な有理式を描く</a></h2><p>有理関数とは、多項式(分子)を多項式(分母)で割った関数である。</p><p>以下の有理関数を描こう。 <span>$y = \dfrac{x^3+8}{x^3+3x^2-4x-12}$</span></p><p>まず、分母を描く。</p><div><pre><code class="language-julia">using PyPlot
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch03-recipro2-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-1" href="#練習-1">◀︎ 練習</a></h2><p>(プログラミングでなく、数学の話題)</p><p>数学では「何らかの操作を行った結果が、元と重なること」を、 その操作に対して対称である(symmetric)という。</p><p>上のグラフを観察すると、逆数関数は、いくつかの操作に対して対称であることがわかる。どのような操作か？</p><h2><a class="nav-anchor" id="不連続な有理式を描く-1" href="#不連続な有理式を描く-1">▶︎ 不連続な有理式を描く</a></h2><p>有理関数とは、多項式(分子)を多項式(分母)で割った関数である。</p><p>以下の有理関数を描こう。</p><div>\[y = \dfrac{x^3+8}{x^3+3x^2-4x-12}\]</div><p>まず、分母を描く。</p><div><pre><code class="language-julia">using PyPlot
 xs=-10:0.1:10
 plot(xs, xs.^3+3xs.^2-4*xs-12)
 ylim(-20,20)
@@ -53,7 +53,7 @@ xlim(-4,4)
 axhline(0, color=&quot;k&quot;, lw=0.5)
 axvline(-3, color=&quot;k&quot;, lw=0.5)
 axvline(-2, color=&quot;k&quot;, lw=0.5)
-axvline(2, color=&quot;k&quot;, lw=0.5)</code></pre></div><p><img src="ch03-dis1-plot.svg" alt/></p><p>分母は <span>$x=-3, -2, 2$</span>で 0 となるから、 上の有理関数は、この三点で不連続となる「可能性」がある。</p><p>では、上の有利関数を描いてみる。逆数関数と同じように、分母0の場合を特別扱いする必要はない。</p><div><pre><code class="language-julia">xs=-10:0.05:10
+axvline(2, color=&quot;k&quot;, lw=0.5)</code></pre></div><p><img src="ch03-dis1-plot.svg" alt/></p><p>分母は <span>$x=-3, -2, 2$</span>で 0 となるから、 上の有理関数は、この三点で不連続となる「可能性」がある。</p><p>では、上の有理関数を描いてみる。逆数関数の描画と同じように、分母0となる場合を特別扱いする必要はない。</p><div><pre><code class="language-julia">xs=-10:0.05:10
 plot(xs, (xs.^3+8)./(xs.^3+3xs.^2-4xs-12))
 ylim(-10,10)
 xlim(-4,4)
@@ -78,7 +78,7 @@ plot(xs, tand.(xs), label=&quot;tand&quot;)
 plot(xs, cotd.(xs), label=&quot;cotd&quot;)
 xlabel(&quot;degree&quot;)
 ylim(-1e1, 1e1)
-legend()</code></pre></div><p><img src="ch03-tan2-plot.svg" alt/></p><h2><a class="nav-anchor" id="周期関数-1" href="#周期関数-1">▶︎ 周期関数</a></h2><div>\[f(t+T) = f(t)\]</div><p>上式のように、横軸を<span>$T$</span>だけ平行移動しても、 元の形に重なる関数を周期関数 (periodic function)という。 <span>$T$</span> は、周期 (period) と呼ばれる。</p><p>ラジアン単位の正接関数 <code>tan</code> は、周期 <span>$2\pi$</span>である。 平行移動して重なることを、図示してみよう。</p><p>比較の基準となる曲線は <code>fmt=bo</code> (blue, circle, 青い円) で描いた。</p><p>比較される曲線は <code>fmt=r.</code> (red, point, 赤い点) で描いた。</p><div><pre><code class="language-julia">using PyPlot
+legend()</code></pre></div><p><img src="ch03-tan2-plot.svg" alt/></p><h2><a class="nav-anchor" id="周期関数-1" href="#周期関数-1">▶︎ 周期関数</a></h2><div>\[f(t+T) = f(t)\]</div><p>上式のように、横軸を<span>$T$</span>だけ平行移動しても、 元の形に重なる関数を周期関数 (periodic function)という。 <span>$T$</span> は、周期 (period) と呼ばれる。</p><p>ラジアン単位の正接関数 <code>tan</code> は、周期 <span>$2\pi$</span>である。 平行移動して重なることを、図示してみよう。</p><p>比較の基準となる曲線は <code>fmt=&quot;bo&quot;</code> (blue, circle, 青い円) で描いた。</p><p>比較される曲線は <code>fmt=&quot;r.&quot;</code> (red, point, 赤い点) で描いた。</p><div><pre><code class="language-julia">using PyPlot
 xs=-2pi:pi/18:2pi
 plot(xs, tan.(xs),      &quot;bo&quot;, label=&quot;tan&quot;)
 plot(xs, tan.(xs+2*pi), &quot;r.&quot;, label=&quot;tan, shifted by 2pi&quot;)
@@ -89,7 +89,9 @@ legend()</code></pre></div><p><img src="ch03-tan1t-plot.svg" alt/></p><h2><a cla
 using PyPlot
 xs=-6.4:0.1:6.4
 -6.4:0.1:6.4
-plot(xs, sign.(xs), &quot;.&quot;)</code></pre></div><p><img src="ch04-sign1-plot.svg" alt/></p><p>周期関数を描くのに、用いることができる。</p><div><pre><code class="language-julia">plot(xs, sign.( cos.(xs)), &quot;.&quot;)</code></pre></div><p><img src="ch04-sign2-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-3" href="#練習-3">◀︎ 練習</a></h2><p>上のような、二つの数を交互にとる周期関数を方形波 (square wave)という。 この例の周期はいくつか？ 周期が 1 になるように、修正してみよ。</p><h2><a class="nav-anchor" id="絶対値関数-1" href="#絶対値関数-1">▶︎ 絶対値関数</a></h2><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.abs"><code>Base.abs</code></a></p><div><pre><code class="language-julia">using PyPlot
+plot(xs, sign.(xs), &quot;.&quot;)</code></pre></div><p><img src="ch04-sign1-plot.svg" alt/></p><p>周期関数を描くのに、用いることができる。</p><div><pre><code class="language-julia">plot(xs, cos.(xs), &quot;r&quot;, label=&quot;cos(x)&quot;)
+plot(xs, sign.( cos.(xs)), &quot;b.&quot;, label=&quot;sign(cos(x))&quot;)
+legend()</code></pre></div><p><img src="ch04-sign2-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-3" href="#練習-3">◀︎ 練習</a></h2><p>上のような、二つの数を交互にとる周期関数を方形波 (square wave)という。 この例の周期はいくつか？ 周期が 1 になるように、修正してみよ。</p><h2><a class="nav-anchor" id="絶対値関数-1" href="#絶対値関数-1">▶︎ 絶対値関数</a></h2><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.abs"><code>Base.abs</code></a></p><div><pre><code class="language-julia">using PyPlot
 xs=-1:0.1:1
 plot(xs,abs.(xs))
 plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-abs1-plot.svg" alt/></p><h2><a class="nav-anchor" id="クランプ関数-1" href="#クランプ関数-1">▶︎ クランプ関数</a></h2><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.Math.clamp"><code>Base.Math.clamp</code></a></p><p>関数 <code>clamp(x, lo, hi)</code>は、上限と下限で制限する関数である。 すなわち、<span>$x$</span>の値が <code>hi</code> よりも大きければ <code>hi</code>を、<code>lo</code> よりも大きければ <code>lo</code>を返す。 どちらでもなければ、そのままの値を返す。</p><div><pre><code class="language-julia">using PyPlot
@@ -97,7 +99,7 @@ xs=-5:0.1:5
 plot(xs,clamp.(xs,-1,2))
 xlim(-5,5)
 ylim(-5,5)
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-clamp1-plot.svg" alt/></p><h2><a class="nav-anchor" id="床関数・天井関数-1" href="#床関数・天井関数-1">■ 床関数・天井関数</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.floor"><code>Base.floor</code></a></p></li><li><p>[<code>Base.ceil</code>]</p></li></ul><p>(https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.ceil)</p><p>床関数 <code>floor(x)</code>は、<span>$x$</span>を超えない最大の整数を返す。</p><p>天井関数 <code>ceil(x)</code>は、<span>$x$</span>以上の最小の整数を返す。</p><p>下のグラフで、整数 <span>$x$</span> に対する関数の値を、よく観察せよ。</p><p>これらの関数は、<a href="ch06.html#浮動小数点数から整数への変換-1">■ 浮動小数点数から整数への変換</a> で用いられる。</p><div><pre><code class="language-julia">using PyPlot
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-clamp1-plot.svg" alt/></p><h2><a class="nav-anchor" id="床関数・天井関数-1" href="#床関数・天井関数-1">■ 床関数・天井関数</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.floor"><code>Base.floor</code></a></p></li><li><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.ceil"><code>Base.ceil</code></a></p></li></ul><p>床関数 <code>floor(x)</code>は、<span>$x$</span>を超えない最大の整数を返す。</p><p>天井関数 <code>ceil(x)</code>は、<span>$x$</span>以上の最小の整数を返す。</p><p>下のグラフで、整数 <span>$x$</span> に対する関数の値を、よく観察せよ。</p><p>これらの関数は、<a href="ch06.html#浮動小数点数から整数への変換-1">■ 浮動小数点数から整数への変換</a> で用いられる。</p><div><pre><code class="language-julia">using PyPlot
 xs=-2.4:0.2:2.4
 plot(xs, ceil.(xs), &quot;o&quot;, label=&quot;ceil&quot;)
 plot(xs, floor.(xs), &quot;.&quot;, label=&quot;floor&quot;)
@@ -109,4 +111,4 @@ xlim(-3.2,3.2)
 ylim(-3.2,3.2)
 
 legend()
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-floorceil1-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-4" href="#練習-4">◀︎ 練習</a></h2><p>床関数または天井関数を用いて、数を 1の位で四捨五入するには、どうしたらよいか？</p><p>プログラムを書いて、実行してみよ。</p><p>1の位での四捨五入とは、その数の小数点第一桁目が 5以上であれば 1を加え、5未満であれば何もしない操作である。</p><h2><a class="nav-anchor" id="練習-5" href="#練習-5">◀︎ 練習</a></h2><p>ここまで紹介した関数を使って、色々な不連続曲線や周期関数を描いてみよ。 Jupyter notebookの Markdownセルを用いて、説明文も加えよ。</p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>plot関数のフォーマットパラメータ</p></li><li><p><code>0</code>による除算</p></li><li><p>逆数関数</p></li><li><p>不連続な有理関数</p></li><li><p>正接・余接関数</p></li><li><p>周期関数</p></li><li><p>符号関数</p></li><li><p>絶対値関数</p></li><li><p>床関数・天井関数</p></li></ul><footer><hr/><a class="previous" href="ch03.html"><span class="direction">Previous</span><span class="title">第3回：▶︎ 連続な曲線を描く</span></a><a class="next" href="ch05.html"><span class="direction">Next</span><span class="title">第5回：■ 条件式・■ 条件分岐</span></a></footer></article></body></html>
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-floorceil1-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-4" href="#練習-4">◀︎ 練習</a></h2><p>床関数または天井関数を用いて、数を 1の位で四捨五入するには、どうしたらよいか？</p><p>プログラムを書いて、実行してみよ。</p><p>1の位での四捨五入とは、その数の小数点第一桁目が 0.5以上であれば 1を加え、0.5未満であれば何もしない操作である。</p><h2><a class="nav-anchor" id="練習-5" href="#練習-5">◀︎ 練習</a></h2><p>ここまで紹介した関数を使って、色々な不連続曲線や周期関数を描いてみよ。 Jupyter notebookの Markdownセルを用いて、説明文も加えよ。</p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>plot関数のフォーマットパラメータ</p></li><li><p><code>0</code>による除算</p></li><li><p>逆数関数</p></li><li><p>不連続な有理関数</p></li><li><p>正接・余接関数</p></li><li><p>周期関数</p></li><li><p>符号関数</p></li><li><p>絶対値関数</p></li><li><p>床関数・天井関数</p></li></ul><footer><hr/><a class="previous" href="ch03.html"><span class="direction">Previous</span><span class="title">第3回：▶︎ 連続な曲線を描く</span></a><a class="next" href="ch05.html"><span class="direction">Next</span><span class="title">第5回：■ 条件式・■ 条件分岐</span></a></footer></article></body></html>
