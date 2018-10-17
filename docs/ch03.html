@@ -51,7 +51,7 @@ ylim(0,100)</code></pre></div><p><img src="ch03-exp3-plot.svg" alt/></p><p>自�
 e = 2.7182818284590...
 
 julia&gt; eu
-e = 2.7182818284590...</code></pre><p>関数 <code>xscale</code>, <code>yscale</code> は、 それぞれ x軸、y軸のスケールを指定する関数である。 何も指定しない場合（既定値）は、線形 <code>linear</code> である。 <code>log</code> を指定すると、10の対数で、その軸を描く。</p><p>底を変えて、繰り返してみる。<span>$a^0=1=10^0$</span> で、曲線が交差している。</p><div><pre><code class="language-julia">for a in [2,e,3,4,5,6]
+e = 2.7182818284590...</code></pre><p>底を変えて、繰り返してみる。<span>$a^0=1=10^0$</span> で、曲線が交差している。</p><p>以下は、片対数グラフで描いた。</p><p>関数 <code>xscale</code>, <code>yscale</code> は、 それぞれ x軸、y軸のスケールを指定する。 何も指定しない場合（既定値）は、線形 <code>linear</code> である。 <code>log</code> を指定すると、10の対数で、その軸を描く。</p><div><pre><code class="language-julia">for a in [2,e,3,4,5,6]
   plot(xs, a.^xs, label=&quot;a=&quot;*string(a))
 end
 yscale(&quot;log&quot;)
@@ -200,7 +200,7 @@ fig=plt[:figure]()
 ax1=fig[:add_subplot](111)
 ax1[:plot](xs, -xs, &quot;r&quot;)
 ax2=ax1[:twinx]()
-ax2[:plot](xs, xs.^2, &quot;b&quot;)</code></pre></div><h2><a class="nav-anchor" id="自由落下運動を描く-1" href="#自由落下運動を描く-1">▶︎ 自由落下運動を描く</a></h2><p>(力学の問題)</p><p>鉛直上向きに投げられた球が、重力のみを感じて自由落下するとする。 時刻 <span>$t=0$</span>において、高さ <span>$y=0$</span>, 鉛直上向きの速度 <span>$v_0$</span> とすると、 時刻 <span>$t$</span>における、高さ <span>$y$</span>と 鉛直上向きの速度 <span>$v$</span> は、以下のように表される。</p><div>\[\begin{align*} v &amp; = v_0 - gt, \\ y &amp; = v_0 t - \dfrac{1}{2}gt^2 \end{align*}\]</div><p>各時刻の速度を描く。 長さの単位としてメートル <code>m</code>、 時間の単位として秒 <code>s</code> を、(組立て単位を含めて)一貫して用いる。</p><p>重力加速度 <span>$g = 9.8\;\mathrm{m/s^2}$</span></p><p>初速度を <span>$v0 = 10\;\mathrm{m/s^2}$</span> としよう。</p><p>各時刻の速度を描く。</p><div><pre><code class="language-julia">using PyPlot
+ax2[:plot](xs, xs.^2, &quot;b&quot;)</code></pre></div><h2><a class="nav-anchor" id="自由落下運動を描く-1" href="#自由落下運動を描く-1">▶︎ 自由落下運動を描く</a></h2><p>(力学の問題)</p><p>鉛直上向きに投げられた球が、重力のみを感じて自由落下するとする。 時刻 <span>$t=0$</span>において、高さ <span>$y=0$</span>, 鉛直上向きの速度 <span>$v_0$</span> とすると、 時刻 <span>$t$</span>における、高さ <span>$y$</span>と 鉛直上向きの速度 <span>$v$</span> は、以下のように表される。</p><div>\[\begin{align*} v &amp; = v_0 - gt, \\ y &amp; = v_0 t - \dfrac{1}{2}gt^2 \end{align*}\]</div><p>各時刻の速度を描く。 長さの単位としてメートル <code>m</code>、 時間の単位として秒 <code>s</code> を、(組立て単位を含めて)一貫して用いる。</p><p>重力加速度 <span>$g = 9.8\;\mathrm{m/s^2}$</span></p><p>初速度を <span>$v0 = 10\;\mathrm{m/s}$</span> としよう。</p><p>各時刻の速度を描く。</p><div><pre><code class="language-julia">using PyPlot
 v0=10 # m/s
 g=9.8 # m/s^2
 
