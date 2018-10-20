@@ -809,6 +809,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch06.html#タプル-1",
+    "page": "第6回：■ 型・■ 整数型",
+    "title": "■ タプル",
+    "category": "section",
+    "text": "タプル (tuple)"
+},
+
+{
     "location": "ch06.html#整数-1",
     "page": "第6回：■ 型・■ 整数型",
     "title": "■ 整数",
@@ -829,7 +837,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 型・■ 整数型",
     "title": "■ 整数同士の除算",
     "category": "section",
-    "text": "除算の結果は、小数(浮動小数点数)になる。1 / 2"
+    "text": "整数同士の除算でも、商は小数(浮動小数点数)になる。1 / 2余り (剰余)を求めたい場合は、■ 整商・剰余 を参照せよ。"
 },
 
 {
@@ -845,15 +853,23 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 型・■ 整数型",
     "title": "■ 浮動小数点数から整数への変換",
     "category": "section",
-    "text": "浮動小数点数を整数に変換するには、Int64(x)を用いる。 ただし、xが小数部を含むと例外がでる（エラーとなる）ので、 小数部を 0に変換する必要がある。この際、床関数が用いられる。■ 床関数・天井関数Int64(1.0)\nInt64(1.1)  # エラー\nInt64(floor(1.1))"
+    "text": "浮動小数点数を整数に変換するには、Int64(x)を用いる。 ただし、xが小数部を含むと例外がでる（エラーとなる）ので、 小数部を 0に変換する必要がある。この際、床関数が用いられる。　参考→ ■ 床関数・天井関数Int64(1.0)\nInt64(1.1)  # エラー\nInt64(floor(1.1))"
 },
 
 {
-    "location": "ch06.html#整除・剰余-1",
+    "location": "ch06.html#整商・剰余-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "■ 整除・剰余",
+    "title": "■ 整商・剰余",
     "category": "section",
-    "text": "被除数xを除数dで除した商がq、余り（剰余)がrであるとき x=qd+r が成り立つ。 被除数xと除数dの両方が正の数の場合、 剰余r は0 le r lt dの範囲である。被除数xと除数dの両方が正の整数のとき、 剰余rを求めるのに関数 rem が、 商qを求めるのに関数 div が、それぞれよく用いられる。rem関数 Base.remusing PyPlot\nclf() #hide\nxs=0:7\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-0.2,6.2)\nylim(-0.2,3.2)\nxlabel(\"x\")\nlegend()\n\nfor x=0:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=0:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-divrem1-int-plot.svg\"); nothing # hide(Image: )"
+    "text": "整数の商を整商(せいしょう, integral quotient)という。被除数 x を除数 d で除した整商が q、剰余(余り)が rであるとき x=qd+r が成り立つ。 被除数 x と除数 d の両方が正の数の場合、 剰余 r は 0 le r lt d の範囲である。整商と剰余を計算する関数が、二組用意されている。整商関数 div と剰余関数 rem\n整商関数 fld と剰余関数 mod被除数 x と除数 dの両方が正の整数のとき、 二つの関数の組は、同じ整商 q と剰余 r を返す。 どちらを用いてもよいが、計算コストが若干低い、 関数の組 div と rem が好まれる。Base.rem\nBase.divBase.mod\nBase.fldusing PyPlot\nclf() #hide\nxs=0:7\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-0.2,6.2)\nylim(-0.2,3.2)\nxlabel(\"x\")\nlegend()\n\nfor x=0:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=0:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-divrem1-int-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch06.html#練習-1",
+    "page": "第6回：■ 型・■ 整数型",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "日本では、小額の取引に、500円\n100円\n50円\n10円\n5円\n1円の6種類の硬貨がよく用いられる。金額が与えられたときに、6種類の硬貨が各々何枚必要か計算せよ。 ただし、高額の硬貨を優先して用いるものとする。第一段階として、100円、10円、1円に分けるプログラムを書いて実行せよ。\n第二段階として、上の 6種類の硬貨に分けるプログラムを書いて実行せよ。同様な処理は、繰り返し (for文)を用いてみよ。\n第三段階として、1円刻みで551円までの金額に対して、6種類の硬貨の枚数を描くプログラムを書いて実行せよ。"
 },
 
 {
@@ -865,19 +881,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch06.html#整除・剰余・被除数が負の場合-1",
+    "location": "ch06.html#整商・剰余・被除数が負の場合-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "■ 整除・剰余・被除数が負の場合",
+    "title": "■ 整商・剰余・被除数が負の場合",
     "category": "section",
-    "text": "整数xをdで割ったときの商と剰余の関係 x=qd+r は、 負の数や、小数に拡張できる。 被除数xや除数dが負の数の場合、 商 qと 剰余 r の取るべき値について、 いくつかの考え方がある。剰余関数remは、被除数 x と同じ符号を選ぶ。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem2-plot.svg\"); nothing # hide(Image: )Base.modBase.fld剰余関数modは、除数dが正の場合、0 leq r lt d の範囲の剰余 r を返す。これに対応する商は fld関数で求められる。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod1-plot.svg\"); nothing # hide(Image: )関数 fld(x,d) は、dfracxd 以下の最大の整数である。 つまり、floor(x/d) と同じである。 参照： ■ 床関数・天井関数using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, rs, \"ro\", label=\"remainder divided by \"*string(d))\nplot(xs, qs, \"b.\",  label=\"quotient divided by \"*string(d))\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor y=-3:3\n  axvline(y, color=\"k\", lw=0.5)\nend\n\nfor x=-7:7\n  axhline(x, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod2-plot.svg\"); nothing # hide(Image: )"
-},
-
-{
-    "location": "ch06.html#練習-1",
-    "page": "第6回：■ 型・■ 整数型",
-    "title": "◀︎ 練習",
-    "category": "section",
-    "text": "日本では、小額の取引に、500円\n100円\n50円\n10円\n5円\n1円の6種類の硬貨がよく用いられる。金額が与えられたときに、6種類の硬貨が各々何枚必要か計算せよ。 ただし、高額の硬貨を優先して用いるものとする。第一段階として、100円、10円、1円に分けるプログラムを書いて実行せよ。\n第二段階として、上の 6種類の硬貨に分けるプログラムを書いて実行せよ。同様な処理は、繰り返し (for文)を用いてみよ。\n第三段階として、1円刻みで551円までの金額に対して、6種類の硬貨の枚数を描くプログラムを書いて実行せよ。"
+    "text": "整数xをdで割ったときの整商 q と剰余 r の関係 x=qd+r は、 負の数や、小数に拡張できる。 被除数xや除数dが負の数の場合、 整商 qと 剰余 r の取るべき値について、複数の考え方がある。剰余関数remは、被除数 x と同じ符号を選ぶ。 被除数 x が負なら、-d lt r le 0の範囲である。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem2-plot.svg\"); nothing # hide(Image: )剰余関数 mod は、除数 d が正の場合、0 le r lt d の範囲の剰余 r を返す。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod1-plot.svg\"); nothing # hide(Image: )関数 fld(x,d) は、dfracxd 以下の最大の整数を返す。 つまり、floor(x/d) と同じである。 参照： ■ 床関数・天井関数using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, rs, \"ro\", label=\"remainder divided by \"*string(d))\nplot(xs, qs, \"b.\",  label=\"quotient divided by \"*string(d))\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor y=-3:3\n  axvline(y, color=\"k\", lw=0.5)\nend\n\nfor x=-7:7\n  axhline(x, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -897,17 +905,17 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch06.html#整除・剰余・除数が負の場合-1",
+    "location": "ch06.html#整商・剰余・除数が負の場合-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "■ 整除・剰余・除数が負の場合",
+    "title": "■ 整商・剰余・除数が負の場合",
     "category": "section",
-    "text": "除数 dが負の場合も、 剰余関数remは、0 leq r lt d の範囲の剰余 rを返す。 Base.remusing PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\n\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem3-plot.svg\"); nothing # hide(Image: )Base.mod除数 dが負の場合は、 剰余関数modは、d lt r le 0 の範囲の剰余 rを返す。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod3-plot.svg\"); nothing # hide(Image: )"
+    "text": "除数 dが負の場合も、 剰余関数remは、被除数 x と同じ符号を選ぶ。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\n\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem3-plot.svg\"); nothing # hide(Image: )Base.mod剰余関数modは、 除数 dが負の場合は、d lt r le 0 の範囲の剰余 rを返す。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch06.html#整除・剰余・除数が-0-の場合-1",
+    "location": "ch06.html#整商・剰余・除数が-0-の場合-1",
     "page": "第6回：■ 型・■ 整数型",
-    "title": "■ 整除・剰余・除数が 0 の場合",
+    "title": "■ 整商・剰余・除数が 0 の場合",
     "category": "section",
     "text": "除数が 0 であると例外を発生する除算例外Division erros"
 },
@@ -965,7 +973,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 小数を2進数へ変換する",
     "category": "section",
-    "text": "x=f_12^-1 + f_22^-2 + cdots(正の)小数を2進数に変換するには、 小数を2倍しその整数部分を取り出すことを、繰り返し行えばよい。小数 0.2を、2進数で表示すると循環小数になる。 1100 のパターンが繰り返し現れる。x=0.2\nfor i=1:50\n  x *= 2\n  q=floor(x)\n  print(Int64(q))\n  x -= q*2\nend00000110011001100110011001100110011001100110011001\n\n1100 循環小数"
+    "text": "x=f_12^-1 + f_22^-2 + cdots(正の)小数を2進数に変換するには、 小数を2倍しその整数部分を取り出すことを、繰り返し行えばよい。小数 0.2を、2進数で表示すると循環小数になる。 1100 のパターンが繰り返し現れる。x=0.2\nfor i=1:50\n    q=floor(x/2)\n    print(Int64(q))\n    x -= q*2\n    x *= 2\nend00000110011001100110011001100110011001100110011001\n\n1100 循環小数"
 },
 
 {
