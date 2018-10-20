@@ -112,7 +112,7 @@ for gamma in [0.5,1.0,2.0]
   plot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )
 end
 legend()
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p>次の性質がある。</p><ul><li><p>点 <span>$x=0$</span> で 最大値 <span>$y = \frac{2}{\gamma}$</span></p></li><li><p>点 <span>$x=\pm\frac{gamma}{2}$</span> で、<span>$y = \frac{1}{2}\frac{2}{\gamma}$</span> となること。</p></li></ul><p>２つ目の性質を観察するため、最大値に対する比を描いてみる。</p><p>関数 <code>axhline()</code> は、水平線(horizontal line)を描く。引数 <code>color=&quot;k&quot;</code> は、黒色(black)で描くことを指定し、<code>lw=0.5</code>は線幅(linewidth)を指定する。</p><div><pre><code class="language-julia">using PyPlot
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p>次の性質がある。</p><ul><li><p>点 <span>$x=0$</span> で 最大値 <span>$y = \frac{2}{\gamma}$</span></p></li><li><p>点 <span>$x=\pm\frac{\gamma}{2}$</span> で、<span>$y = \frac{1}{2}\frac{2}{\gamma}$</span> となること。</p></li></ul><p>２つ目の性質を観察するため、最大値に対する比を描いてみる。</p><p>関数 <code>axhline()</code> は、水平線(horizontal line)を描く。引数 <code>color=&quot;k&quot;</code> は、黒色(black)で描くことを指定し、<code>lw=0.5</code>は線幅(linewidth)を指定する。</p><div><pre><code class="language-julia">using PyPlot
 xs=-3:0.05:3
 for gamma in [0.5,1.0,2.0]
   plot(xs,
