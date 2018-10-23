@@ -17,7 +17,7 @@ julia&gt; string(1)
 &quot;1&quot;
 
 julia&gt; string(1.1)
-&quot;1.1&quot;</code></pre><h2><a class="nav-anchor" id="for文-1" href="#for文-1">■ for文</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/manual/control-flow/#man-loops-1">Repeated Evaluation: Loops</a></p><p>一つずつ要素を取り出すことができる量を、コレクションという。 ベクトルやRangeは、コレクションである。</p><p><code>for</code>文を用いると、コレクションから要素を一つづつ取り出して、 <code>end</code>文が出現するまでの文を繰り返して、計算を行うことができる。</p><p>繰り返しをループ（loop）ともいう。</p><p>次の例では、変数 <code>i</code>に、ベクトルの各要素を入れて、<code>end</code>文までの計算を繰り返す。 コレクションの各要素が入る変数をループ変数 (loop variable)という。</p><pre><code class="language-julia-repl">julia&gt; for i in [1,3,2]
+&quot;1.1&quot;</code></pre><h2><a class="nav-anchor" id="for文-1" href="#for文-1">■ for文</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/manual/control-flow/#man-loops-1">Repeated Evaluation: Loops</a></p><p>一つずつ要素を取り出すことができる量を、コレクションという。 ベクトルやRangeは、コレクションである。</p><p><code>for</code>文を用いると、コレクションから要素を一つづつ取り出して、 <code>end</code>文が出現するまでの文を繰り返して、計算を行うことができる。 この繰り返される部分をブロック(block)という。 ブロックは、字下げ (indent) で表記される。 が、字下げは見やすさのためだけである。</p><p>繰り返しをループ（loop）ともいう。</p><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>ブロックは、for文以外にも出現する (例えば、 <a href="ch05.html#if文-1">■ if文</a> )。 区別したいなら <code>for</code>ブロックとも称する。</p></div></div><p>次の例では、変数 <code>i</code>に、ベクトルの各要素を入れて、<code>end</code>文までの計算を繰り返す。 コレクションの各要素が入る変数をループ変数 (loop variable)という。</p><pre><code class="language-julia-repl">julia&gt; for i in [1,3,2]
          @show i   # 式 i の値を表示する
        end
 i = 1
@@ -33,12 +33,20 @@ i = 2</code></pre><p><code>@show i</code> は、式 <code>i</code> の値を表�
 xs=-1:0.1:1
 plot(xs,-1*xs,  label=&quot;y=-x&quot;)
 plot(xs,2*xs-1, label=&quot;y=2x-1&quot;)
-legend()</code></pre></div><p><img src="ch02-leg1-plot.svg" alt/></p><p>for文を用いて、直線群 <code>y=ax</code> のグラフに凡例を加えてみる。</p><div><pre><code class="language-julia">using PyPlot
+legend()</code></pre></div><p><img src="ch02-leg1-plot.svg" alt/></p><p>比例関係 <span>$y = ax$</span> (<span>$a=1,2,3,4,5$</span>)のグラフを描こう。</p><div><pre><code class="language-julia">using PyPlot
+xs=-1:0.1:1
+plot(xs,   xs, label=&quot;y= x&quot; )
+plot(xs, 2*xs, label=&quot;y=2x&quot; )
+plot(xs, 3*xs, label=&quot;y=3x&quot; )
+plot(xs, 4*xs, label=&quot;y=4x&quot; )
+plot(xs, 5*xs, label=&quot;y=5x&quot; )
+end
+legend()</code></pre></div><p><img src="ch02-leg2a-plot.svg" alt/></p><p>上のプログラムを、for文を用いて繰り返しで書き直してみよう。</p><div><pre><code class="language-julia">using PyPlot
 xs=-1:0.1:1
 for a in 1:5
   plot(xs, a*xs, label=&quot;y=&quot;*string(a)*&quot;x&quot; )
 end
-legend()</code></pre></div><p><img src="ch02-leg2-plot.svg" alt/></p><h2><a class="nav-anchor" id="冪乗関数を描く-1" href="#冪乗関数を描く-1">▶︎ 冪乗関数を描く</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.:^-Tuple{Number,Number}"><code>Base.:^</code></a></p><p><code>x^y</code> は、冪（べき, power）ないし冪乗（べきじょう）<span>$x^y$</span>を表す。 <span>$x$</span>を底 (base)、<span>$y$</span>を冪指数 (exponent)という。</p><pre><code class="language-julia-repl">julia&gt; 2^2
+legend()</code></pre></div><p><img src="ch02-leg2b-plot.svg" alt/></p><h2><a class="nav-anchor" id="冪乗関数を描く-1" href="#冪乗関数を描く-1">▶︎ 冪乗関数を描く</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/math/#Base.:^-Tuple{Number,Number}"><code>Base.:^</code></a></p><p><code>x^y</code> は、冪（べき, power）ないし冪乗（べきじょう）<span>$x^y$</span>を表す。 <span>$x$</span>を底 (base)、<span>$y$</span>を冪指数 (exponent)という。</p><pre><code class="language-julia-repl">julia&gt; 2^2
 4
 
 julia&gt; 2^3
@@ -112,7 +120,7 @@ for gamma in [0.5,1.0,2.0]
   plot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )
 end
 legend()
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p>次の性質がある。</p><ul><li><p>点 <span>$x=0$</span> で 最大値 <span>$y = \frac{2}{\gamma}$</span></p></li><li><p>点 <span>$x=\pm\frac{\gamma}{2}$</span> で、<span>$y = \frac{1}{2}\frac{2}{\gamma}$</span> となること。</p></li></ul><p>２つ目の性質を観察するため、最大値に対する比を描いてみる。</p><p>関数 <code>axhline()</code> は、水平線(horizontal line)を描く。引数 <code>color=&quot;k&quot;</code> は、黒色(black)で描くことを指定し、<code>lw=0.5</code>は線幅(linewidth)を指定する。</p><div><pre><code class="language-julia">using PyPlot
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p>ローレンツ関数には、次の性質がある。</p><ul><li><p>点 <span>$x=0$</span> で 最大値 <span>$y = \frac{2}{\gamma}$</span></p></li><li><p>点 <span>$x=\pm\frac{\gamma}{2}$</span> で、<span>$y = \frac{1}{2}\frac{2}{\gamma}$</span> となること。</p></li></ul><p>２つ目の性質を観察するため、最大値に対する比を描いてみる。</p><p>PyPlotパッケージに用意された関数 <code>axhline()</code> は、 水平線(horizontal line)を描く。 引数 <code>color=&quot;k&quot;</code> は、黒色(black)で描くことを指定し、<code>lw=0.5</code>は線幅(linewidth)を指定する。</p><div><pre><code class="language-julia">using PyPlot
 xs=-3:0.05:3
 for gamma in [0.5,1.0,2.0]
   plot(xs,
@@ -120,7 +128,7 @@ for gamma in [0.5,1.0,2.0]
     label=gamma )
 end
 legend()
-axhline(1/2, color=&quot;k&quot;, lw=0.5)</code></pre></div><p><img src="ch02-lo4-plot.svg" alt/></p><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p><code>plot</code>関数の文は、複数の行に渡って記述しているが、行が更に続くことを示す記法は、特に用意されていない。構文が行末で終わらなければ、次の行まで読みに行くことになっている。</p></div></div><p>パラメータ <span>$\gamma$</span>は、半値全幅 (Full Width of Half Maximum, FWHM)と呼ばれる。 <span>$\gamma$</span>を非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似(の一つ)となる。</p><h2><a class="nav-anchor" id="更新演算子-1" href="#更新演算子-1">■ 更新演算子</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/manual/mathematical-operations/#Updating-operators-1">Updating operators</a></p><p>変数に四則演算などを行って、元の変数に再代入する場合には、 更新演算子を用いるとよい。</p><pre><code class="language-julia-repl">julia&gt; x=1
+axhline(1/2, color=&quot;k&quot;, lw=0.5)</code></pre></div><p><img src="ch02-lo4-plot.svg" alt/></p><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p><code>plot</code>関数の文は、複数の行に渡って記述しているが、行が更に続くことを示す記法は、特に用意されていない。構文が行末で終わらなければ、次の行まで読みに行くことになっている。</p></div></div><p>パラメータ <span>$\gamma$</span>は、半値全幅 (Full Width of Half Maximum, FWHM)と呼ばれる。 <span>$\gamma$</span>を非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似(の一つ)となる。</p><h2><a class="nav-anchor" id="更新演算子-1" href="#更新演算子-1">■ 更新演算子</a></h2><p><a href="https://docs.julialang.org/en/v0.6.4/manual/mathematical-operations/#Updating-operators-1">Updating operators</a></p><p>変数に四則演算などを行って、元の変数に再代入する場合には、 更新演算子を用いるとよい。 演算子の直後に <code>=</code> の文字が入る。</p><pre><code class="language-julia-repl">julia&gt; x=1
 1
 
 julia&gt; # 再代入
@@ -140,7 +148,7 @@ gamma = 1.0
 gamma = 0.5
 gamma = 0.25
 gamma = 0.125
-gamma = 0.0625</code></pre><p>これを利用して、ローレンツ関数のパラメータ <code>gamma</code> を変えてみる。</p><div><pre><code class="language-julia">using PyPlot
+gamma = 0.0625</code></pre><p>更新演算子 <code>/=</code> を利用して、ローレンツ関数のパラメータ <code>gamma</code> を変えてみる。</p><div><pre><code class="language-julia">using PyPlot
 xs=-3:0.05:3
 gamma=2
 for i in 1:5
@@ -169,7 +177,14 @@ julia&gt; xs +=1
  3
  4
  4
- 3</code></pre><p>前節の三角形を描く例題で、図形を繰り返し並行移動してみよう。</p><div><pre><code class="language-julia">using PyPlot
+ 3
+
+julia&gt; xs *=1
+4-element Array{Int64,1}:
+ 3
+ 4
+ 4
+ 3</code></pre><p>前節の三角形を描く例題で、更新演算子 <code>+=</code>を用いて、図形を繰り返し並行移動してみよう。</p><div><pre><code class="language-julia">using PyPlot
 xs = [1,2,2,1]
 ys = [1,1,3,1]
 for i=1:5
@@ -177,4 +192,4 @@ for i=1:5
   xs += 0.5
   ys += 0.5
 end
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch01-tri-shift-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-1" href="#練習-1">◀︎ 練習</a></h2><p>ローレンツ関数において、パラメータ <span>$x_0$</span> を変えたグラフを作成せよ。</p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>文字列</p></li><li><p>for文</p></li><li><p>グラフに凡例を加える</p></li><li><p>冪乗関数</p></li><li><p>ローレンツ関数</p></li><li><p>更新演算子</p></li></ul><footer><hr/><a class="previous" href="ch01.html"><span class="direction">Previous</span><span class="title">第1回：▶︎ 簡単なグラフを描く</span></a><a class="next" href="ch03.html"><span class="direction">Next</span><span class="title">第3回：▶︎ 連続な曲線を描く</span></a></footer></article></body></html>
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch01-tri-shift-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-1" href="#練習-1">◀︎ 練習</a></h2><p>ローレンツ関数において、パラメータ <span>$x_0$</span> を変えたグラフを作成せよ。 for文を使う方法、更新演算子を使う方法の、二つで描いてみよ。</p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>文字列</p></li><li><p>for文</p></li><li><p>グラフに凡例を加える</p></li><li><p>冪乗関数</p></li><li><p>ローレンツ関数</p></li><li><p>更新演算子</p></li></ul><footer><hr/><a class="previous" href="ch01.html"><span class="direction">Previous</span><span class="title">第1回：▶︎ 簡単なグラフを描く</span></a><a class="next" href="ch03.html"><span class="direction">Next</span><span class="title">第3回：▶︎ 連続な曲線を描く</span></a></footer></article></body></html>

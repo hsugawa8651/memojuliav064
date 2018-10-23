@@ -29,7 +29,7 @@ var documenterSearchIndex = {"docs": [
     "page": "はじめに",
     "title": "クラウドサービスでの利用",
     "category": "section",
-    "text": "クラウド上で無料で、Julia と Jupyter notebook を提供するサービスもある。Try Jupyter with Juliaブラウザから Jupyter notebook を利用できる (2018年8月1日現在 Julia 0.6.0 が設定されている)。"
+    "text": "クラウド上で、Julia と Jupyter notebook を無料で提供するサービスもある。Try Jupyter with Juliaブラウザから Jupyter notebook を利用できる (2018年8月1日現在 Julia 0.6.0 が設定されている)。"
 },
 
 {
@@ -37,7 +37,7 @@ var documenterSearchIndex = {"docs": [
     "page": "はじめに",
     "title": "Julia言語のバージョンについて",
     "category": "section",
-    "text": "Julia言語の 1.0 版は、2018年8月に公開された。しかし、周辺パッケージの整備が不十分であることから、 本文では、2018年6月に公開された 0.6.4 版を用いる。以下のページからバイナリ版を入手できる。https://julialang.org/downloads/oldreleases.html"
+    "text": "Julia言語の 1.0 版は、2018年8月に公開された。しかし、周辺パッケージの整備が不十分であることから、 本文では、2018年6月に公開された 0.6.4 版を用いる。Old releases　のページから、インストール用のバイナリファイルを入手できる。"
 },
 
 {
@@ -49,11 +49,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch00.html#Julia言語の情報源-1",
+    "location": "ch00.html#Julia言語の情報源・参考文献-1",
     "page": "はじめに",
-    "title": "Julia言語の情報源",
+    "title": "Julia言語の情報源・参考文献",
     "category": "section",
-    "text": "本家のドキュメント Julia Documentation v0.6.4"
+    "text": "(再掲) 2018年9月時点の最新版は Julia v1.0.0であるが、 本文では、Julia v0.6.4 を用いる。Julia Documentation v0.6.4 本家のドキュメント, 英語\nThe Julia Express 英語 Julia 1.0, 0.6, Bogumił Kami´nskiさん\nJulia高速チュートリアル 日本語 Julia 0.7以上, @bicycle1885 (Kenta Sato)さん"
 },
 
 {
@@ -69,7 +69,7 @@ var documenterSearchIndex = {"docs": [
     "page": "はじめに",
     "title": "免責事項など",
     "category": "section",
-    "text": "本文は、不定期に更新する。本文は、著者らの知見に基づく情報の公開を目的としている。 本文に書かれた内容およびその正誤によって生じた結果について、 著者らはいかなる責任を負わない。本文に掲載した内容は、著者らの環境でののみ動作の確認を行なっており、 いかなる環境においても再現できることを保証するものではない。実行環境MacOS version 10.13.6\nJulia 0.6.4 (Julia公式ページから配布されたバイナリー)著者： 菅原 宏治Copyright (c) 2018, Hiroharu Sugawara\n# 扱わないこと\n\n* Interfaces\n* Modules\n* Metaprogramming\n* Networking and Streams\n* Parallel Computing\n* Parametric types\n* Profiling\n"
+    "text": "本文は、不定期に更新する。本文は、著者らの知見に基づく情報の公開を目的としている。 本文に書かれた内容およびその正誤によって生じた結果について、 著者らはいかなる責任を負わない。本文に掲載した内容は、著者らの環境でのみ動作の確認を行なっており、 いかなる環境においても再現できることを保証するものではない。実行環境MacOSX version 10.13.6\nJulia 0.6.4 (Julia公式ページから配布されたバイナリー)著者： 菅原 宏治Copyright (c) 2018, Hiroharu Sugawara\n# 扱わないこと\n\n* Interfaces\n* Modules\n* Metaprogramming\n* Networking and Streams\n* Parallel Computing\n* Parametric types\n* Profiling\n"
 },
 
 {
@@ -117,7 +117,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第1回：▶︎ 簡単なグラフを描く",
     "title": "■ 変数名の規則",
     "category": "section",
-    "text": "Allowed Variable Names変数の名前（変数名)は、以下のようにつける。変数名の最初の文字は、半角のアルファベット (aからzまで、AからZまで)、 または、下線（アンダースコア _)のいずれかでなければならない。 変数の2文字目以降は、さらに、半角の数字 (0から9)、 または、半角の感嘆符 ! を含めることができる。半角文字とは「かな漢字変換機能」を用いずに、 キーボードから打ち込める文字と考えて良い。変数名には、漢字やギリシャ文字などを使うことができるが、 ここでは説明を省略する (上のURLを参照)。Stylistic Conventions定数、型、関数、マクロ、モジュール、パッケージの名前も、変数名の約束と同じである。 ただし、慣習として、以下のように使い分ける。変数名は小文字で始める。\n型、モジュール、パッケージの名前は大文字で始める。\n関数やマクロの名前は小文字で始める。下線（アンダースコア _)は用いない。"
+    "text": "Allowed Variable Names変数の名前（変数名)は、以下のようにつける。変数名の最初の文字は、半角のアルファベット (aからzまで、AからZまで)、 または、下線（アンダースコア _)のいずれかでなければならない。 変数の2文字目以降は、さらに、半角の数字 (0から9)、 または、半角の感嘆符 ! を含めることができる。半角文字とは「かな漢字変換機能」を用いずに、 キーボードから打ち込める文字と考えてよい。変数名には、漢字やギリシャ文字などを使うことができるが、 ここでは説明を省略する (Allowed Variable Names を参照)。Stylistic Conventions今後出現する、定数、型、関数、マクロ、モジュール、パッケージの名前も、変数名の約束と同じである。 ただし、慣習として、以下のように使い分ける。変数名は小文字で始める。\n型、モジュール、パッケージの名前は大文字で始める。\n関数やマクロの名前は小文字で始める。下線（アンダースコア _)は用いない。"
 },
 
 {
@@ -125,7 +125,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第1回：▶︎ 簡単なグラフを描く",
     "title": "■ ベクトル",
     "category": "section",
-    "text": "角括弧 [ と ] との間に、カンマ , で区切って 数を並べたものを、(数の)ベクトルという。ベクトルは、縦に印字される (列ベクトル, column vector)。[1,3,2]変数に、ベクトルを代入しよう。note: Note\n本文筆者は、ベクトルなど複数の値を内部に含むデータの変数の名前を、複数形とすることが多い(末尾を sで終える)。そのデータの各要素を表す変数の名前を単数形とする。（大文字は定数などを表す約束だから）大文字と小文字で、ベクトルなどとその要素を区別することは避けた方がよい。xs = [1,2,2,1]\nys = [1,1,3,1]ベクトルのスカラー倍は、各要素に一定の数を乗ずる。xs = [1,2,2,1]; nothing #hide\nys = [1,1,3,1]; nothing #hide\nxs * 2ベクトル同士の和差には、演算子 .+ や .- を用いる。 これらの最初のピリオド . は、各要素に対する演算を意味する。xs = [1,2,2,1]; nothing #hide\nys = [1,1,3,1]; nothing #hide\nxs .+ ys\nxs .- ys"
+    "text": "角括弧 [ と ] との間に、カンマ , で区切って 数を並べたものを、(数の)ベクトルという。ベクトルは、縦に印字される (列ベクトル, column vector)。[1,3,2]変数に、ベクトルを代入しよう。xs = [1,2,2,1]\nys = [1,1,3,1]note: Note\n本文筆者は、ベクトルなど複数の値を内部に含むデータの変数の名前を、複数形とすることが多い(末尾を sで終える)。そのデータの各要素を表す変数の名前を単数形とする。（大文字は定数などを表す約束だから）大文字と小文字で、ベクトルなどとその要素を区別することは避けた方がよい。ベクトルのスカラー倍は、各要素に一定の数を乗ずる。xs = [1,2,2,1]; nothing #hide\nys = [1,1,3,1]; nothing #hide\nxs * 2ベクトル同士の加減算には、演算子 .+ や .- を用いる。 +や-の前のピリオド . は「各要素に対する演算」を意味する。xs = [1,2,2,1]; nothing #hide\nys = [1,1,3,1]; nothing #hide\nxs .+ ys\nxs .- ys"
 },
 
 {
@@ -149,7 +149,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第1回：▶︎ 簡単なグラフを描く",
     "title": "■ Range型",
     "category": "section",
-    "text": "Base.colon二つ、または、三つの数字をコロン(:) で区切ったデータは、 等差数列を表す (Range型)。二つの数をコロン (:) で区切った量 a:b は、 aから 1づつ増やして、bを超えるまでの数からなる等差数列である。 三つの数をコロンで区切った量 a:b:c は、 aから b づつ増やして、cを超えるまでの数からなる等差数列である。1:5\nxs=0:0.1:1Range型を保ったまま、各要素のスカラー倍、各要素の和差を一斉に適用できる。xs=0:0.1:1 #hide\n# 各要素を 2倍する\nxs * 2\n# 各要素に 1 を加える\nxs + 1\n# 各要素から 0.2 を引く\nxs - 0.2Range型の量から、各要素を取り出してベクトルに変換するには、 collect関数を用いる。xs=0:0.1:1; nothing #hide\ncollect(xs)Range型に、ピリオド付きの演算子 .*, .+, .- を適用すると、 その結果は、Range型でなく、ベクトルになってしまう。ys=0:0.25:1\n# 各要素を 2倍する\nys .* 2\n# 各要素に 1 を加える\nys .+ 1\n# 各要素から 0.2 を引く\nys .- 0.2"
+    "text": "Base.colon二つ、または、三つの数字をコロン(:) で区切ったデータは、 等差数列を表す (Range型)。「型」とは「データの種類」である。詳しくは、後の節で述べる。二つの数をコロン (:) で区切った量 a:b は、 aから 1づつ増やして、bを超えるまでの数からなる等差数列である。 三つの数をコロンで区切った量 a:b:c は、 aから b づつ増やして、cを超えるまでの数からなる等差数列である。1:5\nxs=0:0.1:1Range型の量から、各要素を取り出してベクトルに変換するには、 collect関数を用いる。xs=0:0.1:1; nothing #hide\ncollect(xs)note: Note\nRange型をベクトルに変換してしまうと、元が等差数列であるという情報が消えてしまう。どうしても、ベクトルでないと困る場合だけ、ベクトルに変換しよう。Range型を保ったまま、各要素をスカラー倍したり、 各要素に一斉に同じ数を加えたり引いたりできる。xs=0:0.1:1 #hide\n# 各要素を 2倍する\nxs * 2\n# 各要素に 1 を加える\nxs + 1\n# 各要素から 0.2 を引く\nxs - 0.2Range型に、ピリオド付きの演算子 .*, .+, .- を適用すると、 その結果は、Range型でなく、ベクトルになってしまう。ys=0:0.25:1\n# 各要素を 2倍する\nys .* 2\n# 各要素に 1 を加える\nys .+ 1\n# 各要素から 0.2 を引く\nys .- 0.2"
 },
 
 {
@@ -213,7 +213,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第2回：▶︎ 複数のグラフを描く",
     "title": "■ for文",
     "category": "section",
-    "text": "Repeated Evaluation: Loops一つずつ要素を取り出すことができる量を、コレクションという。 ベクトルやRangeは、コレクションである。for文を用いると、コレクションから要素を一つづつ取り出して、 end文が出現するまでの文を繰り返して、計算を行うことができる。繰り返しをループ（loop）ともいう。次の例では、変数 iに、ベクトルの各要素を入れて、end文までの計算を繰り返す。 コレクションの各要素が入る変数をループ変数 (loop variable)という。for i in [1,3,2]\n  @show i   # 式 i の値を表示する\nend@show i は、式 i の値を表示するマクロである。Range型を用いた for文の例を示す。for i in 1:5\n  println( string(i) )\nendstring関数の結果を表示する。 println 関数は、印字してから、改行する命令である。\n## ■ リスト内包表記\n\n[Comprehensions](https://docs.julialang.org/en/v0.6.4/manual/arrays/#Comprehensions-1)\n\n\n[ 2x for x in [1:2] ]"
+    "text": "Repeated Evaluation: Loops一つずつ要素を取り出すことができる量を、コレクションという。 ベクトルやRangeは、コレクションである。for文を用いると、コレクションから要素を一つづつ取り出して、 end文が出現するまでの文を繰り返して、計算を行うことができる。 この繰り返される部分をブロック(block)という。 ブロックは、字下げ (indent) で表記される。 が、字下げは見やすさのためだけである。繰り返しをループ（loop）ともいう。note: Note\nブロックは、for文以外にも出現する (例えば、 ■ if文 )。 区別したいなら forブロックとも称する。次の例では、変数 iに、ベクトルの各要素を入れて、end文までの計算を繰り返す。 コレクションの各要素が入る変数をループ変数 (loop variable)という。for i in [1,3,2]\n  @show i   # 式 i の値を表示する\nend@show i は、式 i の値を表示するマクロである。Range型を用いた for文の例を示す。for i in 1:5\n  println( string(i) )\nendstring関数の結果を表示する。 println 関数は、印字してから、改行する命令である。\n## ■ リスト内包表記\n\n[Comprehensions](https://docs.julialang.org/en/v0.6.4/manual/arrays/#Comprehensions-1)\n\n\n[ 2x for x in [1:2] ]"
 },
 
 {
@@ -221,7 +221,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第2回：▶︎ 複数のグラフを描く",
     "title": "▶︎ グラフに凡例を加える",
     "category": "section",
-    "text": "グラフの凡例(lengend)は、グラフに描かれた曲線を区別するための説明である。 PyPlotパッケージで書かれたグラフに凡例を追加するには、以下のようにする。まず、plot関数に label=文字列 の形式で、 その曲線に付与する文字列を指定する。 全ての曲線を描いた後に、legend関数を付与する。using PyPlot\nclf() #hide\nxs=-1:0.1:1\nplot(xs,-1*xs,  label=\"y=-x\")\nplot(xs,2*xs-1, label=\"y=2x-1\")\nlegend()\nsavefig(\"ch02-leg1-plot.svg\"); nothing # hide(Image: )for文を用いて、直線群 y=ax のグラフに凡例を加えてみる。using PyPlot\nclf() #hide\nxs=-1:0.1:1\nfor a in 1:5\n  plot(xs, a*xs, label=\"y=\"*string(a)*\"x\" )\nend\nlegend()\nsavefig(\"ch02-leg2-plot.svg\"); nothing # hide(Image: )"
+    "text": "グラフの凡例(lengend)は、グラフに描かれた曲線を区別するための説明である。 PyPlotパッケージで書かれたグラフに凡例を追加するには、以下のようにする。まず、plot関数に label=文字列 の形式で、 その曲線に付与する文字列を指定する。 全ての曲線を描いた後に、legend関数を付与する。using PyPlot\nclf() #hide\nxs=-1:0.1:1\nplot(xs,-1*xs,  label=\"y=-x\")\nplot(xs,2*xs-1, label=\"y=2x-1\")\nlegend()\nsavefig(\"ch02-leg1-plot.svg\"); nothing # hide(Image: )比例関係 y = ax (a=12345)のグラフを描こう。using PyPlot\nclf() #hide\nxs=-1:0.1:1\nplot(xs,   xs, label=\"y= x\" )\nplot(xs, 2*xs, label=\"y=2x\" )\nplot(xs, 3*xs, label=\"y=3x\" )\nplot(xs, 4*xs, label=\"y=4x\" )\nplot(xs, 5*xs, label=\"y=5x\" )\nend\nlegend()\nsavefig(\"ch02-leg2a-plot.svg\"); nothing # hide(Image: )上のプログラムを、for文を用いて繰り返しで書き直してみよう。using PyPlot\nclf() #hide\nxs=-1:0.1:1\nfor a in 1:5\n  plot(xs, a*xs, label=\"y=\"*string(a)*\"x\" )\nend\nlegend()\nsavefig(\"ch02-leg2b-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -237,7 +237,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第2回：▶︎ 複数のグラフを描く",
     "title": "▶︎ ローレンツ関数を描く",
     "category": "section",
-    "text": "Lorentzian Function以下の曲線を、 ローレンツ関数 (Lorentzian function)という。y = fracfracgamma2(x-x_0)^2+left(fracgamma2right)^2gamma  0パラメータを x_0 = 0 gamma = 2 のように選ぶと、 以下のように簡単な形となる。y = frac1x^2+1まず、この曲線を描いてみる。 各要素に対して除算を行うため、/の前にも、ピリオド.を付与する。xs=-3:0.5:3\n1 ./ (xs.^2+1)上のグラフを描こう。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs, 1 ./ (xs.^2+1) )\nsavefig(\"ch02-lo1-plot.svg\"); nothing # hide(Image: )以下のように、パラメータ gamma を導入する。y = fracfracgamma2x^2+left(fracgamma2right)^2三つのパラメータ gamma=0512 について、この曲線を描く。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=0.5\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=1.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=2.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo2-plot.svg\"); nothing # hide(Image: )gammaの値が変わっても、それぞれの曲線を描く命令は変わらない。 for文を用いて、gammaの値を変えてみよう。（結果のグラフは同じである)using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nend\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo3-plot.svg\"); nothing # hide次の性質がある。点 x=0 で 最大値 y = frac2gamma\n点 x=pmfracgamma2 で、y = frac12frac2gamma となること。２つ目の性質を観察するため、最大値に対する比を描いてみる。関数 axhline() は、水平線(horizontal line)を描く。引数 color=\"k\" は、黒色(black)で描くことを指定し、lw=0.5は線幅(linewidth)を指定する。using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\nend\nlegend()\naxhline(1/2, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo4-plot.svg\"); nothing # hide(Image: )note: Note\nplot関数の文は、複数の行に渡って記述しているが、行が更に続くことを示す記法は、特に用意されていない。構文が行末で終わらなければ、次の行まで読みに行くことになっている。パラメータ gammaは、半値全幅 (Full Width of Half Maximum, FWHM)と呼ばれる。 gammaを非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似(の一つ)となる。"
+    "text": "Lorentzian Function以下の曲線を、 ローレンツ関数 (Lorentzian function)という。y = fracfracgamma2(x-x_0)^2+left(fracgamma2right)^2gamma  0パラメータを x_0 = 0 gamma = 2 のように選ぶと、 以下のように簡単な形となる。y = frac1x^2+1まず、この曲線を描いてみる。 各要素に対して除算を行うため、/の前にも、ピリオド.を付与する。xs=-3:0.5:3\n1 ./ (xs.^2+1)上のグラフを描こう。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs, 1 ./ (xs.^2+1) )\nsavefig(\"ch02-lo1-plot.svg\"); nothing # hide(Image: )以下のように、パラメータ gamma を導入する。y = fracfracgamma2x^2+left(fracgamma2right)^2三つのパラメータ gamma=0512 について、この曲線を描く。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=0.5\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=1.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\ngamma=2.0\nplot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo2-plot.svg\"); nothing # hide(Image: )gammaの値が変わっても、それぞれの曲線を描く命令は変わらない。 for文を用いて、gammaの値を変えてみよう。（結果のグラフは同じである)using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs, (gamma/2) ./ (xs.^2+(gamma/2)^2), label=gamma )\nend\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch02-lo3-plot.svg\"); nothing # hideローレンツ関数には、次の性質がある。点 x=0 で 最大値 y = frac2gamma\n点 x=pmfracgamma2 で、y = frac12frac2gamma となること。２つ目の性質を観察するため、最大値に対する比を描いてみる。PyPlotパッケージに用意された関数 axhline() は、 水平線(horizontal line)を描く。 引数 color=\"k\" は、黒色(black)で描くことを指定し、lw=0.5は線幅(linewidth)を指定する。using PyPlot\nclf() #hide\nxs=-3:0.05:3\nfor gamma in [0.5,1.0,2.0]\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\nend\nlegend()\naxhline(1/2, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo4-plot.svg\"); nothing # hide(Image: )note: Note\nplot関数の文は、複数の行に渡って記述しているが、行が更に続くことを示す記法は、特に用意されていない。構文が行末で終わらなければ、次の行まで読みに行くことになっている。パラメータ gammaは、半値全幅 (Full Width of Half Maximum, FWHM)と呼ばれる。 gammaを非常に小さくすると、 Diracのデルタ関数 (Dirac delta function)の近似(の一つ)となる。"
 },
 
 {
@@ -245,7 +245,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第2回：▶︎ 複数のグラフを描く",
     "title": "■ 更新演算子",
     "category": "section",
-    "text": "Updating operators変数に四則演算などを行って、元の変数に再代入する場合には、 更新演算子を用いるとよい。x=1\n# 再代入\nx=x+1\n# 更新演算子\nx+=1演算子 +, -, *, /, ^ に対して、 更新演算子 +=, -=,  *=, /=, ^= が用意されている。以下の例は、変数 gamma を 2 で繰り返し割り算する。gamma=2\nfor i=1:5\n  gamma /= 2\n  @show gamma\nendこれを利用して、ローレンツ関数のパラメータ gamma を変えてみる。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=2\nfor i in 1:5\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\n  gamma /= 2\nend\nlegend()\naxhline(1/2, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo5-plot.svg\"); nothing # hide(Image: )更新演算子は、ベクトルのスカラー倍や、定数の加減にも適用できる。xs = [1,2,2,1]\nxs +=1\nxs +=1前節の三角形を描く例題で、図形を繰り返し並行移動してみよう。using PyPlot\nclf() #hide\nxs = [1,2,2,1]\nys = [1,1,3,1]\nfor i=1:5\n  plot(xs,ys)\n  xs += 0.5\n  ys += 0.5\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch01-tri-shift-plot.svg\"); nothing # hide(Image: )"
+    "text": "Updating operators変数に四則演算などを行って、元の変数に再代入する場合には、 更新演算子を用いるとよい。 演算子の直後に = の文字が入る。x=1\n# 再代入\nx=x+1\n# 更新演算子\nx+=1演算子 +, -, *, /, ^ に対して、 更新演算子 +=, -=,  *=, /=, ^= が用意されている。以下の例は、変数 gamma を 2 で繰り返し割り算する。gamma=2\nfor i=1:5\n  gamma /= 2\n  @show gamma\nend更新演算子 /= を利用して、ローレンツ関数のパラメータ gamma を変えてみる。using PyPlot\nclf() #hide\nxs=-3:0.05:3\ngamma=2\nfor i in 1:5\n  plot(xs,\n    (gamma/2) ./ (xs.^2+(gamma/2)^2) / (2/gamma),\n    label=gamma )\n  gamma /= 2\nend\nlegend()\naxhline(1/2, color=\"k\", lw=0.5)\nsavefig(\"ch02-lo5-plot.svg\"); nothing # hide(Image: )更新演算子は、ベクトルのスカラー倍や、定数の加減にも適用できる。xs = [1,2,2,1]\nxs +=1\nxs +=1\nxs *=1前節の三角形を描く例題で、更新演算子 +=を用いて、図形を繰り返し並行移動してみよう。using PyPlot\nclf() #hide\nxs = [1,2,2,1]\nys = [1,1,3,1]\nfor i=1:5\n  plot(xs,ys)\n  xs += 0.5\n  ys += 0.5\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch01-tri-shift-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -253,7 +253,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第2回：▶︎ 複数のグラフを描く",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "ローレンツ関数において、パラメータ x_0 を変えたグラフを作成せよ。"
+    "text": "ローレンツ関数において、パラメータ x_0 を変えたグラフを作成せよ。 for文を使う方法、更新演算子を使う方法の、二つで描いてみよ。"
 },
 
 {
@@ -397,7 +397,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "▶︎ 冪乗根を描く",
     "category": "section",
-    "text": "一般に、正数 x  0 と 2以上の整数n に対して、y^n = x の解、 すなわち、y = sqrtnx = x^frac1nを、xのn乗根 (root of n-th power, n-th root)という。nを指定せずに、冪乗根（べきじょうこん）あるいは冪根（べきこん）と総称する。 「冪」の代わりに「巾」の略字を当てることもある。関数 axvline()で垂直線 (vertical line)を描く。引数は、前回説明した関数 axhline (水平線を描く)と同じである。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^(1/2), label=\"n=2\")\nplot(xs, xs.^(1/3), label=\"n=3\")\nplot(xs, xs.^(1/4), label=\"n=4\")\nplot(xs, xs.^(1/5), label=\"n=5\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr3-plot.svg\"); nothing # hide(Image: )指数nで繰り返してみる。using PyPlot\nclf() #hide\nxs=0:0.01:10\nfor n in 2:5\n  plot(xs, xs.^(1/n), label=\"y=x^(1/\" * string(n) *\")\" )\nend\nlegend()\nxlabel(\"x\")\nylabel(\"y\")\nxlim(0.1,10.)\nylim(0.1,10.)\nxscale(\"log\")\nyscale(\"log\")\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nsavefig(\"ch03-pr4-plot.svg\"); nothing # hide(Image: )"
+    "text": "一般に、正数 x  0 と 2以上の整数n に対して、y^n = x の解、 すなわち、y = sqrtnx = x^frac1nを、xのn乗根 (root of n-th power, n-th root)という。nを指定せずに、冪乗根（べきじょうこん）あるいは冪根（べきこん）と総称する。 「冪」の代わりに「巾」の略字を当てることもある。PyPlotパッケージに用意された関数 axvline()で垂直線 (vertical line)を描く。引数は、前回説明した関数 axhline (水平線を描く)と同じである。using PyPlot\nclf() #hide\nxs=0:0.01:3\nplot(xs, xs.^(1/2), label=\"n=2\")\nplot(xs, xs.^(1/3), label=\"n=3\")\nplot(xs, xs.^(1/4), label=\"n=4\")\nplot(xs, xs.^(1/5), label=\"n=5\")\nlegend()\nxlim(-0.2,2.2)\nylim(-0.2,2.2)\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-pr3-plot.svg\"); nothing # hide(Image: )指数nで繰り返してみる。using PyPlot\nclf() #hide\nxs=0:0.01:10\nfor n in 2:5\n  plot(xs, xs.^(1/n), label=\"y=x^(1/\" * string(n) *\")\" )\nend\nlegend()\nxlabel(\"x\")\nylabel(\"y\")\nxlim(0.1,10.)\nylim(0.1,10.)\nxscale(\"log\")\nyscale(\"log\")\naxhline(1, color=\"k\", lw=0.5)\naxvline(1, color=\"k\", lw=0.5)\nsavefig(\"ch03-pr4-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -509,7 +509,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "■ plot関数のフォーマット・パラメータ",
     "category": "section",
-    "text": "PyPlotパッケージに含まれplot関数は、 複数回起動する毎に見た目が変わる。見た目を個別に変えるには、plot関数のデータを指定した直後に、 文字列(fmtパラメータ) を指定する。fmtパラメータは、 色、マーカー種類、線の見た目を、1文字ないし2文字で指定する。 指定しなければ、規定値が選ばれる。色を変える例using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, 9.^xs, \"b\", label=\"b\") # blue\nplot(xs, 8.^xs, \"g\", label=\"g\") # green\nplot(xs, 7.^xs, \"r\", label=\"r\") # red\nplot(xs, 6.^xs, \"c\", label=\"c\") # cyan\nplot(xs, 5.^xs, \"m\", label=\"m\") # magenda\nplot(xs, 4.^xs, \"y\", label=\"y\") # yellow\nplot(xs, 3.^xs, \"k\", label=\"k\") # black\nplot(xs, 2.^xs, \"w\", label=\"w\") # white (白背景では見えない)\nxlim(0,3)\nylim(0,100)\nlegend()\nsavefig(\"ch03-pyplot1-plot.svg\"); nothing # hide(Image: )マーカーの形を変える例。 マーカーの色は全て青としたusing PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^2,     \"b.\", label=\".\") # point\nplot(xs, xs.^2 -2,  \"b,\", label=\",\") # pixel\nplot(xs, xs.^2 -4,  \"bo\", label=\"o\") # circle\nplot(xs, xs.^2 -6,  \"bs\", label=\"s\") # square\nplot(xs, xs.^2 -8,  \"b*\", label=\"*\") # star\nplot(xs, xs.^2 -10, \"b+\", label=\"+\") # plus\nplot(xs, xs.^2 -12, \"bx\", label=\"x\") # x\nplot(xs, xs.^2 -14, \"bD\", label=\"D\") # diamond\nplot(xs, xs.^2 -16, \"bd\", label=\"d\") # thin diamond\nxlim(-3,3)\nlegend()\nsavefig(\"ch03-pyplot2-plot.svg\"); nothing # hide(Image: )線のスタイルを変える例using PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^3-xs.^2,   \"r-\",  label=\"-\")  # solid line\nplot(xs, xs.^3-xs.^2-2, \"r--\", label=\"--\") # dashed line\nplot(xs, xs.^3-xs.^2-4, \"r-.\", label=\"-.\") # dash-dot line\nplot(xs, xs.^3-xs.^2-6, \"r:\",  label=\":\")  # dotted line xlim(-2.2,2.2)\nlegend()\nsavefig(\"ch03-pyplot3-plot.svg\"); nothing # hide(Image: )"
+    "text": "PyPlotパッケージに含まれる関数plotは、 複数回起動する毎に曲線の見た目を変える。見た目を個別に変えるには、plot関数のデータを指定した直後に、 文字列(fmtパラメータ) を指定する。fmtパラメータは、 色、マーカー種類、線の見た目を、1文字ないし2文字で指定する。 指定しなければ、規定値が選ばれる。色を変える例using PyPlot\nclf() #hide\nxs=-10:0.1:10\nplot(xs, 9.^xs, \"b\", label=\"b\") # blue\nplot(xs, 8.^xs, \"g\", label=\"g\") # green\nplot(xs, 7.^xs, \"r\", label=\"r\") # red\nplot(xs, 6.^xs, \"c\", label=\"c\") # cyan\nplot(xs, 5.^xs, \"m\", label=\"m\") # magenda\nplot(xs, 4.^xs, \"y\", label=\"y\") # yellow\nplot(xs, 3.^xs, \"k\", label=\"k\") # black\nplot(xs, 2.^xs, \"w\", label=\"w\") # white (白背景では見えない)\nxlim(0,3)\nylim(0,100)\nlegend()\nsavefig(\"ch03-pyplot1-plot.svg\"); nothing # hide(Image: )マーカーの形を変える例。 マーカーの色は全て青としたusing PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^2,     \"b.\", label=\".\") # point\nplot(xs, xs.^2 -2,  \"b,\", label=\",\") # pixel\nplot(xs, xs.^2 -4,  \"bo\", label=\"o\") # circle\nplot(xs, xs.^2 -6,  \"bs\", label=\"s\") # square\nplot(xs, xs.^2 -8,  \"b*\", label=\"*\") # star\nplot(xs, xs.^2 -10, \"b+\", label=\"+\") # plus\nplot(xs, xs.^2 -12, \"bx\", label=\"x\") # x\nplot(xs, xs.^2 -14, \"bD\", label=\"D\") # diamond\nplot(xs, xs.^2 -16, \"bd\", label=\"d\") # thin diamond\nxlim(-3,3)\nlegend()\nsavefig(\"ch03-pyplot2-plot.svg\"); nothing # hide(Image: )線のスタイルを変える例using PyPlot\nclf() #hide\nxs=-2:0.2:2\nplot(xs, xs.^3-xs.^2,   \"r-\",  label=\"-\")  # solid line\nplot(xs, xs.^3-xs.^2-2, \"r--\", label=\"--\") # dashed line\nplot(xs, xs.^3-xs.^2-4, \"r-.\", label=\"-.\") # dash-dot line\nplot(xs, xs.^3-xs.^2-6, \"r:\",  label=\":\")  # dotted line xlim(-2.2,2.2)\nlegend()\nsavefig(\"ch03-pyplot3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -533,7 +533,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 逆数関数を描く",
     "category": "section",
-    "text": "逆数関数 reciprocal function という。 逆関数 inverse function と区別されたい。逆数関数 y=dfrac1x を描く。ここで、dfrac10の値はInfであるが、 plot関数は「数でない数」をスキップして何も描かない。分母0の除算を特別扱いする必要はない。逆数関数は、x=0で不連続であり、xの正負に対応して二つの枝を持つ。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro1-plot.svg\"); nothing # hide(Image: )続けて、水平線、垂直線、y=x, y=-x を追加しよう。plot(xs,xs, color=\"k\", lw=0.5)\nplot(xs,-1*xs, color=\"k\", lw=0.5)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro2-plot.svg\"); nothing # hide(Image: )"
+    "text": "逆数関数 y=dfrac1x を描いてみよう。note: Note\n逆数関数 reciprocal function という。逆関数 inverse function と区別されたい。さて、dfrac10の値はInfであるが、 plot関数は「数でない数」をスキップして何も描かない。分母0の除算を特別扱いする必要はない。逆数関数は、x=0で不連続であり、xの正負に対応して二つの枝を持つ。using PyPlot\nclf() #hide\nxs=-3:0.1:3\nplot(xs,1./xs)\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro1-plot.svg\"); nothing # hide(Image: )続けて、水平線、垂直線、y=x, y=-x を追加しよう。plot(xs,xs, color=\"k\", lw=0.5)\nplot(xs,-1*xs, color=\"k\", lw=0.5)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch03-recipro2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -721,6 +721,22 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch05.html#練習-1",
+    "page": "第5回：■ 条件式・■ 条件分岐",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "格子点の刻み幅を大きく、または、小さくして、 色分けの様子を観察してみよ。関数plotのfmtパラメータを . から o (circle)に変えてみよ。 さらに、markersizeパラメータを加えて、マーカーの大きさを調整できる。plot(x,y,\"o\", markersize=6)"
+},
+
+{
+    "location": "ch05.html#練習-2",
+    "page": "第5回：■ 条件式・■ 条件分岐",
+    "title": "◀︎ 練習",
+    "category": "section",
+    "text": "以下の領域を表す条件を、式で表せ。その領域を、格子点を用いて塗り分けてみよ。点 (0,0)と点(1,0)を一辺とし、第一象限に描かれた正三角形\n中心 left(dfrac12dfrac12right) , 半径 dfrac12 の円"
+},
+
+{
     "location": "ch05.html#擬似乱数-1",
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "■ 擬似乱数",
@@ -733,7 +749,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "▶︎ 乱数による平面領域の塗り分け",
     "category": "section",
-    "text": "関数 rand() を2回用いて、座標点 (x,y) を発生しよう。 点の数を増やすと、これらの点は、平面の第一象限 0 le x lt 1 0 le y lt 0 の範囲を埋め尽くすはずである。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、 それ以外を青で色分けして示そう。点の個数は 2^10=1024 である。 格子点で図示した場合 ▶︎ 格子点による平面領域の塗り分けに比べて 点の数は少ないが、特徴を捉えている。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  c = x*x + y*y <= 1 ? \"r\" : \"b\"\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-random-plot.svg\"); nothing # hide(Image: )今度は、 二つの不等式 y  x と y  1-x の両方に囲まれる領域だけ、赤で示そう。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-random-plot.svg\"); nothing # hide(Image: )"
+    "text": "関数 rand() を2回用いて、座標点 (x,y) を発生しよう。 点の数を増やすと、これらの点は、平面の第一象限 0 le x lt 1 0 le y lt 0 の範囲を埋め尽くすはずである。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、 それ以外を青で色分けして示そう。点の個数は 2^10=1024 である。 格子点で図示した場合 ( ▶︎ 格子点による平面領域の塗り分け ) に比べて 点の数は少ないが、特徴を捉えている。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  c = x*x + y*y <= 1 ? \"r\" : \"b\"\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-random-plot.svg\"); nothing # hide(Image: )今度は、 二つの不等式 y  x と y  1-x の両方に囲まれる領域だけ、赤で示そう。using PyPlot\nclf() #hide\nn=2^10\nfor i=1:n\n  x=rand()\n  y=rand()\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-random-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -741,15 +757,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "▶︎ モンテカルロ法による平面図形の面積の推定",
     "category": "section",
-    "text": "以上の例で、ランダムに落とした点の総数のうち、 図形の中に入った数を数えよう。 両者の割合から、図形の面積を推定できる。 これを、モンテカルロ (Monte Carlo)法による面積の算出法という。まず、4分円の面積を推定しよう。n=2^10\ns=0\nfor i=1:n\n  x=rand()\n  y=rand()\n  if x*x + y*y <= 1\n    s += 1\n  end\nend\n@show s/n; #hide\n@show pi/4; #hide\n@show (s/n - pi/4)/(pi/4) #hide4分円の面積は dfracpi4である。 点数 1024個で、相対誤差 2% 程度の、面積推定値が得られた。今度は、点の総数に対して、面積の推定値を描いてみる。using PyPlot\nclf() #hide\nfor m in 1:16\n  n=2^m\n  s=0\n  for i=1:n\n    x=rand()\n    y=rand()\n    if x*x + y*y <= 1\n      s += 1\n    end\n  end\n  plot(n, s/n, \".\")\n  @show n, s/n\nend\nylim(0.9*pi/4, 1.1*pi/4)\nxlabel(\"n\")\nxscale(\"log\")\naxhline(pi/4, color=\"k\", lw=0.5)\nsavefig(\"ch05-qc1-plot.svg\"); nothing # hide(Image: )正しい面積との相対誤差を、点の総数に対して描いてみる。using PyPlot\nclf() #hide\nfor m in 1:16\n  n=2^m\n  s=0\n  for i=1:n\n    x=rand()\n    y=rand()\n    if x*x + y*y <= 1\n      s += 1\n    end\n  end\n  plot(n, abs(s/n-pi/4)/(pi/4), \".\")\nend\nxlabel(\"n\")\nxscale(\"log\")\nyscale(\"log\")\nsavefig(\"ch05-qc2-plot.svg\"); nothing # hide(Image: )"
+    "text": "以上の例で、ランダムに落とした点の総数のうち、 図形の中に入った数を数えよう。 両者の割合から、図形の面積を推定できる。 これを、モンテカルロ (Monte Carlo)法による面積の算出法という。note: Note\nモンテカルロ (Monte Carlo)は、モナコ公国(Monaco)の地名の一つであり、公営カジノで有名である。モンテカルロ法 (Monte Carlo Method)は、擬似乱数を用いて、数値計算やシミュレーションを行う手法の総称である。(面積を推定する手法以外の「モンテカルロ法」もある)まず、4分円の面積を推定しよう。n=2^10\ns=0\nfor i=1:n\n  x=rand()\n  y=rand()\n  if x*x + y*y <= 1\n    s += 1\n  end\nend\n@show s/n; #hide\n@show pi/4; #hide\n@show (s/n - pi/4)/(pi/4) #hide4分円の面積は dfracpi4である。 点数 1024個で、相対誤差 2% 程度の、面積推定値が得られた。今度は、点の総数に対して、面積の推定値を描いてみる。using PyPlot\nclf() #hide\nfor m in 1:16\n  n=2^m\n  s=0\n  for i=1:n\n    x=rand()\n    y=rand()\n    if x*x + y*y <= 1\n      s += 1\n    end\n  end\n  plot(n, s/n, \".\")\n  @show n, s/n\nend\nylim(0.9*pi/4, 1.1*pi/4)\nxlabel(\"n\")\nxscale(\"log\")\naxhline(pi/4, color=\"k\", lw=0.5)\nsavefig(\"ch05-qc1-plot.svg\"); nothing # hide(Image: )正しい面積との相対誤差を、点の総数に対して描いてみる。using PyPlot\nclf() #hide\nfor m in 1:16\n  n=2^m\n  s=0\n  for i=1:n\n    x=rand()\n    y=rand()\n    if x*x + y*y <= 1\n      s += 1\n    end\n  end\n  plot(n, abs(s/n-pi/4)/(pi/4), \".\")\nend\nxlabel(\"n\")\nylabel(\"relative errors\")\nxscale(\"log\")\nyscale(\"log\")\nsavefig(\"ch05-qc2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch05.html#練習-1",
+    "location": "ch05.html#練習-3",
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "モンテカルロ法を用いて、面積を推定せよ。 余裕があれば、点数に対する相対誤差の変化も描いてみよ。二つの不等式 y  x と y  1-x の両方に囲まれる領域\n点 (0,0)と点(1,0)を一辺とし、第一象限に描かれた正三角形\n中心 left(dfrac12dfrac12right) ,　半径 dfrac12 の円"
+    "text": "モンテカルロ法を用いて、以下の領域の面積を推定せよ。(これらの領域の、格子点を用いた塗り分けは、以前の例題・練習として行った)。余裕があれば、点数に対する相対誤差の変化も描いてみよ。二つの不等式 y  x と y  1-x の両方に囲まれる領域\n点 (0,0)と点(1,0)を一辺とし、第一象限に描かれた正三角形\n中心 left(dfrac12dfrac12right) ,　半径 dfrac12 の円"
 },
 
 {
@@ -769,7 +785,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch05.html#練習-2",
+    "location": "ch05.html#練習-4",
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "◀︎ 練習",
     "category": "section",
@@ -821,7 +837,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 型・■ 整数型",
     "title": "■ 整数",
     "category": "section",
-    "text": "Integers既定の整数型は、Int64 と呼ばれ、 64桁 (64bit, binary digit)の2進数である。負の数 -n を 2^64-n で表す「2の補数」方式を用いて、 正負の数を表す「符号付整数」である。Int64で表される最大の数は 2^63-1 である。 また、最小の数（絶対値が最大な負の数)は -2^63 である。 これらの値は、それぞれ typemax(Int64),typemin(Int64) という関数で求められる。2^63-1\ntypemax(Int64)\ntypemin(Int64)note: Note\n2の補数を求める方法が知られていれば、 減算は、引く数の「2の補数」を求め、加算すればよい。 実は、2の補数は簡単に求められる。2の補数では、2進数の最上位の桁が、符号に相当する。 すなわち、負の数では、 最上位の桁 (Most-Significant Bit, MSB)は 1、 正の数または0では、MSBは 0 になる。"
+    "text": "Integers既定の整数型は、Int64 であり、 64桁 (64bit, binary digit)の2進数である。負の数 -n を 2^64-n で表す「2の補数」方式を用いて、 正負の数を表す「符号付整数」である。Int64 で表される最大の数は 2^63-1 である。 また、最小の数（絶対値が最大な負の数)は -2^63 である。 これらの値は、 関数 typemax(Int64),typemin(Int64) で、それぞれ求められる。2^63-1\ntypemax(Int64)\ntypemin(Int64)note: Note\n2の補数を求める方法が知られていれば、 減算は、引く数の「2の補数」を求め、加算すればよい。 実は、2の補数は簡単に求められる。2の補数では、2進数の最上位の桁が、符号に相当する。 すなわち、負の数では、 最上位の桁 (Most-Significant Bit, MSB)は 1、 正の数または0では、MSBは 0 になる。"
 },
 
 {
@@ -957,7 +973,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "正規化数、副正規化数",
     "category": "section",
-    "text": "浮動小数とは、012 の代わりに 12 times 10^-1 のように表示することである。10進数の浮動小数はpmleft(d_0d_1d_2cdots right)_10times 10^eのように表される。timesの前までのleft(d_0d_1d_2cdots right)_10 の部分は仮数部と呼ばれる。添字の10は10進数を意味し、d_0 d_1 cdots   01ldots9 までの数字である。times の後ろの 10^e は指数部と呼ばれる。2進数の浮動小数はpmleft(b_0b_1b_2cdots right)_2times 2^eのように表される。 ここで、timesの前までの left(b_0b_1b_2cdots right)_2 の部分は仮数部と呼ばれる。添字の2は2進数を意味し、b_0 b_1 cdots   0 または 1 の数字である。times の後ろの 2^e は指数部と呼ばれる。bit (binary digit)とは、2進数の一桁のことである。本文で用いる浮動小数点数は Float64 型である。typeof(1.0)Float64 型は、「IEEE754標準倍精度浮動小数点数」に基づき、 符号部 1 bit、 指数部 11 bit 仮数部 53 bit から構成される。 ただし、以下のように先頭の 1 bitを固定し、仮数部の 52 bit のみをデータとして採用するため、 2進数の並びは 1+11+52 = 64 bit である。Float64は、正規化数、副正規化数、数でない数の３種類からなりたっている。正規化数は、b_0 = 1として、 pmleft(1b_1b_2cdots b_52right)_2times 2^e のように表すものである。 ただし、指数は 1022 le e le 1023 の範囲である。 仮数 left(1b_1b_2cdots b_52right)_2 は 1以上で2を超えない範囲の小数となる。正規化数で表すことができない、絶対値が小さい浮動小数は副正規化数で表わされる。副正規化数は、b_0 = 0, e=1023 として、 pmleft(0b_1b_2cdots b_52right)_2times 2^e のように表すものである。 仮数部 left(1b_1b_2cdots b_52right)_2 は 0以上で1を超えない範囲の小数となる。「数でない数」はあとに述べる。Float64で表すことができる、絶対値が最も大きい数は、 正規化数の 2^10241798times10^308 である。 絶対値が最も小さい数は副正規化数の 2^10222225times10^308 である。これらは、realmax, realmin関数で得られる。realmax(Float64)\nrealmin(Float64)"
+    "text": "浮動小数とは、012 の代わりに 12 times 10^-1 のように表示することである。10進数の浮動小数はpmleft(d_0d_1d_2cdots right)_10times 10^eのように表される。timesの前までのleft(d_0d_1d_2cdots right)_10 の部分は仮数部と呼ばれる。添字の10は10進数を意味し、d_0 d_1 cdots   01ldots9 までの数字である。times の後ろの 10^e は指数部と呼ばれる。2進数の浮動小数はpmleft(b_0b_1b_2cdots right)_2times 2^eのように表される。 ここで、timesの前までの left(b_0b_1b_2cdots right)_2 の部分は仮数部と呼ばれる。添字の2は2進数を意味し、b_0 b_1 cdots   0 または 1 の数字である。times の後ろの 2^e は指数部と呼ばれる。bit (binary digit)とは、2進数の一桁のことである。本文で用いる浮動小数点数は Float64 型である。typeof(1.0)note: Note\n以下で、浮動小数点数の2進数による表現を詳しく説明するが、 丸暗記する内容ではない。しかし、計算機内部の小数が、 「有限桁」であることは、数値プログラミングでは常に意識すべきである。Float64 型は、「IEEE754標準倍精度浮動小数点数」に基づき、 符号部 1 bit、 指数部 11 bit 仮数部 53 bit から構成される。 ただし、以下のように先頭の 1 bitを固定し、 仮数部の 52 bit のみをデータとして採用するため、 2進数の並びは 1+11+52 = 64 bit である。Float64は、正規化数、副正規化数、数でない数の３種類からなりたっている。正規化数は、b_0 = 1として、 pmleft(1b_1b_2cdots b_52right)_2times 2^e のように表すものである。 ただし、指数は 1022 le e le 1023 の範囲である。 仮数 left(1b_1b_2cdots b_52right)_2 は 1以上で2を超えない範囲の小数となる。正規化数で表すことができない、絶対値が小さい浮動小数は副正規化数で表わされる。副正規化数は、b_0 = 0, e=1023 として、 pmleft(0b_1b_2cdots b_52right)_2times 2^e のように表すものである。 仮数部 left(1b_1b_2cdots b_52right)_2 は 0以上で1を超えない範囲の小数となる。「数でない数」は、■ 0による除算で、既に説明した。 Inf, -Inf, NaN の３つである。Float64で表すことができる、絶対値が最も大きい数は、 正規化数の 2^10241798times10^308 である。 絶対値が最も小さい数は、 副正規化数の 2^10222225times10^308 である。これらは、関数 realmax, realminでそれぞれ得られる。realmax(Float64)\nrealmin(Float64)"
 },
 
 {
@@ -1013,7 +1029,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "近似比較演算子 isapprox",
     "category": "section",
-    "text": ""
+    "text": "Base.isapprox"
 },
 
 {
@@ -1025,11 +1041,19 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch07.html#等比級数-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "■ 等比級数",
+    "category": "section",
+    "text": "logspace(2,4,5)初項 10^2 から始めて、10^4 で終わる等比級数。要素は 5個。"
+},
+
+{
     "location": "ch07.html#数値微分-1",
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 数値微分",
     "category": "section",
-    "text": "logspace(1,2,5)fracdf(x_0)dx = lim_h longrightarrow 0fracf(x_0+h)-f(x_0)h関数 y=x の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は 1 であるが、h を小さくすると 1 の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nd=( (1+h).^2 - 1) ./ h\nplot(h,d, \".\")\nylim(5e-1,3e0)\nyscale(\"log\")\nxscale(\"log\")\nsavefig(\"ch07-df1-plot.svg\"); nothing # hide(Image: )関数 y=x^n, (n=123) の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は n であるが、h を小さくすると n の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nfor n=1:3\n    d=( (1+h).^n - 1) ./ h\n    plot(h,d, \".\", label=\"y=x^\"*string(n))\nend\nxlabel(\"h\")\nylabel(\"d\")\nyscale(\"log\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-df2-plot.svg\"); nothing # hide(Image: )"
+    "text": "fracdf(x_0)dx = lim_h longrightarrow 0fracf(x_0+h)-f(x_0)h関数 y=x の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は 1 であるが、h を小さくすると 1 の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nd=( (1+h).^2 - 1) ./ h\nplot(h,d, \".\")\nylim(5e-1,3e0)\nyscale(\"log\")\nxscale(\"log\")\nsavefig(\"ch07-df1-plot.svg\"); nothing # hide(Image: )関数 y=x^n, (n=123) の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は n であるが、h を小さくすると n の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nfor n=1:3\n    d=( (1+h).^n - 1) ./ h\n    plot(h,d, \".\", label=\"y=x^\"*string(n))\nend\nxlabel(\"h\")\nylabel(\"d\")\nyscale(\"log\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-df2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
