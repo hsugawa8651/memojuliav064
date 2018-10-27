@@ -63,7 +63,7 @@ legend()</code></pre></div><p><img src="ch08-fo-tri4-plot.svg" alt/></p><div><pr
   ax[:plot](ts, ys, &quot;.&quot;)
   ax[:set_xlim](-2.2pi,2.2pi)
   ax[:plot](ts,triangular.(mod2pi.(ts)))
-end</code></pre></div><p><img src="ch08-fo-tri5-plot.svg" alt/></p><h2><a class="nav-anchor" id="数値積分-1" href="#数値積分-1">▶︎ 数値積分</a></h2><h2><a class="nav-anchor" id="Riemann和-1" href="#Riemann和-1">▶︎ Riemann和</a></h2><div>\[\int_{0}^{1} \dfrac{1}{1+x} dx = \left[ \log \left|1+x \right| \right]{x=0}^{x=1} = \log 2\]</div><div><pre><code class="language-julia">using PyPlot
+end</code></pre></div><p><img src="ch08-fo-tri5-plot.svg" alt/></p><h2><a class="nav-anchor" id="数値積分-1" href="#数値積分-1">▶︎ 数値積分</a></h2><h2><a class="nav-anchor" id="Riemann和-1" href="#Riemann和-1">▶︎ Riemann和</a></h2><div>\[\int_{0}^{1} \dfrac{1}{1+x} dx = \left[ \log \left\left|1+x\right| \right| \right]_{x=0}^{x=1} = \log 2\]</div><div><pre><code class="language-julia">using PyPlot
 n=2^6
 xmin=0
 xmax=1
