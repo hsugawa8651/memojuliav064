@@ -325,7 +325,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第3回：▶︎ 連続な曲線を描く",
     "title": "■ Jupyter notebook によるテキストの入力",
     "category": "section",
-    "text": "Jupyter notebook のセルには、複数の種類(Cell type)がある。既定のセルの Cell type は、Code である。 プログラム片を入力して、SHIFTキーとENTERキーを同時に押して実行すると、 出力セルに実行結果が表示される。Cell type を Markdown に変更すると、 Markdown 記式によるテキストを入力できる。Markdown 記式でテキストを入力し、 SHIFT+ENTERを押して実行すると、 Markdown記式で整形された文書が表示される。Markdown CellsMarkdown記法では、空行が段落の区切りである。 空行をはさまない行替えは、前の行に続けて、同じ段落に配置される。文字列の飾りは、たくさん使用しない方がよい。URLリンクを書くには、次のように記述する。 [ 表示名 ]( URL )例[Julia 0.6 Documentation](https://docs.julialang.org/en/v0.6/)Julia 0.6 DocumentationMarkdown記法では、数式を挿入することができる。 ダラー記号 $ 一つで囲まれた数式は行内数式 (inline mathh)、 ダラー記号 $ 二つで囲まれた数式は別行立て数式 (display mathh)である。 数式そのものは LaTeX 記法で記述する。 いくつか例を示す。数式内の文字は変数とみなされ、斜体で表される。 $x+1$ → x+1\n上付き $x^{2}$ → x^2\n下付き $x_{3}$ → x_3\n分数 $\\dfrac{a}{b}$ → dfracab\n関数 $f(x) = x^{2}+1$ → f(x) = x^2+1\n三角関数 $\\sin{x}, \\tan{x}$ → sinx tanx\n指数対数関数 $\\exp{x}, \\log{x}$ → expx logx\nテキスト内の立体 (roman style) $a\\;\\mathrm{over}\\;b$ → amathrmoverb\n総和 $\\Sum_{i=0}^{m}i$ → Sum_i=0^mi\n積分 $\\int_{0}^{1}x dx$ → int_0^1x dx\nカッコのペア $\\left[\\left\\{\\left( \\dfrac{1}{2} \\right)\\right\\}\\right]$ → leftleftleft( dfrac12 right)rightright"
+    "text": "Jupyter notebook のセルには、複数の種類(Cell type)がある。既定のセルの Cell type は、Code である。 プログラム片を入力して、SHIFTキーとENTERキーを同時に押して実行すると、 出力セルに実行結果が表示される。Cell type を Markdown に変更すると、 Markdown 記式によるテキストを入力できる。Markdown 記式でテキストを入力し、 SHIFT+ENTERを押して実行すると、 Markdown記式で整形された文書が表示される。Markdown CellsMarkdown記法では、空行が段落の区切りである。 空行をはさまない行替えは、前の行に続けて、同じ段落に配置される。文字列の飾りは、たくさん使用しない方がよい。URLリンクを書くには、次のように記述する。 [ 表示名 ]( URL )例[Julia 0.6 Documentation](https://docs.julialang.org/en/v0.6/)Julia 0.6 DocumentationMarkdown記法では、数式を挿入することができる。 ダラー記号 $ 一つで囲まれた数式は行内数式 (inline math)、 ダラー記号 $ 二つで囲まれた数式は別行立て数式 (display math)である。 数式そのものは LaTeX 記法で記述する。 いくつか例を示す。数式内の文字は変数とみなされ、斜体で表される。 $x+1$ → x+1\n上付き $x^{2}$ → x^2\n下付き $x_{3}$ → x_3\n分数 $\\dfrac{a}{b}$ → dfracab\n関数 $f(x) = x^{2}+1$ → f(x) = x^2+1\n三角関数 $\\sin{x}, \\tan{x}$ → sinx tanx\n指数対数関数 $\\exp{x}, \\log{x}$ → expx logx\nテキスト内の立体 (roman style) $a\\;\\mathrm{over}\\;b$ → amathrmoverb\n総和 $\\sum_{i=0}^{m}i$ → sum_i=0^mi\n総和を「行立て」する $$\\sum_{i=0}^{m}i$$ →sum_i=0^mi積分 $\\int_{0}^{1}x dx$ → int_0^1x dx\n積分を「行立て」する $$\\int_{0}^{1}x dx$$ →int_0^1x dxカッコのペア $\\left[\\left\\{\\left( \\dfrac{1}{2} \\right)\\right\\}\\right]$ → leftleftleft( dfrac12 right)rightright"
 },
 
 {
@@ -645,7 +645,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 符号関数を描く",
     "category": "section",
-    "text": "Base.sign - Function関数 sign(x)は、x  0なら1、x=1なら0、x  0なら -1 をそれぞれ返す。using PyPlot\nclf() #hide\nusing PyPlot\nxs=-6.4:0.1:6.4\n-6.4:0.1:6.4\nplot(xs, sign.(xs), \".\")\nsavefig(\"ch04-sign1-plot.svg\"); nothing # hide(Image: )周期関数を描くのに、用いることができる。clf() #hide\nplot(xs, cos.(xs), \"r\", label=\"cos(x)\")\nplot(xs, sign.( cos.(xs)), \"b.\", label=\"sign(cos(x))\")\nlegend()\nsavefig(\"ch04-sign2-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.sign - Function関数 sign(x)は、x  0なら1、x=1なら0、x  0なら -1 をそれぞれ返す。using PyPlot\nclf() #hide\nusing PyPlot\nxs=-6.4:0.1:6.4\n-6.4:0.1:6.4\nplot(xs, sign.(xs), \".\")\nsavefig(\"ch04-sign1-plot.svg\"); nothing # hide(Image: )三角関数と関数 sign とを組み合わると、 不連続な周期関数を作ることができる。"
+},
+
+{
+    "location": "ch04.html#方形波を描く-1",
+    "page": "第4回：▶︎ 不連続な曲線を描く",
+    "title": "▶ 方形波を描く",
+    "category": "section",
+    "text": "二つの一定値を交互にとる周期関数を方形波 (square wave)という。clf() #hide\nplot(xs, cos.(xs), \"r\", label=\"cos(x)\")\nplot(xs, sign.( cos.(xs)), \"b.\", label=\"sign(cos(x))\")\nlegend()\nsavefig(\"ch04-sign2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -653,7 +661,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "上のような、二つの数を交互にとる周期関数を方形波 (square wave)という。 この例の周期はいくつか？ 周期が 1 になるように、修正してみよ。"
+    "text": "上の例の周期はいくつか？ 周期が 1 になるように、修正してみよ。"
 },
 
 {
@@ -1145,6 +1153,22 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch07.html#等差数列-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "■ 等差数列",
+    "category": "section",
+    "text": "Base.linspace — Function関数 linspace(a,b,n) は、等差数列を作る別の方法である。 初項 a から始めて b で終わる等差数列 (要素はn個) を作る。 結果は ■ Range型 になる。linspace(0,10,11)最後の引数 n は省略できる。省略した場合は n=50 (既定値)とみなされる。既定値を示すために linspace(a,b,n=50) のようにマニュアルでは記載される。linspace(1,50)note: Note\nlinspace = linearly spaced vector"
+},
+
+{
+    "location": "ch07.html#等比級数-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "■ 等比級数",
+    "category": "section",
+    "text": "Base.logspace — Function関数 logspace(a,b,n=50) は、等比級数を作る方法の一つである。 初項 10^a から始めて 10^b で終わる 等比級数 (要素はn個)となる ■ ベクトル を作る。以下は、初項 10^0=1 から始めて、10^3=1000 で終わる等比級数 (要素は 4 個 ) を作る。すなわち、1 10 100 1000 が作られる。logspace(0,3,4)以下は、初項 10^-3 から始めて、10^0=1 で終わる等比級数 (要素は 4 個 ) を作る。すなわち、0001 001 01 10 が作られる。logspace(-3,0,4)note: Note\nlogspace = logarithmically spaced numbers"
+},
+
+{
     "location": "ch07.html#2次方程式-1",
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 2次方程式",
@@ -1177,14 +1201,6 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch07.html#等比級数-1",
-    "page": "第7回：■ 浮動小数点数",
-    "title": "■ 等比級数",
-    "category": "section",
-    "text": "logspace(2,4,5)初項 10^2 から始めて、10^4 で終わる等比級数。要素は 5個。"
-},
-
-{
     "location": "ch07.html#数値微分-1",
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 数値微分",
@@ -1197,7 +1213,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "★今回のまとめ",
     "category": "section",
-    "text": ""
+    "text": "浮動小数点数\n有限小数・循環小数\n加減算における桁落ち・情報落ち\n等差数列・等比数列\n数値微分"
 },
 
 {
@@ -1217,35 +1233,67 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch08.html#sum(ベクトル)-1",
+    "location": "ch08.html#級数和の公式（繰り返しで加算)-1",
     "page": "第8回： ▶︎ 総和・数値積分",
-    "title": "■ sum(ベクトル)",
+    "title": "▶︎ 級数和の公式（繰り返しで加算)",
     "category": "section",
-    "text": ""
+    "text": "自然数の級数和の結果がいくつか知られている。 これらのグラフを描いて、結果を確認しよう。sum_k=1^n k = 1 + 2 + cdots + k + cdots + n^2 = dfracn(n+1)2using PyPlot\nclf() #hide\n\nnmax=25\nxs1=0:0.2:nmax\nplot(xs1, xs1.*(xs1+1)/2, label=\"sum i\", \"b\")\n\nns=0:nmax\nfor n in ns\n  s1=0.0\n  for i in 1:n\n    s1 += i\n  end\n  plot(n,s1, \"bo\")\nend\n\nxlabel(\"n\")\nylabel(\"sum i up to n\")\n\nsavefig(\"ch08-sum1-plot.svg\"); nothing # hide(Image: )sum_k=1^n k^2 = 1^2 + 2^2 + cdots + k^2 + cdots + n^2 = dfracn(n+1)(2n+1)6using PyPlot\nclf() #hide\n\nnmax=25\nxs1=0:0.2:nmax\nplot(xs1, xs1.*(xs1+1).*(2*xs1+1)/6, \"b\")\n\nns=0:nmax\nfor n in ns\n  s=0.0\n  for i in 1:n\n    s += i^2\n  end\n  plot(n,s, \"bo\")\nend\nxlabel(\"n\")\nylabel(\"sum i^2 up to n\")\n\nsavefig(\"ch08-sum2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch08.html#フーリエ級数の和-1",
+    "location": "ch08.html#ベクトルのインデックス-1",
     "page": "第8回： ▶︎ 総和・数値積分",
-    "title": "▶︎ フーリエ級数の和",
+    "title": "■ ベクトルのインデックス",
     "category": "section",
-    "text": ""
+    "text": "Base.length — Method参考 → ■ ベクトルベクトル a の寸法は、関数 length(a) で得られる。v=[11,21,31,41,51]\nlength(v)Indexing (section)ベクトル a 、整数 i に対して a[i] と書くと、 ベクトル aの i番目の要素の値が得られる。 要素の番号 (インデックス, indexという) iは 1から数える。 end というインデックスは、ベクトルの最後の要素を指す。存在しないインデックスを指定すると、例外が発生する。v[1]\nv[2]\nv[end] # 末尾の要素\nv[end-1] # 末尾の一つ前の要素\nv[0] # => ERROR: BoundsErrorインデックスとして、整数 iの代わりに、Range(範囲)を指定すると、 その範囲のインデックスを持つベクトルが得られる。 (参考 ■ Range型 )v[2:3]\nv[1:end-1] # 最初から、末尾の一つ前の要素\nv[4:6] # => ERROR: BoundsError"
 },
 
 {
-    "location": "ch08.html#方形波の近似-1",
+    "location": "ch08.html#ベクトルの生成-1",
     "page": "第8回： ▶︎ 総和・数値積分",
-    "title": "▶︎ 方形波の近似",
+    "title": "■ ベクトルの生成",
     "category": "section",
-    "text": "using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nplot(ts, sign.(sin.(ts)) )\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nsavefig(\"ch08_sq1-plot.svg\"); nothing # hide(Image: )f(t) = frac4pileftsint+fracsin3t3+fracsin5t5+cdotsrightusing PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nys=sin.(ts)*4/pi\nplot(ts, ys)\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nys += sin.(3ts)/3*4/pi\nplot(ts, ys)\nys += sin.(5ts)/5*4/pi\nplot(ts, ys)\n\nsavefig(\"ch08-fo-sq2-plot.svg\"); nothing # hide(Image: )using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nfor n in [13]\n  ys=0*ts\n  for i in 1:2:n\n    ys += sin.(i*ts)/i*4/pi\n  end\n  plot(ts, ys)\nend\nplot(ts, sign.(sin.(ts)) )\n\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nsavefig(\"ch08-fo-sq4-plot.svg\"); nothing # hide(Image: )"
+    "text": "ベクトルを作る方法は、いくつかある。これまでに、以下の方法を紹介した。要素を列挙する方法 (■ ベクトル )\nRangeを用いる方法 (■ Range型 )\n関数 linspaceを用いる方法。結果はRangeとなる。( ■ 等差数列 )"
 },
 
 {
-    "location": "ch08.html#三角波の近似-1",
+    "location": "ch08.html#要素が-0のベクトルを作る。-1",
     "page": "第8回： ▶︎ 総和・数値積分",
-    "title": "▶︎ 三角波の近似",
+    "title": "■ 要素が 0のベクトルを作る。",
     "category": "section",
-    "text": "using PyPlot\nclf() #hide\nts=-3.5pi:pi/180:3.5pi\n\nfunction triangular(t)\n  t >= pi ? 2pi-t : t\nend\n\nplot(ts, triangular.(ts) )\nxlim(0,2pi)\nylim(0,2pi)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"fo_tri1-plot.svg\"); nothing # hide(Image: )plot(ts, triangular.(mod2pi.(ts)) )\nxlim(-4pi,4pi)\nylim(0,2pi)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch08-fo-tri2-plot.svg\"); nothing # hide(Image: )f(t) = dfracpi2 - dfrac4pileft cos t + dfraccos 3t3^2 + dfraccos 5t5^2 + cdotsrightys=ones(ts)*(pi/2)\nfor n=1:2:5\n  ys -= cos.(n*ts)*(4/pi/n^2)\nend\nplot(ts, ys, \".\")\nplot(ts,triangular.(mod2pi.(ts)))\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch08-fo-tri3-plot.svg\"); nothing # hide(Image: )for nmax=3:2:11\n  ys=ones(ts)*(pi/2)\n  for n=1:2:nmax\n    ys -= cos.(n*ts)*(4/n^2/pi)\n  end\n  plot(ts, ys, label=nmax)\nend\nlegend()\nsavefig(\"ch08-fo-tri4-plot.svg\"); nothing # hide(Image: )for j=1:6\n  nmax=1+2*j\n  ys=ones(ts)*(pi/2)\n  for n=1:2:nmax\n    ys -= cos.(n*ts)*(4/n^2/pi)\n  end\n  ax=plt[:subplot](610+j)\n  ax[:plot](ts, ys, \".\")\n  ax[:set_xlim](-2.2pi,2.2pi)\n  ax[:plot](ts,triangular.(mod2pi.(ts)))\nend\nsavefig(\"ch08-fo-tri5-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.zeros — Function関数 zerosは、要素が零のベクトルを作る。関数 zeros(n) は、要素の型が浮動小数点で、寸法nのベクトルを作る。\n関数 zeros(T, n) は、要素の型が T で、寸法nのベクトルを作る。\nベクトル　v に対して、関数 zeros(v) は、寸法がベクトル v と同じで、要素の型がベクトル vの要素と同じベクトルを作る。zeros(5) # 要素は浮動小数点\nzeros(Float64,5) # 上と同じ\nzeros(Int64,5) # 要素は整数\nzeros(v)"
+},
+
+{
+    "location": "ch08.html#要素が-1-のベクトルを作る。-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "■ 要素が 1 のベクトルを作る。",
+    "category": "section",
+    "text": "Base.ones — Function関数 onesは、要素が 1 のベクトルを作る。 呼び出し方は、関数 zeros() と同じである。ones(5) # 要素は浮動小数点\nones(Float64,5) # 上と同じ\nones(Int64,5) # 要素は整数\nones(v)"
+},
+
+{
+    "location": "ch08.html#フーリエ級数の和（繰り返しで加算)-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "▶︎ フーリエ級数の和（繰り返しで加算)",
+    "category": "section",
+    "text": "周期波形 f(t+T) = f(t) は、 以下のように、三角関数の級数和として表される。 ここで、a_0 a_1 cdots, b_1 b_2 cdots は実数の定数である。 これを、実フーリエ級数和という。f(t) = a_0 + a_1 cos omegat  + b_1 sin omegat + a_2 cos 2omegat + b_2 sin 2omegat + a_3 cos 3omegat + b_3 sin 3omegat + cdotsここで omega は基本周波数である。 omega=dfrac2piT"
+},
+
+{
+    "location": "ch08.html#方形波：フーリエ級数の有限和-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "▶︎ 方形波：フーリエ級数の有限和",
+    "category": "section",
+    "text": "方形波は、 ▶ 方形波を描く で紹介した。基本周波数 omega=1、数 -1と1とを往復する方形波を描こう。using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nplot(ts, sign.(sin.(ts)) )\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nsavefig(\"ch08_sq1-plot.svg\"); nothing # hide(Image: )この方形波のフーリエ級数和は、以下のように与えられる。f(t) = frac4pileftsint+fracsin3t3+fracsin5t5+cdotsrightこの式の sin t, sin 3t, sin 5t の３つを加えると、方形波に近くなることを観察する。using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nys=sin.(ts)*4/pi\nplot(ts, ys, label=\"n=1\")\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nys += sin.(3ts)/3*4/pi\nplot(ts, ys, label=\"n=1,3\")\nys += sin.(5ts)/5*4/pi\nplot(ts, ys, label=\"n=1,3,5\")\nlegend()\n\nsavefig(\"ch08-fo-sq2-plot.svg\"); nothing # hide(Image: )今度は sin 13t まで加えた結果を観察しよう。using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nn=13\nys=zeros(ts)\nfor i in 1:2:n\n  ys += sin.(i*ts)/i*4/pi\nend\nplot(ts, ys)\nplot(ts, sign.(sin.(ts)), label=\"up to\"*string(n) )\n\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nsavefig(\"ch08-fo-sq4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch08.html#三角波：フーリエ級数の有限和-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "▶︎ 三角波：フーリエ級数の有限和",
+    "category": "section",
+    "text": "using PyPlot\nclf() #hide\nts=-3.5pi:pi/180:3.5pi\n\nfunction triangular(t)\n  t >= pi ? 2pi-t : t\nend\n\nplot(ts, triangular.(ts) )\nxlim(0,2pi)\nylim(0,2pi)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"fo_tri1-plot.svg\"); nothing # hide(Image: )Base.Math.mod2pi — Function関数 mod2pi(x)は x を 2pi で割った余りを返す。plot(ts, triangular.(mod2pi.(ts)) )\nxlim(-4pi,4pi)\nylim(0,2pi)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch08-fo-tri2-plot.svg\"); nothing # hide(Image: )f(t) = dfracpi2 - dfrac4pileft cos t + dfraccos 3t3^2 + dfraccos 5t5^2 + cdotsrightys=ones(ts)*(pi/2)\nfor n=1:2:5\n  ys -= cos.(n*ts)*(4/pi/n^2)\nend\nplot(ts, ys, \".\")\nplot(ts,triangular.(mod2pi.(ts)))\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch08-fo-tri3-plot.svg\"); nothing # hide(Image: )for nmax=3:2:11\n  ys=ones(ts)*(pi/2)\n  for n=1:2:nmax\n    ys -= cos.(n*ts)*(4/n^2/pi)\n  end\n  plot(ts, ys, label=nmax)\nend\nlegend()\nsavefig(\"ch08-fo-tri4-plot.svg\"); nothing # hide(Image: )for j=1:6\n  nmax=1+2*j\n  ys=ones(ts)*(pi/2)\n  for n=1:2:nmax\n    ys -= cos.(n*ts)*(4/n^2/pi)\n  end\n  ax=plt[:subplot](610+j)\n  ax[:plot](ts, ys, \".\")\n  ax[:set_xlim](-2.2pi,2.2pi)\n  ax[:plot](ts,triangular.(mod2pi.(ts)))\nend\nsavefig(\"ch08-fo-tri5-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -1253,23 +1301,47 @@ var documenterSearchIndex = {"docs": [
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "▶︎ 数値積分",
     "category": "section",
-    "text": ""
+    "text": "定積分の近似値を、級数和として求めることができる(数値積分)。例として、関数 g(x)g(x)=dfrac11+xを、x=0 から 1の範囲で積分しよう。関数 g(x)は、この範囲で単調減少である。using PyPlot\nclf() #hide\nxmin=0\nxmax=1\nm=6\nn=2^m\nxs=linspace(xmin,xmax,n+1)\ng(x)=1/(1+x)\nplot(xs, g.(xs), \"b\")\nylim(0,1.2)\nsavefig(\"ch08-rie0-plot.svg\"); nothing # hide(Image: )定積分の値は、int_0^1dfrac11+xdx = leftlogleftvert1+xrightvertright_x=0^x=1 = log2である。"
 },
 
 {
-    "location": "ch08.html#Riemann和-1",
+    "location": "ch08.html#Riemann和（繰り返しで加算)-1",
     "page": "第8回： ▶︎ 総和・数値積分",
-    "title": "▶︎ Riemann和",
+    "title": "▶︎ Riemann和（繰り返しで加算)",
     "category": "section",
-    "text": "int_0^1 dfrac11+x dx = left log leftleft1+xright right right_x=0^x=1 = log 2using PyPlot\nclf() #hide\nn=2^6\nxmin=0\nxmax=1\nxs=linspace(xmin,xmax,n+1)\nd=(xmax-xmin)/n\ng(x)=1/(1+x)\nplot(xs, g.(xs), \".\")\nsavefig(\"ch08-rie1-plot.svg\"); nothing # hide(Image: )s_1 = sumi=1^n g( x_i)ds_3 = sumi=1^n g( x_i+1)ds_2 = sumi=1^n gleft( dfracx_i+xi+12 right)ds1=0\nfor i=1:n\n  s1 += g(xs[i])*d\nend\n@show s1s1=0; s2=0; s3=0\nfor i=1:n\ns1 += g(xs[i])*d\ns3 += g(xs[i+1])*d\ns2 += g( (xs[i]+xs[i+1])/2) *d\nend\n@show s1,s2, s3 #hiden=2^10\nxs=linspace(xmin,xmax,n+1)\nd=(xmax-xmin)/n\ns1=0; s2=0; s3=0\nfor i=1:n\n  s1 += g(xs[i])*d\n  s3 += g(xs[i+1])*d\n  s2 += g( (xs[i]+xs[i+1])/2) *d\nend\n@show s1,s2, s3 #hideclf() #hide\nse=log(2)\nfor m in 0:12\n  n=2^m\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n  s1=0; s2=0; s3=0\n  for i=1:n\n    s1 += g(xs[i])*d\n    s3 += g(xs[i+1])*d\n    s2 += g( (xs[i]+xs[i+1])/2) *d\n    end\n  plot(n, s1 - se , \".\", color=\"b\")\n  plot(n, s2 - se, \".\", color=\"g\")\n  plot(n, s3 - se, \".\", color=\"r\")\nend\nxscale(\"log\")\nxlabel(\"n\")\nylabel(\"absolute error\")\nsavefig(\"ch08-rie2-plot.svg\"); nothing # hide(Image: )clf() #hide\nfor m in 0:12\n  n=2^m\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n  s1=0; s2=0; s3=0\n  for i=1:n\n  s1 += g(xs[i])*d\n  s3 += g(xs[i+1])*d\n  s2 += g( (xs[i]+xs[i+1])/2) *d\n  end\n  plot(n, abs(s2 - se) / se, \".\", color=\"g\")\n  plot(n, abs(s3 - se) / se , \".\", color=\"r\")\n  plot(n, abs(s1 - se) / se , \".\", color=\"b\")\nend\nxlabel(\"n\")\nylabel(\"relative error (absolute value)\")\nxscale(\"log\")\nyscale(\"log\")\nsavefig(\"ch08-rie3-plot.svg\"); nothing # hide(Image: )function rieman1(g, xmin, xmax, n)\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n  s1=0\n  for i=1:n\n    s1 += g(xs[i])*d\n    end\n  s1\nend\n\nrieman1(g, 0, 1, 100)function rieman3(g, xmin, xmax, n)\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n  s3=0\n  for i=1:n\n    s3 += g(xs[i+1])*d\n  end\n  s3\nend\n\nrieman3(g, 0, 1, 100)function rieman2(g, xmin, xmax, n)\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n  s2=0\n  for i=1:n\n    s2 += g( (xs[i]+xs[i+1])/2) *d\n  end\n  s2\nend\n\nrieman2(g, 0, 1, 100)ns=[ 2^m for m=0:12]\n@show ns #hideclf() #hide\nplot(ns, abs.( rieman1.(g, xmin, xmax, ns) - se) /se, \"o\", label=\"left\" )\nplot(ns, abs.( rieman2.(g, xmin, xmax, ns) - se) /se, \".\", label=\"middle\" )\nplot(ns, abs.( rieman3.(g, xmin, xmax, ns) - se) /se ,\".\", label=\"right\" )\nlegend()\nxscale(\"log\")\nyscale(\"log\")\nxlabel(\"n\")\nylabel(\"relative error\")\nsavefig(\"ch08-rie4-plot.svg\"); nothing # hide(Image: )"
+    "text": "積分すべき関数を、等間隔の短冊に区切り、短冊の面積の総和をとろう。短冊の幅を dとすると、s_1 = sum_i=1^n g(x_i)cdotdという、総和 (Riemann和)をとることになる。以下のグラフは、8枚の短冊に分けた様子を示す。 ここで、短冊の高さは、各短冊の左端の関数の値をとった。using PyPlot\nclf() #hide\nxmin=0\nxmax=1\nm=3\nn=2^m\nxs=linspace(xmin,xmax,n+1)  # n個の短冊に分割する\nd=(xmax-xmin)/n  # 短冊の刻み\ng(x)=1/(1+x)\nplot(xs, g.(xs), \"b\")\nylim(0,1.2)\n\nfor x in xs[1:end-1]\n  plot([x, x, x+d, x+d], [0, g(x), g(x), 0], \"k\", lw=0.5)\nend\nsavefig(\"ch08-rie1-plot.svg\"); nothing # hide(Image: )では、短冊を 2^4 = 16 枚に分けて、短冊の面積の総和をとろう。se=log(2)\nm=4\nn=2^m\nxs=linspace(xmin,xmax,n+1)\nd=(xmax-xmin)/n\ns1=0\nfor i in 1:n\n  x=xs[i]\n  s1 += g(x)*d\nend\n@show s1\n@show se\n# 相対誤差\n@show (s1-se)/se;16分割でも、相対誤差 23 を達成した。分割数を増やせば、この和は、正しい定積分の値に近づいていくであろう。分割数を 2^m で増やして、絶対誤差を描こう。 横軸の分割数は、対数で示した。using PyPlot\nclf() #hide\nse=log(2)\nfor m in 0:12\n  n=2^m\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n  s1=0\n  for i in 1:n\n    x=xs[i]\n    s1 += g(x)*d\n  end\n  plot(n, abs(s1 - se) , \".\", color=\"b\")\nend\nxscale(\"log\")\nxlabel(\"n\")\nylabel(\"absolute error\")\nsavefig(\"ch08-rie2-plot.svg\"); nothing # hide(Image: )今度は、相対誤差を、両対数グラフで描く。using PyPlot\nclf() #hide\nfor m in 0:12\n  n=2^m\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n  s1=0\n  for i in 1:n\n    x=xs[i]\n    s1 += g(x)*d\n  end\n  plot(n, abs(s1 - se) / se, \".\", color=\"g\")\nend\nxlabel(\"n\")\nylabel(\"relative error (absolute value)\")\nxscale(\"log\")\nyscale(\"log\")\nsavefig(\"ch08-rie3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch08.html#台形則-1",
+    "location": "ch08.html#総和関数-sum-1",
     "page": "第8回： ▶︎ 総和・数値積分",
-    "title": "▶︎ 台形則",
+    "title": "■ 総和関数 sum",
     "category": "section",
-    "text": "int_0^1 dfrac11+x dx = left log left1+x right rightx=0^x=1 = log 2s_t = sumi=1^n dfracg(xi)+g(xi+1) 2dusing PyPlot\nclf() #hide\nn=100\nxmin=0\nxmax=1\nxs=linspace(xmin,xmax,n+1)\nd=(xmax-xmin)/n\n\ng(x)=1/(1+x)\nplot(xs, g.(xs), \".\")\nsavefig(\"ch07-tra1-plot.svg\"); nothing # hide(Image: )st=0\nfor i=1:n\n  st += (g(xs[i])+g(xs[i+1]))*d/2\nend\n@show sts2=0; st=0;\nfor i=1:n\n  s2 += g( (xs[i]+xs[i+1])/2) *d\n  st += (g(xs[i])+g(xs[i+1]))*d/2\nend\n@show s2, stn=1000\nxs=linspace(xmin,xmax,n+1)\nd=(xmax-xmin)/n\ns2=0; st=0\nfor i=1:n\n  s2 += g( (xs[i]+xs[i+1])/2) *d\n  st += (g(xs[i])+g(xs[i+1]))*d/2\nend\n@show s2, stclf() #hide\nse=log(2)\n\nfor m in 1:6\n  n=10^m\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n  s1=0; s2=0; s3=0; st=0\n  for i=1:n\n    s1 += g(xs[i])*d\n    s3 += g(xs[i+1])*d\n    s2 += g( (xs[i]+xs[i+1])/2) *d\n    st += (g(xs[i])+g(xs[i+1]))*d/2\n  end\n  plot(n, s1 - se, \".\")\n  plot(n, s2 - se, \".\")\n  plot(n, s3 - se, \".\")\n  plot(n, st - se, \".\", color=\"r\")\nend\nxscale(\"log\")\nxlabel(\"n\")\nylabel(\"absolute error\")\nsavefig(\"ch07-tra2-plot.svg\"); nothing # hide(Image: )clf() #hide\nfor m in 1:6\n  n=10^m\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n  s2=0; st=0\n  for i=1:n\n  s2 += g( (xs[i]+xs[i+1])/2) *d\n  st += (g(xs[i])+g(xs[i+1]))*d/2\n  end\n  plot(n, abs(s2 - se) / se, \".\", color=\"g\")\n  plot(n, abs(st - se) / se , \".\", color=\"r\")\nend\nxlabel(\"n\")\nylabel(\"relative error (absolute value)\")\nxscale(\"log\")\nyscale(\"log\")\nsavefig(\"ch07-tra3-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.sum — Function関数 sum(xs) は、数のコレクション v　を引数にとり、v の全ての要素の総和を求める。sum([1,2,3,4,5])\nsum(1:5)"
+},
+
+{
+    "location": "ch08.html#級数和の公式（関数-sumを用いる)-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "▶︎ 級数和の公式（関数 sumを用いる)",
+    "category": "section",
+    "text": "sum_k=1^n k = 1 + 2 + cdots + k + cdots + n^2 = dfracn(n+1)2using PyPlot\nclf() #hide\n\nnmax=25\nxs1=0:0.2:nmax\nplot(xs1, xs1.*(xs1+1)/2, label=\"sum i\", \"b\")\n\nns=0:nmax\nfor n in ns\n  xs=1:n\n  s1=sum(xs)\n  plot(n,s1, \"bo\")\nend\n\nxlabel(\"n\")\nylabel(\"sum i up to n\")\n\nsavefig(\"ch08-sum3-plot.svg\"); nothing # hide(Image: )sum_k=1^n k^2 = 1^2 + 2^2 + cdots + k^2 + cdots + n^2 = dfracn(n+1)(2n+1)6using PyPlot\nclf() #hide\n\nnmax=25\nxs1=0:0.2:nmax\nplot(xs1, xs1.*(xs1+1).*(2*xs1+1)/6, \"b\")\n\nns=0:nmax\nfor n in ns\n  # 各要素を二乗\n  xs=(1:n).^2\n  s=sum(xs)\n  plot(n,s, \"bo\")\nend\nxlabel(\"n\")\nylabel(\"sum i^2 up to n\")\n\nsavefig(\"ch08-sum4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch08.html#Riemann和（関数-sumを用いる)-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "▶︎ Riemann和（関数 sumを用いる)",
+    "category": "section",
+    "text": "Riemann和において、 刻み幅 d は全ての短冊に共通であるから、d をくくりだしてs_1 = sum_i=1^n g(x_i)cdotd = dcdotsum_i=1^n g( x_i)のようにまとめることができる。すなわち、関数の値の和 sum_i=1^n g( x_i) をとってから d倍すればよい。関数の値の和を取るのに、関数 sum を使うことができる。下のプログラムで g.(xs[1:end-1]) は、ベクトル xs[1:end-1] の各要素に関数 g() を適用したベクトルである。ループで和を計算した場合と、関数 sum を用いる場合との両方で、 相対誤差をプロットする。 計算結果が一致していることが見える。 (参考: 結果が一致することを確かめるグラフの描画   → ▼▶︎ 周期関数を確認するusing PyPlot\nclf() #hide\nse=log(2)\nfor m in 0:12\n  n=2^m\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n\n  # 和を取る\n  s1=0\n  for i in 1:n\n    x=xs[i]\n    s1 += g(x)*d\n  end\n  plot(n, abs(s1 - se)/se , \"ro\", color=\"b\")\n\n  # sum を使う\n  s2=sum( g.(xs[1:end-1]))*d\n  plot(n, abs(s2 - se)/se , \"b.\", color=\"r\")\nend\nxscale(\"log\")\nyscale(\"log\")\nxlabel(\"n\")\nylabel(\"absolute error\")\nsavefig(\"ch08-rie4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch08.html#台形則（関数-sumを用いる)-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "▶︎ 台形則（関数 sumを用いる)",
+    "category": "section",
+    "text": "今度は、短冊を台形として計算してみる。using PyPlot\nclf() #hide\nm=2\nn=2^m\nxmin=0\nxmax=1\nxs=linspace(xmin,xmax,n+1)\nd=(xmax-xmin)/n\n\ng(x)=1/(1+x)\nplot(xs, g.(xs), \"b\")\nylim(0,1.2)\n\nfor i in 1:n\n  x=xs[i]\n  plot([x, x, x+d, x+d], [0, g(x), g(x+d), 0], \"k\", lw=0.5)\nend\n\nsavefig(\"ch08-tra1-plot.svg\"); nothing # hide(Image: )総和をとるとき、隣り合う台形の面積をまとめることができることに注目しよう。s_t = sum_i=1^n dfracg(x_i)+g(x_i+1) 2cdotd = dcdotleft dfracg(x_1)2 + sum_i=2^n-1 g(x_i)  + dfracg(x_n)2 right先の Riemann和と台形則の値を両方計算してみよう。se=log(2)\n\n# Riemann和\ns1=0\nfor x in xs[1:end-1]\n  s1 += g(x)*d\nend\n\n# 台形則\nst=(g(xs[1])+g(xs[end]))/2\nfor i in 2:n\n  x=xs[i]\n  st += g(x)\nend\nst *= d\n@show s1\n@show st\n# 相対誤差\n@show (s1-se)/se;\n@show (st-se)/se;関数 sumを使って簡潔に書こう。se=log(2)\nm=4\nn=2^m\nxs=linspace(xmin,xmax,n+1)\nd=(xmax-xmin)/n\ns1=sum( g.(xs[1:end-1]))*d\n\nst=(g(xs[1])+g(xs[end]))/2\nst += sum( g.(xs[2:end-1]))\nst *= d\n\n@show s1;\n@show st;\n# 相対誤差\n@show (s1-se)/se;\n@show (st-se)/se;相対誤差を描く。using PyPlot\nclf() #hide\nse=log(2)\nfor m in 0:12\n  n=2^m\n  xs=linspace(xmin,xmax,n+1)\n  d=(xmax-xmin)/n\n\n  s1=sum( g.(xs[1:end-1]))*d\n\n  st=(g(xs[1])+g(xs[end]))/2\n  st += sum( g.(xs[2:end-1]))\n  st *= d\n\n  plot(n, abs(s1 - se) / se, \".\", color=\"g\")\n  plot(n, abs(st - se) / se , \".\", color=\"r\")\nend\n\nxlabel(\"n\")\nylabel(\"relative error (absolute value)\")\nxscale(\"log\")\nyscale(\"log\")\nsavefig(\"ch08-tra3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -1277,7 +1349,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "今回のまとめ",
     "category": "section",
-    "text": ""
+    "text": "ベクトルのインデックス\n要素が 0または1のベクトル\nベクトルの総和 sum\n級数和\nフーリエ級数の和\n数値積分：Riemann和\n数値積分：台形則"
 },
 
 {
@@ -1289,7 +1361,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch09.html#ch08-1",
+    "location": "ch09.html#ch09-1",
     "page": "第9回： ■ 配列要素の操作",
     "title": "第9回： ■ 配列要素の操作",
     "category": "section",
@@ -1297,19 +1369,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch09.html#ベクトル-1",
+    "location": "ch09.html#ベクトル要素への代入-1",
     "page": "第9回： ■ 配列要素の操作",
-    "title": "■ ベクトル",
+    "title": "■ ベクトル要素への代入",
     "category": "section",
-    "text": "次元\n寸法\n添字添字は 1から数えるv=[1,2,3]\nlength(v)\nsize(v)\nv[1]=5\nv"
-},
-
-{
-    "location": "ch09.html#配列操作-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ 配列操作",
-    "category": "section",
-    "text": ""
+    "text": "v=collect(1:10)\n# インデックス：整数\nv[4]=0\nv\n\n# インデックス：Range\nv[3:2:10]=0\nv"
 },
 
 {
@@ -1317,7 +1381,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作",
     "title": "■ エラトステネスの篩",
     "category": "section",
-    "text": ""
+    "text": "nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n    if sieve[i] > 0\n        println(i)\n        sieve[i*2:i:nmax]=0\n    end\nend"
 },
 
 {
@@ -1398,6 +1462,14 @@ var documenterSearchIndex = {"docs": [
     "title": "▶︎ ベクトル関数",
     "category": "section",
     "text": ""
+},
+
+{
+    "location": "ch10.html#多次元配列-1",
+    "page": "第10回：線形代数",
+    "title": "■ 多次元配列",
+    "category": "section",
+    "text": "■ ベクトルも、■ 行列も、多次元配列として表されている。"
 },
 
 {
