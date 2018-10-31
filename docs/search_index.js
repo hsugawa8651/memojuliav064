@@ -669,7 +669,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第4回：▶︎ 不連続な曲線を描く",
     "title": "▶︎ 絶対値関数",
     "category": "section",
-    "text": "Base.abs - Function関数 abs(x)は、xの絶対値を返す。using PyPlot\nclf() #hide\nxs=-1:0.1:1\nplot(xs,abs.(xs))\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-abs1-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.abs - Function関数 abs(x)は、xの絶対値を返す。using PyPlot\nclf() #hide\nxs=-1:0.1:1\nplot(xs,abs.(xs))\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-abs1-plot.svg\"); nothing # hide(Image: )絶対値関数の符号を変えたり、平行移動すると、色々な山や谷の形を描くことができる。using PyPlot\nclf() #hide\nxs=-2pi:pi/18:2pi\n# 符号を変える。山の形\nplot(xs, -abs.(xs), label=\"-abs(x)\")\n# 縦軸の平行移動\nplot(xs, pi-abs.(xs), label=\"pi-abs(x)\")\n# さらに、横軸の平行移動\nplot(xs, pi-abs.(xs-pi), label=\"pi-abs(x-pi)\")\nlegend()\nxlabel(\"x\")\naxhline(0,color=\"k\",lw=0.5)\naxvline(0,color=\"k\",lw=0.5)\naxvline(pi,color=\"k\",lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch04-abs2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -1073,6 +1073,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch06.html#2piで割った剰余-1",
+    "page": "第6回：■ 整数",
+    "title": "▶ 2piで割った剰余",
+    "category": "section",
+    "text": "Base.Math.mod2pi — Function関数 mod2pi(x) は、mod(x,2*pi) と同じである。 すなわち、x を 2pi で割った余りを返す。using PyPlot\nclf() #hide\nxs=-5pi:pi/6:6pi\nplot(xs,mod2pi.(xs), \".\")\nxlabel(\"x\")\nylabel(\"mod2pi(x)\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-mod2pi-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
     "location": "ch06.html#整商・剰余・除数が-0-の場合-1",
     "page": "第6回：■ 整数",
     "title": "■ 整商・剰余・除数が 0 の場合",
@@ -1225,7 +1233,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch08.html#ch09-1",
+    "location": "ch08.html#ch08-1",
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "第8回： ▶︎ 総和・数値積分",
     "category": "section",
@@ -1293,7 +1301,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "▶︎ 三角波：フーリエ級数の有限和",
     "category": "section",
-    "text": "using PyPlot\nclf() #hide\nts=-3.5pi:pi/180:3.5pi\n\nfunction triangular(t)\n  t >= pi ? 2pi-t : t\nend\n\nplot(ts, triangular.(ts) )\nxlim(0,2pi)\nylim(0,2pi)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"fo_tri1-plot.svg\"); nothing # hide(Image: )Base.Math.mod2pi — Function関数 mod2pi(x)は x を 2pi で割った余りを返す。plot(ts, triangular.(mod2pi.(ts)) )\nxlim(-4pi,4pi)\nylim(0,2pi)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch08-fo-tri2-plot.svg\"); nothing # hide(Image: )f(t) = dfracpi2 - dfrac4pileft cos t + dfraccos 3t3^2 + dfraccos 5t5^2 + cdotsrightys=ones(ts)*(pi/2)\nfor n=1:2:5\n  ys -= cos.(n*ts)*(4/pi/n^2)\nend\nplot(ts, ys, \".\")\nplot(ts,triangular.(mod2pi.(ts)))\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch08-fo-tri3-plot.svg\"); nothing # hide(Image: )for nmax=3:2:11\n  ys=ones(ts)*(pi/2)\n  for n=1:2:nmax\n    ys -= cos.(n*ts)*(4/n^2/pi)\n  end\n  plot(ts, ys, label=nmax)\nend\nlegend()\nsavefig(\"ch08-fo-tri4-plot.svg\"); nothing # hide(Image: )for j=1:6\n  nmax=1+2*j\n  ys=ones(ts)*(pi/2)\n  for n=1:2:nmax\n    ys -= cos.(n*ts)*(4/n^2/pi)\n  end\n  ax=plt[:subplot](610+j)\n  ax[:plot](ts, ys, \".\")\n  ax[:set_xlim](-2.2pi,2.2pi)\n  ax[:plot](ts,triangular.(mod2pi.(ts)))\nend\nsavefig(\"ch08-fo-tri5-plot.svg\"); nothing # hide(Image: )"
+    "text": "一定の正の傾きで増加、一定の負の傾きで減少を繰り返す周期関数を、 三角波 (triangular wave)という。傾き 1 と -1で、周期 2pi の三角波を描こう。 この関数は、 絶対値関数 abs (参考: ▶︎ 絶対値関数 )と 関数 mod2pi (参考: ▶ 2piで割った剰余 ) とを組み合わせて定義できる。 参考→ ■ 関数の定義 (代入文形式)triangular(t)=pi-abs.(mod2pi.(t)-pi)\n\nusing PyPlot\nclf() #hide\nts=-3.5pi:pi/6:3.5pi\nplot(ts, triangular.(ts) )\nxlim(-pi*2.5,pi*2.5)\nylim(-pi*0.1,pi*1.1)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch08_fo_tri1-plot.svg\"); nothing # hide(Image: )上の三角波のフーリエ級数展開は、以下の通りである。f(t) = dfracpi2 - dfrac4pileft cos t + dfraccos 3t3^2 + dfraccos 5t5^2 + cdotsrightusing PyPlot\nclf() #hide\nys=ones(ts)*(pi/2)\nfor n=1:2:5\n  ys -= cos.(n*ts)*(4/pi/n^2)\nend\nplot(ts, ys, \"o\")\nplot(ts,triangular.(ts))\nylim(-pi*0.1,pi*1.1)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch08-fo-tri3-plot.svg\"); nothing # hide(Image: )勾配が不連続に変化する点(キンク, kink)を拡大して描画しよう。using PyPlot\nclf() #hide\nfor nmax=3:2:11\n  ys=ones(ts)*(pi/2)\n  for n=1:2:nmax\n    ys -= cos.(n*ts)*(4/n^2/pi)\n  end\n  plot(ts, ys, label=nmax)\nend\nxlim(-pi*0.1,pi*2.1)\nylim(-pi*0.1,pi*1.1)\nplt[:axes]()[:set_aspect](\"equal\")\nlegend()\nsavefig(\"ch08-fo-tri4-plot.svg\"); nothing # hide(Image: )using PyPlot\nclf() #hide\nfor j=1:6\n  nmax=1+2*j\n  ys=ones(ts)*(pi/2)\n  for n=1:2:nmax\n    ys -= cos.(n*ts)*(4/n^2/pi)\n  end\n  ax=plt[:subplot](610+j)\n  ax[:plot](ts,triangular.(ts))\n  ax[:plot](ts, ys, \"o\")\n  ax[:set_ylim](-pi*0.1,pi*1.1)\nend\nsavefig(\"ch08-fo-tri5-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -1349,7 +1357,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "今回のまとめ",
     "category": "section",
-    "text": "ベクトルのインデックス\n要素が 0または1のベクトル\nベクトルの総和 sum\n級数和\nフーリエ級数の和\n数値積分：Riemann和\n数値積分：台形則"
+    "text": "ベクトルのインデックス\n要素が 0または1のベクトルの生成\nベクトルの総和 sum\n級数和\nフーリエ級数の和\n数値積分：Riemann和\n数値積分：台形則"
 },
 
 {

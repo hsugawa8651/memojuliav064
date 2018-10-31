@@ -94,7 +94,20 @@ plot(xs, sign.( cos.(xs)), &quot;b.&quot;, label=&quot;sign(cos(x))&quot;)
 legend()</code></pre></div><p><img src="ch04-sign2-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-3" href="#練習-3">◀︎ 練習</a></h2><p>上の例の周期はいくつか？ 周期が 1 になるように、修正してみよ。</p><h2><a class="nav-anchor" id="絶対値関数-1" href="#絶対値関数-1">▶︎ 絶対値関数</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.abs"><code>Base.abs</code> - Function</a></p></li></ul><p>関数 <code>abs(x)</code>は、<span>$x$</span>の絶対値を返す。</p><div><pre><code class="language-julia">using PyPlot
 xs=-1:0.1:1
 plot(xs,abs.(xs))
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-abs1-plot.svg" alt/></p><h2><a class="nav-anchor" id="クランプ関数-1" href="#クランプ関数-1">▶︎ クランプ関数</a></h2><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.Math.clamp"><code>Base.Math.clamp</code></a></p><p>関数 <code>clamp(x, lo, hi)</code>は、上限と下限で制限する関数である。 すなわち、<span>$x$</span>の値が <code>hi</code> よりも大きければ <code>hi</code>を、<code>lo</code> よりも大きければ <code>lo</code>を返す。 どちらでもなければ、そのままの値を返す。</p><div><pre><code class="language-julia">using PyPlot
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-abs1-plot.svg" alt/></p><p>絶対値関数の符号を変えたり、平行移動すると、色々な山や谷の形を描くことができる。</p><div><pre><code class="language-julia">using PyPlot
+xs=-2pi:pi/18:2pi
+# 符号を変える。山の形
+plot(xs, -abs.(xs), label=&quot;-abs(x)&quot;)
+# 縦軸の平行移動
+plot(xs, pi-abs.(xs), label=&quot;pi-abs(x)&quot;)
+# さらに、横軸の平行移動
+plot(xs, pi-abs.(xs-pi), label=&quot;pi-abs(x-pi)&quot;)
+legend()
+xlabel(&quot;x&quot;)
+axhline(0,color=&quot;k&quot;,lw=0.5)
+axvline(0,color=&quot;k&quot;,lw=0.5)
+axvline(pi,color=&quot;k&quot;,lw=0.5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch04-abs2-plot.svg" alt/></p><h2><a class="nav-anchor" id="クランプ関数-1" href="#クランプ関数-1">▶︎ クランプ関数</a></h2><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.Math.clamp"><code>Base.Math.clamp</code></a></p><p>関数 <code>clamp(x, lo, hi)</code>は、上限と下限で制限する関数である。 すなわち、<span>$x$</span>の値が <code>hi</code> よりも大きければ <code>hi</code>を、<code>lo</code> よりも大きければ <code>lo</code>を返す。 どちらでもなければ、そのままの値を返す。</p><div><pre><code class="language-julia">using PyPlot
 xs=-5:0.1:5
 plot(xs,clamp.(xs,-1,2))
 xlim(-5,5)
