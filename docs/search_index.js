@@ -773,7 +773,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "■ if文",
     "category": "section",
-    "text": "Conditional Evaluationif文は、直後に論理式をとる。 論理式の値が true なら、if文の次の文から、end, else, elseif が出現するまでの文を実行する。条件が成り立つときだけに実行される部分をifブロック(block)という。ブロックは、字下げ (indent) で表記される。が、字下げは見やすさのためだけである。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nendifブロックの後ろに、else文が続く場合がある。 論理式の値が false なら、else文の次の文から end が出現するまでの文 (elseブロック)を実行する。x=1\ny=2\nif x < y\n　println(\"x は y より小さい\")\nelse\n　println(\"x は y より小さくない\")\nendelse文の前に、elseif文が続く場合もある。 最初の if文の論理式が false なら、 elseif文の論理式を計算し、それが true なら、elseif 文の次の文から、elseifまたはend が出現するまでの文 (elseifブロック)を実行する。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nelseif x > y\n　println(\"x は y より大きい\")\nelse\n  println(\"x は y と等しい\")\nendx=40\nm=if     x >= 100\n  println(\"x は 100 以上である\")\nelseif x >= 50\n  println(\"x は 50 以上である\")\nelseif x >= 20\n  println(\"x は 20 以上である\")\nelse\n  println(\"x は 20 よりも小さい\")\nend\n@show m"
+    "text": "Conditional Evaluationif文は、直後に論理式をとる。 論理式の値が true なら、if文の次の文から、end, else, elseif が出現するまでの文を実行する。条件が成り立つときだけに実行される部分をifブロック(block)という。ブロックは、字下げ (indent) で表記される。が、字下げは見やすさのためだけである。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nendifブロックの後ろに、else文が続く場合がある。 論理式の値が false なら、else文の次の文から end が出現するまでの文 (elseブロック)を実行する。x=1\ny=2\nif x < y\n　println(\"x は y より小さい\")\nelse\n　println(\"x は y より小さくない\")\nendelse文の前に、elseif文が続く場合もある。 最初の if文の論理式が false なら、 elseif文の論理式を計算し、それが true なら、elseif 文の次の文から、elseifまたはend が出現するまでの文 (elseifブロック)を実行する。x=1\ny=2\nif x < y\n  println(\"x は y より小さい\")\nelseif x > y\n　println(\"x は y より大きい\")\nelse\n  println(\"x は y と等しい\")\nend"
 },
 
 {
@@ -845,7 +845,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "▶︎ 格子点による平面領域の塗り分け",
     "category": "section",
-    "text": "平面座標 の第一象限 0 le x le 1 0 le y le 0 の範囲に、 格子点を配置しよう。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、 それ以外を青で色分けして示そう。二重の繰り返し (二重ループ)を用いた。刻み幅は各軸 0.025 に選んだので、 格子点の総数は 40times40=1600 個である。赤色の範囲は、4分円となる。using PyPlot\nclf() #hide\nfor y=0:0.025:1\n  for x=0:0.025:1\n    c = x*x + y*y < 1 ? \"r\" : \"b\"\n    plot(x,y,\".\", color=c)\n  end\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-lattice-plot.svg\"); nothing # hide(Image: )今度は、二つの不等式 y  x と y  1-xの両方に囲まれる領域を、 赤で示そう。二重ループを一つの for文にまとめた。for文の右側に書かれたループ変数が内側のループに相当する。using PyPlot\nclf() #hide\nfor y=0:0.025:1, x=0:0.025:1\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-lattice-plot.svg\"); nothing # hide(Image: )"
+    "text": "平面座標 の第一象限 0 le x le 1 0 le y le 1 の範囲に、 格子点を配置しよう。そのうち、x^2+y^2 lt 1 の範囲にある点を赤で、 それ以外を青で色分けして示そう。二重の繰り返し (二重ループ)を用いた。刻み幅は各軸 0.025 に選んだので、 格子点の総数は 40times40=1600 個である。赤色の範囲は、4分円となる。using PyPlot\nclf() #hide\nfor y=0:0.025:1\n  for x=0:0.025:1\n    c = x*x + y*y < 1 ? \"r\" : \"b\"\n    plot(x,y,\".\", color=c)\n  end\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1-lattice-plot.svg\"); nothing # hide(Image: )今度は、二つの不等式 y  x と y  1-xの両方に囲まれる領域を、 赤で示そう。二重ループを一つの for文にまとめた。for文の右側に書かれたループ変数が内側のループに相当する。using PyPlot\nclf() #hide\nfor y=0:0.025:1, x=0:0.025:1\n  if y < x && y < 1-x\n    c=\"r\"\n  else\n    c=\"b\"\n  end\n  plot(x,y,\".\", color=c)\nend\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch05-qc1s-lattice-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -853,7 +853,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "格子点の刻み幅を大きく、または、小さくして、 色分けの様子を観察してみよ。関数plotのfmtパラメータを . から o (circle)に変えてみよ。 さらに、markersizeパラメータを加えて、マーカーの大きさを調整できる。plot(x,y,\"o\", markersize=3)"
+    "text": "格子点の刻み幅を大きく、または、小さくして、 色分けの様子を観察してみよ。関数plotのfmtパラメータを . から o (circle)に変えてみよ。 さらに、markersizeパラメータを加えて、マーカーの大きさを調整できる。plot(x,y,\"o\", markersize=3)note: Note\n刻み幅を小さくすると、格子点の数は急激に増える (例えば、xy軸方向の刻みの数を2倍にすると、格子点の数は 4倍になる)ので、刻み幅を急激に小さくすべきではない。計算量が増えた場合、数分以内に計算が終わらない可能性もあるが、このような状況を経験するのも重要である。"
 },
 
 {
@@ -909,7 +909,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "▶︎ 「はさみうち」法による、方程式の求解",
     "category": "section",
-    "text": "f(x)=x^3+3x^2-4*x-12\nxs=-3.5:0.05:3\n\nusing PyPlot\nclf() #hide\nplot(xs, f.(xs))\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch05-secant1-plot.svg\"); nothing # hide(Image: )連続な関数 f(x) が、 区間 a lt x lt b で単調（単調増加または単調減少）であるとする。 ここで、f(a) と f(b) との符号が 異なるとき f(a)cdot f(b)lt 0 、 方程式 f(x)=0 の解は a lt x lt b の区間にある。ここで、a と b との中点 c=dfraca+b2 をとり、f(a) と f(c) が同じ符号であれば 左端aをcに更新する。 逆に、f(b) と f(c) が同じ符号であれば 右端bをcに更新する。この手順を繰り返すことで、 方程式 f(x)=0 の解が存在する区間を狭めていくことができる。 この手法を「はさみうち」法という。英語では、squeeze theorem, pinching theorem, sandwich theorem などと呼ばれる。上の関数 f(x) で a=-35 b=-22 と選び、 この手順を数回繰り返してみる。# f(x)=x^3+3x^2-4*x-12\na=-3.2; b=-2.2\n@show a,b\n@show f(a),f(b)\nfor i=1:10\n  c=(a+b)/2\n  @show i, a, b, c, f(c)\n  if f(a)*f(c) > 0\n    a = c\n  else\n    b = c\n  end\nendこの範囲の解は x=-3である。@show f(-3)区間がせばまる様子を、グラフに描いてみよう。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.65\nfor i=1:15\n  plot(b,i, \"ro\")\n  plot(a,i, \"b.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  else\n    b = c\n  end\nend\nxlabel(\"x\")\nylabel(\"i\")\nsavefig(\"ch05-secant2-plot.svg\"); nothing # hide(Image: )今度は、区間の幅 b-aをプロットしよう。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.65\nfor i=1:30\n  plot(i, b-a, \"r.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  else\n    b = c\n  end\nend\nyscale(\"log\")\nylabel(\"b-a\")\nxlabel(\"i\")\n\nsavefig(\"ch05-secant3-plot.svg\"); nothing # hide(Image: )"
+    "text": "条件判断を、繰り返し行うことで、求める答えに近づいて行く例を、 もう一つ紹介する。▶︎ 不連続な有理式を描く の例として挙げた分母の式 f(x)=x^3+3x^2-4x-12 について、方程式 f(x)=0 の解の近似値を求めてみる。まず、y=f(x)のグラフを描こう。f(x)=x^3+3x^2-4*x-12\nxs=-3.5:0.05:3\n\nusing PyPlot\nclf() #hide\nplot(xs, f.(xs))\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch05-secant1-plot.svg\"); nothing # hide(Image: )さて、 連続な関数 f(x) が、 区間 a lt x lt b で単調（単調増加または単調減少）であるとする。 ここで、f(a) と f(b) との符号が 異なるとき f(a)cdot f(b)lt 0 、 方程式 f(x)=0 の解は a lt x lt b の区間にある。ここで、a と b との中点 c=dfraca+b2 をとり、f(a) と f(c) が同じ符号であれば 左端aをcに更新する。 逆に、f(b) と f(c) が同じ符号であれば 右端bをcに更新する。この手順を繰り返すことで、 方程式 f(x)=0 の解が存在する区間 a lt x lt b を狭めていくことができる。 この手法を「はさみうち」法という。英語では、squeeze theorem, pinching theorem, sandwich theorem などと呼ばれる。上の関数 f(x) で a=-32  x  b=-26 の区間を選ぼう。この区間で f(x) が単調であることを、まず確かめよう。# f(x)=x^3+3*x^2-4*x-12\nxs=-3.2:0.01:-2.6\nclf() #hide\nplot(xs, f.(xs))\naxhline(0, color=\"k\", lw=0.5)\nsavefig(\"ch05-secant1b-plot.svg\"); nothing # hide(Image: )この区間で、「はさみうち」を数回繰り返してみる。# f(x)=x^3+3x^2-4*x-12\na=-3.2; b=-2.6\n@show a,b\n@show f(a),f(b)\nfor i=1:10\n  c=(a+b)/2\n  @show i, a, b, c, f(c)\n  if f(a)*f(c) > 0\n    a = c\n  else\n    b = c\n  end\nendこの範囲の解は x=-3である。@show f(-3)区間が狭まる様子を、グラフに描いてみよう。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.6\nfor i=1:15\n  plot(b,i, \"ro\")\n  plot(a,i, \"b.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  else\n    b = c\n  end\nend\nxlabel(\"x\")\nylabel(\"i\")\nsavefig(\"ch05-secant2-plot.svg\"); nothing # hide(Image: )今度は、区間の幅 b-aをプロットしよう。 区間の幅が、単調に減少する様子が観察された。# f(x)=x^3+3x^2-4*x-12\nusing PyPlot\nclf() #hide\na=-3.2; b=-2.65\nfor i=1:30\n  plot(i, b-a, \"r.\")\n\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  else\n    b = c\n  end\nend\nyscale(\"log\")\nylabel(\"b-a\")\nxlabel(\"i\")\n\nsavefig(\"ch05-secant3-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -917,7 +917,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "◀︎ 練習",
     "category": "section",
-    "text": "同じ関数で、異なる区間で、はさみうち法を試してみよ。\n異なる関数について、はさみうち法を試してみよ。"
+    "text": "同じ関数で、異なる区間で、はさみうち法を試してみよ。\n別の関数に対して、単調な区間を選び、はさみうち法を試してみよ。"
+},
+
+{
+    "location": "ch05.html#NLsolveパッケージの紹介-1",
+    "page": "第5回：■ 条件式・■ 条件分岐",
+    "title": "▼◀︎ NLsolveパッケージの紹介",
+    "category": "section",
+    "text": "NLsolveパッケージは、連立非線形方程式を解くためのパッケージのひとつである。NLsolveパッケージを用いて、上の例題を解く例を示す。ただし、まだ説明していない文法(ベクトルの添字、関数の副作用)を用いているので、学習が進んでから、再度試してみよ。# Pkg.add(\"NLsolve\") # パッケージの導入。冒頭の`#`を外して１回だけ実行すればよい。\n\nusing NLsolve\n\n# 解くべき関数を定義する\nfunction g!(r, x)\n    r[1] =x[1]^3+3*x[1]^2-4*x[1]-12\nend\n\n# nlsolve関数を呼び出す\nnlsolve( g!, [-3.5], autodiff = :forward)"
 },
 
 {
@@ -949,7 +957,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 整数",
     "title": "■ 型",
     "category": "section",
-    "text": "型(type)：データの種類のことtypeof(1)\ntypeof(1.0)typeof(true)\ntypeof(false)Primitive Types 基本型\nComposite Types 複合型, 構成型"
+    "text": "型(type)：データの種類のこと整数型 Int64\n浮動小数点型 Float64typeof(1)\ntypeof(1.0)論理型 Booltypeof(true)\ntypeof(false)Primitive Types 基本型\nComposite Types 複合型, 構成型"
 },
 
 {
@@ -1077,7 +1085,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 整数",
     "title": "▶ 2piで割った剰余",
     "category": "section",
-    "text": "Base.Math.mod2pi — Function関数 mod2pi(x) は、mod(x,2*pi) と同じである。 すなわち、x を 2pi で割った余りを返す。using PyPlot\nclf() #hide\nxs=-5pi:pi/6:6pi\nplot(xs,mod2pi.(xs), \".\")\nxlabel(\"x\")\nylabel(\"mod2pi(x)\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-mod2pi-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.Math.mod2pi — Function関数 mod2pi(x) は、mod(x,2*pi) と同じである。 すなわち、x を 2pi で割った余りを返す。using PyPlot\nclf() #hide\nis=-24:24\nxs=is/3\nplot(xs,mod2pi.(xs), \".\")\nxlabel(\"x\")\nylabel(\"mod2pi(x)\")\naxhline(0, color=\"k\", lw=0.5)\naxhline(2*pi, color=\"k\",lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-mod2pi-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -1085,7 +1093,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 整数",
     "title": "■ 整商・剰余・除数が 0 の場合",
     "category": "section",
-    "text": "除数が 0 であると例外(exception)を発生する。除算例外Division erros"
+    "text": "除数が 0 であると例外(exception)を発生する。 例外が発生すると、プログラムの実行は、そこで中断する。除算例外 Division errosdiv(3,0)\nrem(3,0)note: Note\n例外が発生した場合、それを救済する手続きを書いて、プログラムを続行させることもできる。だが、この文書の範囲を超えるので、説明しない。 → Exception Handling"
+},
+
+{
+    "location": "ch06.html#床関数・天井関数の型を整数型にする-1",
+    "page": "第6回：■ 整数",
+    "title": "▶ 床関数・天井関数の型を整数型にする",
+    "category": "section",
+    "text": "■ 床関数・天井関数 floor(x) および ceil の結果の型は、 引数(ひきすう) x の型に一致する。floor(2) # => 整数\nfloor(0.2) # => 小数（浮動小数点数)\n\nceil(2) # => 整数\nceil(0.2) # => 小数（浮動小数点数)結果の型を整数にするには、引数xの前に、型の名前 Int64をつける。floor(Int64, 2)\nfloor(Int64, 0.2)\n\nceil(Int64, 2)\nceil(Int64, 0.2)"
 },
 
 {
