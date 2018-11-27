@@ -989,7 +989,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 整数",
     "title": "■ 整数同士の除算",
     "category": "section",
-    "text": "整数同士の割り算（除算）の結果(商 quotient)は、小数(浮動小数点数)になる。1 / 2余り (剰余)を求めたい場合は、■ 整商・剰余 を参照せよ。"
+    "text": "整数同士の割り算（除算）の結果(商 quotient)は、小数(浮動小数点数)になる。1 / 2余り (剰余)を求めたい場合は、■ 残余 rem と整商 div を参照せよ。"
 },
 
 {
@@ -1009,25 +1009,17 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch06.html#整商・剰余-1",
+    "location": "ch06.html#残余-rem-と整商-div-1",
     "page": "第6回：■ 整数",
-    "title": "■ 整商・剰余",
+    "title": "■ 残余 rem と整商 div",
     "category": "section",
-    "text": "余りを算出する割り算（除算）に対する商を、 整商(せいしょう、integral quotient)という。正の整数 x を正の整数 dで割った結果、 整商(integral quotient)が q、剰余(余り)が r であるとき x=qd+r が成り立つ。ここで、被除数(割られる数、dividend) x と 除数 (割る数、divisor) d の両方が正の数の場合、 剰余 r は 0 le r lt d の範囲になる。整商と剰余を計算する関数が、二組用意されている。整商 div と剰余 rem\n整商 fld と剰余 mod"
+    "text": "正の整数 x  0 を、正の整数 d  0 で割った結果、 整数の商 q と余り r が得られたとき、x=qd+rが成り立つ。割られる数 x を被除数 (divdend)、割る数 d を除数 (divisor)という。整数の商 q を、整商(integral quotient)、 余り r を残余 (remainder)という。 残余は、d を超えない、すなわち、0 le r lt d である。Base.rem - Function\nBase.div - Function関数 rem(x,d) は、xをdで割ったときの残余を返す。 関数 rem の代わりに、% 演算子を用いて x % d と書いてもよい。rem(15,4)\n15 % 4関数 div(x,d) は、xをdで割ったときの整商を返す。div(15,4)整数 0から 7までを、3 で割った整商と残余 (divとremの計算結果) をプロットしよう。using PyPlot\nclf() #hide\nxs=0:7\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-0.2,6.2)\nylim(-0.2,3.2)\nxlabel(\"x\")\nlegend()\n\nfor x=0:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=0:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-divrem1-int-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch06.html#整商-div-と剰余-rem-1",
+    "location": "ch06.html#練習：硬貨への分割-1",
     "page": "第6回：■ 整数",
-    "title": "整商 div と剰余 rem",
-    "category": "section",
-    "text": "Base.rem - Function\nBase.div - Function被除数 x と除数 dの両方が正の整数のとき、 二つの関数の組は、同じ整商 q と剰余 r を返す。 どちらを用いてもよいが、計算コストが若干低い、関数の組 div と rem が好まれる。なお、関数 rem は、演算子 % という別名がある。rem(15,4)\n15 % 4整数 0から 7までを、3 で割った整商と剰余 (divとremの結果) をプロットしよう。using PyPlot\nclf() #hide\nxs=0:7\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-0.2,6.2)\nylim(-0.2,3.2)\nxlabel(\"x\")\nlegend()\n\nfor x=0:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=0:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-divrem1-int-plot.svg\"); nothing # hide(Image: )"
-},
-
-{
-    "location": "ch06.html#練習-1",
-    "page": "第6回：■ 整数",
-    "title": "◀︎ 練習",
+    "title": "◀︎ 練習：硬貨への分割",
     "category": "section",
     "text": "日本では、小額の取引に、500円\n100円\n50円\n10円\n5円\n1円の6種類の硬貨がよく用いられる。金額が与えられたときに、6種類の硬貨が各々何枚必要か計算せよ。 ただし、高額の硬貨を優先して用いるものとする。第一段階として、100円、10円、1円に分けるプログラムを書いて実行せよ。\n第二段階として、上の 6種類の硬貨に分けるプログラムを書いて実行せよ。同様な処理は、繰り返し (for文)を用いてみよ。\n第三段階として、1円刻みで551円までの金額に対して、6種類の硬貨の枚数を描くプログラムを書いて実行せよ。"
 },
@@ -1037,47 +1029,47 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 整数",
     "title": "▶︎ ユークリッドの互除法",
     "category": "section",
-    "text": "2 つの自然数 a, b (a ge b) について、 a の b による剰余を r とすると、 a と b との最大公約数は b と r との最大公約数に等しいという性質が成り立つ。 この性質を利用して、b を r で割った剰余、 除数 r をその剰余で割った剰余、 と剰余を求める計算を逐次繰り返すと、 剰余が 0 になった時の除数が a と b との最大公約数となる。a=1071\nb=1029\n@show a,b\nwhile b != 0\n  t = a\n  b = rem(a, b)\n  a = t\n  @show a,b\nend\n@show a,b3355と2379の最大公約数を求めてみよう。a=3355\nb=2379\n@show a,b\nwhile b != 0\n  t = a\n  b = rem(a, b)\n  a = t\n  @show a,b\nend\n@show a,b"
+    "text": "2 つの自然数 a, b (a ge b) について、 a の b による残差を r とすると、 a と b との最大公約数 (greatest common divisor, gcd)は b と r との最大公約数に等しいという性質が成り立つ。 この性質を利用して、b を r で割った残差、 除数 r をその剰余で割った残差、 と残差を求める計算を逐次繰り返すと、 残差が 0 になった時の除数が a と b との最大公約数となる。a=1071\nb=1029\n@show a,b\nwhile b != 0\n  t = a\n  b = rem(a, b)\n  a = t\n  @show a,b\nend\nprintln( \"gcd=\"*string(a))3355と2379の最大公約数を求めてみよう。a=3355\nb=2379\n@show a,b\nwhile b != 0\n  t = a\n  b = rem(a, b)\n  a = t\n  @show a,b\nend\nprintln( \"gcd=\"*string(a))"
 },
 
 {
-    "location": "ch06.html#整商・剰余：被除数が負の場合-1",
+    "location": "ch06.html#一般の残余-rem-と整商-div-1",
     "page": "第6回：■ 整数",
-    "title": "■ 整商・剰余：被除数が負の場合",
+    "title": "■ 一般の残余 rem と整商 div",
     "category": "section",
-    "text": "正の整数 xを 正の整数 dで割ったときの 整商 q と剰余 r の関係 x=qd+r は、 負の数や、小数に拡張できる。被除数 x や除数 d が負の数の場合、 整商 qと 剰余 r の取るべき値について、複数の考え方がある。まず、除数が正で、被除数 d が負である場合を考える。剰余 remは、被除数 x と同じ符号を選ぶ。 被除数 x が負なら、-d lt r le 0の範囲である。 対応する整商は 関数 div で求められる。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem2-plot.svg\"); nothing # hide(Image: )"
+    "text": "正の整数 xを 正の整数 dで割ったときの 「商」 q と「余り」 r の関係x=qd+rは、 被除数 x や除数 d が、小数や負の数の場合に拡張できる。 ここで、「商」q は整数であり、 「余り」r の絶対値は、除数 d の絶対値を超えないものとする。0 le leftvertrrightvert lt leftvertdrightvertさて、被除数 x や除数 d が負の数の場合、 「商」q と「余り」 r の取るべき値について、複数の考え方がある。残差 remは、被除数 x と同じ符号の「余り」を返す。 すなわち、被除数 x が負なら、残差r　は -d lt r le 0の範囲になる。 対応する「商」は 整商 div で求められる。以下では、-6 から6 までの数(被除数)を、3 (正の除数)で割ったときの 残余と整商をプロットする。 被除数が負のとき、3 lt r le 0 となることを観察せよ。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem2-plot.svg\"); nothing # hide(Image: )今度は、被除数の範囲は変えずに、-3 (負の除数)で割ったときの 残余と整商をプロットしよう。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\n\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem3-plot.svg\"); nothing # hide(Image: )上の二つのグラフを比較すると、 残差 rem(x,3) と rem(x,-3)　が一致することが観察される。また、 整商 div(x,3) と div(x,-3)　は、互いに符号が逆である。"
 },
 
 {
-    "location": "ch06.html#整商-fld-と剰余-mod-1",
+    "location": "ch06.html#練習：切り捨て-1",
     "page": "第6回：■ 整数",
-    "title": "整商 fld と剰余 mod",
-    "category": "section",
-    "text": "Base.mod - Function\nBase.fld - Functionこれに対して、除数 d が正の場合、 剰余 mod は、被除数xの符号によらず、0 le r lt d の範囲の剰余 r を返す。 対応する整商は 関数 fld で求められる。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod1-plot.svg\"); nothing # hide(Image: )実は、関数 fld(x,d) は、floor(x/d) と同じである。 すなわち、dfracxd 以下の最大の整数を返す。 参照： ■ 床関数・天井関数using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, rs, \"ro\", label=\"remainder divided by \"*string(d))\nplot(xs, qs, \"b.\",  label=\"quotient divided by \"*string(d))\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor y=-3:3\n  axvline(y, color=\"k\", lw=0.5)\nend\n\nfor x=-7:7\n  axhline(x, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod2-plot.svg\"); nothing # hide(Image: )"
-},
-
-{
-    "location": "ch06.html#練習-2",
-    "page": "第6回：■ 整数",
-    "title": "◀︎ 練習",
+    "title": "◀︎ 練習：切り捨て",
     "category": "section",
     "text": "正の数 x を10の位で\n100の位で\n1000の位で\n0.1の位で\n一般に10^nの位で数を切り捨てるには、どうすればよいか？プログラムを書いて、実行してみよ。"
 },
 
 {
-    "location": "ch06.html#練習-3",
+    "location": "ch06.html#練習：四捨五入-1",
     "page": "第6回：■ 整数",
-    "title": "◀︎ 練習",
+    "title": "◀︎ 練習：四捨五入",
     "category": "section",
     "text": "正の数 x を10の位で\n100の位で\n1000の位で\n0.1の位で\n一般に10^nの位で数を四捨五入するには、どうしたらよいか？プログラムを書いて、実行してみよ。"
 },
 
 {
-    "location": "ch06.html#整商・剰余：除数が負の場合-1",
+    "location": "ch06.html#剰余-mod-と、商の床-fld-1",
     "page": "第6回：■ 整数",
-    "title": "■ 整商・剰余：除数が負の場合",
+    "title": "■ 剰余 mod と、商の床 fld",
     "category": "section",
-    "text": "次に、除数 q が負の場合の整商・剰余を紹介する。除数 dが負の場合も、 剰余関数 remは、被除数 x と同じ符号を選ぶ。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,rem.(xs,d), \"ro\", label=\"rem(x,\"*string(d)*\")\")\nplot(xs,div.(xs,d), \"b.\", label=\"div(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\n\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-divrem3-plot.svg\"); nothing # hide(Image: )Base.modこれに対して、剰余関数modは、 除数 dが負の場合は、d lt r le 0 の範囲の剰余 rを返す。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod3-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.mod - Function\nBase.fld - Function「商」 q と「余り」 r の一般の関係begingather\nx=qd+r \n0 le leftvertrrightvert ltleftvertdrightvert\nendgatherについて、別の考え方を示す。剰余 (modulo)は、 除数 dと同じ符号の「余り」r である。 剰余関数 mod(x,d) は、この「余り」rを返す。 対応する「商」qは、関数 fld で求められる。被除数が非負： x ge 0、かつ、 除数が正: d gt 0　なら、 残差 rem と剰余 mod は一致する。被除数が負： x  0 の場合も、剰余は非負である。note: Note\n被除数と除数の両方とも正なら、残差 rem と剰余 mod は一致する。この場合、少し計算コストが小さい残差 rem が好まれる。では、-6 から 6 までの数(被除数)を、3 (正の除数)で割ったときの剰余と「商」をプロットしよう。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod1-plot.svg\"); nothing # hide(Image: )実は、関数 fld(x,d) は、floor(x/d) と同じ値であり、「商の床」 floored division ともいう。 すなわち、dfracxd 以下の最大の整数である。 参照： ■ 床関数・天井関数上の例で、「商の床」をプロットしよう。 関数 fldと同じ結果が得られることが観測できる。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=3\nqs=floor.(xs/d)\nrs=xs-qs*d\nplot(xs, rs, \"ro\", label=\"remainder divided by \"*string(d))\nplot(xs, qs, \"b.\",  label=\"quotient divided by \"*string(d))\n\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor y=-3:3\n  axvline(y, color=\"k\", lw=0.5)\nend\n\nfor x=-7:7\n  axhline(x, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod2-plot.svg\"); nothing # hide(Image: )今度は、被除数の範囲は変えずに、-3 (負の除数)で割ったときの剰余と「商」をプロットしよう。using PyPlot\nclf() #hide\nxs=-6.8:0.2:6.8\nd=-3\nplot(xs,mod.(xs,d), \"ro\", label=\"mod(x,\"*string(d)*\")\")\nplot(xs,fld.(xs,d), \"b.\", label=\"fld(x,\"*string(d)*\")\")\nxlim(-6.2,6.2)\nylim(-3.2,3.2)\nxlabel(\"x\")\nlegend()\nplt[:axes]()[:set_aspect](\"equal\")\n\nfor x=-7:7\n  axvline(x, color=\"k\", lw=0.5)\nend\n\nfor y=-3:3\n  axhline(y, color=\"k\", lw=0.5)\nend\n\nsavefig(\"ch06-fldmod3-plot.svg\"); nothing # hide(Image: )負の数 -3 で割ったとき、剰余 r の範囲は -3 lt r le 0 であることが観察できる。"
+},
+
+{
+    "location": "ch06.html#練習：「商の床」-1",
+    "page": "第6回：■ 整数",
+    "title": "◀ 練習：「商の床」",
+    "category": "section",
+    "text": "上の例で、「商の床」floor( x/-3 )をプロットせよ、 関数 fld(x,-3) と結果が等しいことを確認せよ。"
 },
 
 {
@@ -1085,15 +1077,15 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 整数",
     "title": "▶ 2piで割った剰余",
     "category": "section",
-    "text": "Base.Math.mod2pi — Function関数 mod2pi(x) は、mod(x,2*pi) と同じである。 すなわち、x を 2pi で割った余りを返す。using PyPlot\nclf() #hide\nis=-24:24\nxs=is/3\nplot(xs,mod2pi.(xs), \".\")\nxlabel(\"x\")\nylabel(\"mod2pi(x)\")\naxhline(0, color=\"k\", lw=0.5)\naxhline(2*pi, color=\"k\",lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-mod2pi-plot.svg\"); nothing # hide(Image: )"
+    "text": "Base.Math.mod2pi — Function関数 mod2pi(x) は、mod(x,2*pi) と同じである。 すなわち、x を 2pi で割った剰余を返す。using PyPlot\nclf() #hide\nis=-24:24\nxs=is/3\nplot(xs,mod2pi.(xs), \".\")\nxlabel(\"x\")\nylabel(\"mod2pi(x)\")\naxhline(0, color=\"k\", lw=0.5)\naxhline(2*pi, color=\"k\",lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch06-mod2pi-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch06.html#整商・剰余・除数が-0-の場合-1",
+    "location": "ch06.html#整数-0による除算-1",
     "page": "第6回：■ 整数",
-    "title": "■ 整商・剰余・除数が 0 の場合",
+    "title": "■ 整数 0による除算",
     "category": "section",
-    "text": "除数が 0 であると例外(exception)を発生する。 例外が発生すると、プログラムの実行は、そこで中断する。除算例外 Division errosdiv(3,0)\nrem(3,0)note: Note\n例外が発生した場合、それを救済する手続きを書いて、プログラムを続行させることもできる。だが、この文書の範囲を超えるので、説明しない。 → Exception Handling"
+    "text": "除数が0であっても、「余り」を計算しない除算では、例外は発生しない。→ ■ 0による除算しかし、「余り」を計算する rem, mod, div, mod などにおいて、除数が 0 であると例外(exception)を発生する。 例外が発生すると、プログラムの実行は、そこで中断する。除算例外 Division errosdiv(3,0)\nrem(3,0)note: Note\n例外が発生した場合、それを救済する手続きを書いて、プログラムを続行させることもできる。だが、この文書の範囲を超えるので、説明しない。 → Exception Handling"
 },
 
 {
@@ -1109,7 +1101,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第6回：■ 整数",
     "title": "★ 今回のまとめ",
     "category": "section",
-    "text": "型\n整数\n整数同士の加減乗算\n整数同士の除算\n整数と浮動小数点数との四則演算\n浮動小数点数から整数への変換\n整商・剰余\nユークリッドの互除法\n切り捨て、四捨五入 (練習)"
+    "text": "型\n整数\n整数同士の加減乗算\n整数同士の除算\n整数と浮動小数点数との四則演算\n浮動小数点数から整数への変換\n残余 rem と整商 div\nユークリッドの互除法\n切り捨て、四捨五入 (練習)\n剰余 mod と商の床 fld\n整数 0 による除算：例外"
 },
 
 {
@@ -1149,7 +1141,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "丸め",
     "category": "section",
-    "text": "小数 02 は 02 = frac15 = frac1101_2 となるが、1 を 101_2 で割り切ることはできない。02 を2進数で表すと000110011001100cdots_2のようになる。すなわち、1100 の並びが無限に続く循環小数となる。また、小数 01 は 01 = frac15times 2 = frac1101_2 times 2^-1 であるから、$0.1$ を2進数で表すと（上を1桁ずらして）0000110011001100cdots_2のようになる。これも、1100 の並びが無限に続く循環小数となる。 「有限桁の小数」で表すことができない「循環小数」を、 Float64型で表現するとき、 その仮数の末尾に近いの桁を修正する操作を行う場合がある。 この操作を「丸める」という。「丸め」られた浮動小数の計算は、筆算とは違う結果となる場合がある。 例えば、0.1+0.2\n0.1+0.2 == 0.3筆算の結果は 03であるが、 計算結果は 0.30000000000000004 と異なってしまう。別の例として、01を 10回足した結果はs=0\nfor i in 1:10\n  s+= 0.1\nend\n@show s\ns == 1.00.9999999999999999 となり、10 にはならない。このような、「丸め」を原因とする、 正しい値からの「ずれ」を「丸め誤差」と呼んでいる。"
+    "text": "小数 02 は 02 = frac15 = frac1101_2 となるが、1 を 101_2 で割り切ることはできない。02 を2進数で表すと000110011001100cdots_2のようになる。すなわち、1100 の並びが無限に続く循環小数となる。また、小数 01 は 01 = frac15times 2 = frac1101_2 times 2^-1 であるから、$0.1$ を2進数で表すと（上を1桁ずらして）0000110011001100cdots_2のようになる。これも、1100 の並びが無限に続く循環小数となる。 「有限桁の小数」で表すことができない「循環小数」を、 Float64型で表現するとき、 その仮数の末尾に近いの桁を修正する操作を行う場合がある。 この操作を「丸める」という。「丸め」られた浮動小数の計算は、筆算とは違う結果となる場合がある。 例えば、0.1+0.2\n0.1+0.2 == 0.3筆算の結果は 03であるが、 計算結果は 0.30000000000000004 と異なってしまう。別の例として、01を 10回足した結果はs=0\nfor i in 1:10\n  s += 0.1\nend\n@show s\ns == 1.00.9999999999999999 となり、10 にはならない。このような、「丸め」を原因とする、 正しい値からの「ずれ」を「丸め誤差」と呼んでいる。"
 },
 
 {
@@ -1157,13 +1149,13 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 小数を2進数へ変換する",
     "category": "section",
-    "text": "x=f_12^-1 + f_22^-2 + cdots(正の)小数を2進数に変換するには、 小数を2倍しその整数部分を取り出すことを、繰り返し行えばよい。小数 0.2を、2進数で表示すると循環小数になる。 1100 のパターンが繰り返し現れる。x=0.2\nfor i=1:50\n    q=floor(x/2)\n    print(Int64(q))\n    x -= q*2\n    x *= 2\nend00000110011001100110011001100110011001100110011001\n\n1100 循環小数"
+    "text": "x=f_12^-1 + f_22^-2 + cdots(正の)小数を2進数に変換するには、 小数を2倍しその整数部分を取り出すことを、繰り返し行えばよい。小数 0.2を、2進数で表示すると循環小数になる。 1100 のパターンが繰り返し現れる。x=0.2\nfor i=1:50\n    q=floor(x/2)\n    print(Int64(q))\n    x -= q*2\n    x *= 2\nend00000110011001100110011001100110011001100110011001\n\n1100 循環小数上の結果の最初の桁は、2^1 の桁に相当する。 すなわち、小数点は、２つ目の数字の後ろに位置する。"
 },
 
 {
-    "location": "ch07.html#有限小数・循環小数-1",
+    "location": "ch07.html#練習：有限小数・循環小数-1",
     "page": "第7回：■ 浮動小数点数",
-    "title": "◀︎ 有限小数・循環小数",
+    "title": "◀︎ 練習：有限小数・循環小数",
     "category": "section",
     "text": "0.5以下の正の小数をいくつかを選び、 これらを2進数に直してみよ。有限小数か循環小数かを判定せよ。例: 0.1, 0.2, 0.25, 0.3, 0.5さらに、5つ程度の例を加えよ。"
 },
@@ -1173,7 +1165,23 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "■ 加減算における桁落ちと情報落ち",
     "category": "section",
-    "text": "桁落ち、情報落ち加算結合則を満たさないx= 1e20\ny=-1e20\nz= 1.0\n(x + y) + z\nx + (y + z)0.0 丸め誤差"
+    "text": "加算と減算は、小数点の位置を合わせて計算されるが、 桁数が有限であることから、正しい得られない場合がある。 その原因のうち「桁落ち」と「情報落ち」の二つの現象が知られている。"
+},
+
+{
+    "location": "ch07.html#桁落ち-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "■ 桁落ち",
+    "category": "section",
+    "text": "「桁落ち」は、互いに非常に近い二つの数 x y に対して、 減算 x-yを行うと、結果の有効桁数が大きく減少する現象である。例えば、有効桁数が4桁の二つの数の引き算の例を見よう。2.345 - 1.233\n1.234 - 1.232前者の結果は 4桁の有効桁数を保っているのに対して、 後者の結果は 1桁の有効桁数になってしまう。式を変形して、 互いに近い数同士を引くことを回避できる場合がある。 下の例を参考にせよ。 → ▶︎ 2次方程式"
+},
+
+{
+    "location": "ch07.html#情報落ち-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "■ 情報落ち",
+    "category": "section",
+    "text": "「情報落ち」は、絶対値が大きく異なる数を加減算すると、小さい桁の精度が失われる現象である。例えば、3つの数 x = 14times 10^-17, y = 24times 10^-16, z = 1 を、 この順番で加えた結果と、逆の順番で加えた結果を比較しよう。x=14e-17\ny=24e-16\nz=1\nxyz=(x+y)+z\nzyx=(z+y)+x筆算による正しい値は 1.00000000000000253 であるが、 後者の和よりも前者の和が、正しい値に近い。後者の和が誤差を大きく含んだのは、和 z+y の段階で、有効桁数をほぼ使い切ったからである。zy=z+y\nnextfloat(zy) # z+y の「隣りの」正しく表される数一般に、大きさの異なる数同士を加減算する場合には、絶対値が小さいものから計算を進めたほうがよい。ここで見たように、有限桁数の浮動小数点数の加減算は「結合則」を満たさない。(x+y)+z neq x+(y+x)"
 },
 
 {
@@ -1197,7 +1205,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 2次方程式",
     "category": "section",
-    "text": "2次方程式 x^2-bx+c=0 の解は、解の公式から、判別式 d=b^2-4cを用いて、 beginalignx_1=fracb+sqrtd2=fracb+sqrtb^2-4c2\nx_2=fracb-sqrtd2=fracb-sqrtb^2-4c2endalign であるが、b と sqrtdが同程度のとき x_2 は桁落ちしやすい。 そこで、(b-sqrtb^2-4c) を分母分子に掛けてx_21 = frac2cb+sqrtb^2-4c=fraccx_1により計算する。最後の項は、解と係数の関係 x_1x_2=c である。"
+    "text": "2次方程式 x^2-bx+c=0 の解は、解の公式から、判別式 d=b^2-4cを用いて、 beginalignx_1=fracb+sqrtd2=fracb+sqrtb^2-4c2\nx_2=fracb-sqrtd2=fracb-sqrtb^2-4c2endalign であるが、b と sqrtdが同程度のとき x_2 は「桁落ち」しやすい。そこで、(b-sqrtb^2-4c) を分母分子に掛けてx_21 = frac2cb+sqrtb^2-4c=fraccx_1のように変形してから計算する。最後の項は、解と係数の関係 x_1x_2=c である。"
 },
 
 {
@@ -1209,27 +1217,35 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch07.html#近似比較演算子-isapprox-1",
-    "page": "第7回：■ 浮動小数点数",
-    "title": "近似比較演算子 isapprox",
-    "category": "section",
-    "text": "Base.isapprox - Function0.1+0.2 == 0.3\nisapprox(0.1+0.2, 0.3)"
-},
-
-{
-    "location": "ch07.html#数でない数-1",
-    "page": "第7回：■ 浮動小数点数",
-    "title": "数でない数",
-    "category": "section",
-    "text": "Numeric Comparisons「数でない数か」を確かめる。Base.isfinite - Function\nBase.isinf - Function\nBase.isnan - Functionfor x in [0,1,Inf,NaN,NaN]\n  println()\n  @show isfinite(x)\n  @show isinf(x)\n  @show isnan(x)\nend"
-},
-
-{
     "location": "ch07.html#数値微分-1",
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 数値微分",
     "category": "section",
-    "text": "fracdf(x_0)dx = lim_h longrightarrow 0fracf(x_0+h)-f(x_0)h関数 y=x の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は 1 であるが、h を小さくすると 1 の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nd=( (1+h).^2 - 1) ./ h\nplot(h,d, \".\")\nylim(5e-1,3e0)\nyscale(\"log\")\nxscale(\"log\")\nsavefig(\"ch07-df1-plot.svg\"); nothing # hide(Image: )関数 y=x^n, (n=123) の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は n であるが、h を小さくすると n の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nfor n=1:3\n    d=( (1+h).^n - 1) ./ h\n    plot(h,d, \".\", label=\"y=x^\"*string(n))\nend\nxlabel(\"h\")\nylabel(\"d\")\nyscale(\"log\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-df2-plot.svg\"); nothing # hide(Image: )"
+    "text": "fracdf(x_0)dx = lim_h longrightarrow 0fracf(x_0+h)-f(x_0)h関数 y=x の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は 1 であるが、h を小さくすると 1 の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nd=( (1+h).^2 - 1) ./ h\nplot(h,d, \".\")\nylim(5e-1,3e0)\nyscale(\"log\")\nxscale(\"log\")\nsavefig(\"ch07-df1-plot.svg\"); nothing # hide(Image: )今度は、関数 y=x^n, (n=123) の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は n であるが、h を小さくすると n の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nfor n=1:3\n    d=( (1+h).^n - 1) ./ h\n    plot(h,d, \".\", label=\"y=x^\"*string(n))\nend\nxlabel(\"h\")\nylabel(\"d\")\nyscale(\"log\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-df2-plot.svg\"); nothing # hide(Image: )以上の誤差も、非常に近い二つの数字を減じたときに現れる「桁落ち」の現象である。 ▶︎ 2次方程式とは異なり、うまく回避する手段はない。hを小さく取りすぎないように注意する。"
+},
+
+{
+    "location": "ch07.html#練習・数値微分-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "▶︎ 練習・数値微分",
+    "category": "section",
+    "text": "以下の関数の、指定された位置での微分係数を、同様に求めてみよ。指数関数 y = expx quad x = 0\n対数関数 y = logx quad x = 1\n対数関数 y = logleft(1+xright) quad x = 0  ※ 関数  Base.log1p — Function を用いよ。\n三角関数 y = sinx quad x = 1。正しい微分係数は 0.540302305868140 である。"
+},
+
+{
+    "location": "ch07.html#近似比較演算子-isapprox-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "■ 近似比較演算子 isapprox",
+    "category": "section",
+    "text": "条件式 x == 0 は、 数 x が 0 と完全に一致することを判定するので、 数 x が丸め誤差を含むような場合に適さない。その代わりに、丸め誤差の基準を適当な数、例えば、10^-6 をとって、条件式 abs(x) < 1e-6 をもって、数 xが 0 に非常に近いことを判定するのが常套手段である。Base.isapprox - FunctionJulia には、数 a と b がほぼ等しいことを判定する 近似比較演算子 isapprox(a,b) が用意されているので、 必要に応じて用いるとよい。a と b との丸め誤差の程度を考慮して、比較を行う便利な関数である。0.1+0.2 == 0.3\nisapprox(0.1+0.2, 0.3)"
+},
+
+{
+    "location": "ch07.html#数でない数の判定-1",
+    "page": "第7回：■ 浮動小数点数",
+    "title": "■ 数でない数の判定",
+    "category": "section",
+    "text": "Numeric Comparisons■ 0による除算で社迂回したように、 IEEE754規格の浮動小数点数は、 「数でない数」NaN, Inf, -Inf の3つを含んでいる。 これらを判定する関数が用意されている。Base.isfinite - Function\nBase.isinf - Function\nBase.isnan - Functionfor x in [0,1,Inf,NaN,NaN]\n  println()\n  @show isfinite(x)\n  @show isinf(x)\n  @show isnan(x)\nend"
 },
 
 {
@@ -1237,7 +1253,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "★今回のまとめ",
     "category": "section",
-    "text": "浮動小数点数\n有限小数・循環小数\n加減算における桁落ち・情報落ち\n等差数列・等比数列\n数値微分"
+    "text": "浮動小数点数\n有限小数・循環小数\n加減算における桁落ち・情報落ち\n近似比較演算子\n等差数列・等比数列\n数値微分\n数でない数"
 },
 
 {
@@ -1301,7 +1317,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "▶︎ フーリエ級数の和（繰り返しで加算)",
     "category": "section",
-    "text": "周期波形 f(t+T) = f(t) は、 以下のように、三角関数の級数和として表される。 ここで、a_0 a_1 cdots, b_1 b_2 cdots は実数の定数である。 これを、実フーリエ級数和という。f(t) = a_0 + a_1 cos omegat  + b_1 sin omegat + a_2 cos 2omegat + b_2 sin 2omegat + a_3 cos 3omegat + b_3 sin 3omegat + cdotsここで omega は基本周波数である。 omega=dfrac2piT"
+    "text": "周期波形 f(t+T) = f(t) は、 以下のように、三角関数の級数和として表される。 ここで、a_0 a_1 cdots, b_1 b_2 cdots は実数の定数である。 これを、実フーリエ級数和という。beginalign*\nf(t)  = a_0 \n + a_1 cos omegat  + b_1 sin omegat \n + a_2 cos 2omegat + b_2 sin 2omegat \n + a_3 cos 3omegat + b_3 sin 3omegat + cdots\nendalign*ここで omega は基本周波数である。omega=dfrac2piT以下の例では、既に知られているフーリエ級数和から、元の関数が近似される様子を観察するのに留める。"
 },
 
 {
@@ -1309,7 +1325,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "▶︎ 方形波：フーリエ級数の有限和",
     "category": "section",
-    "text": "方形波は、 ▶ 方形波を描く で紹介した。基本周波数 omega=1、数 -1と1とを往復する方形波を描こう。using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nplot(ts, sign.(sin.(ts)) )\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nsavefig(\"ch08_sq1-plot.svg\"); nothing # hide(Image: )この方形波のフーリエ級数和は、以下のように与えられる。f(t) = frac4pileftsint+fracsin3t3+fracsin5t5+cdotsrightこの式の sin t, sin 3t, sin 5t の３つを加えると、方形波に近くなることを観察する。using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nys=sin.(ts)*4/pi\nplot(ts, ys, label=\"n=1\")\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nys += sin.(3ts)/3*4/pi\nplot(ts, ys, label=\"n=1,3\")\nys += sin.(5ts)/5*4/pi\nplot(ts, ys, label=\"n=1,3,5\")\nlegend()\n\nsavefig(\"ch08-fo-sq2-plot.svg\"); nothing # hide(Image: )今度は sin 13t まで加えた結果を観察しよう。using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nn=13\nys=zeros(ts)\nfor i in 1:2:n\n  ys += sin.(i*ts)/i*4/pi\nend\nplot(ts, ys)\nplot(ts, sign.(sin.(ts)), label=\"up to\"*string(n) )\n\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nsavefig(\"ch08-fo-sq4-plot.svg\"); nothing # hide(Image: )"
+    "text": "方形波は、 ▶ 方形波を描く で紹介した。基本周波数 omega=1、数 -1と1とを往復する方形波を描こう。using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nplot(ts, sign.(sin.(ts)) )\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nsavefig(\"ch08_sq1-plot.svg\"); nothing # hide(Image: )この方形波のフーリエ級数和は、以下のように与えられる。f(t) = frac4pileftsint+fracsin3t3+fracsin5t5+cdotsrightこの式の sin t, sin 3t, sin 5t の３つを加えると、方形波に近くなることを観察する。using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nys=sin.(ts)*4/pi\nplot(ts, ys, label=\"n=1\")\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nys += sin.(3ts)/3*4/pi\nplot(ts, ys, label=\"n=1,3\")\nys += sin.(5ts)/5*4/pi\nplot(ts, ys, label=\"n=1,3,5\")\nlegend()\n\nsavefig(\"ch08-fo-sq2-plot.svg\"); nothing # hide(Image: )今度は sin 13t まで加えた結果を観察しよう。using PyPlot\nclf() #hide\nts=-3pi:pi/36:3pi\nn=13\nys=zeros(ts)\nfor i in 1:2:n\n  ys += sin.(i*ts)/i*4/pi\nend\nplot(ts, ys)\nplot(ts, sign.(sin.(ts)), label=\"up to\"*string(n) )\n\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-3pi,-2pi,-pi,0, pi,2pi,3pi],\n        [L\"-3\\pi\", L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\", L\"3\\pi\"])\nsavefig(\"ch08-fo-sq4-plot.svg\"); nothing # hide(Image: )note: Note\n上のフーリエ級数和が方形波を近似すると説明したが、なめらかな三角関数の級数和をいくら加えていっても、なめらかでない方形波に一致することはない。級数和が元の関数に近づくのは「各点収束」ではなく「一様収束」に相当する。"
 },
 
 {
@@ -1321,11 +1337,19 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch08.html#練習：フーリエ級数の有限和-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "◀ 練習：フーリエ級数の有限和",
+    "category": "section",
+    "text": "次の級数和で表される曲線を描け。f(t) = dfrac4pileft sin t - dfracsin 3t3^2 + dfracsin 5t5^2 - cdotsright"
+},
+
+{
     "location": "ch08.html#数値積分-1",
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "▶︎ 数値積分",
     "category": "section",
-    "text": "定積分の近似値を、級数和として求めることができる(数値積分)。例として、関数 g(x)g(x)=dfrac11+xを、x=0 から 1の範囲で積分しよう。関数 g(x)は、この範囲で単調減少である。using PyPlot\nclf() #hide\nxmin=0\nxmax=1\nm=6\nn=2^m\nxs=linspace(xmin,xmax,n+1)\ng(x)=1/(1+x)\nplot(xs, g.(xs), \"b\")\nylim(0,1.2)\nsavefig(\"ch08-rie0-plot.svg\"); nothing # hide(Image: )定積分の値は、int_0^1dfrac11+xdx = leftlogleftvert1+xrightvertright_x=0^x=1 = log2である。"
+    "text": "定積分の近似値を、級数和として求めることができる(数値積分)。以下では、連続関数の、有限な区間に対する定積分の近似値を求めてみる。 参考→ ▶︎ 関数が連続とは例として、関数 g(x)g(x)=dfrac11+xを、x=0 から 1の範囲で積分しよう。関数 g(x)は、この範囲で単調減少である。using PyPlot\nclf() #hide\nxmin=0\nxmax=1\nm=6\nn=2^m\nxs=linspace(xmin,xmax,n+1)\ng(x)=1/(1+x)\nplot(xs, g.(xs), \"b\")\nylim(0,1.2)\nsavefig(\"ch08-rie0-plot.svg\"); nothing # hide(Image: )定積分の値は、int_0^1dfrac11+xdx = leftlogleftvert1+xrightvertright_x=0^x=1 = log2である。"
 },
 
 {
@@ -1369,6 +1393,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch08.html#練習：Riemann和・台形則-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "◀ 練習：Riemann和・台形則",
+    "category": "section",
+    "text": "以下の定積分の近似値を、Riemann和と台形則でそれぞれ評価してみよ。 (注記されていない)定積分の理論値は各自計算せよ。ßbegingather*\nint^1_0 3x^2dx \nint^1_0 3 left(x+1 right)^2dx \nint^1_0 expxdx \nint^2_0 dfrac1(1+x)^2dx=dfrac23 \nint^pi_0 sinxdx \nint^1_-1 frac21+x^2dx = pi\nendgather*"
+},
+
+{
     "location": "ch08.html#今回のまとめ-1",
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "今回のまとめ",
@@ -1409,6 +1441,30 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch09.html#内包表記-1",
+    "page": "第9回： ■ 配列要素の操作",
+    "title": "■ 内包表記",
+    "category": "section",
+    "text": ""
+},
+
+{
+    "location": "ch09.html#タプル-1",
+    "page": "第9回： ■ 配列要素の操作",
+    "title": "■ タプル",
+    "category": "section",
+    "text": "Tuple Types\ntuple\n[ntuple](https://docs.julialang.org/en/v0.6/stdlib/base/#Base.ntuple）"
+},
+
+{
+    "location": "ch09.html#複数の値を返す関数-1",
+    "page": "第9回： ■ 配列要素の操作",
+    "title": "■ 複数の値を返す関数",
+    "category": "section",
+    "text": "Multiple Return Valuesdivremdivrem(3,7)\ndivrem(7,3)fldmodfldmod(3,7)\nfldmod(7,3)"
+},
+
+{
     "location": "ch09.html#関数の定義-1",
     "page": "第9回： ■ 配列要素の操作",
     "title": "■ 関数の定義",
@@ -1417,17 +1473,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch09.html#タプル-1",
+    "location": "ch09.html#複数の値を返す関数の定義-1",
     "page": "第9回： ■ 配列要素の操作",
-    "title": "■ タプル",
-    "category": "section",
-    "text": ""
-},
-
-{
-    "location": "ch09.html#関数から複数の値を返す-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ 関数から複数の値を返す",
+    "title": "■ 複数の値を返す関数の定義",
     "category": "section",
     "text": ""
 },
