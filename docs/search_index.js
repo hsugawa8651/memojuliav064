@@ -1437,7 +1437,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作",
     "title": "■ エラトステネスの篩",
     "category": "section",
-    "text": "nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n    if sieve[i] > 0\n        println(i)\n        sieve[i*2:i:nmax]=0\n    end\nend"
+    "text": "エラトステネスの篩(ふるい)は、素数を算出する方法の一つである。 以下の手順による。数2からnまでの整数を並べる\n生き残っている中で最も小さい数 q を素数として残す。\n素数p自身を除く pの倍数を全て消す\n以上の手順を、n まで調べたら終わり。以下のプログラムでは、配列 sieve を篩とする。 篩の初期値を 1:n とすると、数字 i の篩は sieve[i] である。 篩で消された数 i には sieve[i] に 0 を格納することにする。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n    if sieve[i] > 0\n        println(i)\n        for j=i*2:i:nmax\n          sieve[j]=0\n        end\n    end\nend上のプログラムで、変数 jに関する繰り返しは、1行で書ける。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n    if sieve[i] > 0\n        # println(i)\n        sieve[i*2:i:nmax]=0\n    end\nend\n\nfor i in 1:nmax\n  if sieve[i] > 0\n    println(i)\n  end\nendnote: Note\nJulia には、素数を高速に計算する関数を含むパッケージが用意されている。Primes.primes — Function  \n`Primes.isprime — Functionprimes(n) は、数 n までの素数を計算する。isprime(x)は、数 x が素数であるかどうかを判定する。Pkg.add(\"Primes\") # パッケージの導入。一度だけ行えばよい\nusing Primes\nisprime(2)\nisprime(3)\nisprime(4)\nisprime.([2,3,4])\nprimes(100)"
 },
 
 {
