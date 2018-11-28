@@ -1229,7 +1229,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 練習・数値微分",
     "category": "section",
-    "text": "以下の関数の、指定された位置での微分係数を、同様に求めてみよ。指数関数 y = expx quad x = 0\n対数関数 y = logx quad x = 1\n対数関数 y = logleft(1+xright) quad x = 0  ▶▶  注: 関数 Base.log1p — Function を用いよ。\n三角関数 y = sinx quad x = 1。正しい微分係数は 0.540302305868140 である。"
+    "text": "以下の関数の、指定された座標での微分係数を、上の例と同様に求めてみよ。指数関数 y = expx  x = 0\n対数関数 y = logx  x = 1\n対数関数 y = logleft(1+xright)  x = 0   ▶ 注: 関数 Base.log1p — Function を用いよ。\n三角関数 y = sinx  x = 1。▶ 正しい微分係数は 0.540302305868140 である。"
 },
 
 {
