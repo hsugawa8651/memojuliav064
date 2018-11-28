@@ -33,7 +33,7 @@ julia&gt; for i=1:50
 1.112
 
 julia&gt; 1.234 - 1.232
-0.0020000000000000018</code></pre><p>前者の結果は 4桁の有効桁数を保っているのに対して、 後者の結果は 1桁の有効桁数になってしまう。</p><p>式を変形して、 互いに近い数同士を引くことを回避できる場合がある。 下の例を参考にせよ。 → <a href="ch07.html#2次方程式-1">▶︎ 2次方程式</a></p><h3><a class="nav-anchor" id="情報落ち-1" href="#情報落ち-1">■ 情報落ち</a></h3><p>「情報落ち」は、絶対値が大きく異なる数を加減算すると、小さい桁の精度が失われる現象である。</p><p>例えば、3つの数 <span>$x = 14\times 10^{-17}$</span>, <span>$y = 24\times 10^{-16}$</span>, <span>$z = 1$</span> を、 この順番で加えた結果と、逆の順番で加えた結果を比較しよう。</p><pre><code class="language-julia-repl">julia&gt; x=14e-17
+0.0020000000000000018</code></pre><p>前者の結果は 4桁の有効桁数を保っているのに対して、 後者の結果は 1桁の有効桁数になってしまう。（末尾の <code>18</code> は丸め誤差である)。</p><p>式を変形して、 互いに近い数同士を引くことを回避できる場合がある。 下の例を参考にせよ。 → <a href="ch07.html#2次方程式-1">▶︎ 2次方程式</a></p><h3><a class="nav-anchor" id="情報落ち-1" href="#情報落ち-1">■ 情報落ち</a></h3><p>「情報落ち」は、絶対値が大きく異なる数を加減算すると、小さい桁の精度が失われる現象である。</p><p>例えば、3つの数 <span>$x = 14\times 10^{-17}$</span>, <span>$y = 24\times 10^{-16}$</span>, <span>$z = 1$</span> を、 この順番で加えた結果と、逆の順番で加えた結果を比較しよう。</p><pre><code class="language-julia-repl">julia&gt; x=14e-17
 1.4e-16
 
 julia&gt; y=24e-16
@@ -63,13 +63,17 @@ julia&gt; nextfloat(zy) # z+y の「隣りの」正しく表される数
  0.01
  0.1
  1.0</code></pre><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>logspace = logarithmically spaced numbers</p></div></div><h2><a class="nav-anchor" id="2次方程式-1" href="#2次方程式-1">▶︎ 2次方程式</a></h2><p>2次方程式 <span>$x^2-bx+c=0$</span> の解は、解の公式から、判別式 <span>$d=b^2-4c$</span>を用いて、 <span>$\begin{align}x_1&amp;=\frac{b+\sqrt{d}}{2}=\frac{b+\sqrt{b^2-4c}}{2}\\
-x_2&amp;=\frac{b-\sqrt{d}}{2}=\frac{b-\sqrt{b^2-4c}}{2}\end{align}$</span> であるが、<span>$b$</span> と <span>$\sqrt{d}$</span>が同程度のとき <span>$x_2$</span> は「桁落ち」しやすい。</p><p>そこで、<span>$(b-\sqrt{b^2-4c})$</span> を分母分子に掛けて</p><div>\[x_{21} = \frac{2c}{b+\sqrt{b^2-4c}}=\frac{c}{x_1}\]</div><p>のように変形してから計算する。最後の項は、解と係数の関係 <span>$x_1x_2=c$</span> である。</p><h3><a class="nav-anchor" id="2次方程式：計算の例-1" href="#2次方程式：計算の例-1">▶︎ 2次方程式：計算の例</a></h3><p>実例で見てみよう。</p><p>小さい正の数 <code>h</code>を用いて、<span>$\alpha = 100+h$</span> と <span>$\beta = 1+h$</span> を解とする2次方程式を作る。解と係数の関係から、上の方程式において <span>$b = \alpha + \beta$</span>, <span>$c=\alpha\beta$</span> と定めればよい。</p><div><pre><code class="language-julia">h=logspace(-12,-1);
+x_2&amp;=\frac{b-\sqrt{d}}{2}=\frac{b-\sqrt{b^2-4c}}{2}\end{align}$</span> であるが、<span>$b$</span> と <span>$\sqrt{d}$</span>が同程度のとき <span>$x_2$</span> は「桁落ち」しやすい。</p><p>そこで、<span>$(b+\sqrt{b^2-4c})$</span> を分母分子に掛けて</p><div>\[x_{21} = \frac{2c}{b+\sqrt{b^2-4c}}=\frac{c}{x_1}\]</div><p>のように変形してから計算する。最後の項は、解と係数の関係 <span>$x_1x_2=c$</span> である。</p><div>\[\begin{align*}
+(x-x_1)(x-x_2)&amp;=x^2-(x_1+x_2)x+x_1x_2 = x^2-bx+c,\\
+b&amp;=x_1+x_2, \\
+c&amp;=x_1x_2
+\end{align*}\]</div><h3><a class="nav-anchor" id="2次方程式：計算の例-1" href="#2次方程式：計算の例-1">▶︎ 2次方程式：計算の例</a></h3><p>実例で見てみよう。</p><p>小さい正の数 <code>h</code>を用いて、<span>$\alpha = 100+h$</span> と <span>$\beta = 1+h$</span> を解とする2次方程式を作る。 解と係数の関係から、上の方程式において <span>$b = \alpha + \beta$</span>, <span>$c=\alpha\beta$</span> と定めればよい。</p><div><pre><code class="language-julia">h=logspace(-12,-1);
 alpha=100+h
 beta=1+h;
 c=alpha .* beta;
-b=-alpha -beta;</code></pre></div><p>解の公式から、「大きい方の解」 <code>x1</code>を計算する。 <code>x2s</code>は解の公式から求めた「小さい方の解」、である <code>x2v</code>は解と係数の関係から求めた「小さい方の解」</p><div><pre><code class="language-julia">d=b.*b-4c;
-x1=(-b+sqrt.(d))/2;
-x2s=(-b-sqrt.(d))/2;
+b=alpha .+ beta;</code></pre></div><p>解の公式から、「大きい方の解」 <code>x1</code>を計算する。 <code>x2s</code>は解の公式から求めた「小さい方の解」、である <code>x2v</code>は解と係数の関係から求めた「小さい方の解」</p><div><pre><code class="language-julia">d=b.*b-4c;
+x1=(b+sqrt.(d))/2;
+x2s=(b-sqrt.(d))/2;
 x2v=c./x1;</code></pre></div><p>「大きい方の解」について、正しい解との差をプロットしてみる。</p><div><pre><code class="language-julia">using PyPlot
 plot(h, x1-alpha, &quot;.&quot;)
 xlabel(&quot;h&quot;)
@@ -86,7 +90,7 @@ ylabel(&quot;abs(x2-beta)&quot;)
 xscale(&quot;log&quot;)
 ylim(1e-18,1e-13)
 yscale(&quot;log&quot;)
-legend()</code></pre></div><p><img src="ch07-quad3-plot.svg" alt/></p><p>解の公式から求めた「小さい方の解」の残差が「あばれる」のに対して、 解と係数の関係から求めた小さい方の解」の残差が「一定」である様子が見れる。</p><h2><a class="nav-anchor" id="数値微分-1" href="#数値微分-1">▶︎ 数値微分</a></h2><div>\[\frac{df(x_0)}{dx} = \lim_{h \longrightarrow 0}\frac{f(x_0+h)-f(x_0)}{h}\]</div><p>関数 <span>$y=x$</span> の <span>$x=1$</span>における微分係数を、 上の定義により求めよう。 求まるべき値は <span>$1$</span> であるが、<span>$h$</span> を小さくすると <span>$1$</span> の上下に暴れてしまう。</p><div><pre><code class="language-julia">using PyPlot
+legend()</code></pre></div><p><img src="ch07-quad3-plot.svg" alt/></p><p>解の公式から求めた「小さい方の解」の残差が「あばれる」のに対して、 解と係数の関係から求めた小さい方の解」の残差が「一定」である様子が見れる。</p><h2><a class="nav-anchor" id="数値微分-1" href="#数値微分-1">▶︎ 数値微分</a></h2><div>\[\frac{df(x_0)}{dx} = \lim_{h \longrightarrow 0}\frac{f(x_0+h)-f(x_0)}{h}\]</div><p>関数 <span>$y=x^2$</span> の <span>$x=1$</span> における微分係数を、 上の定義により求めよう。 求まるべき値は <span>$1$</span> であるが、<span>$h$</span> を小さくすると <span>$1$</span> の上下に暴れてしまう。</p><div><pre><code class="language-julia">using PyPlot
 h=logspace(-18,-8,100)
 d=( (1+h).^2 - 1) ./ h
 plot(h,d, &quot;.&quot;)
@@ -102,7 +106,14 @@ xlabel(&quot;h&quot;)
 ylabel(&quot;d&quot;)
 yscale(&quot;log&quot;)
 xscale(&quot;log&quot;)
-legend()</code></pre></div><p><img src="ch07-df2-plot.svg" alt/></p><p>以上の誤差も、非常に近い二つの数字を減じたときに現れる「桁落ち」の現象である。 <a href="ch07.html#2次方程式-1">▶︎ 2次方程式</a>とは異なり、うまく回避する手段はない。<span>$h$</span>を小さく取りすぎないように注意する。</p><h2><a class="nav-anchor" id="練習・数値微分-1" href="#練習・数値微分-1">▶︎ 練習・数値微分</a></h2><p>以下の関数の、指定された位置での微分係数を、同様に求めてみよ。</p><ul><li><p>指数関数 <span>$y = \exp{x}, \quad x = 0$</span></p></li><li><p>対数関数 <span>$y = \log{x}, \quad x = 1$</span></p></li><li><p>対数関数 <span>$y = \log\left(1+x\right), \quad x = 0$</span>  ※ 関数  <a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.log1p"><code>Base.log1p</code> — Function</a> を用いよ。</p></li><li><p>三角関数 <span>$y = \sin{x}, \quad x = 1$</span>。正しい微分係数は <code>0.540302305868140</code> である。</p></li></ul><h2><a class="nav-anchor" id="近似比較演算子-isapprox-1" href="#近似比較演算子-isapprox-1">■ 近似比較演算子 <code>isapprox</code></a></h2><p>条件式 <code>x == 0</code> は、 数 <code>x</code> が <code>0</code> と完全に一致することを判定するので、 数 <code>x</code> が丸め誤差を含むような場合に適さない。</p><p>その代わりに、丸め誤差の基準を適当な数、例えば、<span>$10^{-6}$</span> をとって、条件式 <code>abs(x) &lt; 1e-6</code> をもって、数 <span>$x$</span>が 0 に非常に近いことを判定するのが常套手段である。</p><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.isapprox"><code>Base.isapprox</code> - Function</a></p></li></ul><p>Julia には、数 <code>a</code> と <code>b</code> がほぼ等しいことを判定する 近似比較演算子 <code>isapprox(a,b)</code> が用意されているので、 必要に応じて用いるとよい。<code>a</code> と <code>b</code> との丸め誤差の程度を考慮して、比較を行う便利な関数である。</p><pre><code class="language-julia-repl">julia&gt; 0.1+0.2 == 0.3
+legend()</code></pre></div><p><img src="ch07-df2-plot.svg" alt/></p><p>以上の誤差も、非常に近い二つの数字を減じたときに現れる「桁落ち」の現象である。 <a href="ch07.html#2次方程式-1">▶︎ 2次方程式</a>とは異なり、うまく回避する手段はない。<span>$h$</span>を小さく取りすぎないように注意する。</p><h2><a class="nav-anchor" id="練習・数値微分-1" href="#練習・数値微分-1">▶︎ 練習・数値微分</a></h2><p>以下の関数の、指定された位置での微分係数を、同様に求めてみよ。</p><ul><li><p>指数関数 <span>$y = \exp{x}, \quad x = 0$</span></p></li><li><p>対数関数 <span>$y = \log{x}, \quad x = 1$</span></p></li><li><p>対数関数 <span>$y = \log\left(1+x\right), \quad x = 0$</span>  ▶▶  注: 関数 <a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.log1p"><code>Base.log1p</code> — Function</a> を用いよ。</p></li><li><p>三角関数 <span>$y = \sin{x}, \quad x = 1$</span>。正しい微分係数は <code>0.540302305868140</code> である。</p></li></ul><h2><a class="nav-anchor" id="近似比較演算子-isapprox-1" href="#近似比較演算子-isapprox-1">■ 近似比較演算子 <code>isapprox</code></a></h2><p>条件式 <code>x == 0</code> は、 数 <code>x</code> が <code>0</code> と完全に一致することを判定するので、 数 <code>x</code> が丸め誤差を含むような場合に用いるのに適さない。</p><p>その代わりに、丸め誤差の基準を適当な数、 例えば、<span>$10^{-6}$</span> をとって、条件式 <code>abs(x) &lt; 1e-6</code> をもって、数 <span>$x$</span>が 0 に非常に近いことを判定するのが常套手段である。</p><pre><code class="language-julia-repl">julia&gt; x=1+1e-8
+1.00000001
+
+julia&gt; x == 0
+false
+
+julia&gt; abs(x-1) &lt; 1e-6
+true</code></pre><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.isapprox"><code>Base.isapprox</code> - Function</a></p></li></ul><p>Julia には、数 <code>a</code> と <code>b</code> がほぼ等しいことを判定する 近似比較演算子 <code>isapprox(a,b)</code> が用意されているので、 必要に応じて用いるとよい。<code>a</code> と <code>b</code> との丸め誤差の程度を考慮して、比較を行う便利な関数である。</p><pre><code class="language-julia-repl">julia&gt; 0.1+0.2 == 0.3
 false
 
 julia&gt; isapprox(0.1+0.2, 0.3)

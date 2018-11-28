@@ -1173,7 +1173,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "■ 桁落ち",
     "category": "section",
-    "text": "「桁落ち」は、互いに非常に近い二つの数 x y に対して、 減算 x-yを行うと、結果の有効桁数が大きく減少する現象である。例えば、有効桁数が4桁の二つの数の引き算の例を見よう。2.345 - 1.233\n1.234 - 1.232前者の結果は 4桁の有効桁数を保っているのに対して、 後者の結果は 1桁の有効桁数になってしまう。式を変形して、 互いに近い数同士を引くことを回避できる場合がある。 下の例を参考にせよ。 → ▶︎ 2次方程式"
+    "text": "「桁落ち」は、互いに非常に近い二つの数 x y に対して、 減算 x-yを行うと、結果の有効桁数が大きく減少する現象である。例えば、有効桁数が4桁の二つの数の引き算の例を見よう。2.345 - 1.233\n1.234 - 1.232前者の結果は 4桁の有効桁数を保っているのに対して、 後者の結果は 1桁の有効桁数になってしまう。（末尾の 18 は丸め誤差である)。式を変形して、 互いに近い数同士を引くことを回避できる場合がある。 下の例を参考にせよ。 → ▶︎ 2次方程式"
 },
 
 {
@@ -1205,7 +1205,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 2次方程式",
     "category": "section",
-    "text": "2次方程式 x^2-bx+c=0 の解は、解の公式から、判別式 d=b^2-4cを用いて、 beginalignx_1=fracb+sqrtd2=fracb+sqrtb^2-4c2\nx_2=fracb-sqrtd2=fracb-sqrtb^2-4c2endalign であるが、b と sqrtdが同程度のとき x_2 は「桁落ち」しやすい。そこで、(b-sqrtb^2-4c) を分母分子に掛けてx_21 = frac2cb+sqrtb^2-4c=fraccx_1のように変形してから計算する。最後の項は、解と係数の関係 x_1x_2=c である。"
+    "text": "2次方程式 x^2-bx+c=0 の解は、解の公式から、判別式 d=b^2-4cを用いて、 beginalignx_1=fracb+sqrtd2=fracb+sqrtb^2-4c2\nx_2=fracb-sqrtd2=fracb-sqrtb^2-4c2endalign であるが、b と sqrtdが同程度のとき x_2 は「桁落ち」しやすい。そこで、(b+sqrtb^2-4c) を分母分子に掛けてx_21 = frac2cb+sqrtb^2-4c=fraccx_1のように変形してから計算する。最後の項は、解と係数の関係 x_1x_2=c である。beginalign*\n(x-x_1)(x-x_2)=x^2-(x_1+x_2)x+x_1x_2 = x^2-bx+c\nb=x_1+x_2 \nc=x_1x_2\nendalign*"
 },
 
 {
@@ -1213,7 +1213,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 2次方程式：計算の例",
     "category": "section",
-    "text": "実例で見てみよう。小さい正の数 hを用いて、alpha = 100+h と beta = 1+h を解とする2次方程式を作る。解と係数の関係から、上の方程式において b = alpha + beta, c=alphabeta と定めればよい。h=logspace(-12,-1);\nalpha=100+h\nbeta=1+h;\nc=alpha .* beta;\nb=-alpha -beta;解の公式から、「大きい方の解」 x1を計算する。 x2sは解の公式から求めた「小さい方の解」、である x2vは解と係数の関係から求めた「小さい方の解」d=b.*b-4c;\nx1=(-b+sqrt.(d))/2;\nx2s=(-b-sqrt.(d))/2;\nx2v=c./x1;「大きい方の解」について、正しい解との差をプロットしてみる。using PyPlot\nclf() #hide\nplot(h, x1-alpha, \".\")\nxlabel(\"h\")\nylabel(\"x1-alpha\")\nxscale(\"log\")\nsavefig(\"ch07-quad1-plot.svg\"); nothing # hide(Image: )「小さい方の解」について、正しい解との差をプロットしてみる。using PyPlot #hide\nclf() #hide\nplot(h, x2s-beta,\".\",label=\"x2s\")\nplot(h, x2v-beta, \"o\",label=\"x2v\")\nxlabel(\"h\")\nylabel(\"x2-beta\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-quad2-plot.svg\"); nothing # hide(Image: )「小さい方の解」について、正しい解との差の絶対値(残差)をプロットしてみる。using PyPlot #hide\nclf() #hide\nplot(h, abs.(x2s-beta),\".\",label=\"x2s\")\nplot(h, abs.(x2v-beta), \"o\",label=\"x2v\")\nxlabel(\"h\")\nylabel(\"abs(x2-beta)\")\nxscale(\"log\")\nylim(1e-18,1e-13)\nyscale(\"log\")\nlegend()\nsavefig(\"ch07-quad3-plot.svg\"); nothing # hide(Image: )解の公式から求めた「小さい方の解」の残差が「あばれる」のに対して、 解と係数の関係から求めた小さい方の解」の残差が「一定」である様子が見れる。"
+    "text": "実例で見てみよう。小さい正の数 hを用いて、alpha = 100+h と beta = 1+h を解とする2次方程式を作る。 解と係数の関係から、上の方程式において b = alpha + beta, c=alphabeta と定めればよい。h=logspace(-12,-1);\nalpha=100+h\nbeta=1+h;\nc=alpha .* beta;\nb=alpha .+ beta;解の公式から、「大きい方の解」 x1を計算する。 x2sは解の公式から求めた「小さい方の解」、である x2vは解と係数の関係から求めた「小さい方の解」d=b.*b-4c;\nx1=(b+sqrt.(d))/2;\nx2s=(b-sqrt.(d))/2;\nx2v=c./x1;「大きい方の解」について、正しい解との差をプロットしてみる。using PyPlot\nclf() #hide\nplot(h, x1-alpha, \".\")\nxlabel(\"h\")\nylabel(\"x1-alpha\")\nxscale(\"log\")\nsavefig(\"ch07-quad1-plot.svg\"); nothing # hide(Image: )「小さい方の解」について、正しい解との差をプロットしてみる。using PyPlot #hide\nclf() #hide\nplot(h, x2s-beta,\".\",label=\"x2s\")\nplot(h, x2v-beta, \"o\",label=\"x2v\")\nxlabel(\"h\")\nylabel(\"x2-beta\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-quad2-plot.svg\"); nothing # hide(Image: )「小さい方の解」について、正しい解との差の絶対値(残差)をプロットしてみる。using PyPlot #hide\nclf() #hide\nplot(h, abs.(x2s-beta),\".\",label=\"x2s\")\nplot(h, abs.(x2v-beta), \"o\",label=\"x2v\")\nxlabel(\"h\")\nylabel(\"abs(x2-beta)\")\nxscale(\"log\")\nylim(1e-18,1e-13)\nyscale(\"log\")\nlegend()\nsavefig(\"ch07-quad3-plot.svg\"); nothing # hide(Image: )解の公式から求めた「小さい方の解」の残差が「あばれる」のに対して、 解と係数の関係から求めた小さい方の解」の残差が「一定」である様子が見れる。"
 },
 
 {
@@ -1221,7 +1221,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 数値微分",
     "category": "section",
-    "text": "fracdf(x_0)dx = lim_h longrightarrow 0fracf(x_0+h)-f(x_0)h関数 y=x の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は 1 であるが、h を小さくすると 1 の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nd=( (1+h).^2 - 1) ./ h\nplot(h,d, \".\")\nylim(5e-1,3e0)\nyscale(\"log\")\nxscale(\"log\")\nsavefig(\"ch07-df1-plot.svg\"); nothing # hide(Image: )今度は、関数 y=x^n, (n=123) の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は n であるが、h を小さくすると n の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nfor n=1:3\n    d=( (1+h).^n - 1) ./ h\n    plot(h,d, \".\", label=\"y=x^\"*string(n))\nend\nxlabel(\"h\")\nylabel(\"d\")\nyscale(\"log\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-df2-plot.svg\"); nothing # hide(Image: )以上の誤差も、非常に近い二つの数字を減じたときに現れる「桁落ち」の現象である。 ▶︎ 2次方程式とは異なり、うまく回避する手段はない。hを小さく取りすぎないように注意する。"
+    "text": "fracdf(x_0)dx = lim_h longrightarrow 0fracf(x_0+h)-f(x_0)h関数 y=x^2 の x=1 における微分係数を、 上の定義により求めよう。 求まるべき値は 1 であるが、h を小さくすると 1 の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nd=( (1+h).^2 - 1) ./ h\nplot(h,d, \".\")\nylim(5e-1,3e0)\nyscale(\"log\")\nxscale(\"log\")\nsavefig(\"ch07-df1-plot.svg\"); nothing # hide(Image: )今度は、関数 y=x^n, (n=123) の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は n であるが、h を小さくすると n の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nfor n=1:3\n    d=( (1+h).^n - 1) ./ h\n    plot(h,d, \".\", label=\"y=x^\"*string(n))\nend\nxlabel(\"h\")\nylabel(\"d\")\nyscale(\"log\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-df2-plot.svg\"); nothing # hide(Image: )以上の誤差も、非常に近い二つの数字を減じたときに現れる「桁落ち」の現象である。 ▶︎ 2次方程式とは異なり、うまく回避する手段はない。hを小さく取りすぎないように注意する。"
 },
 
 {
@@ -1229,7 +1229,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 練習・数値微分",
     "category": "section",
-    "text": "以下の関数の、指定された位置での微分係数を、同様に求めてみよ。指数関数 y = expx quad x = 0\n対数関数 y = logx quad x = 1\n対数関数 y = logleft(1+xright) quad x = 0  ※ 関数  Base.log1p — Function を用いよ。\n三角関数 y = sinx quad x = 1。正しい微分係数は 0.540302305868140 である。"
+    "text": "以下の関数の、指定された位置での微分係数を、同様に求めてみよ。指数関数 y = expx quad x = 0\n対数関数 y = logx quad x = 1\n対数関数 y = logleft(1+xright) quad x = 0  ▶▶  注: 関数 Base.log1p — Function を用いよ。\n三角関数 y = sinx quad x = 1。正しい微分係数は 0.540302305868140 である。"
 },
 
 {
@@ -1237,7 +1237,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "■ 近似比較演算子 isapprox",
     "category": "section",
-    "text": "条件式 x == 0 は、 数 x が 0 と完全に一致することを判定するので、 数 x が丸め誤差を含むような場合に適さない。その代わりに、丸め誤差の基準を適当な数、例えば、10^-6 をとって、条件式 abs(x) < 1e-6 をもって、数 xが 0 に非常に近いことを判定するのが常套手段である。Base.isapprox - FunctionJulia には、数 a と b がほぼ等しいことを判定する 近似比較演算子 isapprox(a,b) が用意されているので、 必要に応じて用いるとよい。a と b との丸め誤差の程度を考慮して、比較を行う便利な関数である。0.1+0.2 == 0.3\nisapprox(0.1+0.2, 0.3)"
+    "text": "条件式 x == 0 は、 数 x が 0 と完全に一致することを判定するので、 数 x が丸め誤差を含むような場合に用いるのに適さない。その代わりに、丸め誤差の基準を適当な数、 例えば、10^-6 をとって、条件式 abs(x) < 1e-6 をもって、数 xが 0 に非常に近いことを判定するのが常套手段である。x=1+1e-8\nx == 0\nabs(x-1) < 1e-6Base.isapprox - FunctionJulia には、数 a と b がほぼ等しいことを判定する 近似比較演算子 isapprox(a,b) が用意されているので、 必要に応じて用いるとよい。a と b との丸め誤差の程度を考慮して、比較を行う便利な関数である。0.1+0.2 == 0.3\nisapprox(0.1+0.2, 0.3)"
 },
 
 {

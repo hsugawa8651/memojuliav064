@@ -130,6 +130,8 @@ julia&gt; for i in 1:nmax
 89
 97</code></pre><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>Julia には、素数を高速に計算する関数を含むパッケージが用意されている。</p><ul><li><p><a href="http://juliamath.github.io/Primes.jl/stable/api.html#Primes.primes"><code>Primes.primes</code> — Function</a>  </p></li><li><p><a href="http://juliamath.github.io/Primes.jl/stable/api.html#Primes.isprime">`Primes.isprime — Function</a></p></li></ul><p><code>primes(n)</code> は、数 <span>$n$</span> までの素数を計算する。</p><p><code>isprime(x)</code>は、数 <span>$x$</span> が素数であるかどうかを判定する。</p></div></div><pre><code class="language-julia-repl">julia&gt; Pkg.add(&quot;Primes&quot;) # パッケージの導入。一度だけ行えばよい
 INFO: Package Primes is already installed
+INFO: METADATA is out-of-date — you may not have the latest version of Primes
+INFO: Use `Pkg.update()` to get the latest versions of your packages
 
 julia&gt; using Primes
 

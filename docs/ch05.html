@@ -155,14 +155,14 @@ for y=0:0.025:1, x=0:0.025:1
   plot(x,y,&quot;.&quot;, color=c)
 end
 plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch05-qc1s-lattice-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習-1" href="#練習-1">◀︎ 練習</a></h2><p>格子点の刻み幅を大きく、または、小さくして、 色分けの様子を観察してみよ。</p><p>関数<code>plot</code>のfmtパラメータを <code>.</code> から <code>o</code> (circle)に変えてみよ。 さらに、<code>markersize</code>パラメータを加えて、マーカーの大きさを調整できる。</p><p><code>plot(x,y,&quot;o&quot;, markersize=3)</code></p><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>刻み幅を小さくすると、格子点の数は急激に増える (例えば、<span>$x,y$</span>軸方向の刻みの数を2倍にすると、格子点の数は 4倍になる)ので、刻み幅を急激に小さくすべきではない。計算量が増えた場合、数分以内に計算が終わらない可能性もあるが、このような状況を経験するのも重要である。</p></div></div><h2><a class="nav-anchor" id="練習-2" href="#練習-2">◀︎ 練習</a></h2><p>以下の領域を表す条件を、式で表せ。その領域を、格子点を用いて塗り分けてみよ。</p><ul><li><p>点 (0,0)と点(1,0)を一辺とし、第一象限に描かれた正三角形</p></li><li><p>中心 <span>$\left(\dfrac{1}{2},\dfrac{1}{2}\right)$</span> , 半径 <span>$\dfrac{1}{2}$</span> の円</p></li></ul><h2><a class="nav-anchor" id="擬似乱数-1" href="#擬似乱数-1">■ 擬似乱数</a></h2><p>計算機で発生する乱数を、擬似乱数 (pseudorandom numbers)という。</p><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>本来の意味の「乱数」は、計算する方法がないはずである。 にもかかわらず、ある手順で乱数を発生しているので「擬似乱数」という。</p></div></div><ul><li><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Random-Numbers-1">Random Numbers</a></p></li><li><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.Random.rand"><code>Base.Random.rand</code> - Function</a></p></li></ul><p>関数 <code>rand()</code>は、0から1未満の擬似乱数を発生する。</p><pre><code class="language-julia-repl">julia&gt; rand()
-0.40994004629379277
+0.2914020537146791
 
 julia&gt; rand()
-0.6758062650505701
+0.7068353659832236
 
 julia&gt; rand()
-0.06926845501603851</code></pre><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.Random.srand"><code>Base.Random.srand</code> - Function</a></p><p>関数 <code>srand(m)</code>は、擬似乱数の種をリセットする。 種<code>m</code>には、0から<span>$2^{32}-1$</span>までの整数を指定する。 同じ種を指定すると、同じ系列で擬似乱数を発生する。</p><pre><code class="language-julia-repl">julia&gt; srand(1234)
-MersenneTwister(UInt32[0x000004d2], Base.dSFMT.DSFMT_state(Int32[-1393240018, 1073611148, 45497681, 1072875908, 436273599, 1073674613, -2043716458, 1073445557, -254908435, 1072827086  …  -599655111, 1073144102, 367655457, 1072985259, -1278750689, 1018350124, -597141475, 249849711, 382, 0]), [1.1404, 1.56369, 1.21286, 1.78334, 1.91912, 1.49648, 1.64026, 1.80018, 1.75115, 1.89812  …  1.88612, 1.46622, 1.28858, 1.8644, 1.52216, 1.46376, 1.53392, 1.46, 1.76741, 1.70322], 382)
+0.6368948932529943</code></pre><p><a href="https://docs.julialang.org/en/v0.6.4/stdlib/numbers/#Base.Random.srand"><code>Base.Random.srand</code> - Function</a></p><p>関数 <code>srand(m)</code>は、擬似乱数の種をリセットする。 種<code>m</code>には、0から<span>$2^{32}-1$</span>までの整数を指定する。 同じ種を指定すると、同じ系列で擬似乱数を発生する。</p><pre><code class="language-julia-repl">julia&gt; srand(1234)
+MersenneTwister(UInt32[0x000004d2], Base.dSFMT.DSFMT_state(Int32[-1393240018, 1073611148, 45497681, 1072875908, 436273599, 1073674613, -2043716458, 1073445557, -254908435, 1072827086  …  -599655111, 1073144102, 367655457, 1072985259, -1278750689, 1018350124, -597141475, 249849711, 382, 0]), [1.89779, 1.11411, 1.14317, 1.9629, 1.87807, 1.61995, 1.14708, 1.83989, 1.24767, 1.59195  …  1.11028, 1.64791, 1.16516, 1.50609, 1.02694, 1.3864, 1.77637, 1.03877, 1.92609, 1.59196], 382)
 
 julia&gt; rand()
 0.5908446386657102
