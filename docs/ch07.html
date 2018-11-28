@@ -90,7 +90,7 @@ ylabel(&quot;abs(x2-beta)&quot;)
 xscale(&quot;log&quot;)
 ylim(1e-18,1e-13)
 yscale(&quot;log&quot;)
-legend()</code></pre></div><p><img src="ch07-quad3-plot.svg" alt/></p><p>解の公式から求めた「小さい方の解」の残差が「あばれる」のに対して、 解と係数の関係から求めた小さい方の解」の残差が「一定」である様子が見れる。</p><h2><a class="nav-anchor" id="数値微分-1" href="#数値微分-1">▶︎ 数値微分</a></h2><div>\[\frac{df(x_0)}{dx} = \lim_{h \longrightarrow 0}\frac{f(x_0+h)-f(x_0)}{h}\]</div><p>関数 <span>$y=x^2$</span> の <span>$x=1$</span> における微分係数を、 上の定義により求めよう。 求まるべき値は <span>$1$</span> であるが、<span>$h$</span> を小さくすると <span>$1$</span> の上下に暴れてしまう。</p><div><pre><code class="language-julia">using PyPlot
+legend()</code></pre></div><p><img src="ch07-quad3-plot.svg" alt/></p><p>解の公式から求めた「小さい方の解」の残差が「あばれる」のに対して、 解と係数の関係から求めた小さい方の解」の残差が「一定」である様子が見れる。</p><h2><a class="nav-anchor" id="数値微分-1" href="#数値微分-1">▶︎ 数値微分</a></h2><div>\[\frac{df(x_0)}{dx} = \lim_{h \longrightarrow 0}\frac{f(x_0+h)-f(x_0)}{h}\]</div><p>関数 <span>$y=x^2$</span> の <span>$x=1$</span> における微分係数を、 上の定義により求めよう。 求まるべき値は <span>$2$</span> であるが、<span>$h$</span> を小さくすると <span>$2$</span> の上下に暴れてしまう。</p><div><pre><code class="language-julia">using PyPlot
 h=logspace(-18,-8,100)
 d=( (1+h).^2 - 1) ./ h
 plot(h,d, &quot;.&quot;)

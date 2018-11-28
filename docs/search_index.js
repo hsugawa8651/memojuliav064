@@ -1221,7 +1221,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第7回：■ 浮動小数点数",
     "title": "▶︎ 数値微分",
     "category": "section",
-    "text": "fracdf(x_0)dx = lim_h longrightarrow 0fracf(x_0+h)-f(x_0)h関数 y=x^2 の x=1 における微分係数を、 上の定義により求めよう。 求まるべき値は 1 であるが、h を小さくすると 1 の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nd=( (1+h).^2 - 1) ./ h\nplot(h,d, \".\")\nylim(5e-1,3e0)\nyscale(\"log\")\nxscale(\"log\")\nsavefig(\"ch07-df1-plot.svg\"); nothing # hide(Image: )今度は、関数 y=x^n, (n=123) の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は n であるが、h を小さくすると n の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nfor n=1:3\n    d=( (1+h).^n - 1) ./ h\n    plot(h,d, \".\", label=\"y=x^\"*string(n))\nend\nxlabel(\"h\")\nylabel(\"d\")\nyscale(\"log\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-df2-plot.svg\"); nothing # hide(Image: )以上の誤差も、非常に近い二つの数字を減じたときに現れる「桁落ち」の現象である。 ▶︎ 2次方程式とは異なり、うまく回避する手段はない。hを小さく取りすぎないように注意する。"
+    "text": "fracdf(x_0)dx = lim_h longrightarrow 0fracf(x_0+h)-f(x_0)h関数 y=x^2 の x=1 における微分係数を、 上の定義により求めよう。 求まるべき値は 2 であるが、h を小さくすると 2 の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nd=( (1+h).^2 - 1) ./ h\nplot(h,d, \".\")\nylim(5e-1,3e0)\nyscale(\"log\")\nxscale(\"log\")\nsavefig(\"ch07-df1-plot.svg\"); nothing # hide(Image: )今度は、関数 y=x^n, (n=123) の x=1における微分係数を、 上の定義により求めよう。 求まるべき値は n であるが、h を小さくすると n の上下に暴れてしまう。using PyPlot\nclf() #hide\nh=logspace(-18,-8,100)\nfor n=1:3\n    d=( (1+h).^n - 1) ./ h\n    plot(h,d, \".\", label=\"y=x^\"*string(n))\nend\nxlabel(\"h\")\nylabel(\"d\")\nyscale(\"log\")\nxscale(\"log\")\nlegend()\nsavefig(\"ch07-df2-plot.svg\"); nothing # hide(Image: )以上の誤差も、非常に近い二つの数字を減じたときに現れる「桁落ち」の現象である。 ▶︎ 2次方程式とは異なり、うまく回避する手段はない。hを小さく取りすぎないように注意する。"
 },
 
 {
