@@ -1297,19 +1297,43 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch08.html#要素が-0のベクトルを作る。-1",
+    "location": "ch08.html#要素が-0のベクトルを作る-1",
     "page": "第8回： ▶︎ 総和・数値積分",
-    "title": "■ 要素が 0のベクトルを作る。",
+    "title": "■ 要素が 0のベクトルを作る",
     "category": "section",
-    "text": "Base.zeros — Function関数 zerosは、要素が零のベクトルを作る。関数 zeros(n) は、要素の型が浮動小数点で、寸法nのベクトルを作る。\n関数 zeros(T, n) は、要素の型が T で、寸法nのベクトルを作る。\nベクトル　v に対して、関数 zeros(v) は、寸法がベクトル v と同じで、要素の型がベクトル vの要素と同じベクトルを作る。zeros(5) # 要素は浮動小数点\nzeros(Float64,5) # 上と同じ\nzeros(Int64,5) # 要素は整数\nzeros(v)"
+    "text": "Base.zeros — Function関数 zerosは、要素が零 0 のベクトルを作る。関数 zeros(n) は、要素の型が浮動小数点で、寸法n のベクトルを作る。\n関数 zeros(T, n) は、要素の型が T で、寸法n のベクトルを作る。\nベクトル v に対して、関数 zeros(v) は、寸法がベクトル v と同じで、要素の型がベクトル v の要素と同じベクトルを作る。zeros(5) # 要素は浮動小数点\nzeros(Float64,5) # 上と同じ\nzeros(Int64,5) # 要素は整数\nzeros(v)"
 },
 
 {
-    "location": "ch08.html#要素が-1-のベクトルを作る。-1",
+    "location": "ch08.html#要素が-1-のベクトルを作る-1",
     "page": "第8回： ▶︎ 総和・数値積分",
-    "title": "■ 要素が 1 のベクトルを作る。",
+    "title": "■ 要素が 1 のベクトルを作る",
     "category": "section",
     "text": "Base.ones — Function関数 onesは、要素が 1 のベクトルを作る。 呼び出し方は、関数 zeros() と同じである。ones(5) # 要素は浮動小数点\nones(Float64,5) # 上と同じ\nones(Int64,5) # 要素は整数\nones(v)"
+},
+
+{
+    "location": "ch08.html#疑似乱数を要素とするベクトルを作る-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "■ 疑似乱数を要素とするベクトルを作る",
+    "category": "section",
+    "text": "Base.Random.rand — Functionrand(10) # => 10-elements\nrand([1,2,3], 10) # [1,2,3]からランダムに10個選ぶヒストグラムを描く。分割数 10using PyPlot\nclf() #hide\nxs=rand(1000)\nplt[:hist](xs, bins=10)\nxlim(-0.2,1.2)\nsavefig(\"ch08_hist1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch08.html#正規乱数を要素とするベクトルを作る-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "■ 正規乱数を要素とするベクトルを作る",
+    "category": "section",
+    "text": "Base.Random.randn — Function平均 0、標準偏差 1 の正規分布の疑似乱数を作るrandn(10) # => 10-elementsヒストグラムを描く。分割数 50using PyPlot\nclf() #hide\nxs=randn(1000)\nplt[:hist](xs, bins=50)\nxlim(-4,4)\nsavefig(\"ch08_hist2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch08.html#内包表記-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "■ 内包表記",
+    "category": "section",
+    "text": "[ x^2 for x in 0:10 ]\n[ x^2 for x in [-3,0,2] ]\n[ x^2 for x in -10:2:10 if rem(x,3) != 2 ]"
 },
 
 {
@@ -1410,90 +1434,186 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "ch09.html#",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "第9回： ■ 配列要素の操作",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "category": "page",
     "text": ""
 },
 
 {
     "location": "ch09.html#ch09-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "第9回： ■ 配列要素の操作",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "category": "section",
     "text": ""
 },
 
 {
+    "location": "ch09.html#ベクトルを引数とする関数-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "■ ベクトルを引数とする関数",
+    "category": "section",
+    "text": "■ 総和関数 sum のように、ベクトルを引数とする関数がある。"
+},
+
+{
+    "location": "ch09.html#積-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "■ 積",
+    "category": "section",
+    "text": "Base.prod — Functionv=[2,3,4]\nprod(v)\n\nr=1\nfor i in 1:length(v)\n  r *= v[i]\nend\nr"
+},
+
+{
+    "location": "ch09.html#ノルム-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "■ ノルム",
+    "category": "section",
+    "text": "Base.LinAlg.norm — Functionv=[1,2,3,4,5,6,7]\n\nnorm(v)\n@show sqrt(sum(v.^2))\n\nr=0\nfor i in 1:length(v)\n  r += v[i]^2\nend\n@show sqrt(r)"
+},
+
+{
+    "location": "ch09.html#平均値・標準偏差-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "■ 平均値・標準偏差",
+    "category": "section",
+    "text": "Base.mean — Function\nBase.stdm — Functionv=[1,2,3,4,5,6,7]\n# 平均値\nmean(v)\nsum(v)/length(v)\n# 標準分散、要素数 n-1 でスケール\nstd(v)\nsqrt( sum((v .- mean(v)).^2) /(length(v)-1))\n# 標準分散、要素数 n でスケール\nstd(v, corrected=false)\nsqrt( sum((v .- mean(v)).^2) /(length(v)))"
+},
+
+{
+    "location": "ch09.html#複数の数を引数とする関数-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "■ 複数の数を引数とする関数",
+    "category": "section",
+    "text": "Base.min — Function\nBase.max — Function"
+},
+
+{
+    "location": "ch09.html#splatting演算子-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "■ splatting演算子",
+    "category": "section",
+    "text": "... splits one argument into many different arguments in function calls...演算子は、関数呼び出しにおいて、ベクトルを、複数の引数に分けてから呼び出す。min([1,2,3]) # => exception\nmin([1,2,3]...) # min(1,2,3) と同じ"
+},
+
+{
     "location": "ch09.html#ベクトル要素への代入-1",
-    "page": "第9回： ■ 配列要素の操作",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "■ ベクトル要素への代入",
     "category": "section",
     "text": "v=collect(1:10)\n# インデックス：整数\nv[4]=0\nv\n\n# インデックス：Range\nv[3:2:10]=0\nv"
 },
 
 {
-    "location": "ch09.html#エラトステネスの篩-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ エラトステネスの篩",
+    "location": "ch09.html#素数の生成：エラトステネスの篩-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "■ 素数の生成：エラトステネスの篩",
     "category": "section",
-    "text": "エラトステネスの篩(ふるい)は、素数を算出する方法の一つである。 以下の手順による。数2からnまでの整数を並べる\n生き残っている中で最も小さい数 q を素数として残す。\n素数p自身を除く pの倍数を全て消す\n以上の手順を、n まで調べたら終わり。以下のプログラムでは、配列 sieve を篩とする。 篩の初期値を 1:n とすると、数字 i の篩は sieve[i] である。 篩で消された数 i には sieve[i] に 0 を格納することにする。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n    if sieve[i] > 0\n        println(i)\n        for j=i*2:i:nmax\n          sieve[j]=0\n        end\n    end\nend上のプログラムで、変数 jに関する繰り返しは、1行で書ける。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n    if sieve[i] > 0\n        # println(i)\n        sieve[i*2:i:nmax]=0\n    end\nend\n\nfor i in 1:nmax\n  if sieve[i] > 0\n    println(i)\n  end\nendnote: Note\nJulia には、素数を高速に計算する関数を含むパッケージが用意されている。Primes.primes — Function  \n`Primes.isprime — Functionprimes(n) は、数 n までの素数を計算する。isprime(x)は、数 x が素数であるかどうかを判定する。Pkg.add(\"Primes\") # パッケージの導入。一度だけ行えばよい\nusing Primes\nisprime(2)\nisprime(3)\nisprime(4)\nisprime.([2,3,4])\nprimes(100)"
+    "text": "エラトステネスの篩(ふるい)は、素数を算出する方法の一つである。 以下の手順による。数2からnまでの整数を並べる\n生き残っている中で最も小さい数 p を素数として残す。\n素数p自身を除く pの倍数を全て消す\n以上の手順を、n まで調べたら終わり。以下のプログラムでは、配列 sieve を篩とする。 篩の初期値を 1:n とすると、数字 i の篩は sieve[i] である。 篩で消された数 i には sieve[i] に 0 を格納することにする。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n  if sieve[i] > 0\n    println(i)\n    for j=i*2:i:nmax\n      sieve[j]=0\n      end\n  end\nend上のプログラムで、変数 j に関する繰り返しは、1行で書ける。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n  if sieve[i] > 0\n    # println(i)\n    sieve[i*2:i:nmax]=0\n  end\nend\n\nfor i in 1:nmax\n  if sieve[i] > 0\n    println(i)\n  end\nendnote: Note\nJulia には、素数を高速に計算する関数を含むパッケージが用意されている。Primes.primes — Function  \n`Primes.isprime　 — Functionprimes(n) は、数 n までの素数を計算する。isprime(x)は、数 x が素数であるかどうかを判定する。# Pkg.add(\"Primes\") # コメントを外してパッケージを導入せよ。一度だけ行えばよい\nusing Primes\nisprime(2)\nisprime(3)\nisprime(4)\nisprime.([2,3,4])\nprimes(100)"
 },
 
 {
-    "location": "ch09.html#内包表記-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ 内包表記",
+    "location": "ch09.html#常微分方程式の初期値問題:Euler法-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "▶ 常微分方程式の初期値問題:Euler法",
+    "category": "section",
+    "text": "問題beginalign*\ndfracdxdt  = 1-x^2 \nx(0)  = 0 \n 0 leq t leq 16\nendalign*Euler 法beginalign*\ndfracdxdt  =f(xt) \nt  = t_1 t_2 ldots \ndfracx_n+1-x_nh  = f(x_nt_n) \nx_n+1  = x_n + h f(x_nt)\nendalign*"
+},
+
+{
+    "location": "ch09.html#まずは解いてみる-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "まずは解いてみる",
+    "category": "section",
+    "text": "f(x,t)=1-x^2\n#\ntmin=0\ntmax=1.6\nh=0.4\nts=tmin:h:tmax\nn=length(ts)\n#\nx_now=0 # initial condition\nfor i in 1:n\n  t=ts[i]\n  x_next=x_now+h*f(x_now, t)\n  @show t, x_next\n  x_now=x_next\nend解析解は、x = tanhtである。using PyPlot\nclf() #hide\n#\nx_now=0 # initial condition\nfor i in 1:n\n  t=ts[i]\n  plot(t, x_now, \"b.\")\n  x_next=x_now+h*f(x_now, t)\n  @show t, x_next\n  x_now=x_next\nend\nplot(ts, tanh.(ts), \"r\")\nxlabel(\"t\")\nylabel(\"x\")\nsavefig(\"ch09-euler1-plot.svg\"); nothing # hide(Image: )配列に計算結果を入れて、一気に描画する。using PyPlot\nclf() #hide\ntmin=0\ntmax=1.6\nh=0.4\nts=tmin:h:tmax\nxs=zeros(ts)\nxs[1]=0 # initial condition\n\nn=length(ts)\nfor i in 1:n-1\n  t=ts[i]\n  x_now=xs[i]\n  x_next=x_now+h*f(x_now, t)\n  xs[i+1]=x_next\nend\nplot(ts, xs, \".\")\nplot(ts, tanh.(ts), \"r\")\nxlabel(\"t\")\nylabel(\"x\")\nsavefig(\"ch09-euler2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch09.html#刻みを狭くする-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "刻みを狭くする",
+    "category": "section",
+    "text": "using PyPlot\nclf() #hide\n\ntmin=0\ntmax=1.6\nh=0.4\nfor k in 1:4\n  ts=tmin:h:tmax\n  xs=zeros(ts)\n  xs[1]=0 #  initial condition\n\n  n=length(ts)\n  for i in 1:n-1\n    t=ts[i]\n    x_now=xs[i]\n    x_next=x_now+h*f(x_now, t)\n    xs[i+1]=x_next\n  end\n  plot(ts, xs, \".\", label=\"h=\"*string(h))\n\n  h /= 2\nend\nxlabel(\"t\")\nylabel(\"x\")\nplot(ts, tanh.(ts), \"b\",  label=\"tanh(t)\", lw=0.5)\nlegend()\nsavefig(\"ch09-euler3-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch09.html#正確な解との誤差評価-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "正確な解との誤差評価",
+    "category": "section",
+    "text": "using PyPlot\nclf() #hide\n\ntmin=0\ntmax=1.6\nh=0.4\nfor k in 1:5\n  ts=tmin:h:tmax\n  xs=zeros(ts)\n  xs[1]=0 #  initial condition\n\n  n=length(ts)\n  for i in 1:n-1\n    t=ts[i]\n    x_now=xs[i]\n    x_next=x_now+h*f(x_now, t)\n    xs[i+1]=x_next\n  end\n  xtrue=tanh.(ts)\n  e=norm(xs.-xtrue)/n\n  @show h, e\n  plot(h,e,\".\")\n  h /= 2\nend\nxlabel(\"h\")\nxscale(\"log\")\nyscale(\"log\")\nxlim(1e-2,1)\nylim(1e-4,1e-1)\nsavefig(\"ch09-euler4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch09.html#常微分方程式の初期値問題:修正Euler法-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "▶ 常微分方程式の初期値問題:修正Euler法",
+    "category": "section",
+    "text": "修正Euler 法beginalign*\ndfracdxdt  =f(xt) \nf_n  = f(x_n t_n) \noverlinex_n+1  = x_n + h f(x_nt) \noverlinef_n+1  = f(overlinex_n+1 t_n+1) \nx_n+1  = x_n + dfrach2 left(f_n + overlinef_n+1right)\nendalign*"
+},
+
+{
+    "location": "ch09.html#解いてみる-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "解いてみる",
+    "category": "section",
+    "text": "#\ntmin=0\ntmax=1.6\nh=0.4\nts=tmin:h:tmax\nx_now=0 # initial condition\n\nn=length(ts)\nfor  i in 1:n-1\n  t=ts[i]\n  t_next=ts[i+1]\n  f_now=f(x_now,t)\n  x_mid=x_now+h*f_now\n  f_mid=f(x_mid,t_next)\n  x_next=x_now+(f_now+f_mid)*h/2\n  @show t, x_next\n  x_now=x_next\nend配列に計算結果を入れて、一気に描画する。using PyPlot\nclf() #hide\n#\nxs=zeros(ts)\nn=length(ts)\n\nxs[1]=0 # initial condition\nfor  i in 1:n-1\n  t=ts[i]\n  x_now=xs[i]\n  t_next=ts[i+1]\n  f_now=f(x_now,t)\n  x_mid=x_now+h*f_now\n  f_mid=f(x_mid,t_next)\n  xs[i+1]=x_now+(f_now+f_mid)*h/2\nend\nplot(ts, xs, \".\")\nplot(ts, tanh.(ts))\nxlabel(\"t\")\nylabel(\"x\")\nsavefig(\"ch09-meuler1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch09.html#刻みを狭くする-2",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "刻みを狭くする",
+    "category": "section",
+    "text": "using PyPlot\nclf() #hide\n#\nh=0.4\nfor k in 1:4\n  ts=tmin:h:tmax\n  xs=zeros(ts)\n  n=length(ts)\n  xs[1]=0 # initial condition\n  for  i in 1:n-1\n    t=ts[i]\n    x_now=xs[i]\n    t_next=ts[i+1]\n    f_now=f(x_now,t)\n    x_mid=x_now+h*f_now\n    f_mid=f(x_mid,t_next)\n    xs[i+1]=x_now+(f_now+f_mid)*h/2\n  end\n  xtrue=tanh.(ts)\n  e=norm(xs.-xtrue)\n  @show h, e\n  plot(ts, xs, \".\", label=\"h=\"*string(h))\n  h /= 2\nend\nxlabel(\"t\")\nylabel(\"x\")\nplot(ts, tanh.(ts), \"b\",  label=\"tanh(t)\", lw=0.5)\nlegend()\nsavefig(\"ch09-meuler2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch09.html#正確な解との誤差評価-2",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "正確な解との誤差評価",
+    "category": "section",
+    "text": "using PyPlot\nclf() #hide\n#\nh=0.4\nfor k in 1:4\n  ts=tmin:h:tmax\n  xs=zeros(ts)\n  n=length(ts)\n  xs[1]=0 # initial condition\n  for  i in 1:n-1\n    t=ts[i]\n    x_now=xs[i]\n    t_next=ts[i+1]\n    f_now=f(x_now,t)\n    x_mid=x_now+h*f_now\n    f_mid=f(x_mid,t_next)\n    xs[i+1]=x_now+(f_now+f_mid)*h/2\n  end\n  xtrue=tanh.(ts)\n  e=norm(xs.-xtrue)/n\n  @show h, e\n  plot(h,e, \".\")\n  h /= 2\nend\nxlabel(\"h\")\nxscale(\"log\")\nyscale(\"log\")\nxlim(1e-2,1)\nylim(1e-5,1e-1)\nsavefig(\"ch09-meuler4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch09.html#練習：常微分方程式の数値解の誤差-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "◀▼ 練習：常微分方程式の数値解の誤差",
+    "category": "section",
+    "text": "上の常微分方程式の数値解法の例について、 Euler法による絶対誤差と、修正Euler法による絶対誤差を、 刻み幅 h に対する関数として、一つのグラフの上に表せ。結果は、例えば、以下のようになろう。using PyPlot\nclf() #hide\n#\nh=0.4\nkmax=8\nhs=zeros(kmax)\ne_euler=zeros(kmax)\ne_meuler=zeros(kmax)\n\nfor k in 1:kmax\n  hs[k]=h\n  ts=tmin:h:tmax\n  xs=zeros(ts)\n  xs[1]=0 #  initial condition\n  n=length(ts)\n\n  # Euler\n\n  n=length(ts)\n  for i in 1:n-1\n    t=ts[i]\n    x_now=xs[i]\n    x_next=x_now+h*f(x_now, t)\n    xs[i+1]=x_next\n  end\n  xtrue=tanh.(ts)\n  e_euler[k]=norm(xs.-xtrue)/n\n\n  # modified Euler\n\n  xs[1]=0 # initial condition\n  for  i in 1:n-1\n    t=ts[i]\n    x_now=xs[i]\n    t_next=ts[i+1]\n    f_now=f(x_now,t)\n    x_mid=x_now+h*f_now\n    f_mid=f(x_mid,t_next)\n    xs[i+1]=x_now+(f_now+f_mid)*h/2\n  end\n  xtrue=tanh.(ts)\n  e_meuler[k]=norm(xs.-xtrue)/n\n  h /= 2\nend\nplot(hs, e_euler, \".\", label=\"Euler\")\nplot(hs, e_meuler, \".\", label=\"modified Euler\")\nxlabel(\"h\")\nxscale(\"log\")\nyscale(\"log\")\nlegend()\nxlim(1e-3,1)\nylim(1e-6,1e-1)\nsavefig(\"ch09-meuler6-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch09.html#練習：常微分方程式・素性の悪い問題-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "◀▼ 練習：常微分方程式・素性の悪い問題",
+    "category": "section",
+    "text": "beginalign*\ndfracdxdt  = x^2 \nx(0)  = dfrac12 \n 0 le t  2\nendalign*解析解は、x = dfrac12-tとなり、t longrightarrow 0 で無限大に発散する「素性の悪い」方程式である。"
+},
+
+{
+    "location": "ch09.html#繰返し内部からの脱出-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "■ 繰返し内部からの脱出",
+    "category": "section",
+    "text": "for i in 1:10\n  r=rand()\n  if r > 0.8\n    break\n  end\n  println(r)\nend短絡評価for i in 1:10\n  r=rand()\n  r > 0.8 && break\n  println(r)\nend"
+},
+
+{
+    "location": "ch09.html#練習：繰返し内部からの脱出-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "◀ 練習：繰返し内部からの脱出",
     "category": "section",
     "text": ""
-},
-
-{
-    "location": "ch09.html#タプル-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ タプル",
-    "category": "section",
-    "text": "Tuple Types\ntuple\n[ntuple](https://docs.julialang.org/en/v0.6/stdlib/base/#Base.ntuple）"
-},
-
-{
-    "location": "ch09.html#複数の値を返す関数-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ 複数の値を返す関数",
-    "category": "section",
-    "text": "Multiple Return Valuesdivremdivrem(3,7)\ndivrem(7,3)fldmodfldmod(3,7)\nfldmod(7,3)"
-},
-
-{
-    "location": "ch09.html#関数の定義-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ 関数の定義",
-    "category": "section",
-    "text": "■ 関数の定義 (代入文形式)"
-},
-
-{
-    "location": "ch09.html#複数の値を返す関数の定義-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ 複数の値を返す関数の定義",
-    "category": "section",
-    "text": ""
-},
-
-{
-    "location": "ch09.html#メソッド-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ メソッド",
-    "category": "section",
-    "text": "多重ディスパッチ"
 },
 
 {
     "location": "ch09.html#今回のまとめ-1",
-    "page": "第9回： ■ 配列要素の操作",
-    "title": "■ 今回のまとめ",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "★ 今回のまとめ",
     "category": "section",
-    "text": ""
+    "text": "ベクトルを引数とする関数\n複数の数を引数とする関数\nsplatting演算子\nベクトル要素への代入\nエラトステネスの篩：素数を算出する\n微分方程式の初期値問題、Euler法、修正Euler法\n繰返し内部からの脱出"
 },
 
 {
@@ -1602,16 +1722,56 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "ch11.html#",
-    "page": "第11回：複素数",
-    "title": "第11回：複素数",
+    "page": "第11回：関数の定義と呼び出し",
+    "title": "第11回：関数の定義と呼び出し",
     "category": "page",
     "text": ""
 },
 
 {
     "location": "ch11.html#ch11-1",
-    "page": "第11回：複素数",
-    "title": "第11回：複素数",
+    "page": "第11回：関数の定義と呼び出し",
+    "title": "第11回：関数の定義と呼び出し",
+    "category": "section",
+    "text": ""
+},
+
+{
+    "location": "ch11.html#関数の定義-1",
+    "page": "第11回：関数の定義と呼び出し",
+    "title": "■ 関数の定義",
+    "category": "section",
+    "text": ""
+},
+
+{
+    "location": "ch11.html#メソッド-1",
+    "page": "第11回：関数の定義と呼び出し",
+    "title": "■ メソッド",
+    "category": "section",
+    "text": "多重ディスパッチ"
+},
+
+{
+    "location": "ch11.html#タプル-1",
+    "page": "第11回：関数の定義と呼び出し",
+    "title": "■ タプル",
+    "category": "section",
+    "text": "Tuple Types\ntuple\n[ntuple](https://docs.julialang.org/en/v0.6/stdlib/base/#Base.ntuple）"
+},
+
+{
+    "location": "ch11.html#複数の値を返す関数-1",
+    "page": "第11回：関数の定義と呼び出し",
+    "title": "■ 複数の値を返す関数",
+    "category": "section",
+    "text": "Multiple Return Valuesdivremdivrem(3,7)\ndivrem(7,3)fldmodfldmod(3,7)\nfldmod(7,3)"
+},
+
+{
+    "location": "ch11.html#今回のまとめ-1",
+    "page": "第11回：関数の定義と呼び出し",
+    "title": "■ 今回のまとめ",
     "category": "section",
     "text": "## ★ 今回のまとめ"
 },
@@ -1660,6 +1820,14 @@ var documenterSearchIndex = {"docs": [
     "location": "ch14.html#ch14-1",
     "page": "第14回：検討中",
     "title": "第14回：検討中",
+    "category": "section",
+    "text": ""
+},
+
+{
+    "location": "ch14.html#複素数-1",
+    "page": "第14回：検討中",
+    "title": "■ 複素数",
     "category": "section",
     "text": "（案）微分方程式の境界値問題\n\n## ★ 今回のまとめ"
 },

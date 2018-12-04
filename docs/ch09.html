@@ -1,5 +1,89 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第9回： ■ 配列要素の操作 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li class="current"><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作</a><ul class="internal"><li><a class="toctext" href="#ベクトル要素への代入-1">■ ベクトル要素への代入</a></li><li><a class="toctext" href="#エラトステネスの篩-1">■ エラトステネスの篩</a></li><li><a class="toctext" href="#内包表記-1">■ 内包表記</a></li><li><a class="toctext" href="#タプル-1">■ タプル</a></li><li><a class="toctext" href="#複数の値を返す関数-1">■ 複数の値を返す関数</a></li><li><a class="toctext" href="#関数の定義-1">■ 関数の定義</a></li><li><a class="toctext" href="#複数の値を返す関数の定義-1">■ 複数の値を返す関数の定義</a></li><li><a class="toctext" href="#メソッド-1">■ メソッド</a></li><li><a class="toctext" href="#今回のまとめ-1">■ 今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch10.html">第10回：線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：複素数</a></li><li><a class="toctext" href="ch12.html">第12回：ファイル入出力</a></li><li><a class="toctext" href="ch13.html">第13回：検討中</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch09.html">第9回： ■ 配列要素の操作</a></li></ul></nav><hr/><div id="topbar"><span>第9回： ■ 配列要素の操作</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch09-1" href="#ch09-1">第9回： ■ 配列要素の操作</a></h1><h2><a class="nav-anchor" id="ベクトル要素への代入-1" href="#ベクトル要素への代入-1">■ ベクトル要素への代入</a></h2><pre><code class="language-julia-repl">julia&gt; v=collect(1:10)
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第9回： ■ 配列要素の操作・▶常微分方程式の数値解法 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li class="current"><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a><ul class="internal"><li><a class="toctext" href="#ベクトルを引数とする関数-1">■ ベクトルを引数とする関数</a></li><li><a class="toctext" href="#複数の数を引数とする関数-1">■ 複数の数を引数とする関数</a></li><li><a class="toctext" href="#splatting演算子-1">■ splatting演算子</a></li><li><a class="toctext" href="#ベクトル要素への代入-1">■ ベクトル要素への代入</a></li><li><a class="toctext" href="#素数の生成：エラトステネスの篩-1">■ 素数の生成：エラトステネスの篩</a></li><li><a class="toctext" href="#常微分方程式の初期値問題:Euler法-1">▶ 常微分方程式の初期値問題:Euler法</a></li><li><a class="toctext" href="#常微分方程式の初期値問題:修正Euler法-1">▶ 常微分方程式の初期値問題:修正Euler法</a></li><li><a class="toctext" href="#練習：常微分方程式の数値解の誤差-1">◀▼ 練習：常微分方程式の数値解の誤差</a></li><li><a class="toctext" href="#練習：常微分方程式・素性の悪い問題-1">◀▼ 練習：常微分方程式・素性の悪い問題</a></li><li><a class="toctext" href="#繰返し内部からの脱出-1">■ 繰返し内部からの脱出</a></li><li><a class="toctext" href="#練習：繰返し内部からの脱出-1">◀ 練習：繰返し内部からの脱出</a></li><li><a class="toctext" href="#今回のまとめ-1">★ 今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch10.html">第10回：線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：関数の定義と呼び出し</a></li><li><a class="toctext" href="ch12.html">第12回：ファイル入出力</a></li><li><a class="toctext" href="ch13.html">第13回：検討中</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li></ul></nav><hr/><div id="topbar"><span>第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch09-1" href="#ch09-1">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></h1><h2><a class="nav-anchor" id="ベクトルを引数とする関数-1" href="#ベクトルを引数とする関数-1">■ ベクトルを引数とする関数</a></h2><p><a href="ch08.html#総和関数-sum-1">■ 総和関数 sum</a> のように、ベクトルを引数とする関数がある。</p><h3><a class="nav-anchor" id="積-1" href="#積-1">■ 積</a></h3><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/collections/#Base.prod"><code>Base.prod</code> — Function</a></p></li></ul><pre><code class="language-julia-repl">julia&gt; v=[2,3,4]
+3-element Array{Int64,1}:
+ 2
+ 3
+ 4
+
+julia&gt; prod(v)
+24
+
+
+julia&gt; r=1
+1
+
+julia&gt; for i in 1:length(v)
+         r *= v[i]
+       end
+
+julia&gt; r
+24</code></pre><h3><a class="nav-anchor" id="ノルム-1" href="#ノルム-1">■ ノルム</a></h3><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/linalg/#Base.LinAlg.norm"><code>Base.LinAlg.norm</code> — Function</a></p></li></ul><pre><code class="language-julia-repl">julia&gt; v=[1,2,3,4,5,6,7]
+7-element Array{Int64,1}:
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+
+
+julia&gt; norm(v)
+11.832159566199232
+
+julia&gt; @show sqrt(sum(v.^2))
+sqrt(sum(v .^ 2)) = 11.832159566199232
+11.832159566199232
+
+
+julia&gt; r=0
+0
+
+julia&gt; for i in 1:length(v)
+         r += v[i]^2
+       end
+
+julia&gt; @show sqrt(r)
+sqrt(r) = 11.832159566199232
+11.832159566199232</code></pre><h3><a class="nav-anchor" id="平均値・標準偏差-1" href="#平均値・標準偏差-1">■ 平均値・標準偏差</a></h3><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.mean"><code>Base.mean</code> — Function</a></p></li><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.std"><code>Base.stdm</code> — Function</a></p></li></ul><pre><code class="language-julia-repl">julia&gt; v=[1,2,3,4,5,6,7]
+7-element Array{Int64,1}:
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+
+julia&gt; # 平均値
+       mean(v)
+4.0
+
+julia&gt; sum(v)/length(v)
+4.0
+
+julia&gt; # 標準分散、要素数 n-1 でスケール
+       std(v)
+2.160246899469287
+
+julia&gt; sqrt( sum((v .- mean(v)).^2) /(length(v)-1))
+2.160246899469287
+
+julia&gt; # 標準分散、要素数 n でスケール
+       std(v, corrected=false)
+2.0
+
+julia&gt; sqrt( sum((v .- mean(v)).^2) /(length(v)))
+2.0</code></pre><h2><a class="nav-anchor" id="複数の数を引数とする関数-1" href="#複数の数を引数とする関数-1">■ 複数の数を引数とする関数</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.min"><code>Base.min</code> — Function</a></p></li><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.max"><code>Base.max</code> — Function</a></p></li></ul><h2><a class="nav-anchor" id="splatting演算子-1" href="#splatting演算子-1">■ splatting演算子</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6/manual/faq/#...-splits-one-argument-into-many-different-arguments-in-function-calls-1">... splits one argument into many different arguments in function calls</a></p></li></ul><p><code>...</code>演算子は、関数呼び出しにおいて、ベクトルを、複数の引数に分けてから呼び出す。</p><pre><code class="language-julia-repl">julia&gt; min([1,2,3]) # =&gt; exception
+ERROR: MethodError: no method matching min(::Array{Int64,1})
+Closest candidates are:
+  min(::AbstractArray{T1&lt;:Real,N} where N, !Matched::Real) where T1&lt;:Real at deprecated.jl:56
+  min(::AbstractArray{T1&lt;:Real,N} where N, !Matched::AbstractArray{T2&lt;:Real,N} where N) where {T1&lt;:Real, T2&lt;:Real} at deprecated.jl:56
+  min(::Any, !Matched::Any) at operators.jl:361
+  ...
+
+julia&gt; min([1,2,3]...) # min(1,2,3) と同じ
+1</code></pre><h2><a class="nav-anchor" id="ベクトル要素への代入-1" href="#ベクトル要素への代入-1">■ ベクトル要素への代入</a></h2><pre><code class="language-julia-repl">julia&gt; v=collect(1:10)
 10-element Array{Int64,1}:
   1
   2
@@ -45,22 +129,17 @@ julia&gt; v
   0
   8
   0
- 10</code></pre><h2><a class="nav-anchor" id="エラトステネスの篩-1" href="#エラトステネスの篩-1">■ エラトステネスの篩</a></h2><p>エラトステネスの篩(ふるい)は、素数を算出する方法の一つである。 以下の手順による。</p><ul><li><p>数<span>$2$</span>から<span>$n$</span>までの整数を並べる</p></li><li><p>生き残っている中で最も小さい数 <span>$q$</span> を素数として残す。</p></li><li><p>素数<span>$p$</span>自身を除く <span>$p$</span>の倍数を全て消す</p></li><li><p>以上の手順を、<span>$n$</span> まで調べたら終わり。</p></li></ul><p>以下のプログラムでは、配列 <code>sieve</code> を篩とする。 篩の初期値を <code>1:n</code> とすると、数字 <code>i</code> の篩は <code>sieve[i]</code> である。 篩で消された数 <span>$i$</span> には <code>sieve[i]</code> に <code>0</code> を格納することにする。</p><pre><code class="language-julia-repl">julia&gt; nmax=100
-100
-
-julia&gt; sieve=collect(1:nmax);
-
-julia&gt; sieve[1]=0;
-
-julia&gt; for i in 2:nmax
-           if sieve[i] &gt; 0
-               println(i)
-               for j=i*2:i:nmax
-                 sieve[j]=0
-               end
-           end
-       end
-2
+ 10</code></pre><h2><a class="nav-anchor" id="素数の生成：エラトステネスの篩-1" href="#素数の生成：エラトステネスの篩-1">■ 素数の生成：エラトステネスの篩</a></h2><p>エラトステネスの篩(ふるい)は、素数を算出する方法の一つである。 以下の手順による。</p><ul><li><p>数<span>$2$</span>から<span>$n$</span>までの整数を並べる</p></li><li><p>生き残っている中で最も小さい数 <span>$p$</span> を素数として残す。</p></li><li><p>素数<span>$p$</span>自身を除く <span>$p$</span>の倍数を全て消す</p></li><li><p>以上の手順を、<span>$n$</span> まで調べたら終わり。</p></li></ul><p>以下のプログラムでは、配列 <code>sieve</code> を篩とする。 篩の初期値を <code>1:n</code> とすると、数字 <code>i</code> の篩は <code>sieve[i]</code> である。 篩で消された数 <span>$i$</span> には <code>sieve[i]</code> に <code>0</code> を格納することにする。</p><div><pre><code class="language-julia">nmax=100
+sieve=collect(1:nmax);
+sieve[1]=0;
+for i in 2:nmax
+  if sieve[i] &gt; 0
+    println(i)
+    for j=i*2:i:nmax
+      sieve[j]=0
+      end
+  end
+end</code></pre><pre><code class="language-none">2
 3
 5
 7
@@ -84,27 +163,21 @@ julia&gt; for i in 2:nmax
 79
 83
 89
-97</code></pre><p>上のプログラムで、変数 <code>j</code>に関する繰り返しは、1行で書ける。</p><pre><code class="language-julia-repl">julia&gt; nmax=100
-100
+97</code></pre></div><p>上のプログラムで、変数 <code>j</code> に関する繰り返しは、1行で書ける。</p><div><pre><code class="language-julia">nmax=100
+sieve=collect(1:nmax);
+sieve[1]=0;
+for i in 2:nmax
+  if sieve[i] &gt; 0
+    # println(i)
+    sieve[i*2:i:nmax]=0
+  end
+end
 
-julia&gt; sieve=collect(1:nmax);
-
-julia&gt; sieve[1]=0;
-
-julia&gt; for i in 2:nmax
-           if sieve[i] &gt; 0
-               # println(i)
-               sieve[i*2:i:nmax]=0
-           end
-       end
-
-
-julia&gt; for i in 1:nmax
-         if sieve[i] &gt; 0
-           println(i)
-         end
-       end
-2
+for i in 1:nmax
+  if sieve[i] &gt; 0
+    println(i)
+  end
+end</code></pre><pre><code class="language-none">2
 3
 5
 7
@@ -128,12 +201,8 @@ julia&gt; for i in 1:nmax
 79
 83
 89
-97</code></pre><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>Julia には、素数を高速に計算する関数を含むパッケージが用意されている。</p><ul><li><p><a href="http://juliamath.github.io/Primes.jl/stable/api.html#Primes.primes"><code>Primes.primes</code> — Function</a>  </p></li><li><p><a href="http://juliamath.github.io/Primes.jl/stable/api.html#Primes.isprime">`Primes.isprime — Function</a></p></li></ul><p><code>primes(n)</code> は、数 <span>$n$</span> までの素数を計算する。</p><p><code>isprime(x)</code>は、数 <span>$x$</span> が素数であるかどうかを判定する。</p></div></div><pre><code class="language-julia-repl">julia&gt; Pkg.add(&quot;Primes&quot;) # パッケージの導入。一度だけ行えばよい
-INFO: Package Primes is already installed
-INFO: METADATA is out-of-date — you may not have the latest version of Primes
-INFO: Use `Pkg.update()` to get the latest versions of your packages
-
-julia&gt; using Primes
+97</code></pre></div><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>Julia には、素数を高速に計算する関数を含むパッケージが用意されている。</p><ul><li><p><a href="http://juliamath.github.io/Primes.jl/stable/api.html#Primes.primes"><code>Primes.primes</code> — Function</a>  </p></li><li><p><a href="http://juliamath.github.io/Primes.jl/stable/api.html#Primes.isprime">`Primes.isprime　 — Function</a></p></li></ul><p><code>primes(n)</code> は、数 <span>$n$</span> までの素数を計算する。</p><p><code>isprime(x)</code>は、数 <span>$x$</span> が素数であるかどうかを判定する。</p></div></div><pre><code class="language-julia-repl">julia&gt; # Pkg.add(&quot;Primes&quot;) # コメントを外してパッケージを導入せよ。一度だけ行えばよい
+       using Primes
 
 julia&gt; isprime(2)
 true
@@ -171,12 +240,240 @@ julia&gt; primes(100)
  79
  83
  89
- 97</code></pre><h2><a class="nav-anchor" id="内包表記-1" href="#内包表記-1">■ 内包表記</a></h2><h2><a class="nav-anchor" id="タプル-1" href="#タプル-1">■ タプル</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6/manual/types/#Tuple-Types-1">Tuple Types</a></p></li><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/base/#Core.tuple"><code>tuple</code></a></p></li><li><p>[<code>ntuple</code>](https://docs.julialang.org/en/v0.6/stdlib/base/#Base.ntuple）</p></li></ul><h2><a class="nav-anchor" id="複数の値を返す関数-1" href="#複数の値を返す関数-1">■ 複数の値を返す関数</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6/manual/functions/#Multiple-Return-Values-1">Multiple Return Values</a></p></li></ul><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.divrem"><code>divrem</code></a></p></li></ul><pre><code class="language-julia-repl">julia&gt; divrem(3,7)
-(0, 3)
+ 97</code></pre><h2><a class="nav-anchor" id="常微分方程式の初期値問題:Euler法-1" href="#常微分方程式の初期値問題:Euler法-1">▶ 常微分方程式の初期値問題:Euler法</a></h2><p>問題</p><div>\[\begin{align*}
+\dfrac{dx}{dt} &amp; = 1-x^2, \\
+x(0) &amp; = 0, \\
+&amp; 0 \leq t \leq 1.6
+\end{align*}\]</div><p>Euler 法</p><div>\[\begin{align*}
+\dfrac{dx}{dt} &amp; =f(x,t), \\
+t &amp; = t_1, t_2, \ldots \\
+\dfrac{x_{n+1}-x_{n}}{h} &amp; = f(x_n,t_n) \\
+x_{n+1} &amp; = x_{n} + h f(x_n,t)
+\end{align*}\]</div><h3><a class="nav-anchor" id="まずは解いてみる-1" href="#まずは解いてみる-1">まずは解いてみる</a></h3><div><pre><code class="language-julia">f(x,t)=1-x^2
+#
+tmin=0
+tmax=1.6
+h=0.4
+ts=tmin:h:tmax
+n=length(ts)
+#
+x_now=0 # initial condition
+for i in 1:n
+  t=ts[i]
+  x_next=x_now+h*f(x_now, t)
+  @show t, x_next
+  x_now=x_next
+end</code></pre><pre><code class="language-none">(t, x_next) = (0.0, 0.4)
+(t, x_next) = (0.4, 0.736)
+(t, x_next) = (0.8, 0.9193216)
+(t, x_next) = (1.2, 0.981260718309376)
+(t, x_next) = (1.6, 0.996111679390563)</code></pre></div><p>解析解は、<span>$x = \tanh{t}$</span>である。</p><div><pre><code class="language-julia">using PyPlot
+#
+x_now=0 # initial condition
+for i in 1:n
+  t=ts[i]
+  plot(t, x_now, &quot;b.&quot;)
+  x_next=x_now+h*f(x_now, t)
+  @show t, x_next
+  x_now=x_next
+end
+plot(ts, tanh.(ts), &quot;r&quot;)
+xlabel(&quot;t&quot;)
+ylabel(&quot;x&quot;)</code></pre><pre><code class="language-none">(t, x_next) = (0.0, 0.4)
+(t, x_next) = (0.4, 0.736)
+(t, x_next) = (0.8, 0.9193216)
+(t, x_next) = (1.2, 0.981260718309376)
+(t, x_next) = (1.6, 0.996111679390563)</code></pre></div><p><img src="ch09-euler1-plot.svg" alt/></p><p>配列に計算結果を入れて、一気に描画する。</p><div><pre><code class="language-julia">using PyPlot
+tmin=0
+tmax=1.6
+h=0.4
+ts=tmin:h:tmax
+xs=zeros(ts)
+xs[1]=0 # initial condition
 
-julia&gt; divrem(7,3)
-(2, 1)</code></pre><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/math/#Base.fldmod"><code>fldmod</code></a></p></li></ul><pre><code class="language-julia-repl">julia&gt; fldmod(3,7)
-(0, 3)
+n=length(ts)
+for i in 1:n-1
+  t=ts[i]
+  x_now=xs[i]
+  x_next=x_now+h*f(x_now, t)
+  xs[i+1]=x_next
+end
+plot(ts, xs, &quot;.&quot;)
+plot(ts, tanh.(ts), &quot;r&quot;)
+xlabel(&quot;t&quot;)
+ylabel(&quot;x&quot;)</code></pre></div><p><img src="ch09-euler2-plot.svg" alt/></p><h3><a class="nav-anchor" id="刻みを狭くする-1" href="#刻みを狭くする-1">刻みを狭くする</a></h3><div><pre><code class="language-julia">using PyPlot
 
-julia&gt; fldmod(7,3)
-(2, 1)</code></pre><h2><a class="nav-anchor" id="関数の定義-1" href="#関数の定義-1">■ 関数の定義</a></h2><ul><li><p><a href="ch05.html#関数の定義-(代入文形式)-1">■ 関数の定義 (代入文形式)</a></p></li></ul><h2><a class="nav-anchor" id="複数の値を返す関数の定義-1" href="#複数の値を返す関数の定義-1">■ 複数の値を返す関数の定義</a></h2><h2><a class="nav-anchor" id="メソッド-1" href="#メソッド-1">■ メソッド</a></h2><ul><li><p>多重ディスパッチ</p></li></ul><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">■ 今回のまとめ</a></h2><footer><hr/><a class="previous" href="ch08.html"><span class="direction">Previous</span><span class="title">第8回： ▶︎ 総和・数値積分</span></a><a class="next" href="ch10.html"><span class="direction">Next</span><span class="title">第10回：線形代数</span></a></footer></article></body></html>
+tmin=0
+tmax=1.6
+h=0.4
+for k in 1:4
+  ts=tmin:h:tmax
+  xs=zeros(ts)
+  xs[1]=0 #  initial condition
+
+  n=length(ts)
+  for i in 1:n-1
+    t=ts[i]
+    x_now=xs[i]
+    x_next=x_now+h*f(x_now, t)
+    xs[i+1]=x_next
+  end
+  plot(ts, xs, &quot;.&quot;, label=&quot;h=&quot;*string(h))
+
+  h /= 2
+end
+xlabel(&quot;t&quot;)
+ylabel(&quot;x&quot;)
+plot(ts, tanh.(ts), &quot;b&quot;,  label=&quot;tanh(t)&quot;, lw=0.5)
+legend()</code></pre></div><p><img src="ch09-euler3-plot.svg" alt/></p><h3><a class="nav-anchor" id="正確な解との誤差評価-1" href="#正確な解との誤差評価-1">正確な解との誤差評価</a></h3><div><pre><code class="language-julia">using PyPlot
+
+tmin=0
+tmax=1.6
+h=0.4
+for k in 1:5
+  ts=tmin:h:tmax
+  xs=zeros(ts)
+  xs[1]=0 #  initial condition
+
+  n=length(ts)
+  for i in 1:n-1
+    t=ts[i]
+    x_now=xs[i]
+    x_next=x_now+h*f(x_now, t)
+    xs[i+1]=x_next
+  end
+  xtrue=tanh.(ts)
+  e=norm(xs.-xtrue)/n
+  @show h, e
+  plot(h,e,&quot;.&quot;)
+  h /= 2
+end
+xlabel(&quot;h&quot;)
+xscale(&quot;log&quot;)
+yscale(&quot;log&quot;)
+xlim(1e-2,1)
+ylim(1e-4,1e-1)</code></pre><pre><code class="language-none">(h, e) = (0.4, 0.025667730896465946)
+(h, e) = (0.2, 0.00931239766406314)
+(h, e) = (0.1, 0.0033516722128539393)
+(h, e) = (0.05, 0.0011971170296258557)
+(h, e) = (0.025, 0.00042554173573778107)</code></pre></div><p><img src="ch09-euler4-plot.svg" alt/></p><h2><a class="nav-anchor" id="常微分方程式の初期値問題:修正Euler法-1" href="#常微分方程式の初期値問題:修正Euler法-1">▶ 常微分方程式の初期値問題:修正Euler法</a></h2><p>修正Euler 法</p><div>\[\begin{align*}
+\dfrac{dx}{dt} &amp; =f(x,t), \\
+f_{n} &amp; = f(x_{n}, t_{n}), \\
+\overline{x}_{n+1} &amp; = x_{n} + h f(x_n,t), \\
+\overline{f}_{n+1} &amp; = f(\overline{x}_{n+1}, t_{n+1}) \\
+x_{n+1} &amp; = x_{n} + \dfrac{h}{2} \left(f_{n} + \overline{f}_{n+1}\right)
+\end{align*}\]</div><h3><a class="nav-anchor" id="解いてみる-1" href="#解いてみる-1">解いてみる</a></h3><div><pre><code class="language-julia">#
+tmin=0
+tmax=1.6
+h=0.4
+ts=tmin:h:tmax
+x_now=0 # initial condition
+
+n=length(ts)
+for  i in 1:n-1
+  t=ts[i]
+  t_next=ts[i+1]
+  f_now=f(x_now,t)
+  x_mid=x_now+h*f_now
+  f_mid=f(x_mid,t_next)
+  x_next=x_now+(f_now+f_mid)*h/2
+  @show t, x_next
+  x_now=x_next
+end</code></pre><pre><code class="language-none">(t, x_next) = (0.0, 0.368)
+(t, x_next) = (0.4, 0.6390044320071679)
+(t, x_next) = (0.8, 0.8039781901649501)
+(t, x_next) = (1.2, 0.8959360086216626)</code></pre></div><p>配列に計算結果を入れて、一気に描画する。</p><div><pre><code class="language-julia">using PyPlot
+#
+xs=zeros(ts)
+n=length(ts)
+
+xs[1]=0 # initial condition
+for  i in 1:n-1
+  t=ts[i]
+  x_now=xs[i]
+  t_next=ts[i+1]
+  f_now=f(x_now,t)
+  x_mid=x_now+h*f_now
+  f_mid=f(x_mid,t_next)
+  xs[i+1]=x_now+(f_now+f_mid)*h/2
+end
+plot(ts, xs, &quot;.&quot;)
+plot(ts, tanh.(ts))
+xlabel(&quot;t&quot;)
+ylabel(&quot;x&quot;)</code></pre></div><p><img src="ch09-meuler1-plot.svg" alt/></p><h3><a class="nav-anchor" id="刻みを狭くする-2" href="#刻みを狭くする-2">刻みを狭くする</a></h3><div><pre><code class="language-julia">using PyPlot
+#
+h=0.4
+for k in 1:4
+  ts=tmin:h:tmax
+  xs=zeros(ts)
+  n=length(ts)
+  xs[1]=0 # initial condition
+  for  i in 1:n-1
+    t=ts[i]
+    x_now=xs[i]
+    t_next=ts[i+1]
+    f_now=f(x_now,t)
+    x_mid=x_now+h*f_now
+    f_mid=f(x_mid,t_next)
+    xs[i+1]=x_now+(f_now+f_mid)*h/2
+  end
+  xtrue=tanh.(ts)
+  e=norm(xs.-xtrue)
+  @show h, e
+  plot(ts, xs, &quot;.&quot;, label=&quot;h=&quot;*string(h))
+  h /= 2
+end
+xlabel(&quot;t&quot;)
+ylabel(&quot;x&quot;)
+plot(ts, tanh.(ts), &quot;b&quot;,  label=&quot;tanh(t)&quot;, lw=0.5)
+legend()</code></pre><pre><code class="language-none">(h, e) = (0.4, 0.048085853296269084)
+(h, e) = (0.2, 0.013351045559265527)
+(h, e) = (0.1, 0.0042050468178388605)
+(h, e) = (0.05, 0.001404770260316803)</code></pre></div><p><img src="ch09-meuler2-plot.svg" alt/></p><h3><a class="nav-anchor" id="正確な解との誤差評価-2" href="#正確な解との誤差評価-2">正確な解との誤差評価</a></h3><div><pre><code class="language-julia">using PyPlot
+#
+h=0.4
+for k in 1:4
+  ts=tmin:h:tmax
+  xs=zeros(ts)
+  n=length(ts)
+  xs[1]=0 # initial condition
+  for  i in 1:n-1
+    t=ts[i]
+    x_now=xs[i]
+    t_next=ts[i+1]
+    f_now=f(x_now,t)
+    x_mid=x_now+h*f_now
+    f_mid=f(x_mid,t_next)
+    xs[i+1]=x_now+(f_now+f_mid)*h/2
+  end
+  xtrue=tanh.(ts)
+  e=norm(xs.-xtrue)/n
+  @show h, e
+  plot(h,e, &quot;.&quot;)
+  h /= 2
+end
+xlabel(&quot;h&quot;)
+xscale(&quot;log&quot;)
+yscale(&quot;log&quot;)
+xlim(1e-2,1)
+ylim(1e-5,1e-1)</code></pre><pre><code class="language-none">(h, e) = (0.4, 0.009617170659253816)
+(h, e) = (0.2, 0.0014834495065850586)
+(h, e) = (0.1, 0.0002473556951669918)
+(h, e) = (0.05, 4.2568795767175844e-5)</code></pre></div><p><img src="ch09-meuler4-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習：常微分方程式の数値解の誤差-1" href="#練習：常微分方程式の数値解の誤差-1">◀▼ 練習：常微分方程式の数値解の誤差</a></h2><p>上の常微分方程式の数値解法の例について、 Euler法による絶対誤差と、修正Euler法による絶対誤差を、 刻み幅 <span>$h$</span> に対する関数として、一つのグラフの上に表せ。</p><p>結果は、例えば、以下のようになろう。</p><div></div><p><img src="ch09-meuler6-plot.svg" alt/></p><h2><a class="nav-anchor" id="練習：常微分方程式・素性の悪い問題-1" href="#練習：常微分方程式・素性の悪い問題-1">◀▼ 練習：常微分方程式・素性の悪い問題</a></h2><div>\[\begin{align*}
+\dfrac{dx}{dt} &amp; = x^2, \\
+x(0) &amp; = \dfrac{1}{2}, \\
+&amp; 0 \le t &lt; 2
+\end{align*}\]</div><p>解析解は、</p><div>\[x = \dfrac{1}{2-t}\]</div><p>となり、<span>$t \longrightarrow 0$</span> で無限大に発散する「素性の悪い」方程式である。</p><h2><a class="nav-anchor" id="繰返し内部からの脱出-1" href="#繰返し内部からの脱出-1">■ 繰返し内部からの脱出</a></h2><div><pre><code class="language-julia">for i in 1:10
+  r=rand()
+  if r &gt; 0.8
+    break
+  end
+  println(r)
+end</code></pre><pre><code class="language-none">0.38501464968369814
+0.38781014090772037
+0.6638650679166647</code></pre></div><p>短絡評価</p><div><pre><code class="language-julia">for i in 1:10
+  r=rand()
+  r &gt; 0.8 &amp;&amp; break
+  println(r)
+end</code></pre><pre><code class="language-none">0.5430121719813576
+0.5168967045303865</code></pre></div><h2><a class="nav-anchor" id="練習：繰返し内部からの脱出-1" href="#練習：繰返し内部からの脱出-1">◀ 練習：繰返し内部からの脱出</a></h2><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>ベクトルを引数とする関数</p></li><li><p>複数の数を引数とする関数</p></li><li><p>splatting演算子</p></li><li><p>ベクトル要素への代入</p></li><li><p>エラトステネスの篩：素数を算出する</p></li><li><p>微分方程式の初期値問題、Euler法、修正Euler法</p></li><li><p>繰返し内部からの脱出</p></li></ul><footer><hr/><a class="previous" href="ch08.html"><span class="direction">Previous</span><span class="title">第8回： ▶︎ 総和・数値積分</span></a><a class="next" href="ch10.html"><span class="direction">Next</span><span class="title">第10回：線形代数</span></a></footer></article></body></html>
