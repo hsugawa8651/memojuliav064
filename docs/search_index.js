@@ -1449,6 +1449,22 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch09.html#繰返し内部からの脱出-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "■ 繰返し内部からの脱出",
+    "category": "section",
+    "text": "Repeated Evaluation: Loopsfor文の繰り返し (forブロック)の内部で、break 文を使うと、現在繰り返し中のループから直ちに抜けることができる。for i = 1:1000\n  println(i)\n  if i >= 5\n    break\n  end\nend乱数の値が 08 を超えるまで繰り返す。for i in 1:10\n  r=rand()\n  if r > 0.8\n    break\n  end\n  println(r)\nend二重ループ、内側のループからの脱出for j in 1:3\n  for i in 1:5\n    println(\"i=\"*string(i)*\" j=\"*string(j))\n    if i >= 3\n      break\n    end\n  end\nend一つのfor文に二つの繰り返しを書いた場合、breakで for文全体から抜けてしまう。for j in 1:3, i in 1:5\n  println(\"i=\"*string(i)*\" j=\"*string(j))\n  if i >= 3\n    break\n  end\nendforブロックの内部で、continue 文を使うと、次の繰り返しに直ちに移動できる。 以下で、i % 3 は rem(i,3) と同じである。 参考→ ■ 残余 rem と整商 divfor i = 1:10\n  if i % 3 != 0\n    continue\n  end\n  println(i)\nend"
+},
+
+{
+    "location": "ch09.html#練習：-条件が成り立つまで繰り返す：数値積分-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "◀▼ 練習： 条件が成り立つまで繰り返す：数値積分",
+    "category": "section",
+    "text": "(少し難しいので、後回しにしてもよい)第8回の▶︎ 数値積分 において、分割数 nを 2^20まで、2の冪乗で増やしていけ、 ただし、相対誤差が 10^-4 以下になったら、そこで終了せよ。▶︎ Riemann和（関数 sumを用いる) 、または、 ▶︎ 台形則（関数 sumを用いる) の、どちらを用いてもよい。"
+},
+
+{
     "location": "ch09.html#ベクトルを引数とする関数-1",
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "■ ベクトルを引数とする関数",
@@ -1461,7 +1477,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "■ 積",
     "category": "section",
-    "text": "Base.prod — Functionv=[2,3,4]\nprod(v)\n\nr=1\nfor i in 1:length(v)\n  r *= v[i]\nend\nr"
+    "text": "Base.prod — Functionv=[2,3,4];\nprod(v)\n\nr=1;\nfor i in 1:length(v)\n  r *= v[i]\nend\nr"
 },
 
 {
@@ -1469,7 +1485,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "■ ノルム",
     "category": "section",
-    "text": "Base.LinAlg.norm — Functionv=[1,2,3,4,5,6,7]\n\nnorm(v)\n@show sqrt(sum(v.^2))\n\nr=0\nfor i in 1:length(v)\n  r += v[i]^2\nend\n@show sqrt(r)"
+    "text": "Base.LinAlg.norm — Functionv=[1,2,3,4,5,6,7];\n\nnorm(v)\n@show sqrt(sum(v.^2))\n\nr=0;\nfor i in 1:length(v)\n  r += v[i]^2\nend\nsqrt(r)"
 },
 
 {
@@ -1477,7 +1493,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "■ 平均値・標準偏差",
     "category": "section",
-    "text": "Base.mean — Function\nBase.stdm — Functionv=[1,2,3,4,5,6,7]\n# 平均値\nmean(v)\nsum(v)/length(v)\n# 標準分散、要素数 n-1 でスケール\nstd(v)\nsqrt( sum((v .- mean(v)).^2) /(length(v)-1))\n# 標準分散、要素数 n でスケール\nstd(v, corrected=false)\nsqrt( sum((v .- mean(v)).^2) /(length(v)))"
+    "text": "Base.mean — Function\nBase.stdm — Functionv=[1,2,3,4,5,6,7];\n# 平均値\nmean(v)\nsum(v)/length(v)\n# 標準分散、要素数 n-1 でスケール\nstd(v)\nsqrt( sum((v .- mean(v)).^2) /(length(v)-1))\n# 標準分散、要素数 n でスケール\nstd(v, corrected=false)\nsqrt( sum((v .- mean(v)).^2) /(length(v)))"
 },
 
 {
@@ -1485,7 +1501,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "■ 複数の数を引数とする関数",
     "category": "section",
-    "text": "Base.min — Function\nBase.max — Function"
+    "text": "Base.min — Function\nBase.max — Functionmin(5,1,4,2,3)\nmax(5,1,4,2,3)"
 },
 
 {
@@ -1493,7 +1509,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "■ splatting演算子",
     "category": "section",
-    "text": "... splits one argument into many different arguments in function calls...演算子は、関数呼び出しにおいて、ベクトルを、複数の引数に分けてから呼び出す。min([1,2,3]) # => exception\nmin([1,2,3]...) # min(1,2,3) と同じ"
+    "text": "... splits one argument into many different arguments in function calls...演算子は、関数呼び出しにおいて、ベクトルを、複数の引数に分けてから呼び出す。min([5,1,4,2,3]) # => exception\nmin([5,1,4,2,3]...) # min(5,1,4,2,3) と同じ"
 },
 
 {
@@ -1509,7 +1525,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "■ 素数の生成：エラトステネスの篩",
     "category": "section",
-    "text": "エラトステネスの篩(ふるい)は、素数を算出する方法の一つである。 以下の手順による。数2からnまでの整数を並べる\n生き残っている中で最も小さい数 p を素数として残す。\n素数p自身を除く pの倍数を全て消す\n以上の手順を、n まで調べたら終わり。以下のプログラムでは、配列 sieve を篩とする。 篩の初期値を 1:n とすると、数字 i の篩は sieve[i] である。 篩で消された数 i には sieve[i] に 0 を格納することにする。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n  if sieve[i] > 0\n    println(i)\n    for j=i*2:i:nmax\n      sieve[j]=0\n      end\n  end\nend上のプログラムで、変数 j に関する繰り返しは、1行で書ける。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n  if sieve[i] > 0\n    # println(i)\n    sieve[i*2:i:nmax]=0\n  end\nend\n\nfor i in 1:nmax\n  if sieve[i] > 0\n    println(i)\n  end\nendnote: Note\nJulia には、素数を高速に計算する関数を含むパッケージが用意されている。Primes.primes — Function  \n`Primes.isprime　 — Functionprimes(n) は、数 n までの素数を計算する。isprime(x)は、数 x が素数であるかどうかを判定する。# Pkg.add(\"Primes\") # コメントを外してパッケージを導入せよ。一度だけ行えばよい\nusing Primes\nisprime(2)\nisprime(3)\nisprime(4)\nisprime.([2,3,4])\nprimes(100)"
+    "text": "エラトステネスの篩(ふるい)は、素数を算出する方法の一つである。 以下の手順による。数2からnまでの整数を並べる\n生き残っている中で最も小さい数 p を素数として残す。\n素数p自身を除く pの倍数を全て消す\n以上の手順を、n まで調べたら終わり。以下のプログラムでは、配列 sieve を篩とする。 篩の初期値を 1:n とすると、数字 i の篩は sieve[i] である。 篩で消された数 i には sieve[i] に 0 を格納することにする。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n  if sieve[i] > 0\n    println(i)\n    for j=i*2:i:nmax\n      sieve[j]=0\n    end\n  end\nend上のプログラムで、変数 j に関する繰り返しは、1行で書ける。nmax=100\nsieve=collect(1:nmax);\nsieve[1]=0;\nfor i in 2:nmax\n  if sieve[i] > 0\n    # println(i)\n    sieve[i*2:i:nmax]=0\n  end\nend\n\nfor i in 1:nmax\n  if sieve[i] > 0\n    println(i)\n  end\nendnote: Note\nJulia には、素数を高速に計算する関数を含むパッケージが用意されている。Primes.primes — Function  \n`Primes.isprime　 — Functionprimes(n) は、数 n までの素数を計算する。isprime(x)は、数 x が素数であるかどうかを判定する。# Pkg.add(\"Primes\") # コメントを外してパッケージを導入せよ。一度だけ行えばよい\nusing Primes\nisprime(2)\nisprime(3)\nisprime(4)\nisprime.([2,3,4])\nprimes(100)"
 },
 
 {
@@ -1517,7 +1533,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "▶ 常微分方程式の初期値問題:Euler法",
     "category": "section",
-    "text": "問題beginalign*\ndfracdxdt  = 1-x^2 \nx(0)  = 0 \n 0 leq t leq 16\nendalign*Euler 法beginalign*\ndfracdxdt  =f(xt) \nt  = t_1 t_2 ldots \ndfracx_n+1-x_nh  = f(x_nt_n) \nx_n+1  = x_n + h f(x_nt)\nendalign*"
+    "text": "問題beginalign*\ndfracdxdt  = 1-x^2 \nx(0)  = 0 \n 0 leq t leq 16\nendalign*Euler 法による数値解法。ただし、t_1 t_2 ldots は、一定間隔 h とする。beginalign*\ndfracdxdt  =f(xt) \nt  = t_1 t_2 ldots \ndfracx_n+1-x_nh  = f(x_nt_n) \nx_n+1  = x_n + h f(x_nt)\nendalign*"
 },
 
 {
@@ -1585,6 +1601,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch09.html#練習：-条件が成り立つまで繰り返す：微分方程式の初期値問題-1",
+    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
+    "title": "◀▼ 練習： 条件が成り立つまで繰り返す：微分方程式の初期値問題",
+    "category": "section",
+    "text": "(少し難しいので、後回しにしてもよい)Euler法ないし修正Euler法による微分方程式の数値解法を、 刻み幅 h を半分にしながら 20回繰り返せ。 ただし、絶対誤差が 10^-4 以下になったら、そこで終了せよ。"
+},
+
+{
     "location": "ch09.html#練習：常微分方程式・素性の悪い問題-1",
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "◀▼ 練習：常微分方程式・素性の悪い問題",
@@ -1593,27 +1617,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch09.html#繰返し内部からの脱出-1",
-    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
-    "title": "■ 繰返し内部からの脱出",
-    "category": "section",
-    "text": "for i in 1:10\n  r=rand()\n  if r > 0.8\n    break\n  end\n  println(r)\nend短絡評価for i in 1:10\n  r=rand()\n  r > 0.8 && break\n  println(r)\nend"
-},
-
-{
-    "location": "ch09.html#練習：繰返し内部からの脱出-1",
-    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
-    "title": "◀ 練習：繰返し内部からの脱出",
-    "category": "section",
-    "text": ""
-},
-
-{
     "location": "ch09.html#今回のまとめ-1",
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "★ 今回のまとめ",
     "category": "section",
-    "text": "ベクトルを引数とする関数\n複数の数を引数とする関数\nsplatting演算子\nベクトル要素への代入\nエラトステネスの篩：素数を算出する\n微分方程式の初期値問題、Euler法、修正Euler法\n繰返し内部からの脱出"
+    "text": "繰返し内部からの脱出\nベクトルを引数とする関数\n複数の数を引数とする関数\nsplatting演算子\nベクトル要素への代入\nエラトステネスの篩：素数を算出する\n微分方程式の初期値問題、Euler法、修正Euler法"
 },
 
 {
