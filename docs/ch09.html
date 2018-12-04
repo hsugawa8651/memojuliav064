@@ -1,55 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第9回： ■ 配列要素の操作・▶常微分方程式の数値解法 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li class="current"><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a><ul class="internal"><li><a class="toctext" href="#繰返し内部からの脱出-1">■ 繰返し内部からの脱出</a></li><li><a class="toctext" href="#練習：-条件が成り立つまで繰り返す：数値積分-1">◀▼ 練習： 条件が成り立つまで繰り返す：数値積分</a></li><li><a class="toctext" href="#ベクトルを引数とする関数-1">■ ベクトルを引数とする関数</a></li><li><a class="toctext" href="#複数の数を引数とする関数-1">■ 複数の数を引数とする関数</a></li><li><a class="toctext" href="#splatting演算子-1">■ splatting演算子</a></li><li><a class="toctext" href="#ベクトル要素への代入-1">■ ベクトル要素への代入</a></li><li><a class="toctext" href="#素数の生成：エラトステネスの篩-1">■ 素数の生成：エラトステネスの篩</a></li><li><a class="toctext" href="#常微分方程式の初期値問題:Euler法-1">▶ 常微分方程式の初期値問題:Euler法</a></li><li><a class="toctext" href="#常微分方程式の初期値問題:修正Euler法-1">▶ 常微分方程式の初期値問題:修正Euler法</a></li><li><a class="toctext" href="#練習：常微分方程式の数値解の誤差-1">◀▼ 練習：常微分方程式の数値解の誤差</a></li><li><a class="toctext" href="#練習：-条件が成り立つまで繰り返す：微分方程式の初期値問題-1">◀▼ 練習： 条件が成り立つまで繰り返す：微分方程式の初期値問題</a></li><li><a class="toctext" href="#練習：常微分方程式・素性の悪い問題-1">◀▼ 練習：常微分方程式・素性の悪い問題</a></li><li><a class="toctext" href="#今回のまとめ-1">★ 今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch10.html">第10回：線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：関数の定義と呼び出し</a></li><li><a class="toctext" href="ch12.html">第12回：ファイル入出力</a></li><li><a class="toctext" href="ch13.html">第13回：検討中</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li></ul></nav><hr/><div id="topbar"><span>第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch09-1" href="#ch09-1">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></h1><h2><a class="nav-anchor" id="繰返し内部からの脱出-1" href="#繰返し内部からの脱出-1">■ 繰返し内部からの脱出</a></h2><ul><li><p><a href="https://docs.julialang.org/en/v0.6/manual/control-flow/#man-loops-1">Repeated Evaluation: Loops</a></p></li></ul><p><code>for</code>文の繰り返し (<code>for</code>ブロック)の内部で、<code>break</code> 文を使うと、現在繰り返し中のループから直ちに抜けることができる。</p><pre><code class="language-julia-repl">julia&gt; for i = 1:1000
-         println(i)
-         if i &gt;= 5
-           break
-         end
-       end
-1
-2
-3
-4
-5</code></pre><p>乱数の値が <span>$0.8$</span> を超えるまで繰り返す。</p><div><pre><code class="language-julia">for i in 1:10
-  r=rand()
-  if r &gt; 0.8
-    break
-  end
-  println(r)
-end</code></pre><pre><code class="language-none">0.38501464968369814
-0.38781014090772037
-0.6638650679166647</code></pre></div><p>二重ループ、内側のループからの脱出</p><pre><code class="language-julia-repl">julia&gt; for j in 1:3
-         for i in 1:5
-           println(&quot;i=&quot;*string(i)*&quot; j=&quot;*string(j))
-           if i &gt;= 3
-             break
-           end
-         end
-       end
-i=1 j=1
-i=2 j=1
-i=3 j=1
-i=1 j=2
-i=2 j=2
-i=3 j=2
-i=1 j=3
-i=2 j=3
-i=3 j=3</code></pre><p>一つの<code>for</code>文に二つの繰り返しを書いた場合、<code>break</code>で <code>for</code>文全体から抜けてしまう。</p><pre><code class="language-julia-repl">julia&gt; for j in 1:3, i in 1:5
-         println(&quot;i=&quot;*string(i)*&quot; j=&quot;*string(j))
-         if i &gt;= 3
-           break
-         end
-       end
-i=1 j=1
-i=2 j=1
-i=3 j=1</code></pre><p><code>for</code>ブロックの内部で、<code>continue</code> 文を使うと、次の繰り返しに直ちに移動できる。 以下で、<code>i % 3</code> は <code>rem(i,3)</code> と同じである。 参考→ <a href="ch06.html#残余-rem-と整商-div-1">■ 残余 rem と整商 div</a></p><pre><code class="language-julia-repl">julia&gt; for i = 1:10
-         if i % 3 != 0
-           continue
-         end
-         println(i)
-       end
-3
-6
-9</code></pre><h2><a class="nav-anchor" id="練習：-条件が成り立つまで繰り返す：数値積分-1" href="#練習：-条件が成り立つまで繰り返す：数値積分-1">◀▼ 練習： 条件が成り立つまで繰り返す：数値積分</a></h2><p>(少し難しいので、後回しにしてもよい)</p><p>第8回の<a href="ch08.html#数値積分-1">▶︎ 数値積分</a> において、</p><p>分割数 <span>$n$</span>を <span>$2^{20}$</span>まで、2の冪乗で増やしていけ、 ただし、相対誤差が <span>$10^{-4}$</span> 以下になったら、そこで終了せよ。</p><p><a href="ch08.html#Riemann和（関数-sumを用いる)-1">▶︎ Riemann和（関数 sumを用いる)</a> 、または、 <a href="ch08.html#台形則（関数-sumを用いる)-1">▶︎ 台形則（関数 sumを用いる)</a> の、どちらを用いてもよい。</p><h2><a class="nav-anchor" id="ベクトルを引数とする関数-1" href="#ベクトルを引数とする関数-1">■ ベクトルを引数とする関数</a></h2><p><a href="ch08.html#総和関数-sum-1">■ 総和関数 sum</a> のように、ベクトルを引数とする関数がある。</p><h3><a class="nav-anchor" id="積-1" href="#積-1">■ 積</a></h3><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/collections/#Base.prod"><code>Base.prod</code> — Function</a></p></li></ul><pre><code class="language-julia-repl">julia&gt; v=[2,3,4];
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第9回： ■ 配列要素の操作・▶常微分方程式の数値解法 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li class="current"><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a><ul class="internal"><li><a class="toctext" href="#ベクトルを引数とする関数-1">■ ベクトルを引数とする関数</a></li><li><a class="toctext" href="#複数の数を引数とする関数-1">■ 複数の数を引数とする関数</a></li><li><a class="toctext" href="#splatting演算子-1">■ splatting演算子</a></li><li><a class="toctext" href="#ベクトル要素への代入-1">■ ベクトル要素への代入</a></li><li><a class="toctext" href="#素数の生成：エラトステネスの篩-1">■ 素数の生成：エラトステネスの篩</a></li><li><a class="toctext" href="#常微分方程式の初期値問題:Euler法-1">▶ 常微分方程式の初期値問題:Euler法</a></li><li><a class="toctext" href="#常微分方程式の初期値問題:修正Euler法-1">▶ 常微分方程式の初期値問題:修正Euler法</a></li><li><a class="toctext" href="#練習：常微分方程式の数値解の誤差-1">◀▼ 練習：常微分方程式の数値解の誤差</a></li><li><a class="toctext" href="#練習：-条件が成り立つまで繰り返す：微分方程式の初期値問題-1">◀▼ 練習： 条件が成り立つまで繰り返す：微分方程式の初期値問題</a></li><li><a class="toctext" href="#練習：常微分方程式・素性の悪い問題-1">◀▼ 練習：常微分方程式・素性の悪い問題</a></li><li><a class="toctext" href="#今回のまとめ-1">★ 今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch10.html">第10回：線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：関数の定義と呼び出し</a></li><li><a class="toctext" href="ch12.html">第12回：ファイル入出力</a></li><li><a class="toctext" href="ch13.html">第13回：検討中</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li></ul></nav><hr/><div id="topbar"><span>第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch09-1" href="#ch09-1">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></h1><h2><a class="nav-anchor" id="ベクトルを引数とする関数-1" href="#ベクトルを引数とする関数-1">■ ベクトルを引数とする関数</a></h2><p><a href="ch08.html#総和関数-sum-1">■ 総和関数 sum</a> のように、ベクトルを引数とする関数がある。</p><h3><a class="nav-anchor" id="積-1" href="#積-1">■ 積</a></h3><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/collections/#Base.prod"><code>Base.prod</code> — Function</a></p></li></ul><pre><code class="language-julia-repl">julia&gt; v=[2,3,4];
 
 julia&gt; prod(v)
 24
@@ -494,4 +444,4 @@ ylim(1e-5,1e-1)</code></pre><pre><code class="language-none">(h, e) = (0.4, 0.00
 \dfrac{dx}{dt} &amp; = x^2, \\
 x(0) &amp; = \dfrac{1}{2}, \\
 &amp; 0 \le t &lt; 2
-\end{align*}\]</div><p>解析解は、</p><div>\[x = \dfrac{1}{2-t}\]</div><p>となり、<span>$t \longrightarrow 0$</span> で無限大に発散する「素性の悪い」方程式である。</p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>繰返し内部からの脱出</p></li><li><p>ベクトルを引数とする関数</p></li><li><p>複数の数を引数とする関数</p></li><li><p>splatting演算子</p></li><li><p>ベクトル要素への代入</p></li><li><p>エラトステネスの篩：素数を算出する</p></li><li><p>微分方程式の初期値問題、Euler法、修正Euler法</p></li></ul><footer><hr/><a class="previous" href="ch08.html"><span class="direction">Previous</span><span class="title">第8回： ▶︎ 総和・数値積分</span></a><a class="next" href="ch10.html"><span class="direction">Next</span><span class="title">第10回：線形代数</span></a></footer></article></body></html>
+\end{align*}\]</div><p>解析解は、</p><div>\[x = \dfrac{1}{2-t}\]</div><p>となり、<span>$t \longrightarrow 0$</span> で無限大に発散する「素性の悪い」方程式である。</p><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><ul><li><p>ベクトルを引数とする関数</p></li><li><p>複数の数を引数とする関数</p></li><li><p>splatting演算子</p></li><li><p>ベクトル要素への代入</p></li><li><p>エラトステネスの篩：素数を算出する</p></li><li><p>微分方程式の初期値問題、Euler法、修正Euler法</p></li></ul><footer><hr/><a class="previous" href="ch08.html"><span class="direction">Previous</span><span class="title">第8回： ▶︎ 総和・数値積分</span></a><a class="next" href="ch10.html"><span class="direction">Next</span><span class="title">第10回：線形代数</span></a></footer></article></body></html>

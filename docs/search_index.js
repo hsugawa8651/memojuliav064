@@ -1421,7 +1421,23 @@ var documenterSearchIndex = {"docs": [
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "◀ 練習：Riemann和・台形則",
     "category": "section",
-    "text": "以下の定積分の近似値を、Riemann和と台形則でそれぞれ評価してみよ。 (注記されていない)定積分の理論値は各自計算せよ。ßbegingather*\nint^1_0 3x^2dx \nint^1_0 3 left(x+1 right)^2dx \nint^1_0 expxdx \nint^2_0 dfrac1(1+x)^2dx=dfrac23 \nint^pi_0 sinxdx \nint^1_-1 frac21+x^2dx = pi\nendgather*"
+    "text": "以下の定積分の近似値を、Riemann和と台形則でそれぞれ評価してみよ。 (注記されていない)定積分の理論値は各自計算せよ。begingather*\nint^1_0 3x^2dx \nint^1_0 3 left(x+1 right)^2dx \nint^1_0 expxdx \nint^2_0 dfrac1(1+x)^2dx=dfrac23 \nint^pi_0 sinxdx \nint^1_-1 frac21+x^2dx = pi\nendgather*"
+},
+
+{
+    "location": "ch08.html#繰返し内部からの脱出-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "■ 繰返し内部からの脱出",
+    "category": "section",
+    "text": "Repeated Evaluation: Loopsfor文の繰り返し (forブロック)の内部で、break 文を使うと、現在繰り返し中のループから直ちに抜けることができる。for i = 1:1000\n  println(i)\n  if i >= 5\n    break\n  end\nend乱数の値が 08 を超えるまで繰り返す。for i in 1:10\n  r=rand()\n  println(r)\n  if r > 0.8\n    break\n  end\nend二重ループ、内側のループからの脱出for j in 1:3\n  for i in 1:5\n    println(\"i=\"*string(i)*\" j=\"*string(j))\n    if i >= 3\n      break\n    end\n  end\nend一つのfor文に二つの繰り返しを書いた場合、breakで for文全体から抜けてしまう。for j in 1:3, i in 1:5\n  println(\"i=\"*string(i)*\" j=\"*string(j))\n  if i >= 3\n    break\n  end\nendforブロックの内部で、continue 文を使うと、次の繰り返しに直ちに移動できる。 以下で、i % 3 は rem(i,3) と同じである。 参考→ ■ 残余 rem と整商 divfor i = 1:10\n  if i % 3 != 0\n    continue\n  end\n  println(i)\nend"
+},
+
+{
+    "location": "ch08.html#練習：-条件が成り立つまで繰り返す：数値積分-1",
+    "page": "第8回： ▶︎ 総和・数値積分",
+    "title": "◀▼ 練習： 条件が成り立つまで繰り返す：数値積分",
+    "category": "section",
+    "text": "(少し難しいので、後回しにしてもよい)分割数 nを 2^20まで、2の冪乗で増やしていけ、 ただし、相対誤差が 10^-4 以下になったら、そこで終了せよ。▶︎ Riemann和（関数 sumを用いる) 、または、 ▶︎ 台形則（関数 sumを用いる) の、どちらを用いてもよい。"
 },
 
 {
@@ -1429,7 +1445,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第8回： ▶︎ 総和・数値積分",
     "title": "今回のまとめ",
     "category": "section",
-    "text": "ベクトルのインデックス\n要素が 0または1のベクトルの生成\nベクトルの総和 sum\n級数和\nフーリエ級数の和\n数値積分：Riemann和\n数値積分：台形則"
+    "text": "ベクトルのインデックス\n要素が 0または1のベクトルの生成\nベクトルの総和 sum\n級数和\nフーリエ級数の和\n数値積分：Riemann和\n数値積分：台形則\n繰返し内部からの脱出"
 },
 
 {
@@ -1446,22 +1462,6 @@ var documenterSearchIndex = {"docs": [
     "title": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "category": "section",
     "text": ""
-},
-
-{
-    "location": "ch09.html#繰返し内部からの脱出-1",
-    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
-    "title": "■ 繰返し内部からの脱出",
-    "category": "section",
-    "text": "Repeated Evaluation: Loopsfor文の繰り返し (forブロック)の内部で、break 文を使うと、現在繰り返し中のループから直ちに抜けることができる。for i = 1:1000\n  println(i)\n  if i >= 5\n    break\n  end\nend乱数の値が 08 を超えるまで繰り返す。for i in 1:10\n  r=rand()\n  if r > 0.8\n    break\n  end\n  println(r)\nend二重ループ、内側のループからの脱出for j in 1:3\n  for i in 1:5\n    println(\"i=\"*string(i)*\" j=\"*string(j))\n    if i >= 3\n      break\n    end\n  end\nend一つのfor文に二つの繰り返しを書いた場合、breakで for文全体から抜けてしまう。for j in 1:3, i in 1:5\n  println(\"i=\"*string(i)*\" j=\"*string(j))\n  if i >= 3\n    break\n  end\nendforブロックの内部で、continue 文を使うと、次の繰り返しに直ちに移動できる。 以下で、i % 3 は rem(i,3) と同じである。 参考→ ■ 残余 rem と整商 divfor i = 1:10\n  if i % 3 != 0\n    continue\n  end\n  println(i)\nend"
-},
-
-{
-    "location": "ch09.html#練習：-条件が成り立つまで繰り返す：数値積分-1",
-    "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
-    "title": "◀▼ 練習： 条件が成り立つまで繰り返す：数値積分",
-    "category": "section",
-    "text": "(少し難しいので、後回しにしてもよい)第8回の▶︎ 数値積分 において、分割数 nを 2^20まで、2の冪乗で増やしていけ、 ただし、相対誤差が 10^-4 以下になったら、そこで終了せよ。▶︎ Riemann和（関数 sumを用いる) 、または、 ▶︎ 台形則（関数 sumを用いる) の、どちらを用いてもよい。"
 },
 
 {
@@ -1621,7 +1621,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第9回： ■ 配列要素の操作・▶常微分方程式の数値解法",
     "title": "★ 今回のまとめ",
     "category": "section",
-    "text": "繰返し内部からの脱出\nベクトルを引数とする関数\n複数の数を引数とする関数\nsplatting演算子\nベクトル要素への代入\nエラトステネスの篩：素数を算出する\n微分方程式の初期値問題、Euler法、修正Euler法"
+    "text": "ベクトルを引数とする関数\n複数の数を引数とする関数\nsplatting演算子\nベクトル要素への代入\nエラトステネスの篩：素数を算出する\n微分方程式の初期値問題、Euler法、修正Euler法"
 },
 
 {
