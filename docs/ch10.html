@@ -15,7 +15,7 @@ end
 
 axhline(0, color=&quot;k&quot;, lw=0.5)
 axvline(0, color=&quot;k&quot;, lw=0.5)
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch10-lat1-plot.svg" alt/></p><p>どちらも正方格子 (cubic lattice) であるが、座標系の取り方が異なる。 基底 <span>$b_1, b_2$</span> で張られる格子点は、 基底 <span>$a_1, a_2$</span> で張られる格子点の中央の点も含んでいることが観察できる。</p><p>今度は、 <span>$c_1=\begin{bmatrix} 1 \\ 0 \end{bmatrix}, c_2=\begin{bmatrix} -\dfrac{1}{2} \\ -\dfrac{\sqrt{3}}{2} \end{bmatrix}$</span> で張られる格子点を描いてみる。 これは、六方格子 (hexagonal lattice) と呼ばれる。</p><div><pre><code class="language-julia">using PyPlot
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch10-lat1-plot.svg" alt/></p><p>どちらも正方格子 (cubic lattice) であるが、座標系の取り方が異なる。 基底 <span>$b_1, b_2$</span> で張られる格子点は、 基底 <span>$a_1, a_2$</span> で張られる格子点の中央の点も含んでいることが観察できる。</p><p>今度は、 <span>$c_1=\begin{bmatrix} 1 \\ 0 \end{bmatrix}, c_2=\begin{bmatrix} -\dfrac{1}{2} \\ \dfrac{\sqrt{3}}{2} \end{bmatrix}$</span> で張られる格子点を描いてみる。 これは、六方格子 (hexagonal lattice) と呼ばれる。</p><div><pre><code class="language-julia">using PyPlot
 
 c1=[ 1,0]; c2=[ -1/2, sqrt(3)/2]
 for m in -3:3, n in -3:3
