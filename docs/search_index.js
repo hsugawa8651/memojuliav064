@@ -1661,7 +1661,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第10回：行列・線形代数",
     "title": "▶ 平面ベクトルのなす角を求める",
     "category": "section",
-    "text": "ベクトル a と bの内積は、a と b のなす角theta を用いて、以下のように定義される。acdot b = leftvertarightvert leftvertbrightvert costhetaこれから、theta を求めるには、次の式を用いればよい。costheta = dfracacdot b leftvertarightvert leftvertbrightvert また、内積の定義から、自分自身の内積は、ノルムの二乗で有ることも分かる。 acdot a = leftvertarightvert^2"
+    "text": "ベクトル a と bの内積は、a と b のなす角theta を用いて、以下のように定義される。acdot b = leftvertarightvert leftvertbrightvert costhetaこれから、theta を求めるには、次の式を用いればよい。costheta = dfracacdot b leftvertarightvert leftvertbrightvert また、内積の定義から、自分自身の内積は、ノルムの二乗であることも分かる。 acdot a = leftvertarightvert^2"
 },
 
 {
@@ -1677,7 +1677,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第10回：行列・線形代数",
     "title": "■ タプル",
     "category": "section",
-    "text": "タプル (tuple)は、複数の値をカンマ , で区切って並べ、括弧 () ではさんだものである。 ベクトルと似たように使えるが、要素を更新することはできない。# 要素 1つのタプル\n(1,)\n# 要素 2つのタプル\n(1,2)\n# 要素 3つのタプル\na=(1,2,3)\n# タプルの長さ\nlength(a)\n# タプルの要素\na[2]\n# 更新はできない\na[2]=3 # => MethodError関数には、複数の値を返すものがある。このとき、タプルが用いられる。例えば、divrem(x,d) は、div(x,d) と rem(x,d) の二つの値を返す。divrem(5,3)タプルを右辺において、複数の変数に同時に代入できる。x,y=(1,2,3)\nx\ny"
+    "text": "タプル (tuple)は、複数の値をカンマ , で区切って並べ、括弧 () で囲んだものである。 ベクトルと似たように使えるが、要素を更新することはできない。# 要素 1つのタプル\n(1,)\n# 要素 2つのタプル\n(1,2)\n# 要素 3つのタプル\na=(1,2,3)\n# タプルの長さ\nlength(a)\n# タプルの要素\na[2]\n# 更新はできない\na[2]=3 # => MethodError関数には、複数の値を返すものがある。このとき、タプルが用いられる。例えば、divrem(x,d) は、div(x,d) と rem(x,d) の二つの値を返す。divrem(5,3)タプルを右辺において、複数の変数に同時に代入できる。x,y=(1,2,3)\nx\ny"
 },
 
 {
@@ -1749,7 +1749,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第10回：行列・線形代数",
     "title": "▶ 回転行列とベクトルの積",
     "category": "section",
-    "text": "以下の形の行列を回転行列という。R(theta)beginbmatrix costheta  -sintheta \nsintheta  cos theta endbmatrix回転行列とベクトルの積は、 そのベクトルを、原点の周りに 反時計方向に角 theta だけ回転する写像に対応する。x^prime = R(theta) x# 回転行列\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy=[1, 0]\nxy=r15*xy\nxy=r15*xyこれらをプロットしてみる。軌跡は円を描いた。using PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy=[1, 0]\n\nfor i in 0:20\n  plot(xy[1], xy[2], \"o\")\n  xy = r15*xy\nend\n\nxlim(-1.2,1.2)\nylim(-1.2,1.2)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot1-plot.svg\"); nothing # hide(Image: )原点以外の点 c の周りで回転させる場合は、回転の中心をずらして、beginalign*\n(x^prime-c)  = R(theta) (x-c)\nx^prime  = c + R(theta) (x-c) endalign*とすればよい。using PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy=[1, 0]\nc= [1/2,1/2]\n\nfor i in 0:20\n  plot(xy[1], xy[2], \"o\")\n  xy = c + r15*(xy-c)    \nend\n\naxvline(c[1], color=\"k\", lw=0.5)\naxhline(c[2], color=\"k\", lw=0.5)\n\nxlim(-1,2)\nylim(-1,2)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot2-plot.svg\"); nothing # hide(Image: )"
+    "text": "以下の形の行列を回転行列という。R(theta) = beginbmatrix costheta  -sintheta \nsintheta  cos theta endbmatrix回転行列とベクトルの積は、 そのベクトルを、原点の周りに 反時計方向に角 theta だけ回転する写像に対応する。x^prime = R(theta) x# 回転行列\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy=[1, 0]\nxy=r15*xy\nxy=r15*xyこれらをプロットしてみる。軌跡は円を描いた。using PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy=[1, 0]\n\nfor i in 0:20\n  plot(xy[1], xy[2], \"o\")\n  xy = r15*xy\nend\n\nxlim(-1.2,1.2)\nylim(-1.2,1.2)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot1-plot.svg\"); nothing # hide(Image: )原点以外の点 c の周りで回転させる場合は、回転の中心をずらして、beginalign*\n(x^prime-c)  = R(theta) (x-c)\nx^prime  = c + R(theta) (x-c) endalign*とすればよい。using PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy=[1, 0]\nc= [1/2,1/2]\n\nfor i in 0:20\n  plot(xy[1], xy[2], \"o\")\n  xy = c + r15*(xy-c)    \nend\n\naxvline(c[1], color=\"k\", lw=0.5)\naxhline(c[2], color=\"k\", lw=0.5)\n\nxlim(-1,2)\nylim(-1,2)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot2-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -1862,6 +1862,22 @@ var documenterSearchIndex = {"docs": [
     "title": "▶ 空間座標の基本単位ベクトル",
     "category": "section",
     "text": "a=[1,0,0]\nb=[0,1,0]\nc=[0,0,1]\ncross(a,b)\n# a×b = c\na×b\n# b×c = a\nb×c\n# c×a = b\nc×a別の正規直交系の例a=[  1/2, 1/2+sqrt(2)/4, 1/2-sqrt(2)/4]\nb=[ -1/2, 1/2-sqrt(2)/4, 1/2+sqrt(2)/4]\nc=[  1/sqrt(2), -1/2, 1/2]\n# a×b = c\na×b\n# b×c = a\nb×c\n# c×a = b\nc×aベクトル３重積３つの空間ベクトルに対して、一般に、以下が成り立つ。atimes (b times c) = (acdotc)b - (acdot b)c例： 具体的なベクトルの例で、上式が成り立つことを示せ。a=[ -3,  1,  2 ]\nb=[  2, -3,  1 ]\nc=[  1,  2, -3 ]\n# 左辺\nlhs=a×(b×c)\n# 右辺\nrhs=(a⋅c)*b - (a⋅b)*c"
+},
+
+{
+    "location": "ch10.html#行列の商（続き）-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 行列の商（続き）",
+    "category": "section",
+    "text": "行列 A と行列(またはベクトル) Yに対して、 商 A\\Y は、AX-Yの最小二乗ノルムが最小となる行列(または)ベクトル X を返す。 行列 Aが正則なら、Aの逆行列を左から Y に乗じた行列ないしベクトルと一致する。#\na=[ -3,  1,  2 ]\nb=[  2, -3,  1 ]\nw=[ a b ]\nc=[  1,  2, -3 ]\nv=w\\c\nw*v-c"
+},
+
+{
+    "location": "ch10.html#行列の階数-(ランク)-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 行列の階数 (ランク)",
+    "category": "section",
+    "text": "関数 rank(a)は、行列 a の階数（ランク, rank）を返す。a=[  1/2, 1/2+sqrt(2)/4, 1/2-sqrt(2)/4]\nb=[ -1/2, 1/2-sqrt(2)/4, 1/2+sqrt(2)/4]\nc=[  1/sqrt(2), -1/2, 1/2]\nv = [a b c]\nrank(v)\n#\na=[ -3,  1,  2 ]\nb=[  2, -3,  1 ]\nc=[  1,  2, -3 ]\nv = [a b c]\nrank(v)"
 },
 
 {
