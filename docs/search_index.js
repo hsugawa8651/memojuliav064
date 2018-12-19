@@ -1626,106 +1626,258 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "ch10.html#",
-    "page": "第10回：線形代数",
-    "title": "第10回：線形代数",
+    "page": "第10回：行列・線形代数",
+    "title": "第10回：行列・線形代数",
     "category": "page",
     "text": ""
 },
 
 {
     "location": "ch10.html#ch10-1",
-    "page": "第10回：線形代数",
-    "title": "第10回：線形代数",
+    "page": "第10回：行列・線形代数",
+    "title": "第10回：行列・線形代数",
     "category": "section",
-    "text": ""
+    "text": "## ■ ベクトルに対する演算\n\nベクトルの演算としては、これまでに、以下を説明した。\n\n- ベクトルのスカラー倍\n- ベクトル同士の和差\n- ベクトルを引数とする演算\n-- 絶対値\n-- 要素の和\n-- 要素の積\n-- 要素の平均値、標準偏差"
 },
 
 {
-    "location": "ch10.html#ベクトルのスカラー倍、和差-1",
-    "page": "第10回：線形代数",
-    "title": "▶︎ ベクトルのスカラー倍、和差",
+    "location": "ch10.html#ベクトルの線形結合からなる格子点-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ ベクトルの線形結合からなる格子点",
     "category": "section",
-    "text": "v=[1,2,3]\nv * 2\nv + 2"
+    "text": "複数のベクトルの線形結合とは、 それらのベクトルのスカラー倍を加え合わせたものを、それらのベクトルの線形結合という。二つのベクトル $ a_1=\\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix}, a_2=\\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix}$ の「整数」係数の線形結合による格子点を描く。 さらに、 $ b_1=\\begin{bmatrix} \\dfrac{1}{2} \\\\ \\dfrac{1}{2} \\end{bmatrix}, b_2=\\begin{bmatrix} \\dfrac{1}{2} \\\\ -\\dfrac{1}{2} \\end{bmatrix}$ の「整数」係数の線形結合からなる格子点を重ねる。using PyPlot\nclf() #hide\n\na1=[1,0]; a2=[0,1]\nfor m in -3:3, n in -3:3\n  r=m*a1+n*a2\n  plot(r[1], r[2], \"bo\")\nend\n\nb1=[ 1/2, 1/2]; b2=[ 1/2,-1/2]\nfor m in -3:3, n in -3:3\n  r=m*b1+n*b2\n  plot(r[1], r[2], \"r.\")\nend\n\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-lat1-plot.svg\"); nothing # hide(Image: )どちらも正方格子 (cubic lattice) であるが、座標系の取り方が異なる。 基底 b_1 b_2 で張られる格子点は、 基底 a_1 a_2 で張られる格子点の中央の点も含んでいることが観察できる。今度は、 c_1=beginbmatrix 1  0 endbmatrix c_2=beginbmatrix -dfrac12  -dfracsqrt32 endbmatrix で張られる格子点を描いてみる。 これは、六方格子 (hexagonal lattice) と呼ばれる。using PyPlot\nclf() #hide\n\nc1=[ 1,0]; c2=[ -1/2, sqrt(3)/2]\nfor m in -3:3, n in -3:3\n  r=m*c1+n*c2\n  plot(r[1], r[2], \"g.\")\nend\n\nxlim(-3,3)\nylim(-3,3)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-lat2-plot.svg\"); nothing # hide(Image: )### ▶︎ ベクトルのスカラー倍、和差\n- 絶対値\n- 随伴\n- 転置"
 },
 
 {
-    "location": "ch10.html#ベクトル関数-1",
-    "page": "第10回：線形代数",
-    "title": "▶︎ ベクトル関数",
+    "location": "ch10.html#平面ベクトルの内積-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 平面ベクトルの内積",
     "category": "section",
-    "text": "絶対値\n内積\n随伴\n転置\n空間ベクトルの外積a=[1,1,0]\nb=[1,0,1]\nc=[0,1,1]\ndot(a,b)\ncross(a,b)"
+    "text": "関数 dot(a,b) は、ベクトル a と b との内積 (inner product)を返す。中置き演算子 ⋅ を用いて a⋅b と書くこともできる。 「⋅」は、バックスラッシュ \\ に cdots と入力してから、TABキーを押すことによって入力できる。 かな漢字変換システムで入力できる「・」(中黒=なかぐろ) とは、別の文字である。"
 },
 
 {
-    "location": "ch10.html#ベクトル関数-2",
-    "page": "第10回：線形代数",
-    "title": "▶︎ ベクトル関数",
+    "location": "ch10.html#平面ベクトルのなす角を求める-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 平面ベクトルのなす角を求める",
     "category": "section",
-    "text": ""
+    "text": "ベクトル a と bの内積は、a と b のなす角theta を用いて、以下のように定義される。acdot b = leftvertarightvert leftvertbrightvert costhetaこれから、theta を求めるには、次の式を用いればよい。costheta = dfracacdot b leftvertarightvert leftvertbrightvert また、内積の定義から、自分自身の内積は、ノルムの二乗で有ることも分かる。 acdot a = leftvertarightvert^2"
 },
 
 {
-    "location": "ch10.html#多次元配列-1",
-    "page": "第10回：線形代数",
-    "title": "■ 多次元配列",
+    "location": "ch10.html#例：ベクトル同士のなす角度を求める-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 例：ベクトル同士のなす角度を求める",
     "category": "section",
-    "text": "■ ベクトルも、■ 行列も、多次元配列として表されている。"
+    "text": "上で出てきたベクトルのうち、a1, a2, c1, c2 のノルムは 1 である。a1=[1,0]; a2=[0,1]\nb1=[ 1/2, 1/2]; b2=[ 1/2,-1/2]\nc1=[ 1,0]; c2=[ -1/2, sqrt(3)/2]\nnorm(a1)\nnorm(a2)\nnorm(c1)\nnorm(c2)b1 と b2 のノルムは dfrac1sqrt2 である。 自分自身の内積の値と比較しようb1⋅b1\nnorm(b1)\nnorm(b1)^2\nb1⋅b1\nnorm(b2)\nnorm(b2)^2内積から算出した costhetaから角度 theta を得るには、関数 acos() を用いる。 関数 acos(r) は cos theta = r となるtheta をラジアンで返す。 関数 acosd(r) は、theta をラジアンで返す。これらのベクトルのなす角度を算出しよう。 a1とa2、および、b1とb2は直交している。 a1とb1は、45° をなしている。 c1とc2は、120° をなしている、ことが計算できた。acosd(a1⋅a2)\nacosd(b1⋅b2 / norm(b1) / norm(b2) )\nacosd(a1⋅b1 / norm(a1) / norm(b1) )\nacosd(c1⋅c2)"
+},
+
+{
+    "location": "ch10.html#タプル-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ タプル",
+    "category": "section",
+    "text": "タプル (tuple)は、複数の値をカンマ , で区切って並べ、括弧 () ではさんだものである。 ベクトルと似たように使えるが、要素を更新することはできない。# 要素 1つのタプル\n(1,)\n# 要素 2つのタプル\n(1,2)\n# 要素 3つのタプル\na=(1,2,3)\n# タプルの長さ\nlength(a)\n# タプルの要素\na[2]\n# 更新はできない\na[2]=3 # => MethodError関数には、複数の値を返すものがある。このとき、タプルが用いられる。例えば、divrem(x,d) は、div(x,d) と rem(x,d) の二つの値を返す。divrem(5,3)タプルを右辺において、複数の変数に同時に代入できる。x,y=(1,2,3)\nx\ny"
 },
 
 {
     "location": "ch10.html#行列-1",
-    "page": "第10回：線形代数",
+    "page": "第10回：行列・線形代数",
     "title": "■ 行列",
     "category": "section",
-    "text": "次元\n寸法\n軸\n添字a=[11 12; 21 22]\nsize(a)\na[1,1]\na[1,2]=30\na"
+    "text": "要素を ; で区切って列挙したものを、 大かっこ [] で囲むと、行列を作ることができる。a=[11 12 13 14; 21 22 23 24; 31 32 33 34]3行 4列の行列■ ベクトルも、■ 行列も、配列 (array)として表されている。 ベクトルと同じ関数が用いられる。# 寸法 => タプル\nsize(a)\n# 第1軸 = 列の寸法\nsize(a,1)\n# 第2軸 = 行の寸法\nsize(a,2)\n# 全要素数\nlength(a)"
 },
 
 {
-    "location": "ch10.html#行列のスカラー倍、和差-1",
-    "page": "第10回：線形代数",
-    "title": "■ 行列のスカラー倍、和差",
+    "location": "ch10.html#行列のスカラー倍・スカラーの和差-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 行列のスカラー倍・スカラーの和差",
     "category": "section",
-    "text": "a * 2\na + 2"
+    "text": "以下、しばらく、2x2 の正方行列を例に説明する。a = [ 11 12; 21 22]\na * 2\na + 2\na - 2"
 },
 
 {
-    "location": "ch10.html#行列関数-1",
-    "page": "第10回：線形代数",
-    "title": "■ 行列関数",
+    "location": "ch10.html#行列に列ベクトルを加減-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 行列に列ベクトルを加減",
     "category": "section",
-    "text": "随伴\n転置\n階数\n行列式a\'\na.\'\nrank(a)\ndet(a)"
+    "text": "以下、しばらく、2x2 の正方行列を例に説明する。a = [ 11 12; 21 22]\nv = [ 1, -1]\na .+ v\na .- v"
 },
 
 {
-    "location": "ch10.html#回転行列-1",
-    "page": "第10回：線形代数",
-    "title": "▶︎ 回転行列",
+    "location": "ch10.html#行列同士の加減-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 行列同士の加減",
     "category": "section",
-    "text": "楕円を回すxy=hcat([ [2*cos.(t); sin(t)] for t=0:pi/18:2pi]...)using PyPlot\nclf() #hide\nplot(xy[1,:], xy[2,:])\n\nsavefig(\"ch10-rot-ellp1-plot.svg\"); nothing # hide(Image: )R(theta) = beginbmatrix costheta  -sintheta  sintheta  costheta endbmatrixr15=[ cosd(15) -sind(15); sind(15) cosd(15)]using PyPlot\nclf() #hide\nplot(xy[1,:], xy[2,:])\nxy = r15 * xy\nplot(xy[1,:], xy[2,:])\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch10-rot-ellp2-plot.svg\"); nothing # hide(Image: )for i=1:6\n  plot(xy[1,:], xy[2,:])\n  xy = r15 * xy\nend\n\nsavefig(\"ch10-rot-ellp3-plot.svg\"); nothing # hide(Image: )"
+    "text": "a = [ 11 12; 21 22]\nb = a * 2\na + b\na - b"
+},
+
+{
+    "location": "ch10.html#添字を用いた行列の要素の読み書き-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 添字を用いた行列の要素の読み書き",
+    "category": "section",
+    "text": "行列の添字は、 第1軸(列)と第2軸(行)の番号を、カンマ , で区切って並べ、大かっこ [] で囲んだものである。ベクトルと同じように、添字で示された要素の読み出し、 添字で示された要素の書き換えができる。# 添字による要素の読み出し\na[2,2]\n# 行列の要素の更新\na[1,2]=30\na"
+},
+
+{
+    "location": "ch10.html#部分行列-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 部分行列",
+    "category": "section",
+    "text": "a=[11 12 13 14; 21 22 23 24; 31 32 33 34]\n# 列を取り出す\na[:,2]\n# 行を取り出す\na[2,:]\n# 部分行列\na[1:2,1:2]\na[2:3,2:3]"
+},
+
+{
+    "location": "ch10.html#行列に入れた点座標で図形を描画する-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 行列に入れた点座標で図形を描画する",
+    "category": "section",
+    "text": "using PyPlot\nclf() #hide\n\nxy = [ 1 2 2 1 ; 1 1 3 1 ]\n@show xy\nplot(xy[1,:], xy[2,:])\nxy = xy .+ [ 1/2, 1/2]\nplot(xy[1,:], xy[2,:])\nxlim(0,4)\nylim(0,4)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-fig1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch10.html#行列とベクトルの積-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 行列とベクトルの積",
+    "category": "section",
+    "text": "a = [ 11 12; 21 22]\nv = [ 1, -1]\na * v"
+},
+
+{
+    "location": "ch10.html#回転行列とベクトルの積-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 回転行列とベクトルの積",
+    "category": "section",
+    "text": "以下の形の行列を回転行列という。R(theta)beginbmatrix costheta  -sintheta \nsintheta  cos theta endbmatrix回転行列とベクトルの積は、 そのベクトルを、原点の周りに 反時計方向に角 theta だけ回転する写像に対応する。x^prime = R(theta) x# 回転行列\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy=[1, 0]\nxy=r15*xy\nxy=r15*xyこれらをプロットしてみる。軌跡は円を描いた。using PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy=[1, 0]\n\nfor i in 0:20\n  plot(xy[1], xy[2], \"o\")\n  xy = r15*xy\nend\n\nxlim(-1.2,1.2)\nylim(-1.2,1.2)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot1-plot.svg\"); nothing # hide(Image: )原点以外の点 c の周りで回転させる場合は、回転の中心をずらして、beginalign\n(x^prime-c)  = R(theta) (x-c)\nx^prime  = c + R(theta) (x-c) endalignとすればよい。using PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy=[1, 0]\nc= [1/2,1/2]\n\nfor i in 0:20\n  plot(xy[1], xy[2], \"o\")\n  xy = c + r15*(xy-c)    \nend\n\naxvline(c[1], color=\"k\", lw=0.5)\naxhline(c[2], color=\"k\", lw=0.5)\n\nxlim(-1,2)\nylim(-1,2)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch10.html#行列と行列の積-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 行列と行列の積",
+    "category": "section",
+    "text": "a = [ 1 2; 3 4]\nb = [ 5 6; 7 8]\na * b"
+},
+
+{
+    "location": "ch10.html#行列に入った図形を回転する-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 行列に入った図形を回転する",
+    "category": "section",
+    "text": "using PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy = [ 1 2 2 1 ; 1 1 3 1 ]\n\nfor i in 0:20\n  plot(xy[1,:], xy[2,:])\n  xy = r15*xy\nend\n\nxlim(-4,4)\nylim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot3-plot.svg\"); nothing # hide(Image: )回転中心をずらしてみるusing PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy = [ 1 2 2 1 ; 1 1 3 1 ]\nc= [1/2,1/2]\n\n\nfor i in 0:20\n  plot(xy[1,:], xy[2,:])\n  xy = c .+ r15*(xy.-c)    \nend\n\naxvline(c[1], color=\"k\", lw=0.5)\naxhline(c[2], color=\"k\", lw=0.5)\n\nxlim(-4,4)\nylim(-4,4)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch10.html#いろいろな行列の生成-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ いろいろな行列の生成",
+    "category": "section",
+    "text": ""
+},
+
+{
+    "location": "ch10.html#要素が-0-の行列を作る-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 要素が 0 の行列を作る",
+    "category": "section",
+    "text": "Base.zeros — Function関数 zerosは、要素が零 0 の行列を作るのに使える。関数 zeros(n,m) は、要素の型が浮動小数点で、寸法 (n,m) の行列を作る。\n関数 zeros(T, n,m) は、要素の型が T で、寸法 (n,m) の行列を作る。\n行列 v に対して、関数 zeros(v) は、寸法が行列 v と同じで、要素の型が行列 v の要素と同じ行列を作る。zeros(3,4) # 要素は浮動小数点\nzeros(Float64,3,4) # 上と同じ\nzeros(Int64,3,4) # 要素は整数\n\na=[11 12 13 14; 21 22 23 24; 31 32 33 34]\nzeros(a)"
+},
+
+{
+    "location": "ch10.html#要素が-1-の行列を作る-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 要素が 1 の行列を作る",
+    "category": "section",
+    "text": "Base.ones — Function関数 onesは、要素が零 1 の行列を作るのに使える。関数 ones(n,m) は、要素の型が浮動小数点で、寸法 (n,m) の行列を作る。\n関数 ones(T, n,m) は、要素の型が T で、寸法 (n,m) の行列を作る。\n行列 v に対して、関数 ones(v) は、寸法が行列 v と同じで、要素の型が行列 v の要素と同じ行列を作る。ones(3,4) # 要素は浮動小数点\nones(Float64,3,4) # 上と同じ\nones(Int64,3,4) # 要素は整数\n\na=[11 12 13 14; 21 22 23 24; 31 32 33 34]\nones(a)"
+},
+
+{
+    "location": "ch10.html#対角要素を指定して、正方行列をつくる-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 対角要素を指定して、正方行列をつくる",
+    "category": "section",
+    "text": "diag([1,2,3])"
+},
+
+{
+    "location": "ch10.html#疑似乱数を要素とする行列を作る-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 疑似乱数を要素とする行列を作る",
+    "category": "section",
+    "text": "rand(3,3)"
+},
+
+{
+    "location": "ch10.html#ベクトルをまとめて行列を作る-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ ベクトルをまとめて行列を作る",
+    "category": "section",
+    "text": "a=[1,2]\nb=[3,4]\nc=[5,6]\n[ a b c ]\nhcat(a,b,c)"
+},
+
+{
+    "location": "ch10.html#内包表現を用いて行列を作る-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 内包表現を用いて行列を作る",
+    "category": "section",
+    "text": "[[t,t.^2] for t in [0,2,4]]\nhcat([[t,t.^2] for t in [0,2,4]]...)"
+},
+
+{
+    "location": "ch10.html#楕円を描く・回転する-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 楕円を描く・回転する",
+    "category": "section",
+    "text": "using PyPlot\nclf() #hide\n\nxy=hcat([ [2*cos.(t); sin(t)] for t=0:pi/18:2pi]...)\nplot(xy[1,:], xy[2,:])\n\nxlim(-2,2)\nylim(-2,2)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot5-plot.svg\"); nothing # hide(Image: )回転させるusing PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\n\nxy=hcat([ [2*cos.(t); sin(t)] for t=0:pi/18:2pi]...)\n\nfor i in 0:5\n  plot(xy[1,:], xy[2,:])\n  xy = r15*xy    \nend\n\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot6-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
     "location": "ch10.html#行列の商-1",
-    "page": "第10回：線形代数",
-    "title": "▶︎ 行列の商",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 行列の商",
     "category": "section",
-    "text": "行列の商b=[5, 13]\na=[1 2; 3 4]\nv = a \\ b\na * v"
+    "text": "商を求めるだけなら、逆行列を計算しないa=[1 2; 2 3]\nv=[1, 1]\na\\v\nw=[3, 5]\na\\w\nb=[1 3; 1 5]\na\\b\n# 行列式\ndet(a)\n# 逆行列\ninv(a)\na^(-1)楕円を逆回転させるusing PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\n\nxy=hcat([ [2*cos.(t); sin(t)] for t=0:pi/18:2pi]...)\n\nfor i in 0:5\n  plot(xy[1,:], xy[2,:])\n  xy = r15\\xy    \nend\n\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot7-plot.svg\"); nothing # hide(Image: )行列式が 0 の行列は、正則ではないa=[1 2; 2 4]\ndet(a)\nv=[1, 1]\n# 例外を発生する\na\\v# 例外を発生する\ninv(a)"
+},
+
+{
+    "location": "ch10.html#空間ベクトル：なす角を求める-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 空間ベクトル：なす角を求める",
+    "category": "section",
+    "text": "空間ベクトルとは、寸法 3 のベクトルである。 内積が 0 なら、それらのベクトルは直交である。例: 以下の３つのベクトルが、互いに直行することを示せ。a=[  1/2, 1/2+sqrt(2)/4, 1/2-sqrt(2)/4]\nb=[ -1/2, 1/2-sqrt(2)/4, 1/2+sqrt(2)/4]\nc=[  1/sqrt(2), -1/2, 1/2]\nnorm(a)\nnorm(b)\nnorm(c)\ndot(a,b)\na⋅b\nb⋅c\nc⋅a二つのベクトルのなす角を求めよ。a=[ -3,  1,  2 ]\nb=[  2, -3,  1 ]\nab=a⋅b\nna=norm(a)\nnb=norm(b)\nr=ab/na/nb\n# ラジアン単位\nacos(r)\n# 角度単位\nacosd(r)\n# 一行で書ける\nacosd( a⋅b / norm(a) / norm(b) )"
+},
+
+{
+    "location": "ch10.html#空間ベクトルの外積-1",
+    "page": "第10回：行列・線形代数",
+    "title": "■ 空間ベクトルの外積",
+    "category": "section",
+    "text": "関数 cross(a,b) は、空間ベクトル a と b との外積またはベクトル積 (outer product)を返す。中置き演算子 × を用いて a×b と書くこともできる。 ×は、バックスラッシュ \\ に times と入力してから、TABキーを押すことによって入力できる。 かな漢字変換システムで入力できる「✕」 とは、別の文字である。外積 atimes b の向きは、a から b へ回転したとき、右ねじが進む方向である。外積 atimes b の大きさは、 a と b のなす角 theta を用いて、以下のように定義される。 これは、ベクトル a と b がなす平行四辺形の面積である。leftvert atimes brightvert = leftvertarightvert leftvertbrightvert sintheta"
+},
+
+{
+    "location": "ch10.html#空間座標の基本単位ベクトル-1",
+    "page": "第10回：行列・線形代数",
+    "title": "▶ 空間座標の基本単位ベクトル",
+    "category": "section",
+    "text": "a=[1,0,0]\nb=[0,1,0]\nc=[0,0,1]\ncross(a,b)\n# a×b = c\na×b\n# b×c = a\nb×c\n# c×a = b\nc×a別の正規直交系の例a=[  1/2, 1/2+sqrt(2)/4, 1/2-sqrt(2)/4]\nb=[ -1/2, 1/2-sqrt(2)/4, 1/2+sqrt(2)/4]\nc=[  1/sqrt(2), -1/2, 1/2]\n# a×b = c\na×b\n# b×c = a\nb×c\n# c×a = b\nc×aベクトル３重積３つの空間ベクトルに対して、一般に、以下が成り立つ。atimes (b times c) = (acdotc)b - (acdot b)c例： 具体的なベクトルの例で、上式が成り立つことを示せ。a=[ -3,  1,  2 ]\nb=[  2, -3,  1 ]\nc=[  1,  2, -3 ]\n# 左辺\nlhs=a×(b×c)\n# 右辺\nrhs=(a⋅c)*b - (a⋅b)*c"
 },
 
 {
     "location": "ch10.html#行列の固有値・固有ベクトル-1",
-    "page": "第10回：線形代数",
+    "page": "第10回：行列・線形代数",
     "title": "▶︎ 行列の固有値・固有ベクトル",
     "category": "section",
-    "text": ""
+    "text": "Ax = lambda xa=[4 1; 2 3]\nlam,v=eig(a)\na*v[:,1] - lam[1] * v[:,1]\na*v[:,2] - lam[2] * v[:,2]"
 },
 
 {
     "location": "ch10.html#今回のまとめ-1",
-    "page": "第10回：線形代数",
+    "page": "第10回：行列・線形代数",
     "title": "★ 今回のまとめ",
     "category": "section",
-    "text": ""
+    "text": "ベクトルの内積\n行列の生成\n行列に対する関数\n行列とベクトルの演算\n行列と行列の演算\n部分行列\n2次元の回転行列"
 },
 
 {
