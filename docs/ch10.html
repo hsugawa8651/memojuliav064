@@ -277,9 +277,9 @@ xlim(-1.2,1.2)
 ylim(-1.2,1.2)
 axhline(0, color=&quot;k&quot;, lw=0.5)
 axvline(0, color=&quot;k&quot;, lw=0.5)
-plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch10-rot1-plot.svg" alt/></p><p>原点以外の点 c の周りで回転させる場合は、回転の中心をずらして、</p><div>\[\begin{align}
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch10-rot1-plot.svg" alt/></p><p>原点以外の点 c の周りで回転させる場合は、回転の中心をずらして、</p><div>\[\begin{align*}
 (x^{\prime}-c) &amp; = R(\theta) (x-c) \\
-x^{\prime} &amp; = c + R(\theta) (x-c) \end{align}\]</div><p>とすればよい。</p><div><pre><code class="language-julia">using PyPlot
+x^{\prime} &amp; = c + R(\theta) (x-c) \end{align*}\]</div><p>とすればよい。</p><div><pre><code class="language-julia">using PyPlot
 
 r15=[ cosd(15) -sind(15); sind(15) cosd(15)]
 xy=[1, 0]
