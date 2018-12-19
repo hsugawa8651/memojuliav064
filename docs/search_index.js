@@ -1761,9 +1761,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch10.html#行列に入った図形を回転する-1",
+    "location": "ch10.html#座標を行列に格納した図形を回転する-1",
     "page": "第10回：行列・線形代数",
-    "title": "▶ 行列に入った図形を回転する",
+    "title": "▶ 座標を行列に格納した図形を回転する",
     "category": "section",
     "text": "using PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy = [ 1 2 2 1 ; 1 1 3 1 ]\n\nfor i in 0:20\n  plot(xy[1,:], xy[2,:])\n  xy = r15*xy\nend\n\nxlim(-4,4)\nylim(-4,4)\naxhline(0, color=\"k\", lw=0.5)\naxvline(0, color=\"k\", lw=0.5)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot3-plot.svg\"); nothing # hide(Image: )回転中心をずらしてみるusing PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\nxy = [ 1 2 2 1 ; 1 1 3 1 ]\nc= [1/2,1/2]\n\n\nfor i in 0:20\n  plot(xy[1,:], xy[2,:])\n  xy = c .+ r15*(xy.-c)    \nend\n\naxvline(c[1], color=\"k\", lw=0.5)\naxhline(c[2], color=\"k\", lw=0.5)\n\nxlim(-4,4)\nylim(-4,4)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot4-plot.svg\"); nothing # hide(Image: )"
 },
@@ -1797,7 +1797,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第10回：行列・線形代数",
     "title": "■ 対角要素を指定して、正方行列をつくる",
     "category": "section",
-    "text": "diag([1,2,3])"
+    "text": "diagm([1,2,3])"
 },
 
 {
@@ -1829,7 +1829,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第10回：行列・線形代数",
     "title": "▶ 楕円を描く・回転する",
     "category": "section",
-    "text": "using PyPlot\nclf() #hide\n\nxy=hcat([ [2*cos.(t); sin(t)] for t=0:pi/18:2pi]...)\nplot(xy[1,:], xy[2,:])\n\nxlim(-2,2)\nylim(-2,2)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot5-plot.svg\"); nothing # hide(Image: )回転させるusing PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\n\nxy=hcat([ [2*cos.(t); sin(t)] for t=0:pi/18:2pi]...)\n\nfor i in 0:5\n  plot(xy[1,:], xy[2,:])\n  xy = r15*xy    \nend\n\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot6-plot.svg\"); nothing # hide(Image: )"
+    "text": "using PyPlot\nclf() #hide\n\nxy=hcat([ [2*cos.(t), sin(t)] for t=0:pi/18:2pi]...)\nplot(xy[1,:], xy[2,:])\n\nxlim(-2.2,2.2)\nylim(-2.2,2.2)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot5-plot.svg\"); nothing # hide(Image: )回転させるusing PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\n\nxy=hcat([ [2*cos.(t), sin(t)] for t=0:pi/18:2pi]...)\n\nfor i in 0:5\n  plot(xy[1,:], xy[2,:])\n  xy = r15*xy    \nend\n\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot6-plot.svg\"); nothing # hide(Image: )"
 },
 
 {
@@ -1837,7 +1837,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第10回：行列・線形代数",
     "title": "■ 行列の商",
     "category": "section",
-    "text": "商を求めるだけなら、逆行列を計算しないa=[1 2; 2 3]\nv=[1, 1]\na\\v\nw=[3, 5]\na\\w\nb=[1 3; 1 5]\na\\b\n# 行列式\ndet(a)\n# 逆行列\ninv(a)\na^(-1)楕円を逆回転させるusing PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\n\nxy=hcat([ [2*cos.(t); sin(t)] for t=0:pi/18:2pi]...)\n\nfor i in 0:5\n  plot(xy[1,:], xy[2,:])\n  xy = r15\\xy    \nend\n\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot7-plot.svg\"); nothing # hide(Image: )行列式が 0 の行列は、正則ではないa=[1 2; 2 4]\ndet(a)\nv=[1, 1]\n# 例外を発生する\na\\v# 例外を発生する\ninv(a)"
+    "text": "商を求めるだけなら、逆行列を計算しないa=[1 2; 2 3]\nv=[1, 1]\na\\v\nw=[3, 5]\na\\w\nb=[1 3; 1 5]\na\\b\n# 行列式\ndet(a)\n# 逆行列\ninv(a)\na^(-1)楕円を逆回転させるusing PyPlot\nclf() #hide\n\nr15=[ cosd(15) -sind(15); sind(15) cosd(15)]\n\nxy=hcat([ [2*cos.(t), sin(t)] for t=0:pi/18:2pi]...)\n\nfor i in 0:5\n  plot(xy[1,:], xy[2,:])\n  xy = r15\\xy    \nend\n\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch10-rot7-plot.svg\"); nothing # hide(Image: )行列式が 0 の行列は、正則ではないa=[1 2; 2 4]\ndet(a)\nv=[1, 1]\n# 例外を発生する\na\\v# 例外を発生する\ninv(a)"
 },
 
 {
