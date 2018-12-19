@@ -1657,9 +1657,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch10.html#平面ベクトルのなす角を求める-1",
+    "location": "ch10.html#平面ベクトル同士のなす角を求める-1",
     "page": "第10回：行列・線形代数",
-    "title": "▶ 平面ベクトルのなす角を求める",
+    "title": "▶ 平面ベクトル同士のなす角を求める",
     "category": "section",
     "text": "ベクトル a と bの内積は、a と b のなす角theta を用いて、以下のように定義される。acdot b = leftvertarightvert leftvertbrightvert costhetaこれから、theta を求めるには、次の式を用いればよい。costheta = dfracacdot b leftvertarightvert leftvertbrightvert また、内積の定義から、自分自身の内積は、ノルムの二乗であることも分かる。 acdot a = leftvertarightvert^2"
 },
