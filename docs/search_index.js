@@ -1913,6 +1913,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch11.html#画像と画像ファイル-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ 画像と画像ファイル",
+    "category": "section",
+    "text": ""
+},
+
+{
     "location": "ch11.html#プロット寸法の調整-1",
     "page": "第11回：ファイル入出力",
     "title": "▶ プロット寸法の調整",
@@ -1985,6 +1993,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "ch11.html#テキストファイルからの読み込み-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ テキストファイルからの読み込み",
+    "category": "section",
+    "text": ""
+},
+
+{
     "location": "ch11.html#テキストファイルからの行単位の読み込み-1",
     "page": "第11回：ファイル入出力",
     "title": "▶ テキストファイルからの行単位の読み込み",
@@ -2019,7 +2035,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "ch11.html#CSVファイルから配列を作る-1",
     "page": "第11回：ファイル入出力",
-    "title": "CSVファイルから配列を作る",
+    "title": "▶ CSVファイルから配列を作る",
     "category": "section",
     "text": "以上を組合せて、CSVファイルを読み込み、値を配列としてまとめることができる。xs=zeros(Int64,0)\nys=zeros(Float64,0)\n\nopen( \"test2.csv\" ) do f\n  i=0\n  for line in eachline(f)\n    i += 1\n    i == 1 && continue\n    s=split(line, \",\")\n    x=parse(Int64, s[1])\n    push!(xs, x)\n    y=parse(Float64, s[2])\n    push!(ys, y)\n  end\nend\n@show xs\n@show ys続けて、データをプロットすると、using PyPlot\nclf() #hide\nplot(ys, \".\")\nsavefig(\"ch11-csv1.svg\"); nothing # hide(Image: )"
 },
