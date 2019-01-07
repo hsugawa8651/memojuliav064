@@ -757,7 +757,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "より小さい",
     "category": "section",
-    "text": "Base.:< - Function\nBase.:<= - Function演算子<は、a < b のように用いて、aの値がbの値よりも小さいか否か。 演算子>=は、a <= b のように用いて、aの値がbの値以下であるか否か判定する。2 < 1\n2 <= 1\n2 <= 2"
+    "text": "Base.:< - Function\nBase.:<= - Function演算子 < は、a < b のように用いて、a の値が b の値よりも小さいか否か。 演算子 >= は、a <= b のように用いて、a の値が b の値以下であるか否か判定する。2 < 1\n2 <= 1\n2 <= 2"
 },
 
 {
@@ -789,7 +789,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "■ 3項演算子",
     "category": "section",
-    "text": "Operatorsa ? b : c条件aが真(true)なら bを、偽なら c を値とする「マクロ」である。m= 2 > 1 ? \"yes\" : \"no\"\n@show mif式を用いて ▶︎ 絶対値関数 を、以下のように書くこともできる。myabs2(x) = x >= 0 ? x : -x\n\n@show myabs2(-1)"
+    "text": "Operatorsa ? b : c条件 a が真(true)なら b を、偽なら c を値とする「マクロ」である。m= 2 > 1 ? \"yes\" : \"no\"\n@show mif式を用いて ▶︎ 絶対値関数 を、以下のように書くこともできる。myabs2(x) = x >= 0 ? x : -x\n\n@show myabs2(-1)"
 },
 
 {
@@ -805,7 +805,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "論理否定",
     "category": "section",
-    "text": "Base.:! — Function論理否定 ! aは、aの論理値を反転する。! true\n! false"
+    "text": "Base.:! — Function論理否定 ! a は、aの論理値を反転する。! true\n! false"
 },
 
 {
@@ -813,7 +813,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "論理積",
     "category": "section",
-    "text": "&& - Keyword論理積 acdot bは、aとbとの両方がtrueのときだけ trueとなる。 aとbとの、少なくとも一つが false なら、false　となる。true && true\ntrue && false\nfalse && false\nfalse && false"
+    "text": "&& - Keyword論理積 acdot bは、aとbとの両方が true のときだけ true となる。 aとbとの、少なくとも一つが false なら、false　となる。true && true\ntrue && false\nfalse && false\nfalse && false"
 },
 
 {
@@ -821,7 +821,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "論理和",
     "category": "section",
-    "text": "|| - Keyword論理和 論理積 a + bは、aとbとの少なくとも一つがtrueのとき trueとなる。 aとbとのどちらも false のときは、false　となる。true || true\ntrue || false\nfalse || false\nfalse || false## ■ 短絡評価\n\n[Short-Circuit Evaluation](https://docs.julialang.org/en/v0.6.4/manual/control-flow/#Short-Circuit-Evaluation-1)\n\n論理積 `a && b` を評価する場合、\n`a` が 偽 `false`なら、`b`を評価しない。\n`a` が 真 `false`なら、`b` も評価する。\n\n論理和 `a || b` を評価する場合、\n`a` が 真 `true` なら、`b`を評価しない。\n`a` が 偽 `true` なら、`b` も評価する。"
+    "text": "|| - Keyword論理和 論理積 a + bは、aとbとの少なくとも一つがtrue のとき true となる。 aとbとのどちらも false のときは、false　となる。true || true\ntrue || false\nfalse || false\nfalse || false## ■ 短絡評価\n\n[Short-Circuit Evaluation](https://docs.julialang.org/en/v0.6.4/manual/control-flow/#Short-Circuit-Evaluation-1)\n\n論理積 `a && b` を評価する場合、\n`a` が 偽 `false`なら、`b`を評価しない。\n`a` が 真 `false`なら、`b` も評価する。\n\n論理和 `a || b` を評価する場合、\n`a` が 真 `true` なら、`b`を評価しない。\n`a` が 偽 `true` なら、`b` も評価する。"
 },
 
 {
@@ -837,7 +837,7 @@ var documenterSearchIndex = {"docs": [
     "page": "第5回：■ 条件式・■ 条件分岐",
     "title": "▶︎ 総当たりによる不定方程式の解法",
     "category": "section",
-    "text": "方程式の数よりも、未知数の数が少ない方程式を不定方程式という。 未知数の性質が決まっていれば、未知数の候補を、方程式に代入して、 成り立つ未知数の組合せを求めることができる (総当たり攻撃, brute-force attack)。問題　「負ではない三つの整数 x y z が、次の二つの等式を同時に満たすという。x + y + z = 24x+2y+4z = 51三つの数 x y zの組合せを全て求めよ。」ここで、 x y z は、0から24までの整数である。 x y z の全ての組み合わせに対して、二つの等式が成り立つ条件を、if文に渡す。for z=0:24\n  for y=0:24\n    for x=0:24\n      if x+y+z==24 && x+2*y+4*z==51\n        @show x,y,z\n      end\n    end\n  end\nend"
+    "text": "方程式の数よりも、未知数の数が少ない方程式を不定方程式という。 未知数の性質が決まっていれば、未知数の候補を、方程式に代入して、 成り立つ未知数の組合せを求めることができる (総当たり攻撃, brute-force attack)。問題　「負ではない三つの整数 x y z が、次の二つの等式を同時に満たすという。x + y + z = 24x+2y+4z = 51三つの数 x y z の組合せを全て求めよ。」ここで、 x y z は、0から24までの整数である。 x y z の全ての組み合わせに対して、二つの等式が成り立つ条件を、if文に渡す。for z=0:24\n  for y=0:24\n    for x=0:24\n      if x+y+z==24 && x+2*y+4*z==51\n        @show x,y,z\n      end\n    end\n  end\nend"
 },
 
 {
@@ -1898,90 +1898,578 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "ch11.html#",
-    "page": "第11回：関数の定義と呼び出し",
-    "title": "第11回：関数の定義と呼び出し",
+    "page": "第11回：ファイル入出力",
+    "title": "第11回：ファイル入出力",
     "category": "page",
     "text": ""
 },
 
 {
     "location": "ch11.html#ch11-1",
-    "page": "第11回：関数の定義と呼び出し",
-    "title": "第11回：関数の定義と呼び出し",
+    "page": "第11回：ファイル入出力",
+    "title": "第11回：ファイル入出力",
     "category": "section",
     "text": ""
 },
 
 {
-    "location": "ch11.html#関数の定義-1",
-    "page": "第11回：関数の定義と呼び出し",
-    "title": "■ 関数の定義",
+    "location": "ch11.html#プロット寸法の調整-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ プロット寸法の調整",
     "category": "section",
-    "text": ""
+    "text": "PyPlotパッケージで描くグラフの寸法を調整する方法を紹介する。描画範囲を指定するには、命令 plt[:figure](figsize=(x,y)) を用いる。 x と y　は、横 x, 縦 y の寸法を、インチ単位で指定する。 1 inch = 25.4 mm である。以下の例では、描画範囲を、横と縦をどちらも 80 mm に変更する。using PyPlot\nclf() #hide\nplt[:figure](figsize=(80./25.4, 80./25.4))\nplot([0,1,2])\nplot([2,1,0])\nsavefig(\"ch11-plot1.svg\"); nothing # hide(Image: )軸の位置、あるいは、軸の周囲の余白(margin)の割合を指定するには、 関数 plt[:figure]() で得られる fig オブジェクトに対して、 命令 fig[:subplots_adjust]() を用いる。横方向では、描画範囲の左端を 0、右端を 1 として、 left= で左軸の位置(割合)を、right=で、右軸の位置(割合)を指定する。縦方向では、描画範囲の下端を 0、上端を 1 として、 bottom= で下軸の位置(割合)を、top=で、上軸の位置(割合)を指定する。下の例では left=0.2, right=0.9, bottom=0.2, top=0.9 としたので、 左と下の軸を各々の端から 20 %、 右と上の軸を各々の端から 10 % に配置する。using PyPlot\nclf() #hide\nfig=plt[:figure]()\nfig[:subplots_adjust](left=0.2, right=0.9, bottom=0.2, top=0.9)\nax=fig[:add_subplot](111)\nax[:plot]([0,1,2])\nax[:plot]([2,1,0])\nsavefig(\"ch11-plot2.svg\"); nothing # hide(Image: )この二つを組み合わせると、左右または上下の軸の間隔を寸法で指定できる。下の例では、左右および上下の軸の間隔を 40 mm とする。using PyPlot\nclf() #hide\nm_left=0.2; m_right=0.9; m_bottom=0.2; m_top=0.9\nfx=40.0/(m_right-m_left)\nfy=40.0/(m_top-m_bottom)\nfig=plt[:figure](figsize=(fx/25.4, fy/25.4))\nfig[:subplots_adjust](left=m_left, right=m_right, bottom=m_bottom, top=m_top)\nax=fig[:add_subplot](111)\nax[:plot]([0,1,2])\nax[:plot]([2,1,0])\nax[:set_xlim](0,2)\nax[:set_ylim](0,2)\nsavefig(\"ch11-plot3.svg\"); nothing # hide(Image: )"
 },
 
 {
-    "location": "ch11.html#メソッド-1",
-    "page": "第11回：関数の定義と呼び出し",
-    "title": "■ メソッド",
+    "location": "ch11.html#ファイル名・パス名・拡張子-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ ファイル名・パス名・拡張子",
     "category": "section",
-    "text": "多重ディスパッチ"
+    "text": "Windows, MacOS, Linux など、多くのオペレーティング・システム (OS; Operating System) では、 フォルダ(folder)あるいはディレクトリ(directory)と呼ばれる階層構造の中に、ファイルは格納される。ファイルが格納されたフォルダーは、「ファイルの属性」で調べることができる。Windows10 のデスクトップ・アプリケーション「ペイント」で適当な絵を描いて、PNG形式で image1.png という名前でデスクトップに保存しよう。ファイル image1.png をデスクトップ上で選んで右クリック、「プロパティ」メニューを選ぶと、そのファイルの属性（プロパティ）が表示される。「場所」という属性に、このファイルが格納されたフォルダが表示される。 Windows 10では　c:¥Users¥hs¥Desktop というフォルダ名は、ユーザ名 hs のデスクトップである。 このファイルの完全な名前 (絶対パス absolute path; あるいはフルパス full path)は  c:¥Users¥hs¥Desktop¥image1.png である。このファイルの名前は、.png で終わっている。この部分は、ファイルの種類を示しており、拡張子と呼ばれる。(Image: )note: Note\nデスクトップやエクスプローラでは、いくつかの拡張子が表示されない設定になっている場合がある。 拡張子を表示するには、次のようにする。「コントローラ・パネル」から「エクスプローラ・オプション」を開く\n「表示」タブを選択\n「登録されている拡張子は表示しない」のチェックを外す\n下の「OK」ボタンを押すと、この設定が適用される(Image: )"
 },
 
 {
-    "location": "ch11.html#タプル-1",
-    "page": "第11回：関数の定義と呼び出し",
-    "title": "■ タプル",
+    "location": "ch11.html#画像ファイルの保存-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ 画像ファイルの保存",
     "category": "section",
-    "text": "Tuple Types\ntuple\n[ntuple](https://docs.julialang.org/en/v0.6/stdlib/base/#Base.ntuple）"
+    "text": "関数 savefig(fn) は、PyPlotパッケージで描いたグラフをファイル名 fn として保存する命令である。以下では、ch11-image1.png という名前でファイルが作成・保存する。 拡張子 .png の指定で、 PNG画像ファイルが作成される。同じ名前のファイル名が存在しても警告されず、上書きされる。using PyPlot\nclf() #hide\nplt[:figure](figsize=(80./25.4, 80./25.4))\nplot([0,1,2])\nplot([2,1,0])\nsavefig(\"ch11-image1.png\")(Image: )note: Note\n「相対パスと絶対パス」フォルダあるいはディレクトリの区切りに使われる文字は OS毎に異なるが、 Julia言語では、OSに依らずスラッシュ文字 / で区切ることになっている。上の例のように、フォルダを指定せずに、ファイル名のみ指定する場合を相対パス (relative path )による指定という。相対パスでは、現在の作業フォルダ（working folder、あるいは、カレント・フォルダ, current folder)の下に、ファイルが保存される。現在の作業フォルダは、関数 Base.pwd() で得られる。(print working directory)Base.pwd()  # 各自異なる場合があるカレント・フォルダを変更するには、関数 Base.cd() を用いる。(change working directory)ユーザ名 hs のデスクトップは、Windows 10 や MacOS のどちらでも /Users/hs/Desktop というフォルダ名であるので、 ユーザ名 hsのユーザが、作業フォルダーをデスクトップに変更するには、Base.cd(\"/Users/hs/Desktop\")  # 各自の環境に応じて書き換えることとする。これに対して、savefig( \"/Users/hs/Desktop/ch11-image1.png\" ) のように、 絶対パス (absolute path)でファイル名を指定してもよい。note: Note\n「保守的なファイル名の選択」ファイル名やフォルダー名（ディレクトリ名）に用いられる文字の種類は、 OS やネットワーク・システムにより異なる。 ファイル名の「文字化け」を避けるために、ファイル名は、以下のように選んでおくことを勧める。ファイル名は、半角の英数字およびマイナス記号 - のみで構成する。\n拡張子の前に半角のピリオド . を用いてもよい\n半角の英大文字と英小文字は区別されないとする"
 },
 
 {
-    "location": "ch11.html#複数の値を返す関数-1",
-    "page": "第11回：関数の定義と呼び出し",
-    "title": "■ 複数の値を返す関数",
+    "location": "ch11.html#画像ファイルの種類-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ 画像ファイルの種類",
     "category": "section",
-    "text": "Multiple Return Valuesdivremdivrem(3,7)\ndivrem(7,3)fldmodfldmod(3,7)\nfldmod(7,3)"
+    "text": "画像ファイルの形式は、大きく分けてビットマップ画像とベクトル(またはベクタ)画像に大別できる。ビットマップ画像は、画素 (pixel) の集合として画像を格納するファイル形式である。JPEGファイル (拡張子 JPG) は、写真画像によく用いられる。圧縮率は高いが、元の画像を復元しない場合がある。\nGIFファイル。256色までの画像を表現できる。複数の画像を格納でき、アニメーションを表示できる。\nPNGファイル。より多数の色を表現できる。元の画像に劣化がなく復元できる。ベクトル画像は、直線や円などの図形の組合せとして画像を格納するファイル形式である。EPS (Encapsulated PostScript)\nPDF (Portable Document Format)\nSVG (Scalable Vector Graphics)\nWMF (Windows Metafile)"
+},
+
+{
+    "location": "ch11.html#画像ファイルの保存オプション-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ 画像ファイルの保存オプション",
+    "category": "section",
+    "text": "関数 savefig(fn) には、いくつかのキーワード引数がある。format=\"...\" : 画像ファイル形式を指定する (ファイル拡張子よりも、こちらの引数が優先される)\ndpi=数字 : 画像の解像度を、数字で指定する\ntransparent=true : 白背景を透明にするusing PyPlot\nclf() #hide\nplt[:figure](figsize=(80./25.4, 80./25.4))\nplot([0,1,2])\nplot([2,1,0])\nsavefig(\"ch11-image2.png\", format=\"png\", dpi=300, transparent=true)(Image: )note: Note\ndpi (dots per inch) は、画像の解像度であり、1インチ内の画素数を示す。粗い Webページの画像は 100 dpi 程度である。\n軽中品位の印刷物の画像は 150 dpi 程度である。\nオフィス向けプリンタの解像度は 300 から 600 dpi程度である。\n高品位な出版物では、最低 600 dpiを求められる。"
+},
+
+{
+    "location": "ch11.html#テキストファイルの作成・書き込み-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ テキストファイルの作成・書き込み",
+    "category": "section",
+    "text": "この節では、テキストファイルを作成し、テキストを書き込む方法を説明する。 一般のテキストファイルの拡張子は、txt である。テキストファイルを作成するには、関数 open と close を組で用いる。関数 open( fn, \"w\") は、ファイル名 fn のファイルを作成し、 テキストを書き込む準備を行う。ファイル fn は、既に存在していてもよい。その場合は、既に書き込まれた内容は廃棄される。ファイルが作成できない場合には例外が発生する。関数 open は、ファイル記述子 f を返す。 関数 print(f, s) は、ファイル記述子 f で指定されたファイルに文字列 s を書き込む。 関数 println(f, s) は、ファイル記述子 f で指定されたファイルに文字列 s を書き込んだ後に開業する。書き込みが終わったら、関数 close(f) を呼び出し、書き込みを終了する。f = open( \"hello1.txt\", \"w\")\nprint(f,\"Hello\")\nprintln(f,\" again.\")\nclose(f)上のプログラムを実行したら、Windows10のエクスプローラを用いて、 ファイル hello1.txtが作成されたことを確かめよ。 更に、「メモ帳」アプリを起動し、テキストが正しく書き込まれていることを確認せよ。 (※ MacOSの場合は、「ファインダー」アプリと、「テキスト・エディット」アプリに読み替えよ)上と同じ処理は、do...end 構文を用いて書くこともできる。endが終わると関数 close(f) が暗黙的に呼ばれる。open( \"hello1.txt\", \"w\") do f\n  print(f,\"Hello\")\n  println(f,\" again.\")\nend"
+},
+
+{
+    "location": "ch11.html#書式付き出力-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ 書式付き出力",
+    "category": "section",
+    "text": "関数 @print(fmt, x) は、x を 書式 fmt に従って印字する。 書式文字列 fmt は、C言語の printf関数で用いられる書式と、ほぼ同じである。なお、Jupyter notebookでは、結果が右寄せされて表示されない場合がある。書式文字列 %i は、整数を印字する。i の前に整数(フィールドサイズ)を付けると、その整数の幅で右寄せされて印字される。指定されたフィールドサイズで収まらない場合には、幅を増やして印字される。\nフィールドサイズを 0 で始めると、空白が 0 で埋められる。\nフィールドサイズの前に + を付けると、非負の数の前に + 符号がつく。@printf( \"%5i\\n\", -41 )\n@printf( \"%05i\\n\", 413 )\n@printf( \"%+5i\\n\", -413 )\n@printf( \"%+05i\\n\", -413 )\n@printf( \"%+5i\\n\", -41131 )書式文字列 %f は、小数を印字する。f の前に整数(フィールドサイズ)を付けると、その整数の幅で右寄せされて印字される。指定されたフィールドサイズで収まらない場合には、幅を増やして印字される。\nフォールドサイズに続けて、ピリオド . と整数を付けると、小数点以下の桁数を指定する。指定された小数点以下桁数で表されない場合には、丸められる。\nフィールドサイズを 0 で始めると、頭の空白が 0 で埋められる。\nフィールドサイズの前に + を付けると、非負の数の前に + 符号がつく。\nInf と NaN は、その通り印字される。@printf( \"%8.3f\\n\", -2e-2 )\n@printf( \"%08.0f\\n\", -0.252 )\n@printf( \"%8.1f\\n\", -0.252 )\n@printf( \"%08.2f\\n\", -0.252 )\n@printf( \"%8.3f\\n\", -0.252 )書式文字列 %e は、指数形式で印字する。e の前に整数(フィールドサイズ)を付けると、その整数の幅で右寄せされて印字される。フィールドサイズで収まらない場合には、幅を増やして印字される。\nフォールドサイズに続けて、ピリオド . と整数を付けると、小数点以下の桁数を指定する。指定された小数点以下桁数で表されない場合には、丸められる。\nフィールドサイズを 0 で始めると、頭の空白が 0 で埋められる。\nフィールドサイズの前に + を付けると、非負の数の前に + 符号がつく。\nInf と NaN は、その通り印字される。@printf( \"%11.5e\\n\", -0.0078125 )\n@printf( \"%12.4e\\n\", -0.0078125 )\n@printf( \"%13.3e\\n\", -0.0078125 )\n@printf( \"%13.2e\\n\", -0.0078125 )\n@printf( \"%13.1e\\n\", -0.0078125 )書式文字列 %s は、指数形式で印字する。s の前に整数(フィールドサイズ)を付けると、その整数の幅で右寄せされて印字される。フィールドサイズで収まらない場合には、幅を増やして印字される。@printf(\"%8s\\n\", \"Hello\")\n@printf(\"%8s\\n\", \"Hello world\")書式は復数使用してもよい。書式があるのに、印字すべき値がないと例外が発生する。\n書式を指定しない文字は、そのまま印字される。\n\\n は改行文字を表す。\n\\t はタブ(TAB)文字を表す。@printf( \"%.1f %15.7e\\n\", 0.025,-0.0078125 )\n@printf( \"x=%.1f        y=%15.7e\\n\", 0.025,-0.0078125 )\n# 引数が足りない例\n@printf( \"%.1f %15.7e\\n\", 0.025 )"
+},
+
+{
+    "location": "ch11.html#書式を指定して、テキストファイルに書き込む。-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ 書式を指定して、テキストファイルに書き込む。",
+    "category": "section",
+    "text": "正規乱数 10 個からなるCSVファイルを書き出そう。 関数 @printf の第一引数に、ファイル記述子 f を入れると、f で示されたファイルに印字される。open( \"test1.txt\", \"w\")　 do f\n  for i in 1:10\n    @printf(f, \"%15.7f\\n\", randn())\n  end\nend上のプログラムを実行したら、「メモ帳」アプリを起動し、数字が指定された書式で正しく書き込まれたことを確認せよ。 更に、「Excel」アプリを起動し、このファイルを1列のデータとして読み込んでみよ。"
+},
+
+{
+    "location": "ch11.html#CSVファイルへの書き込み-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ CSVファイルへの書き込み",
+    "category": "section",
+    "text": "カンマ , で区切られた値が並ぶ行から構成されるテキストファイルを CSV (Comma Separated Value) ファイルという。 表計算ソフトウエアとのデータの輸入輸出によく用いられる。 拡張子は csv である。関数 @printf を用いて、整数と浮動小数点数をカンマで区切った行を書き出そう。なお、CSVファイルの1行目に、カンマ , で区切られた文字列を、各列の表題として書くことが多い。open( \"test2.csv\", \"w\")　 do f\n  println(f, \"i,x\")\n  for i in 1:10\n    @printf(f, \"%i,%15.7f\\n\", i, randn())\n  end\nend上のプログラムを実行したら、「メモ帳」アプリを起動し、CSVファイルが正しく書き込まれていることを確認せよ。 更に、「Excel」アプリを起動し、2列のデータとして読み込んでみよ。"
+},
+
+{
+    "location": "ch11.html#テキストファイルからの行単位の読み込み-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ テキストファイルからの行単位の読み込み",
+    "category": "section",
+    "text": "関数 open( fn ) は、ファイル名 fn のファイルをテキストとして、読み込む準備を行う。 ファイル fn が読み込めない場合には例外が発生する。テキストファイルを読み込むためにも、関数 open と close を組で用いる。以下のプログラムは、テキストファイルから、１行ずつ読み込み、それを印字する。関数 readline(f) は、ファイル記述子 f からテキストを読み込み、行に分割する。このとき、行末の改行文字は取り除かれる。f=open(\"hello1.txt\")\nfor line in eachline(f)\n  print(line)\nend\nclose(f)書き込みの場合と同様、do...end 構文を用いて書くこともできる。endが終わると関数 close(f) が暗黙的に呼ばれる。open( \"hello1.txt\" ) do f\n  for line in eachline(f)\n    print(line)\n  end\nend"
+},
+
+{
+    "location": "ch11.html#文字列から数に変換する-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ 文字列から数に変換する",
+    "category": "section",
+    "text": "文字列を数に変換するには、関数 parse(t, s)を用いる。 第一引数には変換先の型を、第二引数には、変換したい文字列を書く。文字列の前後の空白は無視される。parse(Float64, \" 12.3\")\nparse(Float64, \" 12.3e-2 \")\nparse(Int64, \" 123 \")\n# 変換できない例\nparse(Int64, \" 12.3 \")上のプログラムで作成したファイル test1.txt から 1行ずつ読み込み、浮動小数点数に変換して印字してみよう。open( \"test1.txt\" ) do f\n  for line in eachline(f)\n    x=parse(Float64, line)\n    @printf(\"%15.7f\\n\", x)\n  end\nend"
+},
+
+{
+    "location": "ch11.html#文字列を分割する-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ 文字列を分割する",
+    "category": "section",
+    "text": "関数 split(s, c)　は、文字列を分割する。 第一引数の文字列 s を、第二引数の文字列のどれか一つの文字が出現したら分割する。結果として、文字列を要素とする配列が返される。英文テキストを、空白で区切る。split(\"one cup of brown suger\", \" \")行をカンマで区切って、それぞれ整数と浮動小数点数に変換する。line=\"   15  , 0.2401863\"\ns=split( line, \",\" )\nparse( Int64, s[1])\nparse( Float64, s[2])上のプログラムで作成した test2.csv を読み込み、各行を整数と浮動小数点数に変換し、印字する。 ただし、1行目は読み飛ばす。open( \"test2.csv\" ) do f\n  i=0\n  for line in eachline(f)\n    i += 1\n    i == 1 && continue\n    s=split(line, \",\")\n    x=parse(Int64, s[1])\n    y=parse(Float64, s[2])\n    @printf(\"%5i %15.7f\\n\", x, y)\n  end\nend"
+},
+
+{
+    "location": "ch11.html#配列に要素を加える-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ 配列に要素を加える",
+    "category": "section",
+    "text": "関数 push!(a,e) は、配列 a に、値 x を付け加える。配列 a は書き換えられる。# Int64 を要素とする配列\nxs=[1,2]\npush!(xs, 3)\nxs\npush!(xs, 4)\nxs要素がない配列を作るには 関数 zeros(t, 0) を使えばよい。 第一引数 t は、作成する配列の要素である。以下では、Float64型の配列 (要素数 0)を最初に作成した。xs=zeros(Float64,0)\npush!(xs, 1.0)\nxs\npush!(xs, 2.0)\nxs"
+},
+
+{
+    "location": "ch11.html#CSVファイルから配列を作る-1",
+    "page": "第11回：ファイル入出力",
+    "title": "CSVファイルから配列を作る",
+    "category": "section",
+    "text": "以上を組合せて、CSVファイルを読み込み、値を配列としてまとめることができる。xs=zeros(Int64,0)\nys=zeros(Float64,0)\n\nopen( \"test2.csv\" ) do f\n  i=0\n  for line in eachline(f)\n    i += 1\n    i == 1 && continue\n    s=split(line, \",\")\n    x=parse(Int64, s[1])\n    push!(xs, x)\n    y=parse(Float64, s[2])\n    push!(ys, y)\n  end\nend\n@show xs\n@show ys続けて、データをプロットすると、using PyPlot\nclf() #hide\nplot(ys, \".\")\nsavefig(\"ch11-csv1.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch11.html#CSVパッケージ-1",
+    "page": "第11回：ファイル入出力",
+    "title": "▶ CSVパッケージ",
+    "category": "section",
+    "text": "CSVパッケージを用いると、CSVファイルを容易に扱うことができる。CSVパッケージを導入していない場合は導入する。Pkg.update()\nPkg.add(\"CSV\")CSVパッケージに定義されている関数 CSV.read(fn) を用いると、CSVファイル fn を読み込むことができる。 結果として、拡張された配列 (DataFrame型)が返される。# CSV\nusing CSV\ndf=CSV.read(\"test2.csv\")\n# 1番目のデータ配列\n@show df[1]\n# 2番目のデータ配列\n@show df[2]\n#\nusing PyPlot\nclf() #hide\nplot( df[2], \".\")データをプロットした結果は、上と同じである。"
 },
 
 {
     "location": "ch11.html#今回のまとめ-1",
-    "page": "第11回：関数の定義と呼び出し",
-    "title": "■ 今回のまとめ",
+    "page": "第11回：ファイル入出力",
+    "title": "★ 今回のまとめ",
     "category": "section",
-    "text": "## ★ 今回のまとめ"
+    "text": "PyPlotパッケージで描いた画像\n画像寸法の調整\n画像のファイルへの保存\n文字列の扱い\n書式付き出力\n文字列の分割\n文字列から数への変換\n配列に要素を加える\nテキストファイル\n書き込み\n読み込み\nCSVファイル"
 },
 
 {
     "location": "ch12.html#",
-    "page": "第12回：ファイル入出力",
-    "title": "第12回：ファイル入出力",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "第12回：関数の定義と呼び出し",
     "category": "page",
     "text": ""
 },
 
 {
     "location": "ch12.html#ch12-1",
-    "page": "第12回：ファイル入出力",
-    "title": "第12回：ファイル入出力",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "第12回：関数の定義と呼び出し",
     "category": "section",
-    "text": "## ★ 今回のまとめ"
+    "text": ""
+},
+
+{
+    "location": "ch12.html#関数の定義と呼び出し-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ 関数の定義と呼び出し",
+    "category": "section",
+    "text": "■ 関数の定義 (代入文形式) の節で、代入文形式のユーザ関数の定義を紹介した。 この節では、より一般的な扱いを説明する。より広い意味では、一連のプログラム片に名前を付けたものが、関数 (function) である。"
+},
+
+{
+    "location": "ch12.html#関数の定義と呼び出し：引数がない場合-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ 関数の定義と呼び出し：引数がない場合",
+    "category": "section",
+    "text": "以下は、Hello という文字を印字する関数の定義を示す。関数定義は、キーワード function で始まり、その後に関数名を書く。 呼び出す際に、渡すべき値がなければ、関数名の後に、括弧・閉じ括弧 () を書くだけである。処理を記述した後、キーワード end で終わる。function hello()\n  println(\"Hello\")\nendこの関数を呼び出すには、関数名に続けて () を書けばよい。hello()\nhello()"
+},
+
+{
+    "location": "ch12.html#関数の定義と呼び出し：引数がある場合-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ 関数の定義と呼び出し：引数がある場合",
+    "category": "section",
+    "text": "関数を呼び出す際に、渡す値がある場合は、関数名の後に、 括弧 () で囲んで、変数名 (仮引数(「かり・ひきすう」 parameter )の並びを書く。function hello(name)\n  print( \"Hello \")\n  println( string(name))\nendこの関数を呼び出すには、関数名に続けて () に囲んで、具体的な値（実引数「じつ・ひきすう」argument)を書く。 関数の定義の中に出現した仮引数は、実引数の値に置き換えられる。hello( \"world\")\nhello( \"the Earth\")\nhello()\n# 例外: 実引数 2つ\nhello( \"world\", \"the Earth\" )関数 hello に対して、引数が 0個の場合の定義と、引数が 1個の場合の定義の２つが紐(ひも)ついている。 関数呼び出しにおける引数の数に応じて、対応する関数が実行される。 上の最後の例のように、対応する関数定義が見つからなければ、例外が発生する。"
+},
+
+{
+    "location": "ch12.html#円を描く関数を作る-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "▶ 円を描く関数を作る",
+    "category": "section",
+    "text": "PyPlotパッケージを読み込んだ状況で、円を描く関数を作成する。引数は、円の中心座標 cx, cy、円の半径 r、線の色 col とする。function draw_circle(cx,cy,c,r)\n  t=0:pi/18:2pi\n  xs=cx+r*cos.(t)\n  ys=cy+r*sin.(t)\n  plot(xs,ys, color=c)\nend５つの円を描いてみよう。using PyPlot\nclf() #hide\nr=1\ns=1.1\ndraw_circle(   0,  s, \"k\", r)\ndraw_circle(  -s,  0, \"y\", r)\ndraw_circle( -2s,  s, \"b\", r)\ndraw_circle(   s,  0, \"g\", r)\ndraw_circle(  2s,  s, \"r\", r)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch12-mark1-plot.svg\"); nothing # hide(Image: )全ての軸を描画しないようにするには、上に続けて plt[:axis](\"off\") を実行すればよい。plt[:axis](\"off\")\nsavefig(\"ch12-mark2-plot.svg\"); nothing # hide(Image: )note: Note\nオリンピックのシンボルマークは、知的財産権が厳しく保護されていることに留意されたい。"
+},
+
+{
+    "location": "ch12.html#仮引数の既定値-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ 仮引数の既定値",
+    "category": "section",
+    "text": "仮引数に続けて =値 を書くことで、既定の値を設定できる。 関数呼び出しで、該当する引数を省略して関数を呼び出した場合には、既定の値が用いられる。関数 draw_circle で、最後の引数 rの既定値を 1に設定した。function draw_circle(cx,cy,c,r=1)\n  t=0:pi/18:2pi\n  xs=cx+r*cos.(t)\n  ys=cy+r*sin.(t)\n  plot(xs,ys, color=c)\nend関数 draw_circle を３つの引数で呼び出した場合には、r=1 として呼び出したとみなされる。r=1\ns=1.1\ndraw_circle(   0,  s, \"k\" )\ndraw_circle(  -s,  0, \"y\" )\ndraw_circle( -2s,  s, \"b\" )\ndraw_circle(   s,  0, \"g\" )\ndraw_circle(  2s,  s, \"r\" )"
+},
+
+{
+    "location": "ch12.html#関数の戻り値-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ 関数の戻り値",
+    "category": "section",
+    "text": "関数を実行した結果の値を、呼び出し側で使いたい場合は、しばしばある。関数定義において、最後に評価した値が、関数の戻り値 (return-value)となる。■ 関数の定義 (代入文形式) を用いても、数 x を 3倍する関数を定義すると、以下のようになる。triple(x)=3*xこれをより一般の形式で書くと、以下のようになる。最後に評価した 3*x が関数の戻り値となる。function triple(x)\n  3*x\nendtriple(-1)"
+},
+
+{
+    "location": "ch12.html#return-キーワード-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ return キーワード",
+    "category": "section",
+    "text": "キーワード return 式　は関数内で用いられると、直ちに関数から抜ける（戻る）ことを指示する。 この際、式の結果が関数の戻り値となる。上の関数は、以下のようにも書ける (が、冗長である)。function triple(x)\n  return 3*x\nendまた、数 x の絶対値を求める関数を自前で書いてみると、以下のようになる。function myabs(x)\n  if x < 0\n    return -x\n  else\n    return x\n  end\nendmyabs(-1)note: Note\n上の myabsは■ 3項演算子を用いて、以下のように書いてもよい。myabs(x)= x<0 ? -x : x"
+},
+
+{
+    "location": "ch12.html#局所変数-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ 局所変数",
+    "category": "section",
+    "text": "関数内部で代入した変数 (局所変数, local variables)は、その関数内部でのみ生きている。下の例で、関数 triple 内部で代入した tは、関数 triple のみで生きている。 コマンドラインで定義した変数 t は、関数 triple の局所変数 t とは別物であり、関数呼び出し後も値は変わっていない。 コマンドラインで定義した変数 t の方を、全域変数 (global variables)ともいう。t=4\n\nfunction triple(x)\n  t=3\n  t*x\nend\n\ntriple(2)\n@show t;"
+},
+
+{
+    "location": "ch12.html#ヘロンの公式を関数にする-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "▶ ヘロンの公式を関数にする",
+    "category": "section",
+    "text": "ヘロンの公式 (Heron\'s formula) によれば、 3辺の長さが a b c である三角形の面積はbeginalign*  sqrts(s-a)(s-b)(s-c) s  =fraca+b+c2endalign*で与えられる。ヘロンの公式を用いて、三角形の面積を返す関数を定義してみる。function heron(a,b,c)\n  s=(a+b+c)/2\n  r=s*(s-a)*(s-b)*(s-c)\n  if r < 0\n    return 0.0\n  end\n  sqrt(r)\nend三辺 a b cから三角形を作ることができない場合には、平方根の中身が負になる。 このときは、面積として 0 を返すことにする。実行してみよう。heron(3,4,5)\n# 三角形ができない場合\nheron(3,3,7)"
+},
+
+{
+    "location": "ch12.html#方形波のフーリエ級数和を関数にする-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "▶︎ 方形波のフーリエ級数和を関数にする",
+    "category": "section",
+    "text": "方形波をフーリエ級数の和として計算する方法を、▶︎ 方形波：フーリエ級数の有限和 の節で、紹介した。 時刻の配列 ts における方形波を、奇数 n までのフーリエ級数和として計算する関数を書いてみる。function square(ts,n)\n  ys=zeros(ts)\n  for i in 1:2:n\n    ys += sin.(i*ts)/i*4/pi\n  end\n  ys\nend実行してみよう。@show square( (0:6)*pi/4 , 13);級数和の上限 n を変えて、グラフをプロットしよう。using PyPlot\nclf() #hide\n\nts=-74*pi/36:pi/36:74*pi/36\nplot(ts, sign.(sin.(ts)), label=\"square wave\" )\n\nfor n in [ 5, 9, 13]\n  plot(ts, square(ts, n), label=\"up to \"*string(n) )\nend\nlegend(loc=\"center right\")\n\nyticks( [-1,0,1], [ \"-1\", \"0\", \"1\"])\nxticks( [-2pi,-pi,0, pi, 2pi ],\n        [L\"-2\\pi\", L\"-\\pi\",\"0\", L\"\\pi\", L\"2\\pi\" ])\n\nsavefig(\"ch12-sqwave-plot1.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch12.html#練習-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "◀ 練習",
+    "category": "section",
+    "text": "上の関数 square を以下のように改良せよ。n が偶数の場合でも、適切な解釈に基づき動作するようにせよ。\nn が 3よりも小さい場合は n=13 とせよ。"
+},
+
+{
+    "location": "ch12.html#Riemann和の計算を関数にする-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "▶︎ Riemann和の計算を関数にする",
+    "category": "section",
+    "text": "関数の定積分の近似値を、短冊の面積の和として計算する方法を ▶︎ Riemann和（繰り返しで加算)の節で、紹介した。 関数 f、定積分の範囲 a, b、分割数 n を引数として、Rienmann和を計算する関数を書いてみる。function riemann_sum(f,a,b,n)\n  xs=linspace(a,b,n+1)\n  d=(b-a)/n\n  s1=0\n  for i in 1:n\n    x=xs[i]\n    s1 += g(x)*d\n  end\n  s1\nend実行してみよう。g(x)=1/(1+x)\na=0; b=1\n@show riemann_sum(g,a,b,2^10);分割数を変えてみる。for m=8:13\n  @show m, riemann_sum(g,a,b,2^m);\nend\n@show log(2);"
+},
+
+{
+    "location": "ch12.html#練習-2",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "◀ 練習",
+    "category": "section",
+    "text": "上の例で、相対誤差をプロットせよ。"
+},
+
+{
+    "location": "ch12.html#練習-3",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "◀▶︎ 練習",
+    "category": "section",
+    "text": "上の関数 riemann_sum を、以下のように改良せよ。n  1 の場合には、ただちに 0 を返すようにせよ。\nn  1 の場合には、n=4 として、計算せよ。\na  b の場合には、上限と下限を交換してから計算せよ。ヒント：変数 a b の値を交換するには、同時代入 ba=ab を用いよ。"
+},
+
+{
+    "location": "ch12.html#モンテカルロ法による平面図形の面積の近似値を関数にする-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "▶︎ モンテカルロ法による平面図形の面積の近似値を関数にする",
+    "category": "section",
+    "text": "平面内のある領域の面積の近似値をモンテカルロ法で求める方法を、▶︎ モンテカルロ法による平面図形の面積の推定 で紹介した。範囲を表す関数 f、点の数 n を引数として、モンテカルロ法で面積の近似値を計算する関数を書いてみる。 関数 f は、平面座標 x,yを引数にして、(x,y) が図形の内部なら真 trueを、内部でなければ偽 false を返すものとする。 なお、図形の範囲は、x座標、y座標とも、0から1までの範囲とする。function montecarlo(f,n)\n  s=0\n  for i=1:n\n    x=rand()\n    y=rand()\n    if f(x,y)\n      s += 1\n    end\n  end\n  s/n\nend四分円に対して、実行してみよう。quadrant(x,y)= x*x+y*y < 1\nn=2^8\n@show n, montecarlo(quadrant, n), pi/4点の数を変えてみる。for m=1:10\n  n=2^m\n  @show n, montecarlo(quadrant, n);\nend今度は、二つの不等式 y<x と y<1−x の両方に囲まれる領域の面積を推定しよう。tri1(x,y)= y < x && y < 1-x\nn=2^8\n@show n, montecarlo(tri1, n)点の数を変えてみる。for m=4:12\n  n=2^m\n  @show n, montecarlo(tri1, n);\nend\n@show 1/4"
+},
+
+{
+    "location": "ch12.html#練習-4",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "◀ 練習",
+    "category": "section",
+    "text": "上の２つの例で、相対誤差をプロットせよ。"
+},
+
+{
+    "location": "ch12.html#練習-5",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "◀▶︎ 練習",
+    "category": "section",
+    "text": "上の関数 montecarlo を、以下のように改良せよ。n le 1 の場合には、n=2^8 として、計算せよ。"
+},
+
+{
+    "location": "ch12.html#関数から複数の値を返す-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ 関数から複数の値を返す",
+    "category": "section",
+    "text": "■ タプル の小節で、関数 divrem のように、複数の値を返す関数があることを紹介した。Multiple Return Valuesユーザ関数から複数の値を返すには、関数定義の最後に評価する式において、カンマ , で区切って復数の式を書けばよい。 この関数の戻り値は、■ タプル となる。function one_two()\n  1,2\nend\n\n@show one_two()x,y=one_two()\n@show x,y"
+},
+
+{
+    "location": "ch12.html#「はさみうち」法による、方程式の求解を関数にする-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "▶︎ 「はさみうち」法による、方程式の求解を関数にする",
+    "category": "section",
+    "text": "「はさみうち」法を用いて、方程式の解の存在範囲を狭めていく方法を、▶︎ 「はさみうち」法による、方程式の求解 で紹介した。求めるべき方程式 f、解の存在範囲の下限 a、および 上限 b を引数として、より狭い解の存在範囲の下限と上限を返す関数を書いてみる。function bisect(f,a,b)\n  c=(a+b)/2\n  if f(a)*f(c) > 0\n    a = c\n  else\n    b = c\n  end\n  a,b\nendg(x)=x^3+3x^2-4*x-12\na=-3.2; b=-2.6\n\nfor i=1:10\n  @show a, b, b-a, g(a), g(b)\n  a,b=bisect(g,a,b)\nend"
+},
+
+{
+    "location": "ch12.html#練習-6",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "◀ 練習",
+    "category": "section",
+    "text": "上の例で、解の存在範囲が狭くなる様子をプロットせよ。\n異なる解の存在範囲に対して、「はさみうち」法を実行せよ。"
+},
+
+{
+    "location": "ch12.html#引数の型の指定-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ 引数の型の指定",
+    "category": "section",
+    "text": "関数定義の仮引数には ::型 という形式で、仮引数の型を指定できる。 関数呼出しの際、実引数の型と仮引数の型が一致する関数が呼び出される。 この仕組を、多重ディスパッチ (multiple dispatch)という。型が指定されていない仮引数は、Any型とみなされ、あらゆる実引数の型と一致する。個別の仮引数に対応する関数は、メソッドと呼ばれる。例で説明する。関数 mytest を、Int64型の引数に対してだけ定義しよう。function mytest(x::Int64)\n  println(string(x)*\" is of Int64 type\")\nendこの段階で、mytest(1) は上の関数が呼び出されるが、mytest(1.0) は呼び出されるべき関数が見つからず、例外が発生する。# 関数が呼び出される\nmytest(1)\n# 関数が呼び出されない\nmytest(1.0)関数 mytest を、Float64型の引数に対しても定義する。function mytest(x::Float64)\n  println(string(x)*\" is of Float64 type\")\nend\n\n# 今度は、上の関数が呼び出される\nmytest(1.0)しかし、mytest(\"a\") や mytest(\"[1]\") は呼び出されるべき関数が見つからず、例外が発生する。# 関数が呼び出されない\nmytest(\"a\")\n# 関数が呼び出されない\nmytest([1])更に、仮引数に型を指定しない関数を定義すれば、そちらが呼び出される。function mytest(x)\n  println(string(x)*\" is neither of Int64 type nor of Float64 type\")\nend\n\n# 今度は、上の関数が呼び出される\nmytest(\"a\")\n# 今度は、上の関数が呼び出される\nmytest([1])"
+},
+
+{
+    "location": "ch12.html#階乗関数を定義する-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "▶ 階乗関数を定義する",
+    "category": "section",
+    "text": "1 から整数 n までの連続する整数の積を、階乗 (factorial)といい、n のように書く。$ 6 ! = 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 720$さらに、0 = 1 と定義する。階乗を計算する関数を定義しよう。 階乗関数は整数に対してのみ定義されるから、引数を整数型に限定しよう。 0よりも小さい整数に対して、階乗は定義されないが、1を返すことにする。function myfact1(n::Int64)\n  n <= 1 && return 1\n  r=1\n  for i=2:n\n    r *= i\n  end\n  r\nend正しく計算されることを確かめてみる。for n in 6:-1:-1\n  @show n, myfact1(n)\nend浮動小数点数や整数ベクトルに対して、関数 myfact1は未定義である。# 関数は未定義\nmyfact1(2.2)\n# 関数は未定義\nmyfact1([6,3])整数を要素とするベクトルに対して dot記法を用いて myfact1 を呼び出せば、 各要素に対して関数 myfact1 を呼び出した値のベクトルが得られる。myfact1.([6,5,4])note: Note\nJulia には、階乗関数 factorial(n) が組み込まれている。factorial(1)\nfactorial(2)\nfactorial(3)"
+},
+
+{
+    "location": "ch12.html#再帰-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "▶ 再帰",
+    "category": "section",
+    "text": "階乗には n = n times (n-1) という性質がある。 すなわち、n は (n-1) を用いて定義される。これをプログラムで書く場合には、関数定義の中で自分自身を呼ぶ、これを再帰 (recursion) という。再帰を用いて、階乗を定義してみよう。function myfact2(n::Int64)\n  n <= 1 && return 1\n  n * myfact2(n-1)\nend正しく計算されることを確かめてみる。for n in 6:-1:-1\n  @show n, myfact2(n)\nend再帰呼出しを用いる場合には、計算が正しく終了する条件を設定する必要がある。"
+},
+
+{
+    "location": "ch12.html#練習-7",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "◀ 練習",
+    "category": "section",
+    "text": "フィボナッチ(Fibonacci)数とは、以下の漸化式で定義される数列である。beginalign*F_0 = 0 F_1 = 1 F_n+2 = F_n+1+F_n endalign*整数 nに対してフィボナッチ数を計算する関数を再帰を用いて定義し、その動作を確かめよ。フィボナッチ数の最初の20個は、以下の通りである。0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946また、フィボナッチ数の一般項は、以下の式で与えられることが知られている。合わせて、計算してみよ。F_n = frac1sqrt5 left left(frac1+sqrt52right)^n - left(frac1-sqrt52right)^n rightnote: Note\n上で示した階乗やフィボナッチ数の例では、関数が呼ばれる毎に計算を行っており「もったいない」。 計算結果が一意 (一通り, unique) であるなら、計算した結果を記録しておき、同じ引数で再び呼び出されたときには、 記録から取り出してくれば計算資源が節約できる。このような考え方を「メモ化」という。この本文で説明した範囲でも、 ベクトルなどを用いて「メモ化」を実装できるであろう。"
+},
+
+{
+    "location": "ch12.html#今回のまとめ-1",
+    "page": "第12回：関数の定義と呼び出し",
+    "title": "■ 今回のまとめ",
+    "category": "section",
+    "text": "関数\n定義\n呼出し\n戻り値\n仮引数の型\n再帰呼出し\n例題\nヘロンの公式\nフーリエ級数和の関数化\nモンテカルロ法の関数化\nはさみうち法の関数化\n階乗\nフィボナッチ数"
 },
 
 {
     "location": "ch13.html#",
-    "page": "第13回：検討中",
-    "title": "第13回：検討中",
+    "page": "第13回：複素数",
+    "title": "第13回：複素数",
     "category": "page",
     "text": ""
 },
 
 {
     "location": "ch13.html#ch13-1",
-    "page": "第13回：検討中",
-    "title": "第13回：検討中",
+    "page": "第13回：複素数",
+    "title": "第13回：複素数",
     "category": "section",
-    "text": "（案）微分方程式の初期値問題\n\n## ★ 今回のまとめ"
+    "text": ""
+},
+
+{
+    "location": "ch13.html#複素数を作る-1",
+    "page": "第13回：複素数",
+    "title": "■ 複素数を作る",
+    "category": "section",
+    "text": "以下では、x, y は Int64 型または Float64 型の数とする。関数 complex(x) は、実部が x の複素数を作る。\n関数 complex(x,y) は、実数部(実部)が x、虚数部(虚部) が y の複素数を作る。\n複素数の型は、実部と虚部の方に合わせて Complex{Int64} または Complex{Float64} となる。x y で Int64 と Float64 型が混在した場合には。後者になる。complex(1)\ncomplex(1.0)\ncomplex(1.0, -1.0)定数 im は虚数単位である。これは、complex(0,1) または complex(0.0,1.0) と同じ意味である。 複素数 x+iy を作るのに、以下のように書いてもよい （が、乗算と加算の演算を含むので、関数 complexを使うほうが好ましい )。1 - 1im\n1.0 - 1.0im"
+},
+
+{
+    "location": "ch13.html#複素数と整数・浮動小数点数との四則演算-1",
+    "page": "第13回：複素数",
+    "title": "▶ 複素数と整数・浮動小数点数との四則演算",
+    "category": "section",
+    "text": "複素数と整数または浮動小数点数との四則演算は、演算子 +, -, *, / を用いる。z = complex(1,-1)\nz + 2\nz - 2\nz * 2\nz / 2零 0 による除算は、実部と虚部の各々で行われ、Inf ないし NaN の値となる。complex(1,0) / 0"
+},
+
+{
+    "location": "ch13.html#複素数同士の四則演算-1",
+    "page": "第13回：複素数",
+    "title": "▶ 複素数同士の四則演算",
+    "category": "section",
+    "text": "複素数同士の四則演算にも、演算子 +, -, *, / を用いる。z = complex(1,-1)\nw = complex(2,-2)\nz + w\nz - w\nz * w\nz / w複素数を値とする変数に対して、更新演算子 +=, -=, *=, /= も使える。z *= w"
+},
+
+{
+    "location": "ch13.html#複素数のベクトル-1",
+    "page": "第13回：複素数",
+    "title": "▶ 複素数のベクトル",
+    "category": "section",
+    "text": "整数または浮動小数点数のベクトルを作るのと同様な方法で、複素数のベクトルを作ることができる。[ complex(0,0), complex(1,0), complex(1,1) ]\n[ complex(i,2i) for i in -2:2 ]複素数の零 complex(0.0,0.0) を 5個含むベクトルを作るには、以下のように書けばよい。zeros( Complex{Float64}, 5)"
+},
+
+{
+    "location": "ch13.html#複素数の実部・虚部・共役複素数-1",
+    "page": "第13回：複素数",
+    "title": "▶ 複素数の実部・虚部・共役複素数",
+    "category": "section",
+    "text": "関数 real(z) は複素数z の実数部(実部)を返す。\n関数 imag(z) は複素数z の虚数部(虚部)を返す。z = complex(1,-1)\nreal(z)\nimag(z)複素数ベクトルの各要素の実部ないし虚部を計算するには、dot記法を用いる。zs = [ complex(0,0), complex(1,0), complex(1,1), complex(0,1), complex(0,0)]\nreal.(zs)\nimag.(zs)関数 conj(z) は複素数 z の共役(きょうえき)複素数 (conjugate complex number) を返す。z = complex(1,-1)\nconj(z)"
+},
+
+{
+    "location": "ch13.html#負の数に対する平方根-1",
+    "page": "第13回：複素数",
+    "title": "▶ 負の数に対する平方根",
+    "category": "section",
+    "text": "平方根 sqrt(x)は、負の実数 x に対して例外を出すが、引数を複素数の引数を与えれば計算できる。# 例外を出す\nsqrt(-1)\n# 計算できる\nsqrt(complex(-1))正負の実数に対して、平方根の実部と虚部をプロットしよう。using PyPlot\nclf() #hide\n\nxs=-1:0.05:1\nzs=complex.(xs)\nsqzs=sqrt.(zs)\nplot(xs, real.(sqzs),　label=\"real part\")\nplot(xs, imag.(sqzs), label=\"imaginary part\")\nxlabel(\"x\")\nylabel(\"sqrt of x\")\nlegend()\nxlim(-1.5,1.5)\nylim(-1.5,1.5)\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-sqrt1-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#2次方程式の解：一般の場合-1",
+    "page": "第13回：複素数",
+    "title": "◀　2次方程式の解：一般の場合",
+    "category": "section",
+    "text": "2次方程式 x^2-bx+c=0 の解を求める方法について、▶︎ 2次方程式 で紹介したが、実数解のみに留めていた。 以下では、複素数解を含めて求めてみる。係数 b=1 を一定とし、係数 c を -1 から 1の範囲で動かす。 一方の x_1 は、2次方程式の解の公式で求め、 他方の解は、係数と解の関係により求めよう。beginalign*x_1  =fracb+sqrtb^2-4c2  x_2  = fraccx_1endalign*using PyPlot\nclf() #hide\n\nb=1\ncs=linspace(-2,2)\nds=complex(b.*b-4cs)\nx1s=(b+sqrt.(ds))/2;\nx2v=cs./x1s;\nplot(cs, real.(x1s), \"b-\", label=\"x1, real part\")\nplot(cs, imag.(x1s), \"b:\", label=\"x1, imag part\")\nplot(cs, real.(x2v), \"g-\", label=\"x2, real part\")\nplot(cs, imag.(x2v), \"g:\", label=\"x2, imag part\")\nlegend()\nxlabel(\"c\")\nxlim(-2.5,2.5)\nylim(-2.5,2.5)\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-sqrt2-plot.svg\"); nothing # hide(Image: )実部を実線で、虚部を点線で表した。定数 c の値により、解の形が異なる様子が観察できる。すなわち、範囲 c lt dfrac14 では実数解 (虚数部は零)\n範囲 c = dfrac14 では重解 dfrac12\n範囲 c gt dfrac14 では複素解 (共役複素数)"
+},
+
+{
+    "location": "ch13.html#ガウス平面-1",
+    "page": "第13回：複素数",
+    "title": "▶ ガウス平面",
+    "category": "section",
+    "text": "複素数 x + i y は、平面上の点 (xy) と一対一に対応する。複素数を平面に表したものをガウス平面という。using PyPlot\nclf() #hide\n\nz = complex(1,1)\nw = complex(-2,1)\n\nplot( real(z), imag(z), \"b.\", label=\"z\")\nplot( real(w), imag(w), \"r.\", label=\"w\")\nlegend()\nxlabel(\"real part\")\nylabel(\"imag part\")\nxlim(-3,3)\nylim(-3,3)\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-gauss1-plot.svg\"); nothing # hide(Image: )複素数を要素とするベクトルをガウス平面にプロットして、図形を描こう。using PyPlot\nclf() #hide\n\nzs = [ complex(0,0), complex(1,0), complex(1,1), complex(0,1), complex(0,0)]\n\nplot( real.(zs), imag.(zs), \".-\")\nxlabel(\"real part\")\nylabel(\"imag part\")\nxlim(-2,2)\nylim(-2,2)\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-gauss2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#複素数の絶対値と偏角-1",
+    "page": "第13回：複素数",
+    "title": "▶ 複素数の絶対値と偏角",
+    "category": "section",
+    "text": "関数 abs(z) は、複素数 z の絶対値 leftvertzrightvert を返す。\n関数 abs2(z) は、複素数 z の絶対値の2乗 leftvertzrightvert^2 を返す。\n関数 angle(z) は、複素数 z の偏角 anglez をラジアンで返す。結果(値域)は -pi から piである。これは、ガウス平面上で、複素数を極座標で表示したものに対応している。次の ▶ オイラーの公式 も参照。for z in [ 0, complex(1,1), 1im, complex(-1,1), -1, complex(-1,-1), -im,　complex(1,-1), ]\n  @show z, abs(z), angle(z)\nend"
+},
+
+{
+    "location": "ch13.html#オイラーの公式-1",
+    "page": "第13回：複素数",
+    "title": "▶ オイラーの公式",
+    "category": "section",
+    "text": "実数 theta に対して、指数関数 expitheta　は、以下のように書き表される。これをオイラーの公式という。expitheta = costheta+ i sintheta指数関数は、複素数を引数とするように拡張されている。 expitheta をガウス平面上にプロットしよう。これは、単位円 (半径1)の円を描く。using PyPlot\nclf() #hide\n\nzs = [ exp(im*t) for t in 0:pi/18:2pi ]\n\nplot( real.(zs), imag.(zs), \".\")\nxlabel(\"real part\")\nylabel(\"imag part\")\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-cis1-plot.svg\"); nothing # hide(Image: )関数 cis(x) は、数 xに対して expi x を計算する。同じ結果が得られることを確認しよう。using PyPlot\nclf() #hide\n\nzs = [ cis(t) for t in 0:pi/18:2pi ]\nplot( real.(zs), imag.(zs), \"o\")\n\nzs = [ exp(im*t) for t in 0:pi/18:2pi ]\nplot( real.(zs), imag.(zs), \".\")\n\nxlabel(\"real part\")\nylabel(\"imag part\")\n\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-cis2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#ガウス平面内で回転させる-1",
+    "page": "第13回：複素数",
+    "title": "◀ ガウス平面内で回転させる",
+    "category": "section",
+    "text": "複素数に exp(i theta) を乗ずることは、ガウス平面上で、原点に対して、反時計方向に角度 theta だけ回転することに相当する。using PyPlot\nclf() #hide\n\nr15 = cis(pi*15/180)\nzs = complex(1,1)\n\nfor i in 1:10\n  plot( [0, real.(zs)], [0, imag.(zs)], \".-\")\n  zs *= r15\nend\n\nxlabel(\"real part\")\nylabel(\"imag part\")\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\n\nxlim(-2,2)\nylim(-2,2)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-cis0-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#アルキメデスの渦を描く（複素数版）-1",
+    "page": "第13回：複素数",
+    "title": "◀ アルキメデスの渦を描く（複素数版）",
+    "category": "section",
+    "text": "実数 t に対して、複素数 z=t exp(i t) の軌跡を、ガウス平面上に描いてみよう。 これは、アルキメデスの渦である。参考 →  ▶︎ アルキメデスの渦を描くusing PyPlot\nclf() #hide\n\nts=linspace(0,4pi, 200)\nzs=ts.*exp.(im*ts)\nplot(real.(zs), imag.(zs) )\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-cis4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#複素数同士の乗算の意味-1",
+    "page": "第13回：複素数",
+    "title": "◀ 複素数同士の乗算の意味",
+    "category": "section",
+    "text": "複素数同士の乗算は、極座標で表示すると、その意味が明らかになる。オイラーの公式を使うと、複素数 z w は、その絶対値と偏角を用いて、以下のように書いて、beginalign*z = leftvertzrightvert exp(i anglez)  w = leftvertwrightvert exp(i anglew)endalign*複素数 z と w の積を求めると、次のようになる。zw = leftvertzrightvert leftvertwrightvert expleft( i left(anglez+anglewright)right)つまり、積 zw の絶対値は、2つの複素数の絶対値の積である。 また、積 zw の偏角は、2つの複素数の偏角の和である。まとめると、複素数同士の積は、ガウス平面上で拡大縮小と回転を同時に行う演算である。using PyPlot\nclf() #hide\n\nz = 1*cis(pi/3)\nw = 2*cis(pi/4)\nzw=z*w\n\nplot( [0, real(z)], [0, imag(z)], \"r.-\", label=\"z\")\nplot( [0, real(w)], [0, imag(w)], \"b.-\", label=\"w\")\nplot( [0,real(zw)], [0,imag(zw)], \"g.-\", label=\"z*w\")\n\nzs = [ cis(t) for t in 0:pi/18:2pi ]\nplot( real.(zs),  imag.(zs), \"r\", lw=0.5)\nplot( real.(2zs), imag.(2zs), \"g\", lw=0.5)\n\nlegend()\nxlabel(\"real part\")\nylabel(\"imag part\")\n\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-gauss3-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#複素数の平方根とは-1",
+    "page": "第13回：複素数",
+    "title": "◀ 複素数の平方根とは",
+    "category": "section",
+    "text": "上の特別な場合として、z の二乗を検討する。 w=z として、以下を得る。z^2 = leftvertzrightvert^2 expleft( i 2 anglez right)これから、zの平方根は、以下のように求められる。z = sqrtleftvertzrightvert expleft( i dfracanglez2 right)数値例。beginalign*\nz  = -1 + i sqrt3 = 2 left( -dfrac12 + i dfracsqrt32 right) = 2 expleft(i dfracpi3right)  sqrtz  = sqrt2 expleft(i dfracpi6 right) =  sqrt2 left( dfracsqrt32 + i dfrac12 right)endalign*z = complex(-1, sqrt(3));\n@show z, abs(z), angle(z);\nw= sqrt(z);\n@show w, abs(w), angle(w);using PyPlot\nclf() #hide\n\nz = complex(-1, sqrt(3))\nw = sqrt(z)\n\nplot( [0, real(z)], [0, imag(z)], \"r.-\", label=\"z\")\nplot( [0, real(w)], [0, imag(w)], \"b.-\", label=\"sqrt(z)\")\n\nzs = [ cis(t) for t in 0:pi/18:2pi ]\nplot( real.(zs)*2,       imag.(zs)*2,       \"r\", lw=0.5)\nplot( real.(zs)*sqrt(2), imag.(zs)*sqrt(2), \"b\", lw=0.5)\n\nlegend()\nxlabel(\"real part\")\nylabel(\"imag part\")\n\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\nxlim(-3,3)\nylim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-gauss4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#図形を回転する-1",
+    "page": "第13回：複素数",
+    "title": "◀ 図形を回転する",
+    "category": "section",
+    "text": "複素数に exp(i theta) を乗ずることは、 ガウス平面上で、原点に対して、反時計方向に角度 theta だけ回転することに相当する。 平面図形を複素数ベクトルとして表して、図形を回転しよう。using PyPlot\nclf() #hide\n\nr15 = cis(pi*15/180)\nzs = [ complex(0,0), complex(1,0), complex(1,2), complex(0,0)]\n\nfor i in 1:10\n  plot( real.(zs), imag.(zs), \".-\")\n  zs *= r15\nend\n\nxlabel(\"real part\")\nylabel(\"imag part\")\n\nxlim(-3,3)\nylim(-3,3)\naxhline(0, lw=0.5, color=\"k\")\naxvline(0, lw=0.5, color=\"k\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-cis3-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#伝達関数-1",
+    "page": "第13回：複素数",
+    "title": "◀ 伝達関数",
+    "category": "section",
+    "text": "制御工学や電気電子回路では「線形システム」に着目する。 これは、入力と出力が、時刻 t に対する定数係数の微積分方程式で表されるようなものである。 線形システムでは、角振動数 omega=2pif の正弦波 x(t) = x_0 cos left(omegat+phi right) を入力に与えると、\n同じ角振動数の正弦波 y(t) = y_0 cos left(omegat+psi right) が出力として得られることが知られている。そこで、複素数 X(omega) = x_0 exp(iphi) を入力の正弦波 x(t) と同一視し(=同じものと考え)、\n複素数 Y(omega) = y_0 exp(ipsi) を出力の正弦波 y(t) と同一視すると、入力と出力との比は、複素数 H(omega) になる。Y(omega) = H(omega) X(omega)この複素数 H(omega) を、伝達関数 (transfer function)という。これを、極座標で見ると、伝達関数の絶対値は、入力と出力の振幅の比 (振幅比)を与える。\n伝達関数の偏角は、入力の位相と出力の位相の「ズレ」 (位相差) を与える。beginalign*leftvertH(omega)rightvert  = dfracleftvertY(omega)rightvertleftvertX(omega)rightvert = dfracy_0x_0  angleH(omega)  = angleY(omega) - angleX(omega) = psi - phi endalign*線形システムの振る舞いを観察するために、角振動数 omega または 周波数 f の関数として 伝達関数の振幅と位相をプロットすることが行われる。これを周波数応答という。"
+},
+
+{
+    "location": "ch13.html#共振回路-1",
+    "page": "第13回：複素数",
+    "title": "◀ 共振回路",
+    "category": "section",
+    "text": "(Image: )自己インダクタンス L, 電気容量 C, 電気抵抗 R を直列に接続した LCR 直列回路の電源に正弦波電圧 e(t) を加える。 抵抗 R の両端子間の電圧 v(t) は、同じ角振動数を持つ正弦波 v(t) となる。 正弦波 e(t) と v(t) を複素数 E(omega) と V(omega) で表したとき、 両者の比は、以下の複素数 H(omega) で表される。H(omega) = fracV(omega)E(omega) = dfrac11 + i Q left(dfracomegaomega_0 - dfracomega_0omegaright)ここで、omega_0 = 2pif_0 と Q は、回路素子 L C Rの値から 決まる正の定数である。f_0 は周波数の次元、omega_0 は角振動数の次元を持ち、Q は無次元である。まず、f_0= 1mathrmkHz Q = 1 として、H(omega) の振幅 leftvertH(omega)rightvert を、プロットする。横軸 周波数は対数で表示する。f0=1e3\nw0=2pi*f0\n\nfs=logspace(1,5,200)\nws=2pi*fs\n\nq=1\nh1=1 ./ (1 + im * q * (ws/w0-w0./ws))\n\nusing PyPlot\nclf() #hide\nplot(fs, abs.(h1))\nxscale(\"log\")\nylabel(\"Amplitude\")\nxlabel(\"f / Hz\")\naxvline(f0, lw=0.5, color=\"k\")\nsavefig(\"ch13-lcr1-plot.svg\"); nothing # hide(Image: )振幅は、単峰性の極大値 1 をとる。極大となる周波数 f_0 を共振周波数 (resonance frequency)、 これに対応する角振動数 omega_0=2pif_0 を共振角振動数 (resonance angular frequency)という。今度は、振幅の二乗 leftvertH(omega)rightvert^2 と位相 angleH(omega) を同時に描こう。f0=1e3\nw0=2pi*f0\n\nfs=logspace(1,5,200)\nws=2pi*fs\n\nq=1\nh1=1 ./ (1 + im * q * (ws/w0-w0./ws))\n\nusing PyPlot\nclf() #hide\nfig=plt[:figure]()\nax1=fig[:add_subplot](211)\nax1[:plot](fs, abs2.(h1))\nax1[:set_ylabel](\"Amplitude\")\nax1[:set_xscale](\"log\")\nax1[:axvline](f0, lw=0.5, color=\"k\")\nax1[:axhline](1/2, lw=0.5, color=\"k\")\n\nax2=fig[:add_subplot](212)\nax2[:plot](fs, angle.(h1)*180/pi)\n\nax2[:set_xscale](\"log\")\nax2[:set_xlabel](\"f / Hz\")\nax2[:set_ylabel](\"Phase\")\nax2[:set_ylim](-100,100)\nytics = [-90,-45,0,45,90]\nax2[:set_yticks]( ytics )\nfor y in ytics\n  ax2[:axhline](y, lw=0.5, color=\"k\")\nend\nax2[:axvline]( f0, lw=0.5, color=\"k\")\nsavefig(\"ch13-lcr2-plot.svg\"); nothing # hide(Image: )位相は 90^circ から始まり -90^circ に単調減少する。 振幅が極大となる周波数 f_0 で位相は 0 となる。さらに、leftvertH(omega)rightvert^2 = dfrac12 となる周波数 (２つある)で、位相は pm 45^circ をとる。次に、f_0 omega_0 を変えずに、Q の値を変えて、振幅の二乗 leftvertH(omega)rightvert^2 を描く。f0=1e3\nw0=2pi*f0\n\nfs=logspace(1,5,200)\nws=2pi*fs\n\nusing PyPlot\nclf() #hide\nfor q in [ 0.5, 1, 2 ]\n  h1=1 ./ (1 + im * q * (ws/w0-w0./ws))\n  plot(fs, abs2.(h1), label=\"Q=\"*string(q) )\nend\nlegend()\nxscale(\"log\")\nxlabel(\"f / Hz\")\n\nax1[:axhline](1/sqrt(2), lw=0.5, color=\"k\")\naxhline(1/2, lw=0.5, color=\"k\")\naxvline(f0, lw=0.5, color=\"k\")\nsavefig(\"ch13-lcr3-plot.svg\"); nothing # hide(Image: )定数 Q が小さくなると、峰が鋭くなる (幅が狭くなる) 様子が観察される。更に、位相のグラフを加えよう。f0=1e3\nw0=2pi*f0\n\nfs=logspace(1,5,200)\nws=2pi*fs\n\nusing PyPlot\nclf() #hide\nfig=plt[:figure]()\nax1=fig[:add_subplot](211)\nax2=fig[:add_subplot](212)\n\nfor q in [0.5,1,2]\n  h1=1 ./ (1 + im * q * (ws/w0-w0./ws))\n  ax1[:plot](fs, abs.(h1), label=\"Q=\"*string(q))\n  ax2[:plot](fs, angle.(h1)*180/pi)\nend\nax1[:legend]()\nax1[:set_xscale](\"log\")\nax1[:set_ylabel](\"Amplitude\")\nax1[:axvline](f0, lw=0.5, color=\"k\")\nax1[:axhline](1/2, lw=0.5, color=\"k\")\n\nax2[:set_xscale](\"log\")\nax2[:set_ylabel](\"Phase\")\nax2[:set_xlabel](\"f / Hz\")\nax2[:set_ylim](-100,100)\nytics = [-90,-45,0,45,90]\nax2[:set_yticks]( ytics )\nfor y in ytics\n  ax2[:axhline](y, lw=0.5, color=\"k\")\nend\nax2[:axvline]( f0, lw=0.5, color=\"k\")\nsavefig(\"ch13-lcr4-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#練習-1",
+    "page": "第13回：複素数",
+    "title": "◀ 練習",
+    "category": "section",
+    "text": "複素数 H(omega) の分母の虚数部分 Q left( dfracomegaomega_0 - dfracomega_0omega right) を、角振動数 omega の関数としてプロットせよ。振幅の二乗が最大値の半分 leftvertH(omega)rightvert^2 = dfrac12 になる角振動数は2つある。その周波数 omega_1 omega_2 を数値的に求めてみよ。　参考 → ▶︎ 「はさみうち」法による、方程式の求解２つの角振動数の差 Deltaomega = omega_2 - omega_1 を、 角振動数の半値全幅 (FWHM; full width of half maximum) という。定数 Q は、半値全幅 Deltaomega と共振角振動数 omega_0 の比に、ほぼ等しい。Q simeq dfracomega_0Deltaomega = dfracf_0Deltafこれを、数値的に確かめてみよ。ヒント： 半値全幅を与える角振動数 omega_1 omega_2 では、以下が成り立つ。複号 pm が、omega_1 omega_2 のどちらかに対応するかを考えよ。H(omega_12 ) = dfrac11 pm i"
+},
+
+{
+    "location": "ch13.html#低域通過フィルタ-1",
+    "page": "第13回：複素数",
+    "title": "◀ 低域通過フィルタ",
+    "category": "section",
+    "text": "(Image: )自己インダクタンス L と電気抵抗 R を直列に接続したLR直列回路の電源に正弦波電圧 e(t) を加える。 抵抗 R の両端子間の電圧 v(t) は、同じ角振動数を持つ正弦波 v(t) となる。 正弦波 e(t) と v(t) を複素数 E(omega) と V(omega) で表したとき、 両者の比は、以下の複素数 H(omega) で表される。H(omega) = dfracV(omega)E(omega) = frac11+idfracomegaomega_0ここで、omega_0 = 2pif_0 は、回路素子 L Rの値から 決まる正の定数である。f_0 は周波数の次元、omega_0 は角振動数の次元を持つ。まず、f_0= 1mathrmkHz として、H(omega) の振幅 leftvertH(omega)rightvert を、プロットする。横軸 周波数は対数で表示する。f0=1e3\nw0=2pi*f0\n\nfs=logspace(1,5)\nws=2pi*fs\nh1=1 ./ (1 + im * ws/w0)\n\nusing PyPlot\nclf() #hide\nplot(fs, abs.(h1))\nxscale(\"log\")\nxlabel(\"f / Hz\")\nylabel(\"Amplitude\")\n\n\naxhline(1, lw=0.5, color=\"k\")\naxhline(1/sqrt(2), lw=0.5, color=\"k\")\naxvline(f0, lw=0.5, color=\"k\")\nsavefig(\"ch13-lpf1-plot.svg\"); nothing # hide(Image: )振幅は、周波数が低いとき 1 にほぼ等しく、周波数の増加に伴い、単調減少する。 周波数が低い正弦波をそのまま通し、周波数の高い正弦波を減衰させるので、低域通過フィルタ (Low Pass Filter; LPF) と呼ばれる。周波数 f_0 における振幅は dfrac1sqrt2 である。 周波数 f_0 は、振幅が減衰する周波数の目安であり、遮断(しゃだん)周波数 (cut-off frequecy) と呼ばれる。振幅 A の常用対数 (底が 10 の対数)をとり、20 倍したものを利得 (gain) という。利得の「単位」をデシベル (dB) という。G = 20 log_10 A上のグラフを、縦軸を利得に変換し、位相を加えて描く。f0=1e3\nw0=2pi*f0\n\nfs=logspace(1,5)\nws=2pi*fs\nh1=1 ./ (1 + im * ws/w0)\n\nusing PyPlot\nclf() #hide\nfig=plt[:figure]()\nax1=fig[:add_subplot](211)\nax1[:plot](fs, 20*log10.(abs.(h1)))\nax1[:set_xscale](\"log\")\nax1[:set_ylabel](\"Gain / dB\")\nax1[:axhline](0, lw=0.5, color=\"k\")\nax1[:axhline](-3, lw=0.5, color=\"k\")\nax1[:axvline](f0, lw=0.5, color=\"k\")\n\nax2=fig[:add_subplot](212)\nax2[:plot](fs, angle.(h1)*180/pi)\n\nax2[:set_xscale](\"log\")\nax2[:set_xlabel](\"f / Hz\")\nax2[:set_ylabel](\"Phase\")\nax2[:set_ylim](-100,10)\nytics = [-90,-45,0 ]\nax2[:set_yticks]( ytics )\nax2[:axvline](f0, lw=0.5, color=\"k\")\nfor y in ytics\n  ax2[:axhline](y, lw=0.5, color=\"k\")\nend\n\nsavefig(\"ch13-lpf2-plot.svg\"); nothing # hide(Image: )振幅 1 は 利得 0mathrmdB である。減衰動作の周波数領域では、周波数が 10 倍になると利得は -20mathrmdB 減少する。 この傾きを -20mathrmdBmathrmdecade と称する (decade は 10 倍の意味)。位相は 周波数の増加に伴い単調減少する。 低い周波数では 0^circ に、高い周波数では -90^circ にそれぞれ漸近する。遮断周波数 f_0 では伝達関数は H(omega_0) = frac11+i である。 したがって、遮断周波数 f_0 での利得は -3mathrmdB、位相は -45^circ である (註: log_10 2 simeq 03 を覚えておくとよい)。"
+},
+
+{
+    "location": "ch13.html#練習-2",
+    "page": "第13回：複素数",
+    "title": "◀ 練習",
+    "category": "section",
+    "text": "伝達関数が、以下のように表されたときの周波数応答をプロットせよ。H(omega) = frac-A1+idfracomegaomega_0まず、A = 1 を保ったまま f_0 = 100 1000 10000mathrmHz と変えてみよ。次に、A = 1 10 100 と変えてみよ。それぞれ、どのように変化するか、言葉で記述してみよ。"
+},
+
+{
+    "location": "ch13.html#複素数に拡張された関数-1",
+    "page": "第13回：複素数",
+    "title": "■ 複素数に拡張された関数",
+    "category": "section",
+    "text": "平方根や指数関数以外でも、実数を引数とする関数の多くが、複素数を引数とするように拡張されている。"
+},
+
+{
+    "location": "ch13.html#対数関数-1",
+    "page": "第13回：複素数",
+    "title": "▶ 対数関数",
+    "category": "section",
+    "text": "複素数 z = rexp(itheta) と極座標表示したとき、その自然対数は、以下のように計算できる。 すなわち、実数部は絶対値の自然対数、虚数部は偏角である。logz = log rexp(itheta) = logr + i theta複素数 z = 1 + i y の自然対数 logz の実部と虚部をプロットしよう。using PyPlot\nclf() #hide\nys=linspace(-2pi,2pi,101)\nzs=complex.(1,ys)\ncs=log.(zs)\nplot(ys, real.(cs), label=\"real log (1+i*y)\" )\nplot(ys, imag.(cs), label=\"imag log (1+i*y)\" )\nlegend()\n\nxlabel(\"y\")\nlegend(loc=4)\nylim(-3,3)\nxlim(-3,3)\nplt[:axes]()[:set_aspect](\"equal\")\n\naxhline(0,lw=0.5, color=\"k\")\naxvline(0,lw=0.5, color=\"k\")\naxhline( pi/2, lw=0.5, color=\"c\")\naxhline(-pi/2, lw=0.5, color=\"c\")\n#\naxhline(log(sqrt(2)), lw=0.5, color=\"m\")\naxhline( pi/4, 0.6, 1, lw=0.5, color=\"m\")\naxhline(-pi/4, 0, 0.4, lw=0.5, color=\"m\")\naxvline( 1, lw=0.5, color=\"m\")\naxvline(-1, lw=0.5, color=\"m\")\n\nsavefig(\"ch13-log1-plot.svg\"); nothing # hide(Image: )変数 y の増加に伴い、logz の虚数部は -dfracpi2 から dfracpi2 へ単調に増加する (シアン色の補助線)。 実数部は下に凸で、y=0 で極小値 log1 = 0 をとる。特に、y = pm1 において、虚数部は pmdfracpi4、実数部は logsqrt2 をとる (マゼンダ色の補助線)。上のグラフは、ガウス平面上の z = 1 + i y の軌跡から理解できるであろう。using PyPlot\nclf() #hide\nxlim(-3,3)\nylim(-3,3)\nxlabel(\"real part\")\nylabel(\"imag part\")\naxhline(0, lw=0.5, c=\"k\")\naxvline(0, lw=0.5, c=\"k\")\naxvline(1, lw=0.5, c=\"k\")\nfor y in [-2, -1, 1,2]\n  plot([0,1], [0,y], \"b.-\")\n  text(1.1, y, \"1+i \"*string(y))\nend\nplt[:axes]()[:set_aspect](\"equal\")\n\nsavefig(\"ch13-log2-plot.svg\"); nothing # hide(Image: )"
+},
+
+{
+    "location": "ch13.html#練習-3",
+    "page": "第13回：複素数",
+    "title": "◀ 練習",
+    "category": "section",
+    "text": "複素数 z = x + i の自然対数 logz の実部と虚部をプロットせよ。 その結果を、ガウス平面上の z の軌跡を描いて、考察せよ。"
+},
+
+{
+    "location": "ch13.html#三角関数と双曲線関数-1",
+    "page": "第13回：複素数",
+    "title": "▶ 三角関数と双曲線関数",
+    "category": "section",
+    "text": "双曲線関数 cosht sinht や三角関数 cost sint は、指数関数 exp(z) を用いて、定義されることもある。beginalign*\ncosh x  = dfracexp(x)+exp(-x)2  sinh x  = dfracexp(x)-exp(-x)2  cos x  = dfracexp(ix)+exp(-ix)2  sin x  = dfracexp(ix)-exp(-ix)2i\nendalign*したがって、三角関数に純虚数を与えると、双曲線関数となる。beginalign*cos ix  = cosh x   sin ix  = i sinh x endalign*上の等式がなりたつことを、グラフで観察しよう。using PyPlot\nclf() #hide\n\nxs=linspace(-1,1,21)\ncz=cos.( im*xs )\nplot(xs, real.(cz), \"r-\", label=\"real cos(ix)\")\nplot(xs, cosh.(xs), \"ro\", label=\"cosh(x)\")\n#\nsz=sin.( im*xs )\nplot(xs, imag.(sz), \"b-\", label=\"imag sin(ix)\")\nplot(xs, sinh.(xs), \"bo\", label=\"sinh(x)\")\n#\nxlabel(\"x\")\nxlim(-1.8,1.8)\nylim(-1.8,1.8)\nlegend()\naxhline(0,lw=0.5, color=\"k\")\naxvline(0,lw=0.5, color=\"k\")\nplt[:axes]()[:set_aspect](\"equal\")\nsavefig(\"ch13-tri1-plot.svg\"); nothing # hide(Image: )## ■ 複素数を定義域とする関数（案）微分方程式の境界値問題\n\n## ★ 今回のまとめ（案）微分方程式の初期値問題"
+},
+
+{
+    "location": "ch13.html#今回のまとめ-1",
+    "page": "第13回：複素数",
+    "title": "★ 今回のまとめ",
+    "category": "section",
+    "text": "複素数\n複素数のベクトル・行列\n複素数の加減乗除\nガウス平面\nオイラーの公式\n極座標表示\n複素数に拡張された関数\n応用：伝達関数"
 },
 
 {
@@ -2001,11 +2489,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "ch14.html#複素数-1",
+    "location": "ch14.html#今回のまとめ-1",
     "page": "第14回：検討中",
-    "title": "■ 複素数",
+    "title": "★ 今回のまとめ",
     "category": "section",
-    "text": "（案）微分方程式の境界値問題\n\n## ★ 今回のまとめ"
+    "text": "```"
 },
 
 {

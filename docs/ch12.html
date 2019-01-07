@@ -1,2 +1,297 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第12回：ファイル入出力 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li><li><a class="toctext" href="ch10.html">第10回：行列・線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：関数の定義と呼び出し</a></li><li class="current"><a class="toctext" href="ch12.html">第12回：ファイル入出力</a><ul class="internal"></ul></li><li><a class="toctext" href="ch13.html">第13回：検討中</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch12.html">第12回：ファイル入出力</a></li></ul></nav><hr/><div id="topbar"><span>第12回：ファイル入出力</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch12-1" href="#ch12-1">第12回：ファイル入出力</a></h1><footer><hr/><a class="previous" href="ch11.html"><span class="direction">Previous</span><span class="title">第11回：関数の定義と呼び出し</span></a><a class="next" href="ch13.html"><span class="direction">Next</span><span class="title">第13回：検討中</span></a></footer></article></body></html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第12回：関数の定義と呼び出し · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li><li><a class="toctext" href="ch10.html">第10回：行列・線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：ファイル入出力</a></li><li class="current"><a class="toctext" href="ch12.html">第12回：関数の定義と呼び出し</a><ul class="internal"><li><a class="toctext" href="#関数の定義と呼び出し-1">■ 関数の定義と呼び出し</a></li><li><a class="toctext" href="#円を描く関数を作る-1">▶ 円を描く関数を作る</a></li><li><a class="toctext" href="#仮引数の既定値-1">■ 仮引数の既定値</a></li><li><a class="toctext" href="#関数の戻り値-1">■ 関数の戻り値</a></li><li><a class="toctext" href="#局所変数-1">■ 局所変数</a></li><li><a class="toctext" href="#ヘロンの公式を関数にする-1">▶ ヘロンの公式を関数にする</a></li><li><a class="toctext" href="#方形波のフーリエ級数和を関数にする-1">▶︎ 方形波のフーリエ級数和を関数にする</a></li><li><a class="toctext" href="#練習-1">◀ 練習</a></li><li><a class="toctext" href="#Riemann和の計算を関数にする-1">▶︎ Riemann和の計算を関数にする</a></li><li><a class="toctext" href="#練習-2">◀ 練習</a></li><li><a class="toctext" href="#練習-3">◀▶︎ 練習</a></li><li><a class="toctext" href="#モンテカルロ法による平面図形の面積の近似値を関数にする-1">▶︎ モンテカルロ法による平面図形の面積の近似値を関数にする</a></li><li><a class="toctext" href="#練習-4">◀ 練習</a></li><li><a class="toctext" href="#練習-5">◀▶︎ 練習</a></li><li><a class="toctext" href="#関数から複数の値を返す-1">■ 関数から複数の値を返す</a></li><li><a class="toctext" href="#「はさみうち」法による、方程式の求解を関数にする-1">▶︎ 「はさみうち」法による、方程式の求解を関数にする</a></li><li><a class="toctext" href="#練習-6">◀ 練習</a></li><li><a class="toctext" href="#引数の型の指定-1">■ 引数の型の指定</a></li><li><a class="toctext" href="#階乗関数を定義する-1">▶ 階乗関数を定義する</a></li><li><a class="toctext" href="#練習-7">◀ 練習</a></li><li><a class="toctext" href="#今回のまとめ-1">■ 今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch13.html">第13回：複素数</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch12.html">第12回：関数の定義と呼び出し</a></li></ul></nav><hr/><div id="topbar"><span>第12回：関数の定義と呼び出し</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch12-1" href="#ch12-1">第12回：関数の定義と呼び出し</a></h1><h2><a class="nav-anchor" id="関数の定義と呼び出し-1" href="#関数の定義と呼び出し-1">■ 関数の定義と呼び出し</a></h2><p><a href="ch05.html#関数の定義-(代入文形式)-1">■ 関数の定義 (代入文形式)</a> の節で、代入文形式のユーザ関数の定義を紹介した。 この節では、より一般的な扱いを説明する。</p><p>より広い意味では、一連のプログラム片に名前を付けたものが、関数 (function) である。</p><h3><a class="nav-anchor" id="関数の定義と呼び出し：引数がない場合-1" href="#関数の定義と呼び出し：引数がない場合-1">■ 関数の定義と呼び出し：引数がない場合</a></h3><p>以下は、<code>Hello</code> という文字を印字する関数の定義を示す。</p><p>関数定義は、キーワード <code>function</code> で始まり、その後に関数名を書く。 呼び出す際に、渡すべき値がなければ、関数名の後に、括弧・閉じ括弧 <code>()</code> を書くだけである。</p><p>処理を記述した後、キーワード <code>end</code> で終わる。</p><pre><code class="language-julia-repl">julia&gt; function hello()
+         println(&quot;Hello&quot;)
+       end
+hello (generic function with 1 method)</code></pre><p>この関数を呼び出すには、関数名に続けて <code>()</code> を書けばよい。</p><pre><code class="language-julia-repl">julia&gt; hello()
+Hello
+
+julia&gt; hello()
+Hello</code></pre><h3><a class="nav-anchor" id="関数の定義と呼び出し：引数がある場合-1" href="#関数の定義と呼び出し：引数がある場合-1">■ 関数の定義と呼び出し：引数がある場合</a></h3><p>関数を呼び出す際に、渡す値がある場合は、関数名の後に、 括弧 <code>()</code> で囲んで、変数名 (仮引数(「かり・ひきすう」 parameter )の並びを書く。</p><pre><code class="language-julia-repl">julia&gt; function hello(name)
+         print( &quot;Hello &quot;)
+         println( string(name))
+       end
+hello (generic function with 2 methods)</code></pre><p>この関数を呼び出すには、関数名に続けて <code>()</code> に囲んで、具体的な値（実引数「じつ・ひきすう」argument)を書く。 関数の定義の中に出現した仮引数は、実引数の値に置き換えられる。</p><pre><code class="language-julia-repl">julia&gt; hello( &quot;world&quot;)
+Hello world
+
+julia&gt; hello( &quot;the Earth&quot;)
+Hello the Earth
+
+julia&gt; hello()
+Hello
+
+julia&gt; # 例外: 実引数 2つ
+       hello( &quot;world&quot;, &quot;the Earth&quot; )
+ERROR: MethodError: no method matching hello(::String, ::String)
+Closest candidates are:
+  hello(::Any) at none:2</code></pre><p>関数 <code>hello</code> に対して、引数が 0個の場合の定義と、引数が 1個の場合の定義の２つが紐(ひも)ついている。 関数呼び出しにおける引数の数に応じて、対応する関数が実行される。 上の最後の例のように、対応する関数定義が見つからなければ、例外が発生する。</p><h2><a class="nav-anchor" id="円を描く関数を作る-1" href="#円を描く関数を作る-1">▶ 円を描く関数を作る</a></h2><p><code>PyPlot</code>パッケージを読み込んだ状況で、円を描く関数を作成する。</p><p>引数は、円の中心座標 <code>cx, cy</code>、円の半径 <code>r</code>、線の色 <code>col</code> とする。</p><div><pre><code class="language-julia">function draw_circle(cx,cy,c,r)
+  t=0:pi/18:2pi
+  xs=cx+r*cos.(t)
+  ys=cy+r*sin.(t)
+  plot(xs,ys, color=c)
+end</code></pre><pre><code class="language-none">draw_circle (generic function with 1 method)</code></pre></div><p>５つの円を描いてみよう。</p><div><pre><code class="language-julia">using PyPlot
+r=1
+s=1.1
+draw_circle(   0,  s, &quot;k&quot;, r)
+draw_circle(  -s,  0, &quot;y&quot;, r)
+draw_circle( -2s,  s, &quot;b&quot;, r)
+draw_circle(   s,  0, &quot;g&quot;, r)
+draw_circle(  2s,  s, &quot;r&quot;, r)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch12-mark1-plot.svg" alt/></p><p>全ての軸を描画しないようにするには、上に続けて <code>plt[:axis](&quot;off&quot;)</code> を実行すればよい。</p><div><pre><code class="language-julia">plt[:axis](&quot;off&quot;)</code></pre></div><p><img src="ch12-mark2-plot.svg" alt/></p><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>オリンピックのシンボルマークは、知的財産権が厳しく保護されていることに留意されたい。</p></div></div><h2><a class="nav-anchor" id="仮引数の既定値-1" href="#仮引数の既定値-1">■ 仮引数の既定値</a></h2><p>仮引数に続けて <code>=値</code> を書くことで、既定の値を設定できる。 関数呼び出しで、該当する引数を省略して関数を呼び出した場合には、既定の値が用いられる。</p><p>関数 <code>draw_circle</code> で、最後の引数 <code>r</code>の既定値を <code>1</code>に設定した。</p><div><pre><code class="language-julia">function draw_circle(cx,cy,c,r=1)
+  t=0:pi/18:2pi
+  xs=cx+r*cos.(t)
+  ys=cy+r*sin.(t)
+  plot(xs,ys, color=c)
+end</code></pre><pre><code class="language-none">WARNING: Method definition draw_circle(Any, Any, Any, Any) in module ex-ch12 at none:2 overwritten at none:2.
+draw_circle (generic function with 2 methods)</code></pre></div><p>関数 <code>draw_circle</code> を３つの引数で呼び出した場合には、<code>r=1</code> として呼び出したとみなされる。</p><div><pre><code class="language-julia">r=1
+s=1.1
+draw_circle(   0,  s, &quot;k&quot; )
+draw_circle(  -s,  0, &quot;y&quot; )
+draw_circle( -2s,  s, &quot;b&quot; )
+draw_circle(   s,  0, &quot;g&quot; )
+draw_circle(  2s,  s, &quot;r&quot; )</code></pre><pre><code class="language-none">1-element Array{PyCall.PyObject,1}:
+ PyObject &lt;matplotlib.lines.Line2D object at 0x130674d68&gt;</code></pre></div><h2><a class="nav-anchor" id="関数の戻り値-1" href="#関数の戻り値-1">■ 関数の戻り値</a></h2><p>関数を実行した結果の値を、呼び出し側で使いたい場合は、しばしばある。</p><p>関数定義において、最後に評価した値が、関数の戻り値 (return-value)となる。</p><p><a href="ch05.html#関数の定義-(代入文形式)-1">■ 関数の定義 (代入文形式)</a> を用いても、数 <code>x</code> を 3倍する関数を定義すると、以下のようになる。</p><pre><code class="language-none">triple(x)=3*x</code></pre><p>これをより一般の形式で書くと、以下のようになる。最後に評価した <code>3*x</code> が関数の戻り値となる。</p><pre><code class="language-julia-repl">julia&gt; function triple(x)
+         3*x
+       end
+triple (generic function with 1 method)</code></pre><pre><code class="language-julia-repl">julia&gt; triple(-1)
+-3</code></pre><h3><a class="nav-anchor" id="return-キーワード-1" href="#return-キーワード-1">■ return キーワード</a></h3><p>キーワード <code>return 式</code>　は関数内で用いられると、直ちに関数から抜ける（戻る）ことを指示する。 この際、式の結果が関数の戻り値となる。</p><p>上の関数は、以下のようにも書ける (が、冗長である)。</p><pre><code class="language-none">function triple(x)
+  return 3*x
+end</code></pre><p>また、数 <code>x</code> の絶対値を求める関数を自前で書いてみると、以下のようになる。</p><pre><code class="language-julia-repl">julia&gt; function myabs(x)
+         if x &lt; 0
+           return -x
+         else
+           return x
+         end
+       end
+myabs (generic function with 1 method)</code></pre><pre><code class="language-julia-repl">julia&gt; myabs(-1)
+1</code></pre><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>上の <code>myabs</code>は<a href="ch05.html#3項演算子-1">■ 3項演算子</a>を用いて、以下のように書いてもよい。</p><pre><code class="language-none">myabs(x)= x&lt;0 ? -x : x</code></pre></div></div><h2><a class="nav-anchor" id="局所変数-1" href="#局所変数-1">■ 局所変数</a></h2><p>関数内部で代入した変数 (局所変数, local variables)は、その関数内部でのみ生きている。</p><p>下の例で、関数 <code>triple</code> 内部で代入した <code>t</code>は、関数 <code>triple</code> のみで生きている。 コマンドラインで定義した変数 <code>t</code> は、関数 <code>triple</code> の局所変数 <code>t</code> とは別物であり、関数呼び出し後も値は変わっていない。 コマンドラインで定義した変数 <code>t</code> の方を、全域変数 (global variables)ともいう。</p><pre><code class="language-julia-repl">julia&gt; t=4
+4
+
+
+julia&gt; function triple(x)
+         t=3
+         t*x
+       end
+WARNING: Method definition triple(Any) in module ex-ch12 at none:2 overwritten at none:2.
+triple (generic function with 1 method)
+
+
+julia&gt; triple(2)
+6
+
+julia&gt; @show t;
+t = 4</code></pre><h2><a class="nav-anchor" id="ヘロンの公式を関数にする-1" href="#ヘロンの公式を関数にする-1">▶ ヘロンの公式を関数にする</a></h2><p>ヘロンの公式 (Heron&#39;s formula) によれば、 3辺の長さが <span>$a, b, c$</span> である三角形の面積は</p><div>\[\begin{align*} &amp; \sqrt{s(s-a)(s-b)(s-c)}\\ s &amp; =\frac{a+b+c}{2}\end{align*}\]</div><p>で与えられる。</p><p>ヘロンの公式を用いて、三角形の面積を返す関数を定義してみる。</p><pre><code class="language-julia-repl">julia&gt; function heron(a,b,c)
+         s=(a+b+c)/2
+         r=s*(s-a)*(s-b)*(s-c)
+         if r &lt; 0
+           return 0.0
+         end
+         sqrt(r)
+       end
+heron (generic function with 1 method)</code></pre><p>三辺 <span>$a, b, c$</span>から三角形を作ることができない場合には、平方根の中身が負になる。 このときは、面積として <code>0</code> を返すことにする。</p><p>実行してみよう。</p><pre><code class="language-julia-repl">julia&gt; heron(3,4,5)
+6.0
+
+julia&gt; # 三角形ができない場合
+       heron(3,3,7)
+0.0</code></pre><h2><a class="nav-anchor" id="方形波のフーリエ級数和を関数にする-1" href="#方形波のフーリエ級数和を関数にする-1">▶︎ 方形波のフーリエ級数和を関数にする</a></h2><p>方形波をフーリエ級数の和として計算する方法を、<a href="ch08.html#方形波：フーリエ級数の有限和-1">▶︎ 方形波：フーリエ級数の有限和</a> の節で、紹介した。 時刻の配列 <code>ts</code> における方形波を、奇数 <span>$n$</span> までのフーリエ級数和として計算する関数を書いてみる。</p><div><pre><code class="language-julia">function square(ts,n)
+  ys=zeros(ts)
+  for i in 1:2:n
+    ys += sin.(i*ts)/i*4/pi
+  end
+  ys
+end</code></pre><pre><code class="language-none">square (generic function with 1 method)</code></pre></div><p>実行してみよう。</p><div><pre><code class="language-julia">@show square( (0:6)*pi/4 , 13);</code></pre><pre><code class="language-none">square(((0:6) * pi) / 4, 13) = [0.0, 1.00437, 1.04525, 1.00437, 1.15475e-15, -1.00437, -1.04525]</code></pre></div><p>級数和の上限 <span>$n$</span> を変えて、グラフをプロットしよう。</p><div><pre><code class="language-julia">using PyPlot
+
+ts=-74*pi/36:pi/36:74*pi/36
+plot(ts, sign.(sin.(ts)), label=&quot;square wave&quot; )
+
+for n in [ 5, 9, 13]
+  plot(ts, square(ts, n), label=&quot;up to &quot;*string(n) )
+end
+legend(loc=&quot;center right&quot;)
+
+yticks( [-1,0,1], [ &quot;-1&quot;, &quot;0&quot;, &quot;1&quot;])
+xticks( [-2pi,-pi,0, pi, 2pi ],
+        [L&quot;-2\pi&quot;, L&quot;-\pi&quot;,&quot;0&quot;, L&quot;\pi&quot;, L&quot;2\pi&quot; ])</code></pre></div><p><img src="ch12-sqwave-plot1.svg" alt/></p><h2><a class="nav-anchor" id="練習-1" href="#練習-1">◀ 練習</a></h2><p>上の関数 <code>square</code> を以下のように改良せよ。</p><ul><li><p><span>$n$</span> が偶数の場合でも、適切な解釈に基づき動作するようにせよ。</p></li><li><p><span>$n$</span> が 3よりも小さい場合は <code>n=13</code> とせよ。</p></li></ul><h2><a class="nav-anchor" id="Riemann和の計算を関数にする-1" href="#Riemann和の計算を関数にする-1">▶︎ Riemann和の計算を関数にする</a></h2><p>関数の定積分の近似値を、短冊の面積の和として計算する方法を <a href="ch08.html#Riemann和（繰り返しで加算)-1">▶︎ Riemann和（繰り返しで加算)</a>の節で、紹介した。 関数 <code>f</code>、定積分の範囲 <code>a, b</code>、分割数 <code>n</code> を引数として、Rienmann和を計算する関数を書いてみる。</p><div><pre><code class="language-julia">function riemann_sum(f,a,b,n)
+  xs=linspace(a,b,n+1)
+  d=(b-a)/n
+  s1=0
+  for i in 1:n
+    x=xs[i]
+    s1 += g(x)*d
+  end
+  s1
+end</code></pre><pre><code class="language-none">riemann_sum (generic function with 1 method)</code></pre></div><p>実行してみよう。</p><div><pre><code class="language-julia">g(x)=1/(1+x)
+a=0; b=1
+@show riemann_sum(g,a,b,2^10);</code></pre><pre><code class="language-none">riemann_sum(g, a, b, 2 ^ 10) = 0.6933913807895831</code></pre></div><p>分割数を変えてみる。</p><div><pre><code class="language-julia">for m=8:13
+  @show m, riemann_sum(g,a,b,2^m);
+end
+@show log(2);</code></pre><pre><code class="language-none">(m, riemann_sum(g, a, b, 2 ^ m)) = (8, 0.694124696732443)
+(m, riemann_sum(g, a, b, 2 ^ m)) = (9, 0.6936357002284099)
+(m, riemann_sum(g, a, b, 2 ^ m)) = (10, 0.6933913807895831)
+(m, riemann_sum(g, a, b, 2 ^ m)) = (11, 0.6932692657736083)
+(m, riemann_sum(g, a, b, 2 ^ m)) = (12, 0.6932082194414848)
+(m, riemann_sum(g, a, b, 2 ^ m)) = (13, 0.693177699069395)
+log(2) = 0.6931471805599453</code></pre></div><h2><a class="nav-anchor" id="練習-2" href="#練習-2">◀ 練習</a></h2><p>上の例で、相対誤差をプロットせよ。</p><h2><a class="nav-anchor" id="練習-3" href="#練習-3">◀▶︎ 練習</a></h2><p>上の関数 <code>riemann_sum</code> を、以下のように改良せよ。</p><ul><li><p><span>$n &lt; 1$</span> の場合には、ただちに <code>0</code> を返すようにせよ。</p></li><li><p><span>$n &lt; 1$</span> の場合には、<span>$n=4$</span> として、計算せよ。</p></li><li><p><span>$a &gt; b$</span> の場合には、上限と下限を交換してから計算せよ。ヒント：変数 <span>$a, b$</span> の値を交換するには、同時代入 <span>$b,a=a,b$</span> を用いよ。</p></li></ul><h2><a class="nav-anchor" id="モンテカルロ法による平面図形の面積の近似値を関数にする-1" href="#モンテカルロ法による平面図形の面積の近似値を関数にする-1">▶︎ モンテカルロ法による平面図形の面積の近似値を関数にする</a></h2><p>平面内のある領域の面積の近似値をモンテカルロ法で求める方法を、<a href="ch05.html#モンテカルロ法による平面図形の面積の推定-1">▶︎ モンテカルロ法による平面図形の面積の推定</a> で紹介した。</p><p>範囲を表す関数 <code>f</code>、点の数 <code>n</code> を引数として、モンテカルロ法で面積の近似値を計算する関数を書いてみる。 関数 <code>f</code> は、平面座標 <code>x,y</code>を引数にして、<code>(x,y)</code> が図形の内部なら真 <code>true</code>を、内部でなければ偽 <code>false</code> を返すものとする。 なお、図形の範囲は、<span>$x$</span>座標、<span>$y$</span>座標とも、0から1までの範囲とする。</p><div><pre><code class="language-julia">function montecarlo(f,n)
+  s=0
+  for i=1:n
+    x=rand()
+    y=rand()
+    if f(x,y)
+      s += 1
+    end
+  end
+  s/n
+end</code></pre><pre><code class="language-none">montecarlo (generic function with 1 method)</code></pre></div><p>四分円に対して、実行してみよう。</p><div><pre><code class="language-julia">quadrant(x,y)= x*x+y*y &lt; 1
+n=2^8
+@show n, montecarlo(quadrant, n), pi/4</code></pre><pre><code class="language-none">(n, montecarlo(quadrant, n), pi / 4) = (256, 0.78125, 0.7853981633974483)
+(256, 0.78125, 0.7853981633974483)</code></pre></div><p>点の数を変えてみる。</p><div><pre><code class="language-julia">for m=1:10
+  n=2^m
+  @show n, montecarlo(quadrant, n);
+end</code></pre><pre><code class="language-none">(n, montecarlo(quadrant, n)) = (2, 1.0)
+(n, montecarlo(quadrant, n)) = (4, 0.5)
+(n, montecarlo(quadrant, n)) = (8, 0.75)
+(n, montecarlo(quadrant, n)) = (16, 0.6875)
+(n, montecarlo(quadrant, n)) = (32, 0.8125)
+(n, montecarlo(quadrant, n)) = (64, 0.859375)
+(n, montecarlo(quadrant, n)) = (128, 0.7890625)
+(n, montecarlo(quadrant, n)) = (256, 0.8125)
+(n, montecarlo(quadrant, n)) = (512, 0.794921875)
+(n, montecarlo(quadrant, n)) = (1024, 0.775390625)</code></pre></div><p>今度は、二つの不等式 y&lt;x と y&lt;1−x の両方に囲まれる領域の面積を推定しよう。</p><div><pre><code class="language-julia">tri1(x,y)= y &lt; x &amp;&amp; y &lt; 1-x
+n=2^8
+@show n, montecarlo(tri1, n)</code></pre><pre><code class="language-none">(n, montecarlo(tri1, n)) = (256, 0.20703125)
+(256, 0.20703125)</code></pre></div><p>点の数を変えてみる。</p><div><pre><code class="language-julia">for m=4:12
+  n=2^m
+  @show n, montecarlo(tri1, n);
+end
+@show 1/4</code></pre><pre><code class="language-none">(n, montecarlo(tri1, n)) = (16, 0.0625)
+(n, montecarlo(tri1, n)) = (32, 0.21875)
+(n, montecarlo(tri1, n)) = (64, 0.265625)
+(n, montecarlo(tri1, n)) = (128, 0.2265625)
+(n, montecarlo(tri1, n)) = (256, 0.26953125)
+(n, montecarlo(tri1, n)) = (512, 0.255859375)
+(n, montecarlo(tri1, n)) = (1024, 0.2431640625)
+(n, montecarlo(tri1, n)) = (2048, 0.25048828125)
+(n, montecarlo(tri1, n)) = (4096, 0.256103515625)
+1 / 4 = 0.25
+0.25</code></pre></div><h2><a class="nav-anchor" id="練習-4" href="#練習-4">◀ 練習</a></h2><p>上の２つの例で、相対誤差をプロットせよ。</p><h2><a class="nav-anchor" id="練習-5" href="#練習-5">◀▶︎ 練習</a></h2><p>上の関数 <code>montecarlo</code> を、以下のように改良せよ。</p><ul><li><p><span>$n \le 1$</span> の場合には、<span>$n=2^8$</span> として、計算せよ。</p></li></ul><h2><a class="nav-anchor" id="関数から複数の値を返す-1" href="#関数から複数の値を返す-1">■ 関数から複数の値を返す</a></h2><p><a href="ch10.html#タプル-1">■ タプル</a> の小節で、関数 <code>divrem</code> のように、複数の値を返す関数があることを紹介した。</p><ul><li><p><a href="https://docs.julialang.org/en/v0.6/manual/functions/#Multiple-Return-Values-1">Multiple Return Values</a></p></li></ul><p>ユーザ関数から複数の値を返すには、関数定義の最後に評価する式において、カンマ <code>,</code> で区切って復数の式を書けばよい。 この関数の戻り値は、<a href="ch10.html#タプル-1">■ タプル</a> となる。</p><div><pre><code class="language-julia">function one_two()
+  1,2
+end
+
+@show one_two()</code></pre><pre><code class="language-none">one_two() = (1, 2)
+(1, 2)</code></pre></div><div><pre><code class="language-julia">x,y=one_two()
+@show x,y</code></pre><pre><code class="language-none">(x, y) = (1, 2)
+(1, 2)</code></pre></div><h2><a class="nav-anchor" id="「はさみうち」法による、方程式の求解を関数にする-1" href="#「はさみうち」法による、方程式の求解を関数にする-1">▶︎ 「はさみうち」法による、方程式の求解を関数にする</a></h2><p>「はさみうち」法を用いて、方程式の解の存在範囲を狭めていく方法を、<a href="ch05.html#「はさみうち」法による、方程式の求解-1">▶︎ 「はさみうち」法による、方程式の求解</a> で紹介した。</p><p>求めるべき方程式 <code>f</code>、解の存在範囲の下限 <code>a</code>、および 上限 <code>b</code> を引数として、より狭い解の存在範囲の下限と上限を返す関数を書いてみる。</p><div><pre><code class="language-julia">function bisect(f,a,b)
+  c=(a+b)/2
+  if f(a)*f(c) &gt; 0
+    a = c
+  else
+    b = c
+  end
+  a,b
+end</code></pre><pre><code class="language-none">bisect (generic function with 1 method)</code></pre></div><div><pre><code class="language-julia">g(x)=x^3+3x^2-4*x-12
+a=-3.2; b=-2.6
+
+for i=1:10
+  @show a, b, b-a, g(a), g(b)
+  a,b=bisect(g,a,b)
+end</code></pre><pre><code class="language-none">WARNING: Method definition g(Any) in module ex-ch12 at none:1 overwritten at none:1.
+(a, b, b - a, g(a), g(b)) = (-3.2, -2.6, 0.6000000000000001, -1.248000000000001, 1.1039999999999974)
+(a, b, b - a, g(a), g(b)) = (-3.2, -2.9000000000000004, 0.2999999999999998, -1.248000000000001, 0.4409999999999954)
+(a, b, b - a, g(a), g(b)) = (-3.0500000000000003, -2.9000000000000004, 0.1499999999999999, -0.26512500000000294, 0.4409999999999954)
+(a, b, b - a, g(a), g(b)) = (-3.0500000000000003, -2.9750000000000005, 0.07499999999999973, -0.26512500000000294, 0.12126562499999949)
+(a, b, b - a, g(a), g(b)) = (-3.0125, -2.9750000000000005, 0.037499999999999645, -0.06343945312499955, 0.12126562499999949)
+(a, b, b - a, g(a), g(b)) = (-3.0125, -2.9937500000000004, 0.018749999999999822, -0.06343945312499955, 0.031015869140624375)
+(a, b, b - a, g(a), g(b)) = (-3.0031250000000003, -2.9937500000000004, 0.009374999999999911, -0.015683624267579077, 0.031015869140624375)
+(a, b, b - a, g(a), g(b)) = (-3.0031250000000003, -2.9984375000000005, 0.0046874999999997335, -0.015683624267579077, 0.007797855377194907)
+(a, b, b - a, g(a), g(b)) = (-3.00078125, -2.9984375000000005, 0.0023437499999996447, -0.003909912586216535, 0.007797855377194907)
+(a, b, b - a, g(a), g(b)) = (-3.00078125, -2.9996093750000004, 0.0011718749999998224, -0.003909912586216535, 0.0019522095322592747)</code></pre></div><h2><a class="nav-anchor" id="練習-6" href="#練習-6">◀ 練習</a></h2><ul><li><p>上の例で、解の存在範囲が狭くなる様子をプロットせよ。</p></li><li><p>異なる解の存在範囲に対して、「はさみうち」法を実行せよ。</p></li></ul><h2><a class="nav-anchor" id="引数の型の指定-1" href="#引数の型の指定-1">■ 引数の型の指定</a></h2><p>関数定義の仮引数には <code>::型</code> という形式で、仮引数の型を指定できる。 関数呼出しの際、実引数の型と仮引数の型が一致する関数が呼び出される。 この仕組を、多重ディスパッチ (multiple dispatch)という。</p><p>型が指定されていない仮引数は、<code>Any</code>型とみなされ、あらゆる実引数の型と一致する。</p><p>個別の仮引数に対応する関数は、メソッドと呼ばれる。</p><p>例で説明する。</p><p>関数 <code>mytest</code> を、<code>Int64</code>型の引数に対してだけ定義しよう。</p><pre><code class="language-julia-repl">julia&gt; function mytest(x::Int64)
+         println(string(x)*&quot; is of Int64 type&quot;)
+       end
+mytest (generic function with 1 method)</code></pre><p>この段階で、<code>mytest(1)</code> は上の関数が呼び出されるが、<code>mytest(1.0)</code> は呼び出されるべき関数が見つからず、例外が発生する。</p><pre><code class="language-julia-repl">julia&gt; # 関数が呼び出される
+       mytest(1)
+1 is of Int64 type
+
+julia&gt; # 関数が呼び出されない
+       mytest(1.0)
+ERROR: MethodError: no method matching mytest(::Float64)
+Closest candidates are:
+  mytest(!Matched::Int64) at none:2</code></pre><p>関数 <code>mytest</code> を、<code>Float64</code>型の引数に対しても定義する。</p><pre><code class="language-julia-repl">julia&gt; function mytest(x::Float64)
+         println(string(x)*&quot; is of Float64 type&quot;)
+       end
+mytest (generic function with 2 methods)
+
+
+julia&gt; # 今度は、上の関数が呼び出される
+       mytest(1.0)
+1.0 is of Float64 type</code></pre><p>しかし、<code>mytest(&quot;a&quot;)</code> や <code>mytest(&quot;[1]&quot;)</code> は呼び出されるべき関数が見つからず、例外が発生する。</p><pre><code class="language-julia-repl">julia&gt; # 関数が呼び出されない
+       mytest(&quot;a&quot;)
+ERROR: MethodError: no method matching mytest(::String)
+Closest candidates are:
+  mytest(!Matched::Float64) at none:2
+  mytest(!Matched::Int64) at none:2
+
+julia&gt; # 関数が呼び出されない
+       mytest([1])
+ERROR: MethodError: no method matching mytest(::Array{Int64,1})
+Closest candidates are:
+  mytest(!Matched::Float64) at none:2
+  mytest(!Matched::Int64) at none:2</code></pre><p>更に、仮引数に型を指定しない関数を定義すれば、そちらが呼び出される。</p><pre><code class="language-julia-repl">julia&gt; function mytest(x)
+         println(string(x)*&quot; is neither of Int64 type nor of Float64 type&quot;)
+       end
+mytest (generic function with 3 methods)
+
+
+julia&gt; # 今度は、上の関数が呼び出される
+       mytest(&quot;a&quot;)
+a is neither of Int64 type nor of Float64 type
+
+julia&gt; # 今度は、上の関数が呼び出される
+       mytest([1])
+[1] is neither of Int64 type nor of Float64 type</code></pre><h2><a class="nav-anchor" id="階乗関数を定義する-1" href="#階乗関数を定義する-1">▶ 階乗関数を定義する</a></h2><p>1 から整数 <code>n</code> までの連続する整数の積を、階乗 (factorial)といい、<span>$n!$</span> のように書く。</p><p>$ 6 ! = 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720$</p><p>さらに、<span>$0! = 1$</span> と定義する。</p><p>階乗を計算する関数を定義しよう。 階乗関数は整数に対してのみ定義されるから、引数を整数型に限定しよう。 0よりも小さい整数に対して、階乗は定義されないが、1を返すことにする。</p><pre><code class="language-julia-repl">julia&gt; function myfact1(n::Int64)
+         n &lt;= 1 &amp;&amp; return 1
+         r=1
+         for i=2:n
+           r *= i
+         end
+         r
+       end
+myfact1 (generic function with 1 method)</code></pre><p>正しく計算されることを確かめてみる。</p><pre><code class="language-julia-repl">julia&gt; for n in 6:-1:-1
+         @show n, myfact1(n)
+       end
+(n, myfact1(n)) = (6, 720)
+(n, myfact1(n)) = (5, 120)
+(n, myfact1(n)) = (4, 24)
+(n, myfact1(n)) = (3, 6)
+(n, myfact1(n)) = (2, 2)
+(n, myfact1(n)) = (1, 1)
+(n, myfact1(n)) = (0, 1)
+(n, myfact1(n)) = (-1, 1)</code></pre><p>浮動小数点数や整数ベクトルに対して、関数 <code>myfact1</code>は未定義である。</p><pre><code class="language-julia-repl">julia&gt; # 関数は未定義
+       myfact1(2.2)
+ERROR: MethodError: no method matching myfact1(::Float64)
+Closest candidates are:
+  myfact1(!Matched::Int64) at none:2
+
+julia&gt; # 関数は未定義
+       myfact1([6,3])
+ERROR: MethodError: no method matching myfact1(::Array{Int64,1})
+Closest candidates are:
+  myfact1(!Matched::Int64) at none:2</code></pre><p>整数を要素とするベクトルに対して dot記法を用いて <code>myfact1</code> を呼び出せば、 各要素に対して関数 <code>myfact1</code> を呼び出した値のベクトルが得られる。</p><pre><code class="language-julia-repl">julia&gt; myfact1.([6,5,4])
+3-element Array{Int64,1}:
+ 720
+ 120
+  24</code></pre><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>Julia には、階乗関数 <code>factorial(n)</code> が組み込まれている。</p><pre><code class="language-">factorial(1)
+factorial(2)
+factorial(3)</code></pre></div></div><h3><a class="nav-anchor" id="再帰-1" href="#再帰-1">▶ 再帰</a></h3><p>階乗には <span>$n! = n \times (n-1)!$</span> という性質がある。 すなわち、<span>$n!$</span> は <span>$(n-1)!$</span> を用いて定義される。</p><p>これをプログラムで書く場合には、関数定義の中で自分自身を呼ぶ、これを再帰 (recursion) という。</p><p>再帰を用いて、階乗を定義してみよう。</p><pre><code class="language-julia-repl">julia&gt; function myfact2(n::Int64)
+         n &lt;= 1 &amp;&amp; return 1
+         n * myfact2(n-1)
+       end
+myfact2 (generic function with 1 method)</code></pre><p>正しく計算されることを確かめてみる。</p><pre><code class="language-julia-repl">julia&gt; for n in 6:-1:-1
+         @show n, myfact2(n)
+       end
+(n, myfact2(n)) = (6, 720)
+(n, myfact2(n)) = (5, 120)
+(n, myfact2(n)) = (4, 24)
+(n, myfact2(n)) = (3, 6)
+(n, myfact2(n)) = (2, 2)
+(n, myfact2(n)) = (1, 1)
+(n, myfact2(n)) = (0, 1)
+(n, myfact2(n)) = (-1, 1)</code></pre><p>再帰呼出しを用いる場合には、計算が正しく終了する条件を設定する必要がある。</p><h2><a class="nav-anchor" id="練習-7" href="#練習-7">◀ 練習</a></h2><p>フィボナッチ(Fibonacci)数とは、以下の漸化式で定義される数列である。</p><div>\[\begin{align*}F_{0} &amp;= 0,\\ F_{1} &amp;= 1,\\ F_{n+2} &amp;= F_{n+1}+F_{n} \end{align*}\]</div><p>整数 <span>$n$</span>に対してフィボナッチ数を計算する関数を再帰を用いて定義し、その動作を確かめよ。</p><p>フィボナッチ数の最初の20個は、以下の通りである。</p><div>\[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946,\]</div><p>また、フィボナッチ数の一般項は、以下の式で与えられることが知られている。合わせて、計算してみよ。</p><div>\[F_{n} = \frac{1}{\sqrt{5}} \left\{ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\frac{1-\sqrt{5}}{2}\right)^{n} \right\}\]</div><div class="admonition note"><div class="admonition-title">Note</div><div class="admonition-text"><p>上で示した階乗やフィボナッチ数の例では、関数が呼ばれる毎に計算を行っており「もったいない」。 計算結果が一意 (一通り, unique) であるなら、計算した結果を記録しておき、同じ引数で再び呼び出されたときには、 記録から取り出してくれば計算資源が節約できる。このような考え方を「メモ化」という。この本文で説明した範囲でも、 ベクトルなどを用いて「メモ化」を実装できるであろう。</p></div></div><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">■ 今回のまとめ</a></h2><ul><li><p>関数</p><ul><li><p>定義</p></li><li><p>呼出し</p></li><li><p>戻り値</p></li><li><p>仮引数の型</p></li><li><p>再帰呼出し</p></li></ul></li><li><p>例題</p><ul><li><p>ヘロンの公式</p></li><li><p>フーリエ級数和の関数化</p></li><li><p>モンテカルロ法の関数化</p></li><li><p>はさみうち法の関数化</p></li><li><p>階乗</p></li><li><p>フィボナッチ数</p></li></ul></li></ul><footer><hr/><a class="previous" href="ch11.html"><span class="direction">Previous</span><span class="title">第11回：ファイル入出力</span></a><a class="next" href="ch13.html"><span class="direction">Next</span><span class="title">第13回：複素数</span></a></footer></article></body></html>

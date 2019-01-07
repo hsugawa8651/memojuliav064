@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第8回： ▶︎ 総和・数値積分 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li class="current"><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a><ul class="internal"><li><a class="toctext" href="#級数和の公式（繰り返しで加算)-1">▶︎ 級数和の公式（繰り返しで加算)</a></li><li><a class="toctext" href="#ベクトルのインデックス-1">■ ベクトルのインデックス</a></li><li><a class="toctext" href="#ベクトルの生成-1">■ ベクトルの生成</a></li><li><a class="toctext" href="#内包表記-1">■ 内包表記</a></li><li><a class="toctext" href="#フーリエ級数の和（繰り返しで加算)-1">▶︎ フーリエ級数の和（繰り返しで加算)</a></li><li><a class="toctext" href="#方形波：フーリエ級数の有限和-1">▶︎ 方形波：フーリエ級数の有限和</a></li><li><a class="toctext" href="#三角波：フーリエ級数の有限和-1">▶︎ 三角波：フーリエ級数の有限和</a></li><li><a class="toctext" href="#練習：フーリエ級数の有限和-1">◀ 練習：フーリエ級数の有限和</a></li><li><a class="toctext" href="#数値積分-1">▶︎ 数値積分</a></li><li><a class="toctext" href="#Riemann和（繰り返しで加算)-1">▶︎ Riemann和（繰り返しで加算)</a></li><li><a class="toctext" href="#総和関数-sum-1">■ 総和関数 sum</a></li><li><a class="toctext" href="#級数和の公式（関数-sumを用いる)-1">▶︎ 級数和の公式（関数 sumを用いる)</a></li><li><a class="toctext" href="#Riemann和（関数-sumを用いる)-1">▶︎ Riemann和（関数 sumを用いる)</a></li><li><a class="toctext" href="#台形則（関数-sumを用いる)-1">▶︎ 台形則（関数 sumを用いる)</a></li><li><a class="toctext" href="#練習：Riemann和・台形則-1">◀ 練習：Riemann和・台形則</a></li><li><a class="toctext" href="#繰返し内部からの脱出-1">■ 繰返し内部からの脱出</a></li><li><a class="toctext" href="#練習：-条件が成り立つまで繰り返す：数値積分-1">◀▼ 練習： 条件が成り立つまで繰り返す：数値積分</a></li><li><a class="toctext" href="#今回のまとめ-1">今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li><li><a class="toctext" href="ch10.html">第10回：行列・線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：関数の定義と呼び出し</a></li><li><a class="toctext" href="ch12.html">第12回：ファイル入出力</a></li><li><a class="toctext" href="ch13.html">第13回：検討中</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li></ul></nav><hr/><div id="topbar"><span>第8回： ▶︎ 総和・数値積分</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch08-1" href="#ch08-1">第8回： ▶︎ 総和・数値積分</a></h1><h2><a class="nav-anchor" id="級数和の公式（繰り返しで加算)-1" href="#級数和の公式（繰り返しで加算)-1">▶︎ 級数和の公式（繰り返しで加算)</a></h2><p>自然数の級数和の結果がいくつか知られている。 これらのグラフを描いて、結果を確認しよう。</p><div>\[\sum_{k=1}^{n} k = 1 + 2 + \cdots + k + \cdots + n^2 = \dfrac{n(n+1)}{2}\]</div><div><pre><code class="language-julia">using PyPlot
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第8回： ▶︎ 総和・数値積分 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li class="current"><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a><ul class="internal"><li><a class="toctext" href="#級数和の公式（繰り返しで加算)-1">▶︎ 級数和の公式（繰り返しで加算)</a></li><li><a class="toctext" href="#ベクトルのインデックス-1">■ ベクトルのインデックス</a></li><li><a class="toctext" href="#ベクトルの生成-1">■ ベクトルの生成</a></li><li><a class="toctext" href="#内包表記-1">■ 内包表記</a></li><li><a class="toctext" href="#フーリエ級数の和（繰り返しで加算)-1">▶︎ フーリエ級数の和（繰り返しで加算)</a></li><li><a class="toctext" href="#方形波：フーリエ級数の有限和-1">▶︎ 方形波：フーリエ級数の有限和</a></li><li><a class="toctext" href="#三角波：フーリエ級数の有限和-1">▶︎ 三角波：フーリエ級数の有限和</a></li><li><a class="toctext" href="#練習：フーリエ級数の有限和-1">◀ 練習：フーリエ級数の有限和</a></li><li><a class="toctext" href="#数値積分-1">▶︎ 数値積分</a></li><li><a class="toctext" href="#Riemann和（繰り返しで加算)-1">▶︎ Riemann和（繰り返しで加算)</a></li><li><a class="toctext" href="#総和関数-sum-1">■ 総和関数 sum</a></li><li><a class="toctext" href="#級数和の公式（関数-sumを用いる)-1">▶︎ 級数和の公式（関数 sumを用いる)</a></li><li><a class="toctext" href="#Riemann和（関数-sumを用いる)-1">▶︎ Riemann和（関数 sumを用いる)</a></li><li><a class="toctext" href="#台形則（関数-sumを用いる)-1">▶︎ 台形則（関数 sumを用いる)</a></li><li><a class="toctext" href="#練習：Riemann和・台形則-1">◀ 練習：Riemann和・台形則</a></li><li><a class="toctext" href="#繰返し内部からの脱出-1">■ 繰返し内部からの脱出</a></li><li><a class="toctext" href="#練習：-条件が成り立つまで繰り返す：数値積分-1">◀▼ 練習： 条件が成り立つまで繰り返す：数値積分</a></li><li><a class="toctext" href="#今回のまとめ-1">今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li><li><a class="toctext" href="ch10.html">第10回：行列・線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：ファイル入出力</a></li><li><a class="toctext" href="ch12.html">第12回：関数の定義と呼び出し</a></li><li><a class="toctext" href="ch13.html">第13回：複素数</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li></ul></nav><hr/><div id="topbar"><span>第8回： ▶︎ 総和・数値積分</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch08-1" href="#ch08-1">第8回： ▶︎ 総和・数値積分</a></h1><h2><a class="nav-anchor" id="級数和の公式（繰り返しで加算)-1" href="#級数和の公式（繰り返しで加算)-1">▶︎ 級数和の公式（繰り返しで加算)</a></h2><p>自然数の級数和の結果がいくつか知られている。 これらのグラフを描いて、結果を確認しよう。</p><div>\[\sum_{k=1}^{n} k = 1 + 2 + \cdots + k + \cdots + n^2 = \dfrac{n(n+1)}{2}\]</div><div><pre><code class="language-julia">using PyPlot
 
 nmax=25
 xs1=0:0.2:nmax
@@ -127,43 +127,43 @@ julia&gt; ones(v)
  1
  1</code></pre><h3><a class="nav-anchor" id="疑似乱数を要素とするベクトルを作る-1" href="#疑似乱数を要素とするベクトルを作る-1">■ 疑似乱数を要素とするベクトルを作る</a></h3><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/numbers/#Base.Random.rand"><code>Base.Random.rand</code> — Function</a></p></li></ul><pre><code class="language-julia-repl">julia&gt; rand(10) # =&gt; 10-elements
 10-element Array{Float64,1}:
- 0.931979
- 0.73189
- 0.0161003
- 0.509625
- 0.30049
- 0.86836
- 0.0850083
- 0.185242
- 0.26218
- 0.614863
+ 0.828247
+ 0.676589
+ 0.692472
+ 0.928317
+ 0.395314
+ 0.95201
+ 0.00367236
+ 0.797087
+ 0.954481
+ 0.363686
 
 julia&gt; rand([1,2,3], 10) # [1,2,3]からランダムに10個選ぶ
 10-element Array{Int64,1}:
+ 2
  1
  1
- 3
- 1
- 3
- 1
- 3
  2
  3
- 3</code></pre><p>ヒストグラムを描く。分割数 10</p><div><pre><code class="language-julia">using PyPlot
+ 3
+ 3
+ 1
+ 3
+ 1</code></pre><p>ヒストグラムを描く。分割数 10</p><div><pre><code class="language-julia">using PyPlot
 xs=rand(1000)
 plt[:hist](xs, bins=10)
 xlim(-0.2,1.2)</code></pre></div><p><img src="ch08_hist1-plot.svg" alt/></p><h3><a class="nav-anchor" id="正規乱数を要素とするベクトルを作る-1" href="#正規乱数を要素とするベクトルを作る-1">■ 正規乱数を要素とするベクトルを作る</a></h3><ul><li><p><a href="https://docs.julialang.org/en/v0.6/stdlib/numbers/#Base.Random.randn"><code>Base.Random.randn</code> — Function</a></p></li></ul><p>平均 <span>$0$</span>、標準偏差 <span>$1$</span> の正規分布の疑似乱数を作る</p><pre><code class="language-julia-repl">julia&gt; randn(10) # =&gt; 10-elements
 10-element Array{Float64,1}:
-  0.96559
-  1.07847
-  0.503308
- -1.97402
- -0.00374311
- -2.03195
-  0.465256
-  0.126241
-  0.333125
- -1.16386</code></pre><p>ヒストグラムを描く。分割数 50</p><div><pre><code class="language-julia">using PyPlot
+ -0.00783609
+  1.29834
+ -1.53442
+ -0.591767
+  0.872479
+ -0.601668
+ -0.918482
+ -0.730986
+  0.98454
+ -0.706098</code></pre><p>ヒストグラムを描く。分割数 50</p><div><pre><code class="language-julia">using PyPlot
 xs=randn(1000)
 plt[:hist](xs, bins=50)
 xlim(-4,4)</code></pre></div><p><img src="ch08_hist2-plot.svg" alt/></p><h2><a class="nav-anchor" id="内包表記-1" href="#内包表記-1">■ 内包表記</a></h2><pre><code class="language-julia-repl">julia&gt; [ x^2 for x in 0:10 ]
@@ -484,10 +484,9 @@ yscale(&quot;log&quot;)</code></pre></div><p><img src="ch08-tra3-plot.svg" alt/>
   if r &gt; 0.8
     break
   end
-end</code></pre><pre><code class="language-none">0.38501464968369814
-0.38781014090772037
-0.6638650679166647
-0.9103330143510182</code></pre></div><p>二重ループ、内側のループからの脱出</p><pre><code class="language-julia-repl">julia&gt; for j in 1:3
+end</code></pre><pre><code class="language-none">0.5182085807562404
+0.5736030711607178
+0.849347851605549</code></pre></div><p>二重ループ、内側のループからの脱出</p><pre><code class="language-julia-repl">julia&gt; for j in 1:3
          for i in 1:5
            println(&quot;i=&quot;*string(i)*&quot; j=&quot;*string(j))
            if i &gt;= 3
