@@ -49,7 +49,7 @@ draw_circle(  -s,  0, &quot;y&quot; )
 draw_circle( -2s,  s, &quot;b&quot; )
 draw_circle(   s,  0, &quot;g&quot; )
 draw_circle(  2s,  s, &quot;r&quot; )</code></pre><pre><code class="language-none">1-element Array{PyCall.PyObject,1}:
- PyObject &lt;matplotlib.lines.Line2D object at 0x116c2e390&gt;</code></pre></div><h2><a class="nav-anchor" id="関数の戻り値-1" href="#関数の戻り値-1">■ 関数の戻り値</a></h2><p>関数を実行した結果の値を、呼び出し側で使いたい場合は、しばしばある。</p><p>関数定義において、最後に評価した値が、関数の戻り値 (return-value)となる。</p><p><a href="ch05.html#関数の定義-(代入文形式)-1">■ 関数の定義 (代入文形式)</a> を用いても、数 <code>x</code> を 3倍する関数を定義すると、以下のようになる。</p><pre><code class="language-none">triple(x)=3*x</code></pre><p>これをより一般の形式で書くと、以下のようになる。最後に評価した <code>3*x</code> が関数の戻り値となる。</p><pre><code class="language-julia-repl">julia&gt; function triple(x)
+ PyObject &lt;matplotlib.lines.Line2D object at 0x12fb41c88&gt;</code></pre></div><h2><a class="nav-anchor" id="関数の戻り値-1" href="#関数の戻り値-1">■ 関数の戻り値</a></h2><p>関数を実行した結果の値を、呼び出し側で使いたい場合は、しばしばある。</p><p>関数定義において、最後に評価した値が、関数の戻り値 (return-value)となる。</p><p><a href="ch05.html#関数の定義-(代入文形式)-1">■ 関数の定義 (代入文形式)</a> を用いても、数 <code>x</code> を 3倍する関数を定義すると、以下のようになる。</p><pre><code class="language-none">triple(x)=3*x</code></pre><p>これをより一般の形式で書くと、以下のようになる。最後に評価した <code>3*x</code> が関数の戻り値となる。</p><pre><code class="language-julia-repl">julia&gt; function triple(x)
          3*x
        end
 triple (generic function with 1 method)</code></pre><pre><code class="language-julia-repl">julia&gt; triple(-1)
