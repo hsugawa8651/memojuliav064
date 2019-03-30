@@ -1,2 +1,221 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第14回：検討中 · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li><li><a class="toctext" href="ch10.html">第10回：行列・線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：ファイル入出力</a></li><li><a class="toctext" href="ch12.html">第12回：関数の定義と呼び出し</a></li><li><a class="toctext" href="ch13.html">第13回：複素数</a></li><li class="current"><a class="toctext" href="ch14.html">第14回：検討中</a><ul class="internal"><li><a class="toctext" href="#今回のまとめ-1">★ 今回のまとめ</a></li></ul></li><li><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch14.html">第14回：検討中</a></li></ul></nav><hr/><div id="topbar"><span>第14回：検討中</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch14-1" href="#ch14-1">第14回：検討中</a></h1><h2><a class="nav-anchor" id="今回のまとめ-1" href="#今回のまとめ-1">★ 今回のまとめ</a></h2><p>```</p><footer><hr/><a class="previous" href="ch13.html"><span class="direction">Previous</span><span class="title">第13回：複素数</span></a><a class="next" href="ch15.html"><span class="direction">Next</span><span class="title">第15回：落ち葉拾い</span></a></footer></article></body></html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第14回：定期レポートへのコメント（その1） · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li><li><a class="toctext" href="ch10.html">第10回：行列・線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：ファイル入出力</a></li><li><a class="toctext" href="ch12.html">第12回：関数の定義と呼び出し</a></li><li><a class="toctext" href="ch13.html">第13回：複素数</a></li><li class="current"><a class="toctext" href="ch14.html">第14回：定期レポートへのコメント（その1）</a><ul class="internal"><li><a class="toctext" href="#分類-1">分類</a></li><li><a class="toctext" href="#曲線-r_{1}-1">曲線 <span>$r_{1}$</span></a></li><li><a class="toctext" href="#曲線-r_{2},r_{3}-1">曲線 <span>$r_{2},r_{3}$</span></a></li><li><a class="toctext" href="#曲線-r_{4},r_{5}-1">曲線 <span>$r_{4},r_{5}$</span></a></li><li><a class="toctext" href="#曲線-r_{6},r_{7}-1">曲線 <span>$r_{6},r_{7}$</span></a></li><li><a class="toctext" href="#曲線-r_{8},r_{9}-1">曲線 <span>$r_{8},r_{9}$</span></a></li><li><a class="toctext" href="#曲線-r_{10}-1">曲線 <span>$r_{10}$</span></a></li><li><a class="toctext" href="#曲線-r_{11},-r_{12}-1">曲線 <span>$r_{11}$</span>, <span>$r_{12}$</span></a></li><li><a class="toctext" href="#曲線-r_{13},-r_{14},-r_{15}-1">曲線 <span>$r_{13}$</span>, <span>$r_{14}$</span>, <span>$r_{15}$</span></a></li><li><a class="toctext" href="#曲線-r_{13},-r_{16}-1">曲線 <span>$r_{13}$</span>, <span>$r_{16}$</span></a></li></ul></li><li><a class="toctext" href="ch15.html">第15回：定期レポートへのコメント（その２）</a></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch14.html">第14回：定期レポートへのコメント（その1）</a></li></ul></nav><hr/><div id="topbar"><span>第14回：定期レポートへのコメント（その1）</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch14-1" href="#ch14-1">第14回：定期レポートへのコメント（その1）</a></h1><p>極座標 <span>$(r, \theta)$</span> で記述される曲線を描き、その類似点を考察せよ、という課題であった。</p><p>ただし、動径 <span>$r$</span> は、以下の式で与えられるものとする。</p><div>\[\begin{align*}
+r_{1} &amp; = \sin \theta + \cos \theta, \\
+r_{2} &amp; = 2 + 2\sin \theta = 2 \left(1 + \sin\theta \right), \\
+r_{3} &amp; = \dfrac{3}{2} + \sin \theta, \\
+r_{4} &amp; = 1 + \cos \theta, \\
+r_{5} &amp; = \dfrac{1}{2} + \cos \theta, \\
+r_{6} &amp; = \cos \dfrac{\theta}{2} \quad \left( 0 \le \theta \le 4\pi \right), \\
+r_{7} &amp; = \sin \dfrac{\theta}{2} \quad \left( 0 \le \theta \le 6\pi \right), \\
+r_{8} &amp; = \sin^2\theta = \left(\sin \theta\right)^2, \\
+r_{9} &amp; = 1 + 3 \cos^2 (2\theta) = 1 + 3 \left(\cos 2\theta \right)^{2}, \\
+r_{10} &amp; = \sin^2 (3\theta) = \left( \sin 3\theta \right)^{2}, \\
+r_{11} &amp; = \tan \theta, \\
+r_{12} &amp; = \cot 2\theta, \\
+r_{13} &amp; = \dfrac{1}{1+\cos \theta}, \\
+r_{14} &amp; = \dfrac{1}{1+\dfrac{1}{2}\cos \theta}, \\
+r_{15} &amp; = \dfrac{1}{1+2\cos \theta}, \\
+r_{15} &amp; = \dfrac{1}{1-\cos \theta}, \\
+r_{16} &amp; = \dfrac{1}{1+\sin \theta}, \end{align*}\]</div><h2><a class="nav-anchor" id="分類-1" href="#分類-1">分類</a></h2><p>引数 <span>$\theta$</span> に対する周期性から、以下のように分類できるであろう。</p><ul><li><p>周期 <span>$2\pi$</span> を持つもの</p><ul><li><p>単純な余弦・正弦 <span>$\cos \theta, \sin \theta$</span> を含む曲線</p></li><li><p>曲線 <span>$r_{1},r_{2},r_{3},r_{4},r_{5}$</span></p></li></ul></li><li><p>周期 <span>$4\pi$</span> を持つもの</p><ul><li><p>半角の余弦、正弦 <span>$\cos \dfrac{\theta}{2}, \sin \dfrac{\theta}{2}$</span> を含む曲線</p></li><li><p>曲線 <span>$r_{6},r_{7}$</span></p></li></ul></li><li><p>周期 <span>$\pi$</span> を持つもの</p><ul><li><p>余弦・正弦の二乗 <span>$\cos^2 \theta, \sin^2 \theta$</span> を含む</p></li><li><p>三角関数の加法定理から <span>$\cos 2\theta, \sin 2\theta$</span> に変形できる</p></li><li><p>曲線 <span>$r_{8},r_{9}$</span></p></li></ul></li><li><p>周期 <span>$\dfrac{4\pi}{3}$</span></p><ul><li><p>余弦・正弦の二乗 <span>$\sin^2 (3\theta)$</span> を含む</p></li><li><p>曲線 <span>$r_{10}$</span></p></li></ul></li><li><p>直角 <span>$\dfrac{\pi}{2}$</span> の整数倍で不連続 (正負の無限大に発散する)</p><ul><li><p>正接<span>$\tan$</span>, 余接 <span>$\cot$</span> を含む</p></li><li><p>曲線 <span>$r_{11},r_{12}$</span></p></li></ul></li><li><p>同式の形</p><ul><li><p>同じ式 <span>$r = \dfrac{1}{1+ a \cos \theta}$</span> の形である</p></li><li><p>曲線 <span>$r_{13}, r_{14}, r_{15}$</span></p></li></ul></li><li><p>分母が <span>$0$</span> になりうる</p><ul><li><p>曲線 <span>$r_{15}, r_{16}$</span></p></li></ul></li></ul><h2><a class="nav-anchor" id="曲線-r_{1}-1" href="#曲線-r_{1}-1">曲線 <span>$r_{1}$</span></a></h2><p>以下、何も工夫せずに、曲線を描いてみる。 ただし、描画範囲は適宜調整した。</p><p>曲線 <span>$r_{1}$</span> を曲線 <span>$r_{0} = \sin \theta$</span> と一緒に描く。</p><div><pre><code class="language-julia">using PyPlot
+ts=0:pi/72:2pi
+#
+r0 = sin.(ts)
+x0 = r0 .* cos.(ts)
+y0 = r0 .* sin.(ts)
+plot(x0,y0, label=&quot;r0&quot;)
+#
+r1 = sin.(ts) + cos.(ts)
+x1 = r1 .* cos.(ts)
+y1 = r1 .* sin.(ts)
+plot(x1,y1, label=&quot;r1&quot;)
+#
+legend()
+xlim(-1,2)
+ylim(-1,2)
+axhline(0, c=&quot;k&quot;, lw=0.5)
+axvline(0, c=&quot;k&quot;, lw=0.5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot1.svg" alt/></p><p>三角関数の合成の公式を用いると、<span>$r_{1}$</span> は、以下のように変形できる。</p><div>\[\begin{align*}
+r_{1} = &amp; \sin \theta + \cos \theta
+= &amp; \sqrt{2} \left\{ \sin \theta \dfrac{1}{\sqrt{2}} + \cos \theta \dfrac{1}{\sqrt{2}} \right\} \\
+= &amp; \sqrt{2} \sin \left( \theta + \dfrac{\pi}{4} \right) \end{align*}\]</div><p>すなわち、曲線 <span>$r_{0}$</span> を、時計方向に <span>$\dfrac{\pi}{4}$</span> だけ回転し、 原点を中心に <span>$\sqrt{2}$</span> だけ拡大したものが、曲線 <span>$r_{1}$</span> である。</p><h2><a class="nav-anchor" id="曲線-r_{2},r_{3}-1" href="#曲線-r_{2},r_{3}-1">曲線 <span>$r_{2},r_{3}$</span></a></h2><p>曲線 <span>$r_{2},r_{3}$</span> は、y軸に対して対称である。</p><div><pre><code class="language-julia">using PyPlot
+ts=0:pi/72:2pi
+#
+r2 = 2 * (1+sin.(ts))
+x2 = r2 .* cos.(ts)
+y2 = r2 .* sin.(ts)
+plot(x2,y2, label=&quot;r2&quot;)
+#
+r3 = 3/2 + sin.(ts)
+x3 = r3 .* cos.(ts)
+y3 = r3 .* sin.(ts)
+plot(x3,y3, label=&quot;r3&quot;)
+#
+legend()
+xlim(-3,3)
+ylim(-2,5)
+axhline(0, c=&quot;k&quot;, lw=0.5)
+axvline(0, c=&quot;k&quot;, lw=0.5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot1b.svg" alt/></p><h2><a class="nav-anchor" id="曲線-r_{4},r_{5}-1" href="#曲線-r_{4},r_{5}-1">曲線 <span>$r_{4},r_{5}$</span></a></h2><p>曲線 <span>$r_{2}$</span> を時計方向に<span>$\dfrac{\pi}{2}$</span> だけ回転したものが、曲線 <span>$r_{4}$</span> である。</p><p>曲線 <span>$r_{4},r_{5}$</span> は、x軸に対して対称である。</p><div><pre><code class="language-julia">using PyPlot
+ts=0:pi/72:2pi
+#
+r4 = 1 + cos.(ts)
+x4 = r4 .* cos.(ts)
+y4 = r4 .* sin.(ts)
+plot(x4,y4, label=&quot;r4&quot;)
+#
+r5 = 1/2 + cos.(ts)
+x5 = r5 .* cos.(ts)
+y5 = r5 .* sin.(ts)
+plot(x5,y5, label=&quot;r5&quot;)
+#
+legend()
+xlim(-1,3)
+ylim(-2,2)
+axhline(0, c=&quot;k&quot;, lw=0.5)
+axvline(0, c=&quot;k&quot;, lw=0.5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot1c.svg" alt/></p><h2><a class="nav-anchor" id="曲線-r_{6},r_{7}-1" href="#曲線-r_{6},r_{7}-1">曲線 <span>$r_{6},r_{7}$</span></a></h2><div><pre><code class="language-julia">using PyPlot
+#
+ts4=0:pi/18:4pi
+r6 = cos.(ts4./2)
+x6 = r6 .* cos.(ts4)
+y6 = r6 .* sin.(ts4)
+plot(x6,y6, label=&quot;r6&quot;)
+#
+ts6=0:pi/18:6pi
+r7 = sin.(ts6./2)
+x7 = r7 .* cos.(ts6)
+y7 = r7 .* sin.(ts6)
+plot(x7,y7, &quot;.&quot;, label=&quot;r7&quot;)
+#
+legend()
+xlim(-3/2,3/2)
+ylim(-3/2,3/2)
+axhline(0, c=&quot;k&quot;, lw=0.5)
+axvline(0, c=&quot;k&quot;, lw=0.5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot2.svg" alt/></p><p>曲線 <span>$r_{6}$</span> と <span>$r_{7}$</span> は一致した。</p><p>ちなみに、<span>$\theta$</span> の定義域を狭めて描いてみよう。</p><div><pre><code class="language-julia">using PyPlot
+#
+ts4=0:pi/18:pi        # &lt;--
+r6 = cos.(ts4./2)
+x6 = r6 .* cos.(ts4)
+y6 = r6 .* sin.(ts4)
+plot(x6,y6, label=&quot;r6&quot;)
+#
+ts6=0:pi/18:pi        # &lt;--
+r7 = sin.(ts6./2)
+x7 = r7 .* cos.(ts6)
+y7 = r7 .* sin.(ts6)
+plot(x7,y7, &quot;.&quot;, label=&quot;r7&quot;)
+#
+legend()
+xlim(-3/2,3/2)
+ylim(-3/2,3/2)
+axhline(0, c=&quot;k&quot;, lw=0.5)
+axvline(0, c=&quot;k&quot;, lw=0.5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot2b.svg" alt/></p><p>これをよく観察すると、 曲線 <span>$r_{6}$</span> 上の点と、曲線 <span>$r_{7}$</span> 上の点の対応関係が見えてくるであろう。</p><h2><a class="nav-anchor" id="曲線-r_{8},r_{9}-1" href="#曲線-r_{8},r_{9}-1">曲線 <span>$r_{8},r_{9}$</span></a></h2><p>曲線 <span>$r_{8},r_{9}$</span> の動径は、正である。</p><div><pre><code class="language-julia">using PyPlot
+#
+ts=0:pi/72:2pi
+#
+r8 = (sin.(ts)).^2
+x8 = r8 .* cos.(ts)
+y8 = r8 .* sin.(ts)
+plot(x8,y8, label=&quot;r8&quot;)
+#
+r9 = 1 + 3* (cos.(2*ts)).^2
+x9 = r9 .* cos.(ts)
+y9 = r9 .* sin.(ts)
+plot(x9,y9, label=&quot;r9&quot;)
+legend()
+xlim(-5,5)
+ylim(-5,5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot3.svg" alt/></p><p>ちなみに、<span>$t$</span> の定義域を狭めて描いてみよう。</p><div><pre><code class="language-julia">using PyPlot
+#
+ts=0:pi/72:2pi *3/8 # &lt;--
+#
+r8 = (sin.(ts)).^2
+x8 = r8 .* cos.(ts)
+y8 = r8 .* sin.(ts)
+plot(x8,y8, label=&quot;r8&quot;)
+#
+r9 = 1 + 3* (cos.(2*ts)).^2
+x9 = r9 .* cos.(ts)
+y9 = r9 .* sin.(ts)
+plot(x9,y9, label=&quot;r9&quot;)
+legend()
+xlim(-5,5)
+ylim(-5,5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot3b.svg" alt/></p><h2><a class="nav-anchor" id="曲線-r_{10}-1" href="#曲線-r_{10}-1">曲線 <span>$r_{10}$</span></a></h2><p>花曲線 <span>$r_{10b} = \sin (3\theta)$</span> とともに描いてみよう。</p><div><pre><code class="language-julia">using PyPlot
+ts=0:pi/72:2pi
+#
+r10 = (sin.(3ts)).^2
+x10 = r10 .* cos.(ts)
+y10 = r10 .* sin.(ts)
+plot(x10,y10, label=&quot;r10&quot;)
+#
+r10b = sin.(3ts)
+x10b = r10b .* cos.(ts)
+y10b = r10b .* sin.(ts)
+plot(x10b,y10b, label=&quot;r10b&quot;)
+#
+legend()
+xlim(-5/4,5/4)
+ylim(-5/4,5/4)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot4.svg" alt/></p><h2><a class="nav-anchor" id="曲線-r_{11},-r_{12}-1" href="#曲線-r_{11},-r_{12}-1">曲線 <span>$r_{11}$</span>, <span>$r_{12}$</span></a></h2><p>正接 <span>$\tan \theta$</span> は <span>$\dfrac{\pi}{2}$</span> の奇数倍で、正負の無限大に発散する。 余接 <span>$\cot \theta$</span> は <span>$\dfrac{\pi}{2}$</span> の偶数倍で、正負の無限大に発散する。</p><p>これら発散する <span>$\theta$</span> においては、曲線は x軸や y軸に平行な直線に漸近することになる。</p><p>曲線 <span>$r_{11}$</span> は、<span>$x = \pm {1}$</span> に漸近する。</p><p>曲線 <span>$r_{12}$</span> は、<span>$x = \pm\dfrac{1}{2}$</span> または <span>$y = \pm\dfrac{1}{2}$</span> に漸近する。</p><div><pre><code class="language-julia">using PyPlot
+ts=0:pi/72:2pi
+#
+r11 = tan.(ts)
+x11 = r11 .* cos.(ts)
+y11 = r11 .* sin.(ts)
+plot(x11,y11, &quot;.&quot;, label=&quot;r11&quot;)
+#
+r12 = cot.(2ts)
+x12 = r12 .* cos.(ts)
+y12 = r12 .* sin.(ts)
+plot(x12,y12, &quot;.&quot;, label=&quot;r12&quot;)
+#
+legend()
+xlim(-4,4)
+ylim(-4,4)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot5.svg" alt/></p><h2><a class="nav-anchor" id="曲線-r_{13},-r_{14},-r_{15}-1" href="#曲線-r_{13},-r_{14},-r_{15}-1">曲線 <span>$r_{13}$</span>, <span>$r_{14}$</span>, <span>$r_{15}$</span></a></h2><div><pre><code class="language-julia">using PyPlot
+ts=0:pi/144:2pi
+#
+a=1
+r13 = 1 ./ (1+a*cos.(ts))
+x13 = r13 .* cos.(ts)
+y13 = r13 .* sin.(ts)
+plot(x13,y13, &quot;.&quot;, label=&quot;r13, a=&quot;*string(a))
+#
+a=1/2
+r14 = 1 ./ (1+a*cos.(ts))
+x14 = r14 .* cos.(ts)
+y14 = r14 .* sin.(ts)
+plot(x14,y14, &quot;.&quot;, label=&quot;r14. a=&quot;*string(a))
+#
+a=2
+r15 = 1 ./ (1+a*cos.(ts))
+x15 = r15 .* cos.(ts)
+y15 = r15 .* sin.(ts)
+plot(x15,y15, &quot;.&quot;, label=&quot;r15, a=&quot;*string(a))
+#
+legend()
+xlim(-4,4)
+ylim(-4,4)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot6.svg" alt/></p><p>(再掲) これらの曲線は、以下の形である。 <span>$r = \dfrac{1}{1+a \cos \theta}$</span></p><p>パラメータ <span>$a$</span> の範囲により、見かけが異なる</p><ul><li><p>範囲 <span>$0 &lt; a &lt; 1$</span> : 楕円</p></li><li><p>範囲 <span>$a = 1$</span> : 放物線</p></li><li><p>範囲 <span>$a &gt; 1$</span> : 双曲線</p></li></ul><h2><a class="nav-anchor" id="曲線-r_{13},-r_{16}-1" href="#曲線-r_{13},-r_{16}-1">曲線 <span>$r_{13}$</span>, <span>$r_{16}$</span></a></h2><p>曲線 <span>$r_{13}$</span> と <span>$r_{16}$</span> は、<span>$\sin$</span> と <span>$\cos$</span> を入れ替えたものである。</p><div><pre><code class="language-julia">using PyPlot
+ts=0:pi/144:2pi
+#
+r13 = 1 ./ (1+cos.(ts))
+x13 = r13 .* cos.(ts)
+y13 = r13 .* sin.(ts)
+plot(x13,y13, &quot;.&quot;, label=&quot;r13&quot;)
+#
+a=1/2
+r16 = 1 ./ (1+sin.(ts))
+x16 = r16 .* cos.(ts)
+y16 = r16 .* sin.(ts)
+plot(x16,y16, &quot;.&quot;, label=&quot;r16&quot;)
+#
+legend()
+axhline(0, color=&quot;k&quot;, lw=0.5)
+axvline(0, color=&quot;k&quot;, lw=0.5)
+xlim(-4,4)
+ylim(-4,4)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch14-plot7.svg" alt/></p><footer><hr/><a class="previous" href="ch13.html"><span class="direction">Previous</span><span class="title">第13回：複素数</span></a><a class="next" href="ch15.html"><span class="direction">Next</span><span class="title">第15回：定期レポートへのコメント（その２）</span></a></footer></article></body></html>

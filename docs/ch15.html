@@ -1,2 +1,127 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第15回：落ち葉拾い · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li><li><a class="toctext" href="ch10.html">第10回：行列・線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：ファイル入出力</a></li><li><a class="toctext" href="ch12.html">第12回：関数の定義と呼び出し</a></li><li><a class="toctext" href="ch13.html">第13回：複素数</a></li><li><a class="toctext" href="ch14.html">第14回：検討中</a></li><li class="current"><a class="toctext" href="ch15.html">第15回：落ち葉拾い</a><ul class="internal"></ul></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch15.html">第15回：落ち葉拾い</a></li></ul></nav><hr/><div id="topbar"><span>第15回：落ち葉拾い</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch15-1" href="#ch15-1">第15回：落ち葉拾い</a></h1><footer><hr/><a class="previous" href="ch14.html"><span class="direction">Previous</span><span class="title">第14回：検討中</span></a><a class="next" href="index.html"><span class="direction">Next</span><span class="title">toc</span></a></footer></article></body></html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>第15回：定期レポートへのコメント（その２） · Memorandom on Julia Language v0.6.4</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Memorandom on Julia Language v0.6.4</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="LICENSE.html">MIT License</a></li><li><a class="toctext" href="LICENSEja.html">MIT License 参考和訳</a></li><li><a class="toctext" href="ch00.html">はじめに</a></li><li><a class="toctext" href="ch01.html">第1回：▶︎ 簡単なグラフを描く</a></li><li><a class="toctext" href="ch02.html">第2回：▶︎ 複数のグラフを描く</a></li><li><a class="toctext" href="ch03.html">第3回：▶︎ 連続な曲線を描く</a></li><li><a class="toctext" href="ch04.html">第4回：▶︎ 不連続な曲線を描く</a></li><li><a class="toctext" href="ch05.html">第5回：■ 条件式・■ 条件分岐</a></li><li><a class="toctext" href="ch06.html">第6回：■ 整数</a></li><li><a class="toctext" href="ch07.html">第7回：■ 浮動小数点数</a></li><li><a class="toctext" href="ch08.html">第8回： ▶︎ 総和・数値積分</a></li><li><a class="toctext" href="ch09.html">第9回： ■ 配列要素の操作・▶常微分方程式の数値解法</a></li><li><a class="toctext" href="ch10.html">第10回：行列・線形代数</a></li><li><a class="toctext" href="ch11.html">第11回：ファイル入出力</a></li><li><a class="toctext" href="ch12.html">第12回：関数の定義と呼び出し</a></li><li><a class="toctext" href="ch13.html">第13回：複素数</a></li><li><a class="toctext" href="ch14.html">第14回：定期レポートへのコメント（その1）</a></li><li class="current"><a class="toctext" href="ch15.html">第15回：定期レポートへのコメント（その２）</a><ul class="internal"><li><a class="toctext" href="#ネタもと-1">ネタもと</a></li><li><a class="toctext" href="#下請け関数を定義する-1">下請け関数を定義する</a></li><li><a class="toctext" href="#元の関数を書き換える-1">元の関数を書き換える</a></li><li><a class="toctext" href="#リファクタリング-1">リファクタリング</a></li></ul></li><li><a class="toctext" href="index.html">toc</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href="ch15.html">第15回：定期レポートへのコメント（その２）</a></li></ul></nav><hr/><div id="topbar"><span>第15回：定期レポートへのコメント（その２）</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="ch15-1" href="#ch15-1">第15回：定期レポートへのコメント（その２）</a></h1><h2><a class="nav-anchor" id="ネタもと-1" href="#ネタもと-1">ネタもと</a></h2><p>2018年12月、および、2019年1月の月間レポートでは、題材自由のレポートを課した。 うち、後者は、関数を定義することを必須の条件とした。</p><p>提出された学生レポートを少し改変して、以下に示す。</p><p>次の関数 <code>dora1()</code> は、何かを描く関数の定義である。</p><div><pre><code class="language-julia">function dora1()
+  ts=0:pi/18:2pi
+  xs=6cos.(ts)
+  ys=6sin.(ts)
+  plot(xs,ys)
+
+  ts=0:pi/18:2pi
+  xs=1.2+1.2*cos.(ts)
+  ys=2.5+1.5*sin.(ts)
+  plot(xs,ys,&quot;k&quot;)
+
+  ts=0:pi/18:2pi
+  xs=-1.2+1.2cos.(ts)
+  ys= 2.5+1.5sin.(ts)
+  plot(xs,ys,&quot;k&quot;)
+
+  ts=0:pi/18:2pi
+  xs=    0.5cos.(ts)
+  ys=1.1+0.5sin.(ts)
+  plot(xs,ys,&quot;r&quot;)
+
+  ts=0:pi/18:2pi
+  xs=5*cos.(ts)
+  ys=-1.5+4.5sin.(ts)
+  plot(xs,ys,&quot;k&quot;)
+
+  ts=0:pi/18:2pi
+  xs=0.5+0.5cos.(ts)
+  ys=2.4+0.5sin.(ts)
+  plot(xs,ys,&quot;k&quot;)
+
+  ts=0:pi/18:2pi
+  xs=-0.5+0.5cos.(ts)
+  ys= 2.4+0.5sin.(ts)
+  plot(xs,ys,&quot;k&quot;)
+
+  xs=-2.3:0.5:2.3
+  plot(xs, 1/2.5*xs.^2 .-4 ,  &quot;k&quot;, label=&quot;s&quot;)
+
+  xs=-2:0.1:1
+  plot(-4+xs,-0.3*xs,&quot;k&quot;)
+  plot( 5+xs, 0.3*xs,&quot;k&quot;)
+
+  xs=-2:0.1:1
+  plot(-4+xs,-2 .+0*xs,&quot;k&quot;)
+  plot( 5+xs,-2 .+0*xs,&quot;k&quot;)
+
+  xs=-2:0.1:1
+  plot(-4+xs,-1.2 .+-0.2*xs,&quot;k&quot;)
+  plot( 5+xs,-1.2 .+ 0.2*xs,&quot;k&quot;)
+
+  xs=-28:0.1:-5
+  plot(0*xs,-5 .+ -0.2*xs,&quot;k&quot;)
+end</code></pre><pre><code class="language-none">dora1 (generic function with 1 method)</code></pre></div><p>この関数を呼出して、実行結果を示す。 何かのキャラクターの顔が描かれた。</p><div><pre><code class="language-julia">using PyPlot
+
+dora1()
+xlim(-7,7)
+ylim(-7,7)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch15-dora1.svg" alt/></p><p>この関数では、平面図形を描く曲線を各々設計した苦労の跡が偲ばれる。 作者の意図通りに動作し、大変結構である。</p><p>しかし、この関数を後から振り返ったときに、 各行の意図をすぐに汲み取るのは難しいだろう。 一部の数値だけ異なるが、同じようなプログラム片が並ぶのも、読みにくくしている。</p><h2><a class="nav-anchor" id="下請け関数を定義する-1" href="#下請け関数を定義する-1">下請け関数を定義する</a></h2><p>さて、この顔は、楕円、直線、放物線の３つの図形から成り立っている。 これら３つの図形を描く関数を定義してみよう。</p><p>まず、<span>$\left(x_c, y_c\right)$</span> を中心とし、<span>$x$</span> 軸方向の広がりが <span>$2a$</span>、 <span>$y$</span> 軸方向の広がりが <span>$2b$</span> であるような楕円を描く関数を定義する。式で書くと <span>$\left(\dfrac{x-x_{c}}{a}\right)^2 + \left(\dfrac{y-y_{c}}{b}\right)^2 = 1$</span> である。</p><p>関数の引数は、<code>xc</code>, <code>yc</code>, <code>a</code>, <code>b</code> と 色(またはスタイル)を示す文字列 <code>c</code> である。 最後の引数 <code>c</code> を省略したときは <code>c=&quot;k&quot;</code> (黒色) を既定値とする。</p><div><pre><code class="language-julia">function draw_ellipse(xc,yc,a,b,c=&quot;k&quot;)
+  ts=0:pi/36:2pi
+  xs=xc+a*cos.(ts)
+  ys=yc+b*sin.(ts)
+  plot(xs,ys,c)
+end</code></pre><pre><code class="language-none">draw_ellipse (generic function with 2 methods)</code></pre></div><p>上の関数の動作を確認しよう。</p><div><pre><code class="language-julia">draw_ellipse(1,1,2,1,&quot;g&quot;)
+draw_ellipse(1,1,1,2,&quot;r&quot;)
+xlim(-2,4)
+ylim(-2,4)
+axhline(1, color=&quot;k&quot;, lw=0.5)
+axvline(1, color=&quot;k&quot;, lw=0.5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch15-dora-ellipse.svg" alt/></p><p>次に、２つの点 <span>$(x_1, y_1)$</span> と <span>$(x_2, y_2)$</span> とを結ぶ直線を描く関数を定義しよう。</p><div><pre><code class="language-julia">function draw_line(x1,y1,x2,y2,c=&quot;k&quot;)
+  xs=[x1,x2]
+  ys=[y1,y2]
+  plot(xs,ys,c)
+end</code></pre><pre><code class="language-none">draw_line (generic function with 2 methods)</code></pre></div><p>上の関数の動作を確認しよう。</p><div><pre><code class="language-julia">draw_line(-1,-1,3,2, &quot;b&quot;)
+draw_line(-1, 3,3,0, &quot;g&quot;)
+xlim(-2,4)
+ylim(-2,4)
+axhline(1, color=&quot;k&quot;, lw=0.5)
+axvline(1, color=&quot;k&quot;, lw=0.5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch15-dora-line.svg" alt/></p><p>最後に、 放物線 (2次関数) <span>$y=ax^2+bx+c$</span> を、区間 <span>$\left[x_1, x_2\right]$</span> の範囲で描く関数を定義しよう。</p><div><pre><code class="language-julia">function draw_para(a,b,c, x1,x2, color=&quot;k&quot;)
+  xs=linspace(x1,x2,50)
+  ys=a*xs.^2 + b*xs + c
+  plot(xs, ys, color)
+end</code></pre><pre><code class="language-none">draw_para (generic function with 2 methods)</code></pre></div><p>上の関数の動作を確認しよう。</p><div><pre><code class="language-julia">draw_para( 1, 0,-1, -2,2, &quot;b&quot;)
+draw_para(-1, 0, 1, -2,2, &quot;g&quot;)
+xlim(-3,3)
+ylim(-3,3)
+axhline(0, color=&quot;k&quot;, lw=0.5)
+axvline(0, color=&quot;k&quot;, lw=0.5)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch15-dora-para.svg" alt/></p><h2><a class="nav-anchor" id="元の関数を書き換える-1" href="#元の関数を書き換える-1">元の関数を書き換える</a></h2><p>これらの「下請け」関数を呼び出す形で、元の関数 <code>dora1()</code> を書き直そう。 隣接する部分がまとまるように、行の順番を少し入れ替えて、コメントをつけた ( 元の描画順に意図があるなら、ご容赦願いたい )。</p><div><pre><code class="language-julia">function dora2()
+  # face
+  draw_ellipse(0,0,6,6,&quot;b&quot;)
+
+  # nose
+  draw_ellipse(0,1.1, 0.5, 0.5, &quot;r&quot; )
+
+  # gray line
+  draw_ellipse(0,-1.5, 5, 4.5 )
+
+  # eyes
+  draw_ellipse( 1.2,2.5, 1.2, 1.5 )
+  draw_ellipse(-1.2,2.5, 1.2, 1.5 )
+
+  draw_ellipse( 0.5,2.4, 0.5, 0.5 )
+  draw_ellipse(-0.5,2.4, 0.5, 0.5 )
+
+  # beard
+  draw_line(-6, 0.6, -3,-0.3 )
+  draw_line( 6, 0.3,  3,-0.6 )
+
+  draw_line(-6,-2,-3, -2 )
+  draw_line( 6,-2, 3, -2 )
+
+  draw_line(-6, -0.8, -3, -1.4 )
+  draw_line( 6, -1.0,  3, -1.6 )
+
+  # mouth
+  draw_line( 0, 0.6, 0, -4 )
+  draw_para(1/2.5, 0, -4, -2.3, 2.3 )
+
+end</code></pre><pre><code class="language-none">dora2 (generic function with 1 method)</code></pre></div><p>実行してみよう。</p><div><pre><code class="language-julia">using PyPlot
+
+dora2()
+xlim(-7,7)
+ylim(-7,7)
+plt[:axes]()[:set_aspect](&quot;equal&quot;)</code></pre></div><p><img src="ch15-dora2.svg" alt/></p><h2><a class="nav-anchor" id="リファクタリング-1" href="#リファクタリング-1">リファクタリング</a></h2><p>関数 <code>dora1()</code> を <code>dora2()</code> に書き直したように、 プログラムの内容を保ったまま、見通しをよくしたり、実行速度を改善する作業を、 リファクタリング (refactoring) という。</p><p>(プログラムも含めて)複数の要素 (component )が協力して働いて、 ある目的を達成するものを、システム (system)という。</p><p>システムを実装する (implement) 手法として、 ボトム・アップ的な手法 (bottom-up approach) 、 トップ・ダウン的な手法 (top-down approach) が知られている。</p><p>ボトム・アップ的な手法は、 下位の要素を作成してから (上の例では、関数 <code>draw_ellipse</code> や <code>draw_line</code>　などを定義してから)、 それらの組合せで上位の要素 (システム)を作成する (上の例では関数 <code>dora2()</code> を定義する) 手法である。</p><p>トップ・ダウン的な手法は、 先に、上位の要素 (システム) を作成してから (関数 <code>dora2()</code> を定義してから)、 その下位の要素 (部品) を作成する (関数 <code>draw_ellipse</code> などを定義する) 手法である。</p><p>プログラミングの初級段階では、ボトム・アップ的な手法が分かりやすいだろうが、 システムの成り立ちに習熟するにつれて、 トップ・ダウン的な手法が取れるようになるであろう。</p><p>システムの考え方では、 システムを構成する「要素」を、入力と出力の対応関係だけが決まっていて、 その中身は関知しない「ブラック・ボックス black box」とみなす。 しかしながら、現実のシステムでは、「要素」の「中身」を無視することができず、 上位のシステムの性能にも影響が及ぶ。</p><p>そのような「要素」と「要素」の界面 (interface) を上手に扱うことができる人こそ、 優れた工学者 (engineer) といえる。</p><p>諸君が優れた工学者になることを願って、この文の著者は対応しているつもりである。</p><footer><hr/><a class="previous" href="ch14.html"><span class="direction">Previous</span><span class="title">第14回：定期レポートへのコメント（その1）</span></a><a class="next" href="index.html"><span class="direction">Next</span><span class="title">toc</span></a></footer></article></body></html>
